@@ -13,6 +13,7 @@ import { initAudioPanel } from '../audioPanel'
 import { addToBookshelf, removeFromBookshelf, isInBookshelf } from '../api/bookshelf'
 import { addResponseModifier } from './fetchHook'
 import { userState } from '../api/user'
+import { attachParaComments, initParaCommentToggle } from '../paraComment'
 import {
     closeAudiobook,
     openAudiobook,
@@ -183,6 +184,10 @@ async function insertContent() {
             const scriptContainer = ensureScriptContainer(readerContainer, false)
             scriptContainer.appendChild(toProcess)
             bindFootnoteInteraction(scriptContainer)
+            // 段落渲染完毕，挂段评标记（段评的 para_index 与正文 <p> 顺序一致）
+            if (settings.paraComment) {
+                void attachParaComments(scriptContainer, itemId, chapter.novel_data?.book_id ?? '')
+            }
         }
     } else if (chapter.content.picInfos) { // comic
         if (chapter.content.encrypt) {
@@ -434,6 +439,57 @@ async function startAudioPlay(): Promise<void> {
     })
 }
 
+/**
+ * 注入工具栏「听书」按钮。
+ *
+ * 构造方式与原作者一致：拿「夜间」那种状态恒定的按钮当模板（原代码取
+ * `div.reader-toolbar > div > div:nth-child(3)`），图标换成内联 24px 的「听」，
+ * 末子节点写成「听书」。差别只在于：改用 `.reader-toolbar-item` 定位并轮询等
+ * 工具栏渲染，站点改版后不会因为写死的位置取不到而整个失效。
+ *
+ * 已经在听的时候再点就是停止。切音色走左下角悬浮栏。
+ */
+async function ensureAudiobookButton(): Promise<void> {
+    for (let attempt = 0; attempt < 40; attempt++) {
+        const toolbar = document.querySelector<HTMLElement>('.reader-toolbar')
+        if (toolbar) {
+            const existing = document.getElementById('fqa-toggle-audiobook')
+            if (existing && toolbar.contains(existing)) return
+
+            const items = Array.from(toolbar.querySelectorAll<HTMLElement>('.reader-toolbar-item'))
+            // 优先第 3 个（夜间，作者原选），取不到再退回任意一个
+            const template = items[2] ?? items[0]
+            if (template) {
+                const c = cloneElement(template)
+                c.id = 'fqa-toggle-audiobook'
+                c.classList.remove('reader-toolbar-item-disabled')
+
+                const listenIcon = document.createElement('span')
+                listenIcon.textContent = '听'
+                listenIcon.style.width = '24px'
+                listenIcon.style.height = '24px'
+                listenIcon.style.fontSize = '24px'
+                listenIcon.style.lineHeight = '24px'
+                listenIcon.classList.add('muyeicon-icon')
+                listenIcon.classList.add('reader-toolbar-item-icon')
+                c.firstChild?.replaceWith(listenIcon)
+
+                const l = c.lastChild as HTMLDivElement | null
+                if (l) {
+                    l.textContent = '听书'
+                }
+
+                c.addEventListener('click', () => void startAudioPlay())
+                const last = items[items.length - 1] ?? template
+                last.insertAdjacentElement('afterend', c)
+                return
+            }
+        }
+        await sleep(200)
+    }
+    console.warn('[fqa:reader] 未找到阅读器工具栏，听书按钮未注入')
+}
+
 // let currentBook: Book | null = null
 async function onUrlChange(_previous?: string): Promise<void> {
     // TODO: 记录并上报阅读历史和记录
@@ -459,28 +515,8 @@ async function onLoad(): Promise<void> {
         document.head.appendChild(style)
     }
         */
-    // 切换日夜间的按钮，不管怎么样它的状态都是完全一样的。适合作为模板。
-    const toolbar = document.querySelector("div.reader-toolbar > div")
-    const toolbarButton = document.querySelector("div.reader-toolbar > div > div:nth-child(3)")
-    if (toolbarButton && toolbar) {
-        const c = cloneElement(toolbarButton)
-        c.id = 'fqa-toggle-audiobook'
-        const listenIcon = document.createElement('span')
-        listenIcon.textContent = '听'
-        listenIcon.style.width = '24px'
-        listenIcon.style.height = '24px'
-        listenIcon.style.fontSize = '24px'
-        listenIcon.style.lineHeight = '24px'
-        listenIcon.classList.add('muyeicon-icon')
-        listenIcon.classList.add('reader-toolbar-item-icon')
-        c.firstChild?.replaceWith(listenIcon)
-        const l = c.lastChild as HTMLDivElement
-        if (l) {
-            l.textContent = '听书'
-        }
-        c.addEventListener('click', () => void startAudioPlay())
-        toolbar.appendChild(c)
-    }
+    // 工具栏「听书」按钮：等工具栏出来后再克隆一个 reader-toolbar-item 插进去
+    void ensureAudiobookButton()
     const bookshelfButton = document.querySelector("div.reader-toolbar-item") // 第一个按钮一定是书架状态
     // 没登录的话就走网页原线路，会要求登录
     if (userState.isLogin && bookshelfButton && bookshelfButton.innerHTML.includes('书架')) {
@@ -545,6 +581,7 @@ async function onLoad(): Promise<void> {
 
         }*/
     }
+    initParaCommentToggle()
     await insertContent()
 }
 

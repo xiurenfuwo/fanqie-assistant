@@ -27,7 +27,8 @@ export default defineConfig({
         version,
         description: '番茄小说助手，去广告、去推广、解锁章节、优化体验。',
         icon: iconUrl,
-        author: 'naiyQAQ',
+        // 原作者 naiyQAQ；本 Fork 维护者 xiurenfuwo，两者都保留
+        author: 'naiyQAQ, xiurenfuwo',
         'run-at': 'document-start',
         match: ['*://*.fanqienovel.com/*'],
         // GM_cookie 用于读 HttpOnly 的 sessionid（书评点赞需要登录态）。

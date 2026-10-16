@@ -1,0 +1,460 @@
+/* 段评（段落评论）：段尾标记 + 右侧抽屉 + 章末评论区块。 */
+
+/* 段落末尾的段评标记：[N] 细边小方框，朴素 */
+.fqa-pc-chip {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 1.5em;
+	height: 1.5em;
+	margin: 0 0.3em;
+	padding: 0 0.3em;
+	box-sizing: border-box;
+	font-size: 0.6em;
+	line-height: 1;
+	color: #b3b3b3;
+	background: transparent;
+	border: 1px solid #dcdcdc;
+	border-radius: 3px;
+	vertical-align: 0.15em;
+	cursor: pointer;
+	user-select: none;
+	white-space: nowrap;
+	text-indent: 0;
+	transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.fqa-pc-chip:hover {
+	color: #1f1f1f;
+	border-color: #1f1f1f;
+}
+
+.fqa-pc-chip.fqa-pc-active {
+	color: var(--web-brand_normal, #f14646);
+	border-color: currentColor;
+}
+
+.fqa-pc-count {
+	font-weight: 500;
+}
+
+/* 当前打开的段评段落：浅灰高亮 */
+.fqa-pc-para-active {
+	background: rgba(31, 35, 41, 0.055) !important;
+	border-radius: 4px;
+	box-shadow: 0 0 0 6px rgba(31, 35, 41, 0.055);
+}
+
+/* 打开抽屉时被左移的元素（正文块 / 顶部导航） */
+.fqa-pc-shift-el {
+	transform: translateX(calc(-1 * var(--fqa-pc-shift, 0px))) !important;
+	transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.fqa-pc-list {
+	display: block;
+}
+
+.fqa-pc-status {
+	padding: 24px 0;
+	color: #9a9a9a;
+	font-size: 13px;
+	text-align: center;
+}
+
+/* 章节顶部「讨论热烈」提示 */
+.fqa-pc-summary {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0 0 18px;
+	color: var(--web-gray_40, #8a8a8a);
+	font-size: 0.8em;
+	text-indent: 0;
+}
+
+.fqa-pc-summary::before {
+	content: "🔥";
+}
+
+/* 段评抽屉：锚在正文右缘，宽度由 0 向右展开 */
+.fqa-pc-drawer {
+	position: fixed;
+	top: 0;
+	right: auto;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	overflow: hidden;
+	z-index: 2147483601;
+	transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.fqa-pc-drawer-inner {
+	display: flex;
+	flex-direction: column;
+	width: min(420px, 92vw);
+	height: 100%;
+	box-sizing: border-box;
+	background: #fff;
+	color: #1f2329;
+	border-left: 1px solid rgba(31, 35, 41, 0.1);
+	box-shadow: -8px 0 24px rgba(0, 0, 0, 0.08);
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+.fqa-pc-drawer-hd {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 14px 16px;
+	border-bottom: 1px solid rgba(31, 35, 41, 0.08);
+}
+
+.fqa-pc-drawer-title {
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.fqa-pc-drawer-count {
+	margin-left: 4px;
+	color: #9a9a9a;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.fqa-pc-drawer-close {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	border: 0;
+	border-radius: 6px;
+	background: transparent;
+	color: #8f959e;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.fqa-pc-drawer-close:hover {
+	background: rgba(31, 35, 41, 0.06);
+	color: #1f2329;
+}
+
+.fqa-pc-drawer-bd {
+	flex: 1 1 auto;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	padding: 0 16px;
+}
+
+.fqa-pc-drawer-snippet {
+	margin: 10px 0 0;
+	color: #9a9a9a;
+	font-size: 12px;
+}
+
+/* 单条评论 */
+.fqa-pc-item {
+	display: flex;
+	gap: 10px;
+	padding: 14px 0;
+	border-top: 1px solid rgba(31, 35, 41, 0.06);
+}
+
+.fqa-pc-item:first-child {
+	border-top: none;
+}
+
+.fqa-pc-item > .fqa-pc-avatar {
+	width: 34px !important;
+	height: 34px !important;
+	border-radius: 50%;
+	flex: 0 0 auto;
+	object-fit: cover;
+	background: rgba(31, 35, 41, 0.08);
+}
+
+.fqa-pc-main {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.fqa-pc-user {
+	font-size: 13px;
+	color: #8f959e;
+}
+
+.fqa-pc-text {
+	margin-top: 2px;
+	font-size: 15px;
+	color: #1f2329;
+	word-break: break-word;
+	white-space: pre-wrap;
+	text-indent: 0;
+}
+
+.fqa-pc-imgs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 8px;
+}
+
+.fqa-pc-imgs > .fqa-pc-img {
+	max-width: min(100%, 260px) !important;
+	max-height: 260px !important;
+	width: auto !important;
+	height: auto !important;
+	border-radius: 8px;
+	object-fit: contain;
+	background: rgba(127, 127, 127, 0.07);
+}
+
+.fqa-pc-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+	margin-top: 6px;
+	font-size: 12px;
+	color: #9a9a9a;
+}
+
+/* 楼中楼 */
+.fqa-pc-replies {
+	margin-top: 8px;
+}
+
+.fqa-pc-replies-toggle {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: var(--web-brand_normal, #f14646);
+	font-size: 12px;
+	font-family: inherit;
+	cursor: pointer;
+}
+
+.fqa-pc-replies-toggle:hover {
+	text-decoration: underline;
+}
+
+.fqa-pc-replies-list {
+	margin-top: 8px;
+	padding: 8px 10px;
+	border-radius: 8px;
+	background: rgba(127, 127, 127, 0.08);
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+}
+
+.fqa-pc-replies-list[hidden] {
+	display: none;
+}
+
+.fqa-pc-reply {
+	font-size: 14px;
+	line-height: 1.65;
+	word-break: break-word;
+}
+
+.fqa-pc-reply-user {
+	color: #8f959e;
+}
+
+.fqa-pc-reply-more,
+.fqa-pc-reply-sentinel,
+.fqa-pc-reply-empty {
+	min-height: 1px;
+	font-size: 12px;
+	color: #9a9a9a;
+}
+
+/* 章末评论区块 */
+.fqa-cc-section {
+	margin-top: 2.4em;
+	padding: 1.1em 1.2em 0.4em;
+	border: 1px solid rgba(127, 127, 127, 0.18);
+	border-radius: 12px;
+	background: rgba(127, 127, 127, 0.05);
+	text-indent: 0;
+	line-height: 1.7;
+}
+
+.fqa-cc-section .fqa-pc-item {
+	text-indent: 0;
+}
+
+.fqa-cc-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0 0 0.2em;
+	padding-bottom: 0.6em;
+	border-bottom: 1px solid rgba(127, 127, 127, 0.15);
+	font-size: 1em;
+	font-weight: 600;
+	color: #1f2329;
+}
+
+.fqa-cc-title::before {
+	content: "";
+	width: 3px;
+	height: 1em;
+	border-radius: 2px;
+	background: var(--web-brand_normal, #f14646);
+}
+
+/* 段评开关：作为工具栏项（放在「字号」下面），样式沿用站点 */
+.fqa-pc-tool {
+	cursor: pointer;
+}
+
+.fqa-pc-tool .reader-toolbar-item-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.fqa-pc-tool.fqa-pc-tool-on .reader-toolbar-item-icon,
+.fqa-pc-tool.fqa-pc-tool-on .reader-toolbar-item-font {
+	color: var(--web-brand_normal, #f14646);
+}
+
+.fqa-pc-tool.fqa-pc-tool-off .reader-toolbar-item-icon,
+.fqa-pc-tool.fqa-pc-tool-off .reader-toolbar-item-font {
+	opacity: 0.45;
+}
+
+/* 兜底：没有站点工具栏时的浮动开关 */
+.fqa-pc-toggle {
+	position: fixed;
+	right: 16px;
+	bottom: 88px;
+	z-index: 2147483000;
+	padding: 6px 12px;
+	border: none;
+	border-radius: 999px;
+	background: var(--web-brand_normal, #f14646);
+	color: #fff;
+	font-size: 13px;
+	line-height: 1.4;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+	cursor: pointer;
+	user-select: none;
+}
+
+.fqa-pc-toggle.fqa-pc-toggle-off {
+	background: #9a9a9a;
+}
+
+html.fqa-pc-off .fqa-pc-chip,
+html.fqa-pc-off .fqa-pc-summary {
+	display: none !important;
+}
+
+/* 深色（阅读器深色主题 / 系统深色） */
+.fqa-pc-drawer.fqa-pc-dark .fqa-pc-drawer-inner {
+	background: #1f1f23;
+	color: #e6e6e6;
+	border-left-color: rgba(255, 255, 255, 0.12);
+}
+
+.fqa-pc-dark .fqa-pc-drawer-hd {
+	border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.fqa-pc-dark .fqa-pc-text {
+	color: #e6e6e6;
+}
+
+.fqa-pc-dark .fqa-pc-item {
+	border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.fqa-pc-dark .fqa-pc-avatar {
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.fqa-pc-dark .fqa-pc-drawer-close:hover {
+	background: rgba(255, 255, 255, 0.1);
+	color: #fff;
+}
+
+.fqa-pc-dark .fqa-pc-user,
+.fqa-pc-dark .fqa-pc-meta,
+.fqa-pc-dark .fqa-pc-drawer-snippet,
+.fqa-pc-dark .fqa-pc-drawer-count,
+.fqa-pc-dark .fqa-pc-status {
+	color: #9a9a9a;
+}
+
+.fqa-pc-dark .fqa-pc-replies-list {
+	background: rgba(255, 255, 255, 0.08);
+}
+
+html.fqa-pc-reader-dark .fqa-pc-para-active {
+	background: rgba(255, 255, 255, 0.08) !important;
+	box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08);
+}
+
+html.fqa-pc-reader-dark .fqa-pc-chip {
+	color: #8a8a8a;
+	border-color: #555;
+}
+
+html.fqa-pc-reader-dark .fqa-pc-chip:hover {
+	color: #e6e6e6;
+	border-color: #e6e6e6;
+}
+
+html.fqa-pc-reader-dark .fqa-cc-section {
+	background: rgba(255, 255, 255, 0.06);
+	border-color: rgba(255, 255, 255, 0.12);
+}
+
+html.fqa-pc-reader-dark .fqa-cc-title {
+	color: #e6e6e6;
+	border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+	.fqa-pc-drawer-inner {
+		background: #1f1f23;
+		color: #e6e6e6;
+		border-left-color: rgba(255, 255, 255, 0.12);
+	}
+
+	.fqa-pc-drawer-hd {
+		border-bottom-color: rgba(255, 255, 255, 0.1);
+	}
+
+	.fqa-pc-text {
+		color: #e6e6e6;
+	}
+
+	.fqa-pc-item {
+		border-top-color: rgba(255, 255, 255, 0.08);
+	}
+
+	.fqa-pc-avatar {
+		background: rgba(255, 255, 255, 0.12);
+	}
+
+	.fqa-pc-drawer-close:hover {
+		background: rgba(255, 255, 255, 0.1);
+		color: #fff;
+	}
+
+	.fqa-pc-user,
+	.fqa-pc-meta,
+	.fqa-pc-drawer-snippet,
+	.fqa-pc-drawer-count,
+	.fqa-pc-status {
+		color: #9a9a9a;
+	}
+}

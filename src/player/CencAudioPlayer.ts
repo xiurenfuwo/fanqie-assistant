@@ -313,6 +313,8 @@ export class CencAudioPlayer {
     private info: CencMediaInfo | null = null
     private autoplay = false
     private segmentSequence = 0
+    /** 播放倍速。预缓冲目标按它缩放，避免高倍速时缓冲不够 */
+    private playbackRate = 1
 
     private readonly onSeeking = (): void => {
         const context = this.context
@@ -374,6 +376,35 @@ export class CencAudioPlayer {
         return this.audio
     }
 
+    /**
+     * 设置播放倍速。
+     *
+     * 服务端只提供 1× 的 TTS 音频（playinfo 请求没有 speed 参数），
+     * 所以倍速在客户端做：直接改 media element 的 playbackRate，
+     * 并用 preservesPitch 保持音调，避免快放变声。
+     * 预缓冲目标按倍速放大，见 waitForRoom。
+     */
+    setPlaybackRate(rate: number): void {
+        this.playbackRate = Math.min(4, Math.max(0.25, Number.isFinite(rate) ? rate : 1))
+        this.applyPlaybackRate()
+    }
+
+    /**
+     * 把当前倍速套到 media element 上。
+     *
+     * 必须同时写 defaultPlaybackRate：任何一次媒体加载（换章、停止后重开时
+     * 播放器内部的 removeAttribute('src') + load()）都会把 playbackRate 重置成
+     * defaultPlaybackRate，只设 playbackRate 的话倍速一重开就没了。
+     * 另外 preservesPitch 也随之重设，快放不变声。
+     */
+    private applyPlaybackRate(): void {
+        const el = this.audio as HTMLAudioElement & { webkitPreservesPitch?: boolean }
+        el.defaultPlaybackRate = this.playbackRate
+        el.playbackRate = this.playbackRate
+        if ('preservesPitch' in el) el.preservesPitch = true
+        if ('webkitPreservesPitch' in el) el.webkitPreservesPitch = true
+    }
+
     /** 加载并开始后台缓冲；autoplay 只表示首次缓冲后尝试调用 audio.play。 */
     async load(source: CencAudioSource, autoplay = false): Promise<CencMediaInfo> {
         this.ensureAlive()
@@ -417,6 +448,9 @@ export class CencAudioPlayer {
             this.objectUrl = unsafeWindow.URL.createObjectURL(mediaSource)
             const opened = this.waitForSourceOpen(mediaSource, session)
             this.audio.src = this.objectUrl
+            // 设 src 会触发一次媒体加载，playbackRate 被重置回 defaultPlaybackRate，
+            // 这里再兜一次，确保换章 / 重开听书后倍速仍在
+            this.applyPlaybackRate()
             await opened
             this.assertSession(session)
             this.sourceBuffer = mediaSource.addSourceBuffer(mime)
@@ -890,7 +924,7 @@ export class CencAudioPlayer {
     ): Promise<void> {
         while (
             this.isStreamCurrent(session, token, signal) &&
-            this.bufferedAhead() >= this.options.maxBufferAheadSeconds
+            this.bufferedAhead() >= this.options.maxBufferAheadSeconds * this.playbackRate
         ) {
             await new Promise<void>(resolve => setTimeout(resolve, 200))
         }

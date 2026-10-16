@@ -16,6 +16,12 @@ import { settings } from '../settings'
 /** 上次选过的音色，下次进听书直接用 */
 const TONE_STORE_KEY = 'audiobook_tone'
 
+/** 可选倍速档位 */
+export const AUDIO_SPEEDS = [0.5, 0.75, 1, 1.25, 1.5, 2] as const
+
+/** 记住的倍速，下次进听书沿用 */
+const SPEED_STORE_KEY = 'audiobook_speed'
+
 export interface AudiobookState {
     /** 悬浮栏是否挂在页面上 */
     open: boolean
@@ -23,6 +29,8 @@ export interface AudiobookState {
     collapsed: boolean
     /** 音色选择弹窗 */
     tonePickerOpen: boolean
+    /** 倍速选择弹窗 */
+    speedPickerOpen: boolean
     /** 正在取播放地址 / 缓冲首段 */
     loading: boolean
     playing: boolean
@@ -31,6 +39,8 @@ export interface AudiobookState {
     tones: Tone[]
     toneId: number | null
     toneName: string
+    /** 播放倍速（客户端 playbackRate） */
+    speed: number
     cover: string
     title: string
     error: string
@@ -40,12 +50,14 @@ export const state = reactive<AudiobookState>({
     open: false,
     collapsed: false,
     tonePickerOpen: false,
+    speedPickerOpen: false,
     loading: false,
     playing: false,
     spinning: false,
     tones: [],
     toneId: null,
     toneName: '',
+    speed: storedSpeed(),
     cover: '',
     title: '',
     error: '',
@@ -126,6 +138,8 @@ function ensurePlayer(): CencAudioPlayer {
             }
         },
     })
+    // 进听书时套用记住的倍速
+    player.setPlaybackRate(state.speed)
     return player
 }
 
@@ -202,6 +216,12 @@ function storedToneId(): number | null {
     return typeof raw === 'number' ? raw : null
 }
 
+/** 记住的倍速。不在档位表里就回退到 1× */
+function storedSpeed(): number {
+    const raw = read(SPEED_STORE_KEY)
+    return typeof raw === 'number' && (AUDIO_SPEEDS as readonly number[]).includes(raw) ? raw : 1
+}
+
 /**
  * 打开听书。先取音色列表，然后弹窗让用户选。
  *
@@ -256,6 +276,7 @@ export async function selectTone(toneId: number): Promise<void> {
 
 /** 重开音色弹窗（悬浮栏上的三个点） */
 export function openTonePicker(): void {
+    state.speedPickerOpen = false
     state.tonePickerOpen = true
 }
 
@@ -263,6 +284,30 @@ export function closeTonePicker(): void {
     state.tonePickerOpen = false
     // 还没选过音色就关掉弹窗，等于放弃听书
     if (state.toneId === null) closeAudiobook()
+}
+
+/** 打开 / 关闭倍速弹窗 */
+export function openSpeedPicker(): void {
+    state.tonePickerOpen = false
+    state.speedPickerOpen = true
+}
+
+export function closeSpeedPicker(): void {
+    state.speedPickerOpen = false
+}
+
+/**
+ * 设置播放倍速。
+ *
+ * 服务端只给 1× 的 TTS 音频，倍速是客户端的 playbackRate（见 CencAudioPlayer），
+ * 所以改档位不需要重新拉音频，立即生效。
+ */
+export function setSpeed(speed: number): void {
+    if (!(AUDIO_SPEEDS as readonly number[]).includes(speed)) return
+    state.speed = speed
+    state.speedPickerOpen = false
+    write(SPEED_STORE_KEY, speed)
+    player?.setPlaybackRate(speed)
 }
 
 /**
@@ -374,6 +419,7 @@ export function closeAudiobook(): void {
     state.open = false
     state.collapsed = false
     state.tonePickerOpen = false
+    state.speedPickerOpen = false
     state.playing = false
     state.spinning = false
     state.loading = false

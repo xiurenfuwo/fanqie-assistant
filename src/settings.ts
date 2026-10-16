@@ -76,6 +76,10 @@ export interface Settings {
     /** 高亮朗读中的段落，并跟随滚动 */
     audiobookFollow: boolean
 
+    /* --- 段评 --- */
+    /** 显示段评（段尾标记 + 右侧抽屉）与章末评论 */
+    paraComment: boolean
+
     /* --- 协议 --- */
     apiPreference: ApiPreference
     /** 用户手动指定的设备信息，留空表示用脚本自动注册的设备 */
@@ -115,6 +119,8 @@ export const DEFAULT_SETTINGS: Settings = {
 
     audiobookChapterEnd: 'next',
     audiobookFollow: true,
+
+    paraComment: true,
 
     apiPreference: 'app',
     deviceId: '',

@@ -7,11 +7,15 @@ import leftIcon from '../assets/left.svg?raw'
 import playingIcon from '../assets/playing.svg?raw'
 import pausedIcon from '../assets/paused.svg?raw'
 import {
+    AUDIO_SPEEDS,
     changeTone,
     closeAudiobook,
+    closeSpeedPicker,
     closeTonePicker,
+    openSpeedPicker,
     openTonePicker,
     selectTone,
+    setSpeed,
     state,
     toggleCollapsed,
     togglePlay,
@@ -22,6 +26,16 @@ import TonePicker from './TonePicker.vue'
 function onSelect(id: number): void {
     if (state.toneId === null) void selectTone(id)
     else void changeTone(id)
+}
+
+/** 倍速文案：1 -> 1×，1.5 -> 1.5× */
+function speedLabel(v: number): string {
+    return `${v}×`
+}
+
+function toggleSpeedPicker(): void {
+    if (state.speedPickerOpen) closeSpeedPicker()
+    else openSpeedPicker()
 }
 </script>
 
@@ -65,6 +79,16 @@ function onSelect(id: number): void {
 
             <button
                 type="button"
+                class="fqa-audio-btn fqa-audio-speed"
+                :title="`播放倍速：${speedLabel(state.speed)}`"
+                aria-label="播放倍速"
+                @click="toggleSpeedPicker"
+            >
+                {{ speedLabel(state.speed) }}
+            </button>
+
+            <button
+                type="button"
                 class="fqa-audio-btn"
                 title="切换音色"
                 aria-label="切换音色"
@@ -91,6 +115,20 @@ function onSelect(id: number): void {
                 @click="closeAudiobook"
             >
                 ×
+            </button>
+        </div>
+
+        <!-- 倍速：贴着悬浮栏向上弹出 -->
+        <div v-if="state.speedPickerOpen" class="fqa-audio-speeds" role="menu" aria-label="播放倍速">
+            <button
+                v-for="v in AUDIO_SPEEDS"
+                :key="v"
+                type="button"
+                class="fqa-audio-speed-item"
+                :class="{ 'fqa-audio-speed-active': state.speed === v }"
+                @click="setSpeed(v)"
+            >
+                {{ speedLabel(v) }}
             </button>
         </div>
 

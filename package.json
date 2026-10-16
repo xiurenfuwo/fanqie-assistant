@@ -1,7 +1,11 @@
 {
   "name": "fanqie-assistant",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
+  "author": "naiyQAQ",
+  "contributors": [
+    "xiurenfuwo (https://github.com/xiurenfuwo)"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

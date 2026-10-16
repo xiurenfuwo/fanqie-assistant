@@ -316,6 +316,75 @@ export interface ReplyListResult {
     total: number
 }
 
+/* --------------------------------- 段评 --------------------------------- */
+
+/** 段评作者。段评走的是老评论接口，user_info 是扁平结构，不像书评那样套 base_info */
+export interface ParaCommentUser {
+    user_id: string
+    name: string
+    avatar: string
+}
+
+/**
+ * 段评里附带的图片 / 表情包。
+ *
+ * 注意：它与正文里的 `[名字]` **无关**——正文的 [名字] 是系统表情，
+ * 这里的图是评论另外附加的（image_data / image_url），不要往正文里内联。
+ */
+export interface ParaCommentImage {
+    url: string
+    width: number
+    height: number
+    /** 服务端 image_type=2 视为表情，其余按普通图片 */
+    emoji: boolean
+}
+
+export interface ParaComment {
+    id: string
+    text: string
+    create_time: number
+    user: ParaCommentUser
+    digg_count: number
+    reply_count: number
+    images: ParaCommentImage[]
+}
+
+export interface ParaCommentReply {
+    id: string
+    text: string
+    create_time: number
+    user: ParaCommentUser
+    /** 回复某人时的对方昵称，空串表示回复主楼 */
+    to_name: string
+    images: ParaCommentImage[]
+}
+
+export interface ParaCommentListResult {
+    comments: ParaComment[]
+    has_more: boolean
+    /** 下一页 offset（段评列表用 offset 翻页，不是 cursor） */
+    next_offset: number
+    /** 该段原文，可用于校验段落定位 */
+    para_src_content: string
+}
+
+export interface ParaReplyListResult {
+    replies: ParaCommentReply[]
+    total: number
+    has_more: boolean
+    /** 回复接口的游标，十进制偏移的字符串 */
+    cursor: string
+}
+
+export interface ParaIdeaResult {
+    /** 段落下标 -> 该段段评条数 */
+    counts: Map<number, number>
+    /** 本次拿到的 item_version，原样回传给评论列表接口 */
+    item_version: string
+    /** 本章段评总数 */
+    total: number
+}
+
 export interface CencAudioContext {
     urls: string[]
     vid: string

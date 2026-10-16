@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         番茄小说助手
 // @namespace    https://github.com/naiyQAQ/fanqie-assistant
-// @version      0.0.6
-// @author       naiyQAQ
+// @version      0.0.7
+// @author       naiyQAQ, xiurenfuwo
 // @description  番茄小说助手，去广告、去推广、解锁章节、优化体验。
 // @license      GPLv3
 // @icon         data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiAgICA8cGF0aA0KICAgICAgICBkPSJNMjMuMzExNSAxSDYuNjg4NTNDMy41NDY4NCAxIDEgMy41NDY4NCAxIDYuNjg4NTNWMjMuMzExNUMxIDI2LjQ1MzIgMy41NDY4NCAyOSA2LjY4ODUzIDI5SDIzLjMxMTVDMjYuNDUzMiAyOSAyOSAyNi40NTMyIDI5IDIzLjMxMTVWNi42ODg1M0MyOSAzLjU0Njg0IDI2LjQ1MzIgMSAyMy4zMTE1IDFaIg0KICAgICAgICBmaWxsPSJ3aGl0ZSI+PC9wYXRoPg0KICAgIDxwYXRoDQogICAgICAgIGQ9Ik0yMy4zMTE1IDAuNzVINi42ODg1M0MzLjQwODc3IDAuNzUgMC43NSAzLjQwODc3IDAuNzUgNi42ODg1M1YyMy4zMTE1QzAuNzUgMjYuNTkxMiAzLjQwODc3IDI5LjI1IDYuNjg4NTMgMjkuMjVIMjMuMzExNUMyNi41OTEyIDI5LjI1IDI5LjI1IDI2LjU5MTIgMjkuMjUgMjMuMzExNVY2LjY4ODUzQzI5LjI1IDMuNDA4NzcgMjYuNTkxMiAwLjc1IDIzLjMxMTUgMC43NVoiDQogICAgICAgIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1vcGFjaXR5PSIwLjA4IiBzdHJva2Utd2lkdGg9IjAuNSI+PC9wYXRoPg0KICAgIDxtYXNrIGlkPSJtYXNrMF80NzBfNDgzNjQiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjEiIHk9IjEiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCI+DQogICAgICAgIDxwYXRoDQogICAgICAgICAgICBkPSJNMjMuMzExNSAxSDYuNjg4NTNDMy41NDY4NCAxIDEgMy41NDY4NCAxIDYuNjg4NTNWMjMuMzExNUMxIDI2LjQ1MzIgMy41NDY4NCAyOSA2LjY4ODUzIDI5SDIzLjMxMTVDMjYuNDUzMiAyOSAyOSAyNi40NTMyIDI5IDIzLjMxMTVWNi42ODg1M0MyOSAzLjU0Njg0IDI2LjQ1MzIgMSAyMy4zMTE1IDFaIg0KICAgICAgICAgICAgZmlsbD0id2hpdGUiPjwvcGF0aD4NCiAgICA8L21hc2s+DQogICAgPGcgbWFzaz0idXJsKCNtYXNrMF80NzBfNDgzNjQpIj4NCiAgICAgICAgPHBhdGgNCiAgICAgICAgICAgIGQ9Ik0yMy4zMTE1IDFINi42ODg1M0MzLjU0Njg0IDEgMSAzLjU0Njg0IDEgNi42ODg1M1YyMy4zMTE1QzEgMjYuNDUzMiAzLjU0Njg0IDI5IDYuNjg4NTMgMjlIMjMuMzExNUMyNi40NTMyIDI5IDI5IDI2LjQ1MzIgMjkgMjMuMzExNVY2LjY4ODUzQzI5IDMuNTQ2ODQgMjYuNDUzMiAxIDIzLjMxMTUgMVoiDQogICAgICAgICAgICBmaWxsPSJ3aGl0ZSI+PC9wYXRoPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTE1LjAwMDggNDguNjY0MkMyNS40MDE3IDQ4LjY2NDIgMzMuODMzNCA0MC4yMzI2IDMzLjgzMzQgMjkuODMxNkMzMy44MzM0IDE5LjQzMDcgMjUuNDAxNyAxMC45OTkgMTUuMDAwOCAxMC45OTlDNC41OTk4NSAxMC45OTkgLTMuODMxNzkgMTkuNDMwNyAtMy44MzE3OSAyOS44MzE2Qy0zLjgzMTc5IDQwLjIzMjYgNC41OTk4NSA0OC42NjQyIDE1LjAwMDggNDguNjY0MloiDQogICAgICAgICAgICBmaWxsPSJ1cmwoI3BhaW50MF9yYWRpYWxfNDcwXzQ4MzY0KSI+PC9wYXRoPg0KICAgICAgICA8cGF0aCBkPSJNMjMuMjY4OCAxVjcuMjEyOTRMMjAuNjY2MyA1LjcxNDM3TDE4LjA2NzQgNy4yMTI5NFYxSDIzLjI2ODhaIiBmaWxsPSIjRkY1RjAwIj48L3BhdGg+DQogICAgICAgIDxwYXRoDQogICAgICAgICAgICBkPSJNMTUuMTM0MyAxOC44ODFDMTUuMTM0MyAxOC44ODEgMTYuMTAxNCAxNy41NTEzIDE2LjEwMTQgMTYuNDA2NUMxNi4xMDE0IDE1LjI2MTcgMTUuNjY3NiAxNC43MzczIDE1LjEzNDMgMTQuNzM3M0MxNC42MDEgMTQuNzM3MyAxNC4xNjczIDE1LjI2MzUgMTQuMTY3MyAxNi40MDY1QzE0LjE2NzMgMTcuNTQ5NiAxNS4xMzQzIDE4Ljg4MSAxNS4xMzQzIDE4Ljg4MVoiDQogICAgICAgICAgICBmaWxsPSJ3aGl0ZSI+PC9wYXRoPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTcuNjI3MjQgMjIuNjU4NUM4Ljc3MjA1IDIyLjY1ODUgMTAuMTAxNyAyMy42MjU2IDEwLjEwMTcgMjMuNjI1NkMxMC4xMDE3IDIzLjYyNTYgOC43NzAyNyAyNC41OTI2IDcuNjI3MjQgMjQuNTkyNkM2LjQ4NDIgMjQuNTkyNiA1Ljk1ODAxIDI0LjE1ODkgNS45NTgwMSAyMy42MjU2QzUuOTU4MDEgMjMuMDkyMyA2LjQ4MjQyIDIyLjY1ODUgNy42MjcyNCAyMi42NTg1WiINCiAgICAgICAgICAgIGZpbGw9IndoaXRlIj48L3BhdGg+DQogICAgICAgIDxwYXRoDQogICAgICAgICAgICBkPSJNMjIuNjM5NiAyNC41OTI2QzIxLjQ5NDggMjQuNTkyNiAyMC4xNjUxIDIzLjYyNTYgMjAuMTY1MSAyMy42MjU2QzIwLjE2NTEgMjMuNjI1NiAyMS40OTY2IDIyLjY1ODUgMjIuNjM5NiAyMi42NTg1QzIzLjc4MjYgMjIuNjU4NSAyNC4zMDg4IDIzLjA5MjMgMjQuMzA4OCAyMy42MjU2QzI0LjMwODggMjQuMTU4OSAyMy43ODQ0IDI0LjU5MjYgMjIuNjM5NiAyNC41OTI2WiINCiAgICAgICAgICAgIGZpbGw9IndoaXRlIj48L3BhdGg+DQogICAgICAgIDxwYXRoDQogICAgICAgICAgICBkPSJNMTAuNDU1NSAxOC4zMTM5QzExLjI2NDMgMTkuMTIyNyAxMS41MjIxIDIwLjc0NzUgMTEuNTIyMSAyMC43NDc1QzExLjUyMjEgMjAuNzQ3NSA5Ljg5NzMyIDIwLjQ4OTcgOS4wODg0OCAxOS42ODA5QzguMjc5NjQgMTguODcyMSA4LjIxMzg3IDE4LjE5NDggOC41OTI1MSAxNy44MTYxQzguOTcxMTUgMTcuNDM3NSA5LjY0NjY2IDE3LjUwMzMgMTAuNDU3MyAxOC4zMTIxTDEwLjQ1NTUgMTguMzEzOVoiDQogICAgICAgICAgICBmaWxsPSJ3aGl0ZSI+PC9wYXRoPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTE4Ljc0NjUgMjAuNzQ3NkMxOC43NDY1IDIwLjc0NzYgMTkuMDA0MyAxOS4xMjI4IDE5LjgxMzEgMTguMzE0TDE5LjgxMTMgMTguMzEyMkMyMC42MjIgMTcuNTAzMyAyMS4yOTkzIDE3LjQzOTMgMjEuNjc2MSAxNy44MTYyQzIyLjA1NDggMTguMTk0OSAyMS45ODkgMTguODcyMSAyMS4xODAyIDE5LjY4MUMyMC4zNzEzIDIwLjQ4OTggMTguNzQ2NSAyMC43NDc2IDE4Ljc0NjUgMjAuNzQ3NloiDQogICAgICAgICAgICBmaWxsPSJ3aGl0ZSI+PC9wYXRoPg0KICAgIDwvZz4NCiAgICA8ZGVmcz4NCiAgICAgICAgPHJhZGlhbEdyYWRpZW50IGlkPSJwYWludDBfcmFkaWFsXzQ3MF80ODM2NCIgY3g9IjAiIGN5PSIwIiByPSIxIg0KICAgICAgICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiDQogICAgICAgICAgICBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDE1LjAwMDggMjkuODMxNikgc2NhbGUoMTguODMyNikiPg0KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0NDMDUwMCI+PC9zdG9wPg0KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRkY1RjAwIj48L3N0b3A+DQogICAgICAgIDwvcmFkaWFsR3JhZGllbnQ+DQogICAgPC9kZWZzPg0KPC9zdmc+
@@ -46,7 +46,7 @@
   const _config = {
     currentConfig: defaultConfig
   };
-  const scriptcss = "/* 移除章节锁定图标 */\n.muyeicon-lock {\n	display: none;\n}\n/* 移除APP推广图标 */\n.muye-to-fanqie {\n	display: none!important;\n}\n.reader-toolbar-item-download {\n	display: none!important;\n}\n.download-btn {\n	display: none!important;\n}\n.download-icon {\n	display: none!important;\n}\n\n.fqa-hide {\n	display: none!important;\n}\n/* 404 */\n.no-content {\n	display: none!important;\n}\n\n.fqa-comic-img {\n	width: 100%!important;\n	height: 100%!important;\n	max-width: 100%!important;\n	max-height: 100%!important;\n	padding-top: 0!important;\n	padding-bottom: 0!important;\n	margin-top: 0!important;\n	margin-bottom: 0!important;\n}\n\n.fqa-comic-reader {\n	line-height: 0!important;\n}\n\n.fqa-menu-item,\n.arco-menu-item {\n	width: 100%!important;\n}\n\n#dynamic-el {\n	display: none!important;\n}\n\n.fqa-footnote-ref {\n	display: inline-block;\n	margin: 0 0.15em;\n	padding: 0 0.25em;\n	font-size: 0.7em;\n	line-height: 1.4;\n	vertical-align: super;\n	color: var(--web-brand_normal, #f14646);\n	cursor: pointer;\n	user-select: none;\n	border-radius: 3px;\n	text-indent: 0;\n}\n\n.fqa-footnote-ref:hover,\n.fqa-footnote-ref:focus-visible {\n	background: var(--web-brand_light, rgba(241, 70, 70, 0.12));\n	outline: none;\n}\n\n\n.fqa-footnote {\n	margin-top: 2em;\n	padding-top: 1em;\n	border-top: 1px solid var(--web-gray_20, rgba(128, 128, 128, 0.25));\n	font-size: var(--fqa-body-size, 1.6rem);\n}\n\n.muye-reader-content-16 .fqa-footnote { font-size: var(--fqa-body-size, 1.6rem); }\n.muye-reader-content-20 .fqa-footnote { font-size: var(--fqa-body-size, 2rem); }\n.muye-reader-content-24 .fqa-footnote { font-size: var(--fqa-body-size, 2.4rem); }\n.muye-reader-content-28 .fqa-footnote { font-size: var(--fqa-body-size, 2.8rem); }\n.muye-reader-content-32 .fqa-footnote { font-size: var(--fqa-body-size, 3.2rem); }\n\n.fqa-footnote-title {\n	margin-bottom: 0.6em;\n	font-size: 0.85em;\n	font-weight: 600;\n	color: var(--web-gray_40, #8a8a8a);\n	text-indent: 0;\n}\n\n.fqa-footnote-list {\n	margin: 0;\n	padding-left: 1.6em;\n	font-size: 0.85em;\n	line-height: 1.7;\n	color: var(--web-gray_40, #8a8a8a);\n}\n\n.fqa-footnote-list li {\n	margin-bottom: 0.5em;\n	text-indent: 0;\n	transition: background-color 0.3s ease;\n}\n\n.fqa-footnote-list li.fqa-footnote-active {\n	background: var(--web-brand_light, rgba(241, 70, 70, 0.12));\n	border-radius: 4px;\n}\n\n.muye-reader-content > body {\n	background-color: var(--web-bg)!important;\n}\n\n.fqa-icon-dark {\n	color: #B3B3B3\n}\n\n/* ----------------------------- 右键菜单 / Toast ----------------------------- */\n\n/*\n * 书架与搜索共用。两者都把菜单 Teleport 到 body，\n * 拿不到各自根节点上的变量，所以在这里声明一份全局色板。\n */\n.fqa-menu {\n	--fqa-menu-bg: #fff;\n	--fqa-menu-text: #1f2329;\n	--fqa-menu-sub: #8f959e;\n	--fqa-menu-hover: rgba(31, 35, 41, 0.06);\n	--fqa-menu-danger: #f5222d;\n\n	position: fixed;\n	z-index: 2147483001;\n	min-width: 132px;\n	max-width: 240px;\n	padding: 4px;\n	box-sizing: border-box;\n	background: var(--fqa-menu-bg);\n	border: 1px solid rgba(31, 35, 41, 0.08);\n	border-radius: 8px;\n	box-shadow: 0 6px 24px rgba(31, 35, 41, 0.16);\n	font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\n		sans-serif;\n	font-size: 13px;\n	color: var(--fqa-menu-text);\n	user-select: none;\n}\n\n/* 二级面板：分组数量多时可滚动 */\n.fqa-menu-sub {\n	max-height: 320px;\n	overflow-y: auto;\n}\n\n.fqa-menu-row {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 12px;\n	padding: 7px 10px;\n	border-radius: 5px;\n	line-height: 1.4;\n	cursor: pointer;\n	white-space: nowrap;\n	overflow: hidden;\n}\n\n.fqa-menu-row > span:first-child {\n	overflow: hidden;\n	text-overflow: ellipsis;\n}\n\n.fqa-menu-row:hover,\n.fqa-menu-row.fqa-menu-open {\n	background: var(--fqa-menu-hover);\n}\n\n.fqa-menu-arrow {\n	color: var(--fqa-menu-sub);\n	font-size: 15px;\n	line-height: 1;\n}\n\n.fqa-menu-danger {\n	color: var(--fqa-menu-danger);\n}\n\n.fqa-menu-disabled {\n	color: var(--fqa-menu-sub);\n	cursor: not-allowed;\n}\n\n.fqa-menu-disabled:hover {\n	background: transparent;\n}\n\n/* 操作结果提示 */\n.fqa-toast {\n	position: fixed;\n	left: 50%;\n	bottom: 48px;\n	transform: translateX(-50%);\n	z-index: 2147483002;\n	max-width: 80vw;\n	padding: 10px 18px;\n	box-sizing: border-box;\n	background: rgba(31, 35, 41, 0.88);\n	color: #fff;\n	border-radius: 8px;\n	font-size: 13px;\n	line-height: 1.4;\n	box-shadow: 0 6px 24px rgba(31, 35, 41, 0.24);\n	pointer-events: none;\n}\n\n/* 骨架屏微光。书架与搜索共用同一个动画名 */\n@keyframes fqa-shimmer {\n	100% {\n		transform: translateX(100%);\n	}\n}\n\n@media (prefers-color-scheme: dark) {\n	.fqa-menu {\n		--fqa-menu-bg: #23272e;\n		--fqa-menu-text: #e5e6eb;\n		--fqa-menu-sub: #8f959e;\n		--fqa-menu-hover: rgba(255, 255, 255, 0.08);\n		border-color: rgba(255, 255, 255, 0.1);\n	}\n}\n\n.info {\n	width: 100%!important;\n}\n\n.reader-toolbar {\n	user-select: none;\n}";
+  const scriptcss = "/* 移除章节锁定图标 */\r\n.muyeicon-lock {\r\n	display: none;\r\n}\r\n/* 移除APP推广图标 */\r\n.muye-to-fanqie {\r\n	display: none!important;\r\n}\r\n.reader-toolbar-item-download {\r\n	display: none!important;\r\n}\r\n.download-btn {\r\n	display: none!important;\r\n}\r\n.download-icon {\r\n	display: none!important;\r\n}\r\n\r\n.fqa-hide {\r\n	display: none!important;\r\n}\r\n/* 404 */\r\n.no-content {\r\n	display: none!important;\r\n}\r\n\r\n.fqa-comic-img {\r\n	width: 100%!important;\r\n	height: 100%!important;\r\n	max-width: 100%!important;\r\n	max-height: 100%!important;\r\n	padding-top: 0!important;\r\n	padding-bottom: 0!important;\r\n	margin-top: 0!important;\r\n	margin-bottom: 0!important;\r\n}\r\n\r\n.fqa-comic-reader {\r\n	line-height: 0!important;\r\n}\r\n\r\n.fqa-menu-item,\r\n.arco-menu-item {\r\n	width: 100%!important;\r\n}\r\n\r\n#dynamic-el {\r\n	display: none!important;\r\n}\r\n\r\n.fqa-footnote-ref {\r\n	display: inline-block;\r\n	margin: 0 0.15em;\r\n	padding: 0 0.25em;\r\n	font-size: 0.7em;\r\n	line-height: 1.4;\r\n	vertical-align: super;\r\n	color: var(--web-brand_normal, #f14646);\r\n	cursor: pointer;\r\n	user-select: none;\r\n	border-radius: 3px;\r\n	text-indent: 0;\r\n}\r\n\r\n.fqa-footnote-ref:hover,\r\n.fqa-footnote-ref:focus-visible {\r\n	background: var(--web-brand_light, rgba(241, 70, 70, 0.12));\r\n	outline: none;\r\n}\r\n\r\n\r\n.fqa-footnote {\r\n	margin-top: 2em;\r\n	padding-top: 1em;\r\n	border-top: 1px solid var(--web-gray_20, rgba(128, 128, 128, 0.25));\r\n	font-size: var(--fqa-body-size, 1.6rem);\r\n}\r\n\r\n.muye-reader-content-16 .fqa-footnote { font-size: var(--fqa-body-size, 1.6rem); }\r\n.muye-reader-content-20 .fqa-footnote { font-size: var(--fqa-body-size, 2rem); }\r\n.muye-reader-content-24 .fqa-footnote { font-size: var(--fqa-body-size, 2.4rem); }\r\n.muye-reader-content-28 .fqa-footnote { font-size: var(--fqa-body-size, 2.8rem); }\r\n.muye-reader-content-32 .fqa-footnote { font-size: var(--fqa-body-size, 3.2rem); }\r\n\r\n.fqa-footnote-title {\r\n	margin-bottom: 0.6em;\r\n	font-size: 0.85em;\r\n	font-weight: 600;\r\n	color: var(--web-gray_40, #8a8a8a);\r\n	text-indent: 0;\r\n}\r\n\r\n.fqa-footnote-list {\r\n	margin: 0;\r\n	padding-left: 1.6em;\r\n	font-size: 0.85em;\r\n	line-height: 1.7;\r\n	color: var(--web-gray_40, #8a8a8a);\r\n}\r\n\r\n.fqa-footnote-list li {\r\n	margin-bottom: 0.5em;\r\n	text-indent: 0;\r\n	transition: background-color 0.3s ease;\r\n}\r\n\r\n.fqa-footnote-list li.fqa-footnote-active {\r\n	background: var(--web-brand_light, rgba(241, 70, 70, 0.12));\r\n	border-radius: 4px;\r\n}\r\n\r\n.muye-reader-content > body {\r\n	background-color: var(--web-bg)!important;\r\n}\r\n\r\n.fqa-icon-dark {\r\n	color: #B3B3B3\r\n}\r\n\r\n/* ----------------------------- 右键菜单 / Toast ----------------------------- */\r\n\r\n/*\r\n * 书架与搜索共用。两者都把菜单 Teleport 到 body，\r\n * 拿不到各自根节点上的变量，所以在这里声明一份全局色板。\r\n */\r\n.fqa-menu {\r\n	--fqa-menu-bg: #fff;\r\n	--fqa-menu-text: #1f2329;\r\n	--fqa-menu-sub: #8f959e;\r\n	--fqa-menu-hover: rgba(31, 35, 41, 0.06);\r\n	--fqa-menu-danger: #f5222d;\r\n\r\n	position: fixed;\r\n	z-index: 2147483001;\r\n	min-width: 132px;\r\n	max-width: 240px;\r\n	padding: 4px;\r\n	box-sizing: border-box;\r\n	background: var(--fqa-menu-bg);\r\n	border: 1px solid rgba(31, 35, 41, 0.08);\r\n	border-radius: 8px;\r\n	box-shadow: 0 6px 24px rgba(31, 35, 41, 0.16);\r\n	font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\r\n		sans-serif;\r\n	font-size: 13px;\r\n	color: var(--fqa-menu-text);\r\n	user-select: none;\r\n}\r\n\r\n/* 二级面板：分组数量多时可滚动 */\r\n.fqa-menu-sub {\r\n	max-height: 320px;\r\n	overflow-y: auto;\r\n}\r\n\r\n.fqa-menu-row {\r\n	display: flex;\r\n	align-items: center;\r\n	justify-content: space-between;\r\n	gap: 12px;\r\n	padding: 7px 10px;\r\n	border-radius: 5px;\r\n	line-height: 1.4;\r\n	cursor: pointer;\r\n	white-space: nowrap;\r\n	overflow: hidden;\r\n}\r\n\r\n.fqa-menu-row > span:first-child {\r\n	overflow: hidden;\r\n	text-overflow: ellipsis;\r\n}\r\n\r\n.fqa-menu-row:hover,\r\n.fqa-menu-row.fqa-menu-open {\r\n	background: var(--fqa-menu-hover);\r\n}\r\n\r\n.fqa-menu-arrow {\r\n	color: var(--fqa-menu-sub);\r\n	font-size: 15px;\r\n	line-height: 1;\r\n}\r\n\r\n.fqa-menu-danger {\r\n	color: var(--fqa-menu-danger);\r\n}\r\n\r\n.fqa-menu-disabled {\r\n	color: var(--fqa-menu-sub);\r\n	cursor: not-allowed;\r\n}\r\n\r\n.fqa-menu-disabled:hover {\r\n	background: transparent;\r\n}\r\n\r\n/* 操作结果提示 */\r\n.fqa-toast {\r\n	position: fixed;\r\n	left: 50%;\r\n	bottom: 48px;\r\n	transform: translateX(-50%);\r\n	z-index: 2147483002;\r\n	max-width: 80vw;\r\n	padding: 10px 18px;\r\n	box-sizing: border-box;\r\n	background: rgba(31, 35, 41, 0.88);\r\n	color: #fff;\r\n	border-radius: 8px;\r\n	font-size: 13px;\r\n	line-height: 1.4;\r\n	box-shadow: 0 6px 24px rgba(31, 35, 41, 0.24);\r\n	pointer-events: none;\r\n}\r\n\r\n/* 骨架屏微光。书架与搜索共用同一个动画名 */\r\n@keyframes fqa-shimmer {\r\n	100% {\r\n		transform: translateX(100%);\r\n	}\r\n}\r\n\r\n@media (prefers-color-scheme: dark) {\r\n	.fqa-menu {\r\n		--fqa-menu-bg: #23272e;\r\n		--fqa-menu-text: #e5e6eb;\r\n		--fqa-menu-sub: #8f959e;\r\n		--fqa-menu-hover: rgba(255, 255, 255, 0.08);\r\n		border-color: rgba(255, 255, 255, 0.1);\r\n	}\r\n}\r\n\r\n.info {\r\n	width: 100%!important;\r\n}\r\n\r\n.reader-toolbar {\r\n	user-select: none;\r\n}";
   async function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
@@ -156,6 +156,7 @@
     downloadBookCss: true,
     audiobookChapterEnd: "next",
     audiobookFollow: true,
+    paraComment: true,
     apiPreference: "app",
     deviceId: "",
     installId: "",
@@ -393,7 +394,7 @@
       }
     );
   }
-  const STYLE_ID$6 = "fqa-user-style";
+  const STYLE_ID$7 = "fqa-user-style";
   const READER_SCOPE = "#fqa-reader-content, .muye-reader-content";
   function buildCss() {
     const parts = [];
@@ -409,14 +410,14 @@
   }
   function apply() {
     const css = buildCss();
-    let el = document.getElementById(STYLE_ID$6);
+    let el = document.getElementById(STYLE_ID$7);
     if (!css) {
       el == null ? void 0 : el.remove();
       return;
     }
     if (!el) {
       el = document.createElement("style");
-      el.id = STYLE_ID$6;
+      el.id = STYLE_ID$7;
       document.head.appendChild(el);
     }
     el.textContent = css;
@@ -1627,6 +1628,7 @@
     }
   }
   const appBaseUrl = "https://reading.snssdk.com/reading";
+  const appRootUrl = "https://reading.snssdk.com";
   const redcandleBaseUrl = "https://api5-sinfonlinec.jxbhmy.com/reading";
   const webBaseUrl = "https://fanqienovel.com/reading";
   const appUserAgent = "com.dragon.read";
@@ -1712,6 +1714,9 @@
   }
   async function appPost(path, body, query, headers) {
     return postSigned(appBaseUrl + path, body, query, headers);
+  }
+  async function appRootPost(path, body, query, headers) {
+    return postSigned(appRootUrl + path, body, query, headers);
   }
   async function postSigned(base, body, query, headers) {
     const url = `${base}?${buildAppQuery(query).toString()}`;
@@ -2359,8 +2364,8 @@
     });
   }
   const leftIcon = '<?xml version="1.0" ?><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title/><g data-name="1" id="_1"><path fill="currentColor" d="M353,450a15,15,0,0,1-10.61-4.39L157.5,260.71a15,15,0,0,1,0-21.21L342.39,54.6a15,15,0,1,1,21.22,21.21L189.32,250.1,363.61,424.39A15,15,0,0,1,353,450Z"/></g></svg>';
-  const playingIcon = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n<!-- Created with Inkscape (http://www.inkscape.org/) -->\n\n<svg\n   xmlns:dc="http://purl.org/dc/elements/1.1/"\n   xmlns:cc="http://creativecommons.org/ns#"\n   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"\n   xmlns:svg="http://www.w3.org/2000/svg"\n   xmlns="http://www.w3.org/2000/svg"\n   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"\n   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"\n   width="22"\n   height="22"\n   viewBox="0 0 5.8208332 5.8208335"\n   version="1.1"\n   id="svg8"\n   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"\n   sodipodi:docname="stock_media-pause.svg">\n  <defs\n     id="defs2" />\n  <sodipodi:namedview\n     id="base"\n     pagecolor="#ffffff"\n     bordercolor="#666666"\n     borderopacity="1.0"\n     inkscape:pageopacity="0.0"\n     inkscape:pageshadow="2"\n     inkscape:zoom="7.9999996"\n     inkscape:cx="7.3825825"\n     inkscape:cy="8.7516629"\n     inkscape:document-units="mm"\n     inkscape:current-layer="layer1"\n     showgrid="true"\n     units="px"\n     inkscape:window-width="1360"\n     inkscape:window-height="718"\n     inkscape:window-x="0"\n     inkscape:window-y="24"\n     inkscape:window-maximized="1">\n    <inkscape:grid\n       type="xygrid"\n       id="grid10"\n       spacingx="0.52916667"\n       spacingy="0.52916667" />\n  </sodipodi:namedview>\n  <metadata\n     id="metadata5">\n    <rdf:RDF>\n      <cc:Work\n         rdf:about="">\n        <dc:format>image/svg+xml</dc:format>\n        <dc:type\n           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />\n        <dc:title></dc:title>\n      </cc:Work>\n    </rdf:RDF>\n  </metadata>\n  <g\n     inkscape:label="Capa 1"\n     inkscape:groupmode="layer"\n     id="layer1"\n     transform="translate(0,-291.17915)">\n    <path\n       style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:1.29999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"\n       d="m 1.5875,292.23748 v 4.23334"\n       id="path892"\n       inkscape:connector-curvature="0" />\n    <path\n       inkscape:connector-curvature="0"\n       id="path894"\n       d="m 3.7041667,292.23748 v 4.23334"\n       style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:1.29999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />\n  </g>\n</svg>\n';
-  const pausedIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\n    <g>\n        <path fill="none" d="M0 0h24v24H0z"/>\n        <path d="M16.394 12L10 7.737v8.526L16.394 12zm2.982.416L8.777 19.482A.5.5 0 0 1 8 19.066V4.934a.5.5 0 0 1 .777-.416l10.599 7.066a.5.5 0 0 1 0 .832z" fill="currentColor"/>\n    </g>\n</svg>\n';
+  const playingIcon = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\r\n<!-- Created with Inkscape (http://www.inkscape.org/) -->\r\n\r\n<svg\r\n   xmlns:dc="http://purl.org/dc/elements/1.1/"\r\n   xmlns:cc="http://creativecommons.org/ns#"\r\n   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"\r\n   xmlns:svg="http://www.w3.org/2000/svg"\r\n   xmlns="http://www.w3.org/2000/svg"\r\n   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"\r\n   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"\r\n   width="22"\r\n   height="22"\r\n   viewBox="0 0 5.8208332 5.8208335"\r\n   version="1.1"\r\n   id="svg8"\r\n   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"\r\n   sodipodi:docname="stock_media-pause.svg">\r\n  <defs\r\n     id="defs2" />\r\n  <sodipodi:namedview\r\n     id="base"\r\n     pagecolor="#ffffff"\r\n     bordercolor="#666666"\r\n     borderopacity="1.0"\r\n     inkscape:pageopacity="0.0"\r\n     inkscape:pageshadow="2"\r\n     inkscape:zoom="7.9999996"\r\n     inkscape:cx="7.3825825"\r\n     inkscape:cy="8.7516629"\r\n     inkscape:document-units="mm"\r\n     inkscape:current-layer="layer1"\r\n     showgrid="true"\r\n     units="px"\r\n     inkscape:window-width="1360"\r\n     inkscape:window-height="718"\r\n     inkscape:window-x="0"\r\n     inkscape:window-y="24"\r\n     inkscape:window-maximized="1">\r\n    <inkscape:grid\r\n       type="xygrid"\r\n       id="grid10"\r\n       spacingx="0.52916667"\r\n       spacingy="0.52916667" />\r\n  </sodipodi:namedview>\r\n  <metadata\r\n     id="metadata5">\r\n    <rdf:RDF>\r\n      <cc:Work\r\n         rdf:about="">\r\n        <dc:format>image/svg+xml</dc:format>\r\n        <dc:type\r\n           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />\r\n        <dc:title></dc:title>\r\n      </cc:Work>\r\n    </rdf:RDF>\r\n  </metadata>\r\n  <g\r\n     inkscape:label="Capa 1"\r\n     inkscape:groupmode="layer"\r\n     id="layer1"\r\n     transform="translate(0,-291.17915)">\r\n    <path\r\n       style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:1.29999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"\r\n       d="m 1.5875,292.23748 v 4.23334"\r\n       id="path892"\r\n       inkscape:connector-curvature="0" />\r\n    <path\r\n       inkscape:connector-curvature="0"\r\n       id="path894"\r\n       d="m 3.7041667,292.23748 v 4.23334"\r\n       style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:1.29999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />\r\n  </g>\r\n</svg>\r\n';
+  const pausedIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\r\n    <g>\r\n        <path fill="none" d="M0 0h24v24H0z"/>\r\n        <path d="M16.394 12L10 7.737v8.526L16.394 12zm2.982.416L8.777 19.482A.5.5 0 0 1 8 19.066V4.934a.5.5 0 0 1 .777-.416l10.599 7.066a.5.5 0 0 1 0 .832z" fill="currentColor"/>\r\n    </g>\r\n</svg>\r\n';
   function decodeBase36(c) {
     if (c >= 48 && c <= 57) return c - 48;
     if (c >= 97 && c <= 122) return c - 97 + 10;
@@ -3183,6 +3188,8 @@
       __publicField(this, "info", null);
       __publicField(this, "autoplay", false);
       __publicField(this, "segmentSequence", 0);
+      /** 播放倍速。预缓冲目标按它缩放，避免高倍速时缓冲不够 */
+      __publicField(this, "playbackRate", 1);
       __publicField(this, "onSeeking", () => {
         const context = this.context;
         if (!context || this.state === "destroyed" || this.session === 0) return;
@@ -3230,6 +3237,33 @@
     get element() {
       return this.audio;
     }
+    /**
+     * 设置播放倍速。
+     *
+     * 服务端只提供 1× 的 TTS 音频（playinfo 请求没有 speed 参数），
+     * 所以倍速在客户端做：直接改 media element 的 playbackRate，
+     * 并用 preservesPitch 保持音调，避免快放变声。
+     * 预缓冲目标按倍速放大，见 waitForRoom。
+     */
+    setPlaybackRate(rate) {
+      this.playbackRate = Math.min(4, Math.max(0.25, Number.isFinite(rate) ? rate : 1));
+      this.applyPlaybackRate();
+    }
+    /**
+     * 把当前倍速套到 media element 上。
+     *
+     * 必须同时写 defaultPlaybackRate：任何一次媒体加载（换章、停止后重开时
+     * 播放器内部的 removeAttribute('src') + load()）都会把 playbackRate 重置成
+     * defaultPlaybackRate，只设 playbackRate 的话倍速一重开就没了。
+     * 另外 preservesPitch 也随之重设，快放不变声。
+     */
+    applyPlaybackRate() {
+      const el = this.audio;
+      el.defaultPlaybackRate = this.playbackRate;
+      el.playbackRate = this.playbackRate;
+      if ("preservesPitch" in el) el.preservesPitch = true;
+      if ("webkitPreservesPitch" in el) el.webkitPreservesPitch = true;
+    }
     /** 加载并开始后台缓冲；autoplay 只表示首次缓冲后尝试调用 audio.play。 */
     async load(source, autoplay = false) {
       this.ensureAlive();
@@ -3264,6 +3298,7 @@
         this.objectUrl = unsafeWindow.URL.createObjectURL(mediaSource);
         const opened = this.waitForSourceOpen(mediaSource, session);
         this.audio.src = this.objectUrl;
+        this.applyPlaybackRate();
         await opened;
         this.assertSession(session);
         this.sourceBuffer = mediaSource.addSourceBuffer(mime);
@@ -3663,7 +3698,7 @@
       }
     }
     async waitForRoom(session, token, signal) {
-      while (this.isStreamCurrent(session, token, signal) && this.bufferedAhead() >= this.options.maxBufferAheadSeconds) {
+      while (this.isStreamCurrent(session, token, signal) && this.bufferedAhead() >= this.options.maxBufferAheadSeconds * this.playbackRate) {
         await new Promise((resolve) => setTimeout(resolve, 200));
       }
       if (!this.isStreamCurrent(session, token, signal)) throw abortError$1();
@@ -4095,16 +4130,20 @@
     return null;
   }
   const TONE_STORE_KEY = "audiobook_tone";
+  const AUDIO_SPEEDS = [0.5, 0.75, 1, 1.25, 1.5, 2];
+  const SPEED_STORE_KEY = "audiobook_speed";
   const state = vue.reactive({
     open: false,
     collapsed: false,
     tonePickerOpen: false,
+    speedPickerOpen: false,
     loading: false,
     playing: false,
     spinning: false,
     tones: [],
     toneId: null,
     toneName: "",
+    speed: storedSpeed(),
     cover: "",
     title: "",
     error: ""
@@ -4160,6 +4199,7 @@
         }
       }
     });
+    player.setPlaybackRate(state.speed);
     return player;
   }
   function onPlayerState(playerState) {
@@ -4217,6 +4257,10 @@
     const raw = read(TONE_STORE_KEY);
     return typeof raw === "number" ? raw : null;
   }
+  function storedSpeed() {
+    const raw = read(SPEED_STORE_KEY);
+    return typeof raw === "number" && AUDIO_SPEEDS.includes(raw) ? raw : 1;
+  }
   async function openAudiobook(chapter, book, meta) {
     itemId = chapter;
     bookId = book;
@@ -4254,11 +4298,26 @@
     await playCurrent();
   }
   function openTonePicker() {
+    state.speedPickerOpen = false;
     state.tonePickerOpen = true;
   }
   function closeTonePicker() {
     state.tonePickerOpen = false;
     if (state.toneId === null) closeAudiobook();
+  }
+  function openSpeedPicker() {
+    state.tonePickerOpen = false;
+    state.speedPickerOpen = true;
+  }
+  function closeSpeedPicker() {
+    state.speedPickerOpen = false;
+  }
+  function setSpeed(speed) {
+    if (!AUDIO_SPEEDS.includes(speed)) return;
+    state.speed = speed;
+    state.speedPickerOpen = false;
+    write(SPEED_STORE_KEY, speed);
+    player == null ? void 0 : player.setPlaybackRate(speed);
   }
   async function changeTone(toneId) {
     if (toneId === state.toneId) {
@@ -4346,6 +4405,7 @@
     state.open = false;
     state.collapsed = false;
     state.tonePickerOpen = false;
+    state.speedPickerOpen = false;
     state.playing = false;
     state.spinning = false;
     state.loading = false;
@@ -4375,7 +4435,7 @@
     key: 0,
     class: "fqa-tone-desc"
   };
-  const _hoisted_11$6 = { class: "fqa-tone-actions" };
+  const _hoisted_11$7 = { class: "fqa-tone-actions" };
   const _sfc_main$b = /* @__PURE__ */ vue.defineComponent({
     __name: "TonePicker",
     props: {
@@ -4423,7 +4483,7 @@
                 ], 10, _hoisted_4$a);
               }), 128))
             ]),
-            vue.createElementVNode("div", _hoisted_11$6, [
+            vue.createElementVNode("div", _hoisted_11$7, [
               vue.createElementVNode("button", {
                 type: "button",
                 class: "fqa-tone-btn",
@@ -4450,13 +4510,28 @@
   const _hoisted_7$7 = { class: "fqa-audio-meta" };
   const _hoisted_8$7 = { class: "fqa-audio-title" };
   const _hoisted_9$7 = { class: "fqa-audio-sub" };
-  const _hoisted_10$7 = ["innerHTML"];
+  const _hoisted_10$7 = ["title"];
+  const _hoisted_11$6 = ["innerHTML"];
+  const _hoisted_12$6 = {
+    key: 2,
+    class: "fqa-audio-speeds",
+    role: "menu",
+    "aria-label": "播放倍速"
+  };
+  const _hoisted_13$5 = ["onClick"];
   const _sfc_main$a = /* @__PURE__ */ vue.defineComponent({
     __name: "AudioBar",
     setup(__props) {
       function onSelect(id) {
         if (state.toneId === null) void selectTone(id);
         else void changeTone(id);
+      }
+      function speedLabel(v) {
+        return `${v}×`;
+      }
+      function toggleSpeedPicker() {
+        if (state.speedPickerOpen) closeSpeedPicker();
+        else openSpeedPicker();
       }
       return (_ctx, _cache) => {
         return vue.unref(state).open ? (vue.openBlock(), vue.createElementBlock("div", {
@@ -4505,6 +4580,13 @@
             ]),
             vue.createElementVNode("button", {
               type: "button",
+              class: "fqa-audio-btn fqa-audio-speed",
+              title: `播放倍速：${speedLabel(vue.unref(state).speed)}`,
+              "aria-label": "播放倍速",
+              onClick: toggleSpeedPicker
+            }, vue.toDisplayString(speedLabel(vue.unref(state).speed)), 9, _hoisted_10$7),
+            vue.createElementVNode("button", {
+              type: "button",
               class: "fqa-audio-btn",
               title: "切换音色",
               "aria-label": "切换音色",
@@ -4524,7 +4606,7 @@
               vue.createElementVNode("span", {
                 class: "fqa-audio-icon",
                 innerHTML: vue.unref(leftIcon)
-              }, null, 8, _hoisted_10$7)
+              }, null, 8, _hoisted_11$6)
             ]),
             vue.createElementVNode("button", {
               type: "button",
@@ -4535,8 +4617,18 @@
               (...args) => vue.unref(closeAudiobook) && vue.unref(closeAudiobook)(...args))
             }, " × ")
           ])),
+          vue.unref(state).speedPickerOpen ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_12$6, [
+            (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(vue.unref(AUDIO_SPEEDS), (v) => {
+              return vue.openBlock(), vue.createElementBlock("button", {
+                key: v,
+                type: "button",
+                class: vue.normalizeClass(["fqa-audio-speed-item", { "fqa-audio-speed-active": vue.unref(state).speed === v }]),
+                onClick: ($event) => vue.unref(setSpeed)(v)
+              }, vue.toDisplayString(speedLabel(v)), 11, _hoisted_13$5);
+            }), 128))
+          ])) : vue.createCommentVNode("", true),
           vue.unref(state).tonePickerOpen ? (vue.openBlock(), vue.createBlock(_sfc_main$b, {
-            key: 2,
+            key: 3,
             tones: vue.unref(state).tones,
             current: vue.unref(state).toneId,
             onSelect,
@@ -4546,379 +4638,429 @@
       };
     }
   });
-  const audiobookcss = `/* 听书悬浮栏与音色弹窗。
- * 暗色跟随页面的 div.muye-reader-dark（与 userHook 的判定一致）。 */
-
-.fqa-audio-root {
-	--fqa-audio-bg: #fff;
-	--fqa-audio-text: #1f2329;
-	--fqa-audio-sub: #8f959e;
-	--fqa-audio-hover: rgba(31, 35, 41, 0.06);
-	--fqa-audio-border: rgba(31, 35, 41, 0.1);
-	--fqa-audio-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
-
-	position: fixed;
-	left: 20px;
-	bottom: 20px;
-	z-index: 2147483000;
-	font-size: 14px;
-	color: var(--fqa-audio-text);
-}
-
-/*
- * 暗色反色。悬浮栏挂在 body 下，够不到 .muye-reader-dark 的后代选择器，
- * 所以 audioPanel 在 #fqa-audio-root 容器上打 .fqa-audio-dark 类；
- * 真正的 .fqa-audio-root（Vue 根）是容器的子节点，用后代选择器作用到它。
- */
-.fqa-audio-dark .fqa-audio-root {
-	--fqa-audio-bg: #2b2b2b;
-	--fqa-audio-text: #b3b3b3;
-	--fqa-audio-sub: #7a7a7a;
-	--fqa-audio-hover: rgba(255, 255, 255, 0.08);
-	--fqa-audio-border: rgba(255, 255, 255, 0.12);
-	--fqa-audio-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
-}
-
-.fqa-audio-bar {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	padding: 8px 10px 8px 8px;
-	border-radius: 999px;
-	background: var(--fqa-audio-bg);
-	box-shadow: var(--fqa-audio-shadow);
-}
-
-/* ------------------------------- 旋转封面 ------------------------------- */
-
-.fqa-audio-cover {
-	position: relative;
-	flex: 0 0 auto;
-	width: 44px;
-	height: 44px;
-	padding: 0;
-	border: none;
-	border-radius: 50%;
-	background: var(--fqa-audio-hover);
-	cursor: pointer;
-}
-
-/*
- * 只有这一层转。状态图标是 .fqa-audio-state，放在旋转层外面，
- * 否则会跟着封面一起转，反而更看不清。
- * 播放/缓冲时转，暂停时停在当前角度（animation-play-state 比移除动画更平滑）
- */
-.fqa-audio-disc {
-	position: absolute;
-	inset: 0;
-	border-radius: 50%;
-	overflow: hidden;
-	animation: fqa-audio-rotate 8s linear infinite;
-	animation-play-state: paused;
-}
-
-.fqa-audio-disc.fqa-audio-spin {
-	animation-play-state: running;
-}
-
-.fqa-audio-disc img {
-	display: block;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-.fqa-audio-cover-empty {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	color: var(--fqa-audio-sub);
-	font-size: 18px;
-}
-
-/* 播放/暂停状态。压一层遮罩，浅色封面上也看得清 */
-.fqa-audio-state {
-	position: absolute;
-	inset: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 50%;
-	background: rgba(0, 0, 0, 0.38);
-	color: #fff;
-	transition: background 0.2s ease;
-}
-
-.fqa-audio-cover:hover .fqa-audio-state {
-	background: rgba(0, 0, 0, 0.55);
-}
-
-/*
- * 只给尺寸，不写 fill：paused.svg 里那块透明点击区是 fill="none"，
- * CSS 的 fill 优先级高于表现属性，会把它填成一个白方块盖住图标。
- * 两个 svg 自身已经用 currentColor，跟着上面的 color 走。
- */
-.fqa-audio-state svg {
-	width: 18px;
-	height: 18px;
-}
-
-@keyframes fqa-audio-rotate {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.fqa-audio-disc { animation: none; }
-}
-
-/* -------------------------------- 文字区 -------------------------------- */
-
-.fqa-audio-meta {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	min-width: 0;
-	max-width: 180px;
-	line-height: 1.35;
-}
-
-.fqa-audio-title,
-.fqa-audio-sub {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-
-.fqa-audio-sub {
-	color: var(--fqa-audio-sub);
-	font-size: 12px;
-}
-
-/* -------------------------------- 按钮 -------------------------------- */
-
-.fqa-audio-btn,
-.fqa-audio-expand {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex: 0 0 auto;
-	width: 32px;
-	height: 32px;
-	padding: 0;
-	border: none;
-	border-radius: 50%;
-	background: transparent;
-	color: var(--fqa-audio-text);
-	cursor: pointer;
-}
-
-.fqa-audio-btn:hover,
-.fqa-audio-expand:hover {
-	background: var(--fqa-audio-hover);
-}
-
-.fqa-audio-close {
-	font-size: 20px;
-	line-height: 1;
-}
-
-/* svg 用 currentColor，跟着按钮的 color 走 */
-.fqa-audio-icon {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 16px;
-	height: 16px;
-}
-
-.fqa-audio-icon svg {
-	width: 100%;
-	height: 100%;
-	fill: currentColor;
-}
-
-/* 收起后箭头水平翻转朝右 */
-.fqa-audio-icon-flip {
-	transform: scaleX(-1);
-}
-
-.fqa-audio-expand {
-	background: var(--fqa-audio-bg);
-	box-shadow: var(--fqa-audio-shadow);
-	width: 36px;
-	height: 36px;
-}
-
-/* 三个点 */
-.fqa-audio-dots,
-.fqa-audio-dots::before,
-.fqa-audio-dots::after {
-	width: 4px;
-	height: 4px;
-	border-radius: 50%;
-	background: currentColor;
-}
-
-.fqa-audio-dots {
-	position: relative;
-}
-
-.fqa-audio-dots::before,
-.fqa-audio-dots::after {
-	content: '';
-	position: absolute;
-	top: 0;
-}
-
-.fqa-audio-dots::before { left: -7px; }
-.fqa-audio-dots::after { left: 7px; }
-
-/* ----------------------------- 段落高亮 ----------------------------- */
-
-.fqa-audio-active {
-	background: var(--web-brand_light, rgba(241, 70, 70, 0.12));
-	border-radius: 4px;
-	transition: background 0.2s ease;
-}
-
-/* ----------------------------- 音色弹窗 ----------------------------- */
-
-.fqa-tone-mask {
-	position: fixed;
-	inset: 0;
-	z-index: 2147483002;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: rgba(0, 0, 0, 0.45);
-}
-
-.fqa-tone-box {
-	width: min(420px, calc(100vw - 32px));
-	max-height: min(560px, calc(100vh - 64px));
-	display: flex;
-	flex-direction: column;
-	padding: 20px;
-	border-radius: 12px;
-	background: var(--fqa-audio-bg, #fff);
-	color: var(--fqa-audio-text, #1f2329);
-	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.24);
-}
-
-.fqa-tone-title {
-	margin: 0 0 4px;
-	font-size: 17px;
-	font-weight: 600;
-}
-
-.fqa-tone-sub {
-	margin: 0 0 14px;
-	color: var(--fqa-audio-sub, #8f959e);
-	font-size: 12px;
-}
-
-.fqa-tone-list {
-	flex: 1 1 auto;
-	overflow-y: auto;
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
-}
-
-.fqa-tone-item {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	padding: 8px 10px;
-	border: 1px solid transparent;
-	border-radius: 8px;
-	background: transparent;
-	color: inherit;
-	text-align: left;
-	cursor: pointer;
-}
-
-.fqa-tone-item:hover {
-	background: var(--fqa-audio-hover, rgba(31, 35, 41, 0.06));
-}
-
-.fqa-tone-item-active {
-	border-color: var(--web-brand, #f14646);
-}
-
-.fqa-tone-icon {
-	flex: 0 0 auto;
-	width: 36px;
-	height: 36px;
-	border-radius: 50%;
-	object-fit: cover;
-}
-
-.fqa-tone-icon-empty {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: var(--fqa-audio-hover, rgba(31, 35, 41, 0.06));
-	color: var(--fqa-audio-sub, #8f959e);
-}
-
-.fqa-tone-text {
-	display: flex;
-	flex-direction: column;
-	min-width: 0;
-}
-
-.fqa-tone-name {
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	font-size: 14px;
-}
-
-.fqa-tone-gender {
-	color: var(--fqa-audio-sub, #8f959e);
-	font-size: 11px;
-}
-
-.fqa-tone-desc {
-	overflow: hidden;
-	color: var(--fqa-audio-sub, #8f959e);
-	font-size: 12px;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-
-.fqa-tone-actions {
-	display: flex;
-	justify-content: flex-end;
-	margin-top: 14px;
-}
-
-.fqa-tone-btn {
-	padding: 6px 16px;
-	border: 1px solid var(--fqa-audio-border, rgba(31, 35, 41, 0.1));
-	border-radius: 6px;
-	background: transparent;
-	color: inherit;
-	cursor: pointer;
-}
-
-.fqa-tone-btn:hover {
-	background: var(--fqa-audio-hover, rgba(31, 35, 41, 0.06));
-}
+  const audiobookcss = `/* 听书悬浮栏与音色弹窗。\r
+ * 暗色跟随页面的 div.muye-reader-dark（与 userHook 的判定一致）。 */\r
+\r
+.fqa-audio-root {\r
+	--fqa-audio-bg: #fff;\r
+	--fqa-audio-text: #1f2329;\r
+	--fqa-audio-sub: #8f959e;\r
+	--fqa-audio-hover: rgba(31, 35, 41, 0.06);\r
+	--fqa-audio-border: rgba(31, 35, 41, 0.1);\r
+	--fqa-audio-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);\r
+\r
+	position: fixed;\r
+	left: 20px;\r
+	bottom: 20px;\r
+	z-index: 2147483000;\r
+	font-size: 14px;\r
+	color: var(--fqa-audio-text);\r
+}\r
+\r
+/*\r
+ * 暗色反色。悬浮栏挂在 body 下，够不到 .muye-reader-dark 的后代选择器，\r
+ * 所以 audioPanel 在 #fqa-audio-root 容器上打 .fqa-audio-dark 类；\r
+ * 真正的 .fqa-audio-root（Vue 根）是容器的子节点，用后代选择器作用到它。\r
+ */\r
+.fqa-audio-dark .fqa-audio-root {\r
+	--fqa-audio-bg: #2b2b2b;\r
+	--fqa-audio-text: #b3b3b3;\r
+	--fqa-audio-sub: #7a7a7a;\r
+	--fqa-audio-hover: rgba(255, 255, 255, 0.08);\r
+	--fqa-audio-border: rgba(255, 255, 255, 0.12);\r
+	--fqa-audio-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);\r
+}\r
+\r
+.fqa-audio-bar {\r
+	display: flex;\r
+	align-items: center;\r
+	gap: 10px;\r
+	padding: 8px 10px 8px 8px;\r
+	border-radius: 999px;\r
+	background: var(--fqa-audio-bg);\r
+	box-shadow: var(--fqa-audio-shadow);\r
+}\r
+\r
+/* ------------------------------- 旋转封面 ------------------------------- */\r
+\r
+.fqa-audio-cover {\r
+	position: relative;\r
+	flex: 0 0 auto;\r
+	width: 44px;\r
+	height: 44px;\r
+	padding: 0;\r
+	border: none;\r
+	border-radius: 50%;\r
+	background: var(--fqa-audio-hover);\r
+	cursor: pointer;\r
+}\r
+\r
+/*\r
+ * 只有这一层转。状态图标是 .fqa-audio-state，放在旋转层外面，\r
+ * 否则会跟着封面一起转，反而更看不清。\r
+ * 播放/缓冲时转，暂停时停在当前角度（animation-play-state 比移除动画更平滑）\r
+ */\r
+.fqa-audio-disc {\r
+	position: absolute;\r
+	inset: 0;\r
+	border-radius: 50%;\r
+	overflow: hidden;\r
+	animation: fqa-audio-rotate 8s linear infinite;\r
+	animation-play-state: paused;\r
+}\r
+\r
+.fqa-audio-disc.fqa-audio-spin {\r
+	animation-play-state: running;\r
+}\r
+\r
+.fqa-audio-disc img {\r
+	display: block;\r
+	width: 100%;\r
+	height: 100%;\r
+	object-fit: cover;\r
+}\r
+\r
+.fqa-audio-cover-empty {\r
+	display: flex;\r
+	align-items: center;\r
+	justify-content: center;\r
+	width: 100%;\r
+	height: 100%;\r
+	color: var(--fqa-audio-sub);\r
+	font-size: 18px;\r
+}\r
+\r
+/* 播放/暂停状态。压一层遮罩，浅色封面上也看得清 */\r
+.fqa-audio-state {\r
+	position: absolute;\r
+	inset: 0;\r
+	display: flex;\r
+	align-items: center;\r
+	justify-content: center;\r
+	border-radius: 50%;\r
+	background: rgba(0, 0, 0, 0.38);\r
+	color: #fff;\r
+	transition: background 0.2s ease;\r
+}\r
+\r
+.fqa-audio-cover:hover .fqa-audio-state {\r
+	background: rgba(0, 0, 0, 0.55);\r
+}\r
+\r
+/*\r
+ * 只给尺寸，不写 fill：paused.svg 里那块透明点击区是 fill="none"，\r
+ * CSS 的 fill 优先级高于表现属性，会把它填成一个白方块盖住图标。\r
+ * 两个 svg 自身已经用 currentColor，跟着上面的 color 走。\r
+ */\r
+.fqa-audio-state svg {\r
+	width: 18px;\r
+	height: 18px;\r
+}\r
+\r
+@keyframes fqa-audio-rotate {\r
+	from { transform: rotate(0deg); }\r
+	to { transform: rotate(360deg); }\r
+}\r
+\r
+@media (prefers-reduced-motion: reduce) {\r
+	.fqa-audio-disc { animation: none; }\r
+}\r
+\r
+/* -------------------------------- 文字区 -------------------------------- */\r
+\r
+.fqa-audio-meta {\r
+	display: flex;\r
+	flex-direction: column;\r
+	justify-content: center;\r
+	min-width: 0;\r
+	max-width: 180px;\r
+	line-height: 1.35;\r
+}\r
+\r
+.fqa-audio-title,\r
+.fqa-audio-sub {\r
+	overflow: hidden;\r
+	white-space: nowrap;\r
+	text-overflow: ellipsis;\r
+}\r
+\r
+.fqa-audio-sub {\r
+	color: var(--fqa-audio-sub);\r
+	font-size: 12px;\r
+}\r
+\r
+/* -------------------------------- 按钮 -------------------------------- */\r
+\r
+.fqa-audio-btn,\r
+.fqa-audio-expand {\r
+	display: flex;\r
+	align-items: center;\r
+	justify-content: center;\r
+	flex: 0 0 auto;\r
+	width: 32px;\r
+	height: 32px;\r
+	padding: 0;\r
+	border: none;\r
+	border-radius: 50%;\r
+	background: transparent;\r
+	color: var(--fqa-audio-text);\r
+	cursor: pointer;\r
+}\r
+\r
+.fqa-audio-btn:hover,\r
+.fqa-audio-expand:hover {\r
+	background: var(--fqa-audio-hover);\r
+}\r
+\r
+.fqa-audio-close {\r
+	font-size: 20px;\r
+	line-height: 1;\r
+}\r
+\r
+/* svg 用 currentColor，跟着按钮的 color 走 */\r
+.fqa-audio-icon {\r
+	display: flex;\r
+	align-items: center;\r
+	justify-content: center;\r
+	width: 16px;\r
+	height: 16px;\r
+}\r
+\r
+.fqa-audio-icon svg {\r
+	width: 100%;\r
+	height: 100%;\r
+	fill: currentColor;\r
+}\r
+\r
+/* 收起后箭头水平翻转朝右 */\r
+.fqa-audio-icon-flip {\r
+	transform: scaleX(-1);\r
+}\r
+\r
+.fqa-audio-expand {\r
+	background: var(--fqa-audio-bg);\r
+	box-shadow: var(--fqa-audio-shadow);\r
+	width: 36px;\r
+	height: 36px;\r
+}\r
+\r
+/* 三个点 */\r
+.fqa-audio-dots,\r
+.fqa-audio-dots::before,\r
+.fqa-audio-dots::after {\r
+	width: 4px;\r
+	height: 4px;\r
+	border-radius: 50%;\r
+	background: currentColor;\r
+}\r
+\r
+.fqa-audio-dots {\r
+	position: relative;\r
+}\r
+\r
+.fqa-audio-dots::before,\r
+.fqa-audio-dots::after {\r
+	content: '';\r
+	position: absolute;\r
+	top: 0;\r
+}\r
+\r
+.fqa-audio-dots::before { left: -7px; }\r
+.fqa-audio-dots::after { left: 7px; }\r
+\r
+/* ----------------------------- 段落高亮 ----------------------------- */\r
+\r
+.fqa-audio-active {\r
+	background: var(--web-brand_light, rgba(241, 70, 70, 0.12));\r
+	border-radius: 4px;\r
+	transition: background 0.2s ease;\r
+}\r
+\r
+/* ----------------------------- 音色弹窗 ----------------------------- */\r
+\r
+.fqa-tone-mask {\r
+	position: fixed;\r
+	inset: 0;\r
+	z-index: 2147483002;\r
+	display: flex;\r
+	align-items: center;\r
+	justify-content: center;\r
+	background: rgba(0, 0, 0, 0.45);\r
+}\r
+\r
+.fqa-tone-box {\r
+	width: min(420px, calc(100vw - 32px));\r
+	max-height: min(560px, calc(100vh - 64px));\r
+	display: flex;\r
+	flex-direction: column;\r
+	padding: 20px;\r
+	border-radius: 12px;\r
+	background: var(--fqa-audio-bg, #fff);\r
+	color: var(--fqa-audio-text, #1f2329);\r
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.24);\r
+}\r
+\r
+.fqa-tone-title {\r
+	margin: 0 0 4px;\r
+	font-size: 17px;\r
+	font-weight: 600;\r
+}\r
+\r
+.fqa-tone-sub {\r
+	margin: 0 0 14px;\r
+	color: var(--fqa-audio-sub, #8f959e);\r
+	font-size: 12px;\r
+}\r
+\r
+.fqa-tone-list {\r
+	flex: 1 1 auto;\r
+	overflow-y: auto;\r
+	display: flex;\r
+	flex-direction: column;\r
+	gap: 6px;\r
+}\r
+\r
+.fqa-tone-item {\r
+	display: flex;\r
+	align-items: center;\r
+	gap: 10px;\r
+	padding: 8px 10px;\r
+	border: 1px solid transparent;\r
+	border-radius: 8px;\r
+	background: transparent;\r
+	color: inherit;\r
+	text-align: left;\r
+	cursor: pointer;\r
+}\r
+\r
+.fqa-tone-item:hover {\r
+	background: var(--fqa-audio-hover, rgba(31, 35, 41, 0.06));\r
+}\r
+\r
+.fqa-tone-item-active {\r
+	border-color: var(--web-brand, #f14646);\r
+}\r
+\r
+.fqa-tone-icon {\r
+	flex: 0 0 auto;\r
+	width: 36px;\r
+	height: 36px;\r
+	border-radius: 50%;\r
+	object-fit: cover;\r
+}\r
+\r
+.fqa-tone-icon-empty {\r
+	display: flex;\r
+	align-items: center;\r
+	justify-content: center;\r
+	background: var(--fqa-audio-hover, rgba(31, 35, 41, 0.06));\r
+	color: var(--fqa-audio-sub, #8f959e);\r
+}\r
+\r
+.fqa-tone-text {\r
+	display: flex;\r
+	flex-direction: column;\r
+	min-width: 0;\r
+}\r
+\r
+.fqa-tone-name {\r
+	display: flex;\r
+	align-items: center;\r
+	gap: 6px;\r
+	font-size: 14px;\r
+}\r
+\r
+.fqa-tone-gender {\r
+	color: var(--fqa-audio-sub, #8f959e);\r
+	font-size: 11px;\r
+}\r
+\r
+.fqa-tone-desc {\r
+	overflow: hidden;\r
+	color: var(--fqa-audio-sub, #8f959e);\r
+	font-size: 12px;\r
+	white-space: nowrap;\r
+	text-overflow: ellipsis;\r
+}\r
+\r
+.fqa-tone-actions {\r
+	display: flex;\r
+	justify-content: flex-end;\r
+	margin-top: 14px;\r
+}\r
+\r
+.fqa-tone-btn {\r
+	padding: 6px 16px;\r
+	border: 1px solid var(--fqa-audio-border, rgba(31, 35, 41, 0.1));\r
+	border-radius: 6px;\r
+	background: transparent;\r
+	color: inherit;\r
+	cursor: pointer;\r
+}\r
+\r
+.fqa-tone-btn:hover {\r
+	background: var(--fqa-audio-hover, rgba(31, 35, 41, 0.06));\r
+}\r
+\r
+/* -------------------------------- 倍速 -------------------------------- */\r
+\r
+/* 悬浮栏上的倍速按钮：显示 1× 这类文案，比图标按钮宽一点 */\r
+.fqa-audio-speed {\r
+	width: auto;\r
+	min-width: 44px;\r
+	padding: 0 8px;\r
+	border-radius: 14px;\r
+	font-size: 12px;\r
+	font-variant-numeric: tabular-nums;\r
+}\r
+\r
+/* 倍速弹层：贴在悬浮栏左上方向上弹。父级 .fqa-audio-root 是 fixed，直接绝对定位 */\r
+.fqa-audio-speeds {\r
+	position: absolute;\r
+	left: 0;\r
+	bottom: calc(100% + 8px);\r
+	display: flex;\r
+	gap: 4px;\r
+	padding: 6px;\r
+	border: 1px solid var(--fqa-audio-border);\r
+	border-radius: 10px;\r
+	background: var(--fqa-audio-bg);\r
+	box-shadow: var(--fqa-audio-shadow);\r
+	white-space: nowrap;\r
+}\r
+\r
+.fqa-audio-speed-item {\r
+	min-width: 44px;\r
+	padding: 5px 8px;\r
+	border: 0;\r
+	border-radius: 7px;\r
+	background: transparent;\r
+	color: var(--fqa-audio-text);\r
+	font-size: 12px;\r
+	font-family: inherit;\r
+	font-variant-numeric: tabular-nums;\r
+	cursor: pointer;\r
+}\r
+\r
+.fqa-audio-speed-item:hover {\r
+	background: var(--fqa-audio-hover);\r
+}\r
+\r
+.fqa-audio-speed-active {\r
+	background: var(--fqa-audio-hover);\r
+	color: var(--web-brand, #f14646);\r
+	font-weight: 600;\r
+}\r
 `;
   const CONTAINER_ID$4 = "fqa-audio-root";
-  const STYLE_ID$5 = "fqa-audio-style";
+  const STYLE_ID$6 = "fqa-audio-style";
   let app$4 = null;
   let container$4 = null;
   let themeObserver = null;
   function injectStyle$5() {
-    if (document.getElementById(STYLE_ID$5)) return;
+    if (document.getElementById(STYLE_ID$6)) return;
     const style = document.createElement("style");
-    style.id = STYLE_ID$5;
+    style.id = STYLE_ID$6;
     style.textContent = audiobookcss;
     document.head.appendChild(style);
   }
@@ -5467,6 +5609,785 @@
       console.log("Hello, ", (_a = userState == null ? void 0 : userState.userInfo) == null ? void 0 : _a.username);
     }
   }
+  const PARA_PAGE_SIZE = 50;
+  const PARA_REPLY_PAGE_SIZE = 10;
+  const SOURCE_PARA = 502;
+  const COMMENT_TYPE = 1;
+  const GROUP_TYPE_ITEM = 15;
+  function str(v) {
+    return typeof v === "string" ? v : v == null ? "" : String(v);
+  }
+  function int(v) {
+    const n = Number(v);
+    return Number.isFinite(n) ? Math.trunc(n) : 0;
+  }
+  function parseUser(raw) {
+    const base = (raw == null ? void 0 : raw.base_info) ?? {};
+    return {
+      user_id: str((raw == null ? void 0 : raw.user_id) || base.user_id),
+      name: str((raw == null ? void 0 : raw.user_name) || base.user_name),
+      avatar: str((raw == null ? void 0 : raw.user_avatar) || base.user_avatar)
+    };
+  }
+  function parseImages(raw) {
+    const out = [];
+    const seen = /* @__PURE__ */ new Set();
+    const push = (url, type, w, h2) => {
+      const s = str(url);
+      if (!s) return;
+      const key = s.split("?")[0] ?? s;
+      if (seen.has(key)) return;
+      seen.add(key);
+      out.push({ url: s, width: int(w), height: int(h2), emoji: int(type) === 2 });
+    };
+    if (Array.isArray(raw == null ? void 0 : raw.image_data)) {
+      for (const d of raw.image_data) {
+        push((d == null ? void 0 : d.web_uri) || (d == null ? void 0 : d.dynamic_url) || (d == null ? void 0 : d.url), d == null ? void 0 : d.image_type, d == null ? void 0 : d.width, d == null ? void 0 : d.height);
+      }
+    }
+    if (Array.isArray(raw == null ? void 0 : raw.image_url)) {
+      for (const u of raw.image_url) push(u, 0, 0, 0);
+    }
+    return out;
+  }
+  function parseParaComment(raw) {
+    const id = str(raw == null ? void 0 : raw.comment_id);
+    if (!id) return null;
+    return {
+      id,
+      text: str(raw == null ? void 0 : raw.text),
+      create_time: int(raw == null ? void 0 : raw.create_timestamp),
+      user: parseUser(raw == null ? void 0 : raw.user_info),
+      digg_count: int(raw == null ? void 0 : raw.digg_count),
+      reply_count: int(raw == null ? void 0 : raw.reply_count),
+      images: parseImages(raw)
+    };
+  }
+  function parseReply(raw) {
+    const id = str(raw == null ? void 0 : raw.reply_id);
+    if (!id) return null;
+    const common = (raw == null ? void 0 : raw.common) ?? (raw == null ? void 0 : raw.Common) ?? {};
+    const content = common.content ?? {};
+    const toUser = (raw == null ? void 0 : raw.reply_to_user_info) ?? {};
+    const toBase = toUser.base_info ?? {};
+    return {
+      id,
+      text: str(content.text),
+      create_time: int(common.create_timestamp),
+      user: parseUser(common.user_info),
+      to_name: str(toUser.user_name || toBase.user_name),
+      images: parseImages(content.image_data_list ? { image_data: Object.values(content.image_data_list) } : {})
+    };
+  }
+  async function getParaIdeaList(itemId2, bookId2, itemVersion = "0") {
+    var _a;
+    const res = await appGet("/ugc/idea/list/v", {
+      item_id: itemId2,
+      book_id: bookId2 || "0",
+      item_version: itemVersion
+    });
+    const counts = /* @__PURE__ */ new Map();
+    let data = null;
+    try {
+      data = (_a = res.json()) == null ? void 0 : _a.data;
+    } catch {
+    }
+    if (!data) return { counts, item_version: "0", total: 0 };
+    const ideaData = data.idea_data ?? {};
+    let total = 0;
+    for (const [k, v] of Object.entries(ideaData)) {
+      const idx = Number(k);
+      const count = int(v == null ? void 0 : v.idea_count);
+      if (Number.isFinite(idx) && idx >= 0 && count > 0) {
+        counts.set(idx, count);
+        total += count;
+      }
+    }
+    return { counts, item_version: str(data.newest_item_version || "0"), total };
+  }
+  async function getParaComments(itemId2, bookId2, paraIndex, itemVersion, offset = 0, count = PARA_PAGE_SIZE) {
+    var _a;
+    const res = await appGet("/ugc/idea/comment_list/v", {
+      item_id: itemId2,
+      book_id: bookId2 || "0",
+      item_version: itemVersion || "0",
+      para_index: String(paraIndex),
+      offset: String(offset),
+      count: String(count),
+      sort: "0",
+      query_type: "0"
+    });
+    let data = null;
+    try {
+      data = (_a = res.json()) == null ? void 0 : _a.data;
+    } catch {
+    }
+    const list = Array.isArray(data == null ? void 0 : data.comments) ? data.comments : [];
+    const comments = list.map(parseParaComment).filter((c) => !!c).sort((a, b) => b.digg_count - a.digg_count);
+    return {
+      comments,
+      has_more: Boolean(data == null ? void 0 : data.has_more),
+      next_offset: int(data == null ? void 0 : data.next_offset) || offset + comments.length,
+      para_src_content: str(data == null ? void 0 : data.para_src_content)
+    };
+  }
+  async function getParaReplies(itemId2, bookId2, commentId, cursor = "0", count = PARA_REPLY_PAGE_SIZE) {
+    var _a;
+    if (!commentId) return { replies: [], total: 0, has_more: false, cursor: "" };
+    const res = await appRootPost(
+      `/novel/commentapi/reply/list/${commentId}/v1`,
+      JSON.stringify({
+        business_param: { book_id: bookId2, need_count: true },
+        comment_id: commentId,
+        comment_source: SOURCE_PARA,
+        comment_type: COMMENT_TYPE,
+        count,
+        cursor: String(cursor || "0"),
+        group_id: itemId2,
+        group_type: GROUP_TYPE_ITEM
+      })
+    );
+    let data = null;
+    try {
+      data = (_a = res.json()) == null ? void 0 : _a.data;
+    } catch {
+    }
+    const list = Array.isArray(data == null ? void 0 : data.reply_list) ? data.reply_list : [];
+    const info = (data == null ? void 0 : data.comment_list_info) ?? {};
+    return {
+      replies: list.map(parseReply).filter((r) => !!r),
+      total: int(info.total),
+      has_more: Boolean(info.has_more),
+      cursor: str(info.cursor)
+    };
+  }
+  const EMOJI_UNICODE = {
+    微笑: "😊",
+    偷笑: "🤭",
+    笑: "😄",
+    什么: "🤔",
+    害羞: "😳",
+    爱慕: "😍",
+    飞吻: "😘",
+    奸笑: "😏",
+    尬笑: "😅",
+    思考: "🤔",
+    撇嘴: "😒",
+    做鬼脸: "😜",
+    酷: "😎",
+    翻白眼: "🙄",
+    惊呆: "😲",
+    震惊: "😱",
+    送心: "💝",
+    委屈: "🥺",
+    快哭了: "😢",
+    笑哭: "😂",
+    哭: "😭",
+    大笑: "😆",
+    舔屏: "🤤",
+    怒: "😡",
+    捂脸: "🤦",
+    吐: "🤮",
+    恐惧: "😨",
+    抓狂: "😫",
+    敬礼: "🫡",
+    石化: "😵",
+    OK: "👌",
+    赞: "👍",
+    爱心: "❤️",
+    伤心: "💔",
+    KISS: "💋",
+    懂了: "💡",
+    探究: "🔍",
+    重拳出击: "👊",
+    吃瓜: "🍉",
+    盯: "👀",
+    你细品: "🤨",
+    赶稿中: "✍️",
+    注意: "⚠️",
+    饱了: "😋",
+    码住: "📌",
+    学会了: "🎓",
+    顶帖: "⬆️",
+    求爆更: "🙏",
+    求关注: "📣",
+    我也强推: "🤝",
+    雀食神作: "🐦",
+    已种草: "🌱",
+    书架加一: "📚"
+  };
+  const EMOJI_TOKEN = /\[[^\]]{1,12}\]/g;
+  function renderCommentText(raw) {
+    return document.createTextNode(raw.replace(EMOJI_TOKEN, (token) => EMOJI_UNICODE[token.slice(1, -1)] ?? token));
+  }
+  function formatTime(ts) {
+    if (!Number.isFinite(ts) || ts <= 0) return "";
+    const d = new Date(ts * 1e3);
+    const p = (n) => String(n).padStart(2, "0");
+    return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
+  }
+  function makeImage(img) {
+    const el = document.createElement("img");
+    el.className = "fqa-pc-img";
+    el.loading = "lazy";
+    el.referrerPolicy = "no-referrer";
+    el.alt = "";
+    el.src = img.url;
+    el.addEventListener("error", () => {
+      el.style.visibility = "hidden";
+    });
+    return el;
+  }
+  function buildCommentItem(comment, itemId2, bookId2) {
+    const item = document.createElement("div");
+    item.className = "fqa-pc-item";
+    const avatar = document.createElement("img");
+    avatar.className = "fqa-pc-avatar";
+    avatar.loading = "lazy";
+    avatar.referrerPolicy = "no-referrer";
+    avatar.alt = "";
+    avatar.src = comment.user.avatar;
+    avatar.addEventListener("error", () => {
+      avatar.style.visibility = "hidden";
+    });
+    item.appendChild(avatar);
+    const main = document.createElement("div");
+    main.className = "fqa-pc-main";
+    const userLine = document.createElement("div");
+    userLine.className = "fqa-pc-user";
+    userLine.textContent = comment.user.name || "读者";
+    main.appendChild(userLine);
+    const text = document.createElement("div");
+    text.className = "fqa-pc-text";
+    text.appendChild(renderCommentText(comment.text));
+    main.appendChild(text);
+    if (comment.images.length) {
+      const imgs = document.createElement("div");
+      imgs.className = "fqa-pc-imgs";
+      for (const img of comment.images) imgs.appendChild(makeImage(img));
+      main.appendChild(imgs);
+    }
+    const parts = [];
+    if (comment.digg_count > 0) parts.push(`赞 ${comment.digg_count}`);
+    if (comment.reply_count > 0) parts.push(`回复 ${comment.reply_count}`);
+    const time = formatTime(comment.create_time);
+    if (time) parts.push(time);
+    if (parts.length) {
+      const meta = document.createElement("div");
+      meta.className = "fqa-pc-meta";
+      meta.textContent = parts.join(" · ");
+      main.appendChild(meta);
+    }
+    if (comment.reply_count > 0) {
+      main.appendChild(buildRepliesBlock(comment.id, comment.reply_count, itemId2, bookId2));
+    }
+    item.appendChild(main);
+    return item;
+  }
+  function buildReplyItem(reply) {
+    const item = document.createElement("div");
+    item.className = "fqa-pc-reply";
+    const name2 = document.createElement("span");
+    name2.className = "fqa-pc-reply-user";
+    name2.textContent = (reply.user.name || "读者") + (reply.to_name ? ` 回复 @${reply.to_name}` : "") + "：";
+    const text = document.createElement("span");
+    text.className = "fqa-pc-reply-text";
+    text.appendChild(renderCommentText(reply.text));
+    item.appendChild(name2);
+    item.appendChild(text);
+    for (const img of reply.images) item.appendChild(makeImage(img));
+    return item;
+  }
+  function buildRepliesBlock(commentId, replyCount, itemId2, bookId2) {
+    const wrap = document.createElement("div");
+    wrap.className = "fqa-pc-replies";
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "fqa-pc-replies-toggle";
+    toggle.textContent = `${replyCount} 条回复`;
+    const list = document.createElement("div");
+    list.className = "fqa-pc-replies-list";
+    list.hidden = true;
+    const sentinel = document.createElement("div");
+    sentinel.className = "fqa-pc-reply-sentinel";
+    let started = false;
+    let loading = false;
+    let hasMore = false;
+    let failed = false;
+    let cursor = "0";
+    let total = replyCount;
+    let observer2 = null;
+    const appendReplies = (list_) => {
+      const frag = document.createDocumentFragment();
+      for (const r of list_) frag.appendChild(buildReplyItem(r));
+      list.insertBefore(frag, sentinel);
+    };
+    const stopObserver = () => {
+      observer2 == null ? void 0 : observer2.disconnect();
+      observer2 = null;
+    };
+    async function loadPage() {
+      if (loading || !hasMore) return;
+      loading = true;
+      sentinel.textContent = "加载中…";
+      try {
+        const res = await getParaReplies(itemId2, bookId2, commentId, cursor, PARA_REPLY_PAGE_SIZE);
+        total = res.total || total;
+        hasMore = res.has_more;
+        cursor = res.cursor || cursor;
+        if (res.replies.length) appendReplies(res.replies);
+        sentinel.textContent = "";
+        if (!hasMore) stopObserver();
+      } catch (err) {
+        console.warn("[fqa:段评] 加载回复失败:", err);
+        hasMore = false;
+        failed = true;
+        sentinel.textContent = "";
+      }
+      loading = false;
+    }
+    function ensureObserver() {
+      if (observer2 || !hasMore || typeof IntersectionObserver === "undefined") return;
+      const root = list.closest(".fqa-pc-drawer-bd");
+      observer2 = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            void loadPage();
+            break;
+          }
+        }
+      }, { root, rootMargin: "0px 0px 80px 0px" });
+      observer2.observe(sentinel);
+    }
+    async function start() {
+      if (started) return;
+      started = true;
+      list.appendChild(sentinel);
+      if (commentId) {
+        hasMore = true;
+        await loadPage();
+      }
+      if (!list.querySelector(".fqa-pc-reply")) {
+        const empty = document.createElement("div");
+        empty.className = "fqa-pc-reply-empty";
+        empty.textContent = "暂无回复内容";
+        list.insertBefore(empty, sentinel);
+      }
+      if (hasMore && !failed) ensureObserver();
+      else sentinel.remove();
+    }
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (list.hidden) {
+        list.hidden = false;
+        toggle.textContent = "收起回复";
+        void start();
+      } else {
+        list.hidden = true;
+        toggle.textContent = `${total || replyCount} 条回复`;
+      }
+    });
+    wrap.appendChild(toggle);
+    wrap.appendChild(list);
+    return wrap;
+  }
+  const DRAWER_MAX_WIDTH = 420;
+  const PAGE_MARGIN = 24;
+  const SHIFT_EASE = "0.3s cubic-bezier(0.22, 0.61, 0.36, 1)";
+  let els = null;
+  let page = null;
+  let shiftTargets = [];
+  function ensureDrawer() {
+    var _a;
+    if (els && els.drawer.isConnected) return els;
+    const drawer = document.createElement("div");
+    drawer.className = "fqa-pc-drawer";
+    drawer.setAttribute("role", "dialog");
+    drawer.setAttribute("aria-label", "段评");
+    drawer.innerHTML = '<div class="fqa-pc-drawer-inner"><div class="fqa-pc-drawer-hd"><div class="fqa-pc-drawer-title">评论 <span class="fqa-pc-drawer-count"></span></div><button class="fqa-pc-drawer-close" type="button" aria-label="关闭">✕</button></div><div class="fqa-pc-drawer-bd"></div></div>';
+    const created = {
+      drawer,
+      inner: drawer.querySelector(".fqa-pc-drawer-inner"),
+      body: drawer.querySelector(".fqa-pc-drawer-bd"),
+      count: drawer.querySelector(".fqa-pc-drawer-count")
+    };
+    (_a = drawer.querySelector(".fqa-pc-drawer-close")) == null ? void 0 : _a.addEventListener("click", () => closeParaDrawer());
+    drawer.addEventListener("click", (e) => e.stopPropagation());
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeParaDrawer();
+    });
+    document.addEventListener("click", (e) => {
+      var _a2;
+      if (!(els == null ? void 0 : els.drawer.classList.contains("fqa-pc-show"))) return;
+      const t = e.target;
+      if ((_a2 = t == null ? void 0 : t.closest) == null ? void 0 : _a2.call(t, ".fqa-pc-drawer, .fqa-pc-chip")) return;
+      closeParaDrawer();
+    }, true);
+    window.addEventListener("resize", () => {
+      if (page && (els == null ? void 0 : els.drawer.classList.contains("fqa-pc-show"))) applyShift(page.container, els);
+    });
+    created.body.addEventListener("scroll", () => {
+      const st = page;
+      if (!st || !st.hasMore || st.loading) return;
+      const b = created.body;
+      if (b.scrollTop + b.clientHeight >= b.scrollHeight - 120) {
+        st.offset = st.next;
+        void fetchPage(created, st, false);
+      }
+    });
+    document.body.appendChild(drawer);
+    els = created;
+    return created;
+  }
+  function findPanelEl(start) {
+    const W = window.innerWidth;
+    for (let n = start; n && n !== document.body && n !== document.documentElement; n = n.parentElement) {
+      const bg = getComputedStyle(n).backgroundColor;
+      if (bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent") {
+        const r = n.getBoundingClientRect();
+        if (r.width > 0 && r.width <= W * 0.95) return n;
+      }
+    }
+    return null;
+  }
+  function applyShift(container2, elements) {
+    const W = window.innerWidth;
+    const toolbar = document.querySelector(".reader-toolbar");
+    const nav = document.querySelector(".muye-reader-nav");
+    let target = findPanelEl(container2);
+    if (!target) {
+      const titleEl = document.querySelector("h1.muye-reader-title");
+      if (titleEl) {
+        const ancestors = /* @__PURE__ */ new Set();
+        for (let n = titleEl; n; n = n.parentElement) ancestors.add(n);
+        for (let n = container2; n; n = n.parentElement) {
+          if (ancestors.has(n)) {
+            target = n;
+            break;
+          }
+        }
+      }
+    }
+    if (!target) target = container2.closest(".muye-reader-inner") ?? container2;
+    if (!target) return;
+    const globalShift = parseFloat(document.documentElement.style.getPropertyValue("--fqa-pc-shift")) || 0;
+    const cur = target.classList.contains("fqa-pc-shift-el") ? globalShift : 0;
+    const r = target.getBoundingClientRect();
+    const right = r.right + cur;
+    const tw = toolbar ? toolbar.offsetWidth || 56 : 0;
+    let origToolbarLeft = W - PAGE_MARGIN - tw;
+    if (toolbar) {
+      const m = /translateX\((-?[\d.]+)px\)/.exec(toolbar.style.transform || "");
+      const curTb = (m == null ? void 0 : m[1]) ? parseFloat(m[1]) : 0;
+      const tr = toolbar.getBoundingClientRect();
+      if (tr.width > 0) origToolbarLeft = Math.round(tr.left - curTb);
+    }
+    const toolbarMaxLeft = W - PAGE_MARGIN - tw;
+    const dwFull = Math.min(DRAWER_MAX_WIDTH, Math.round(W * 0.92));
+    const maxShift = Math.max(0, Math.round(r.width - PAGE_MARGIN));
+    let shift = origToolbarLeft + dwFull - toolbarMaxLeft;
+    shift = Math.max(0, Math.min(shift, maxShift));
+    let dw = dwFull;
+    const toolbarFinalLeft = origToolbarLeft + dw - shift;
+    if (toolbarFinalLeft > toolbarMaxLeft) dw = Math.max(220, dw - (toolbarFinalLeft - toolbarMaxLeft));
+    const toolbarDelta = Math.round(dw - shift);
+    const targets = [target];
+    if (nav && target !== nav && !target.contains(nav)) targets.push(nav);
+    for (const t of targets) t.classList.add("fqa-pc-shift-el");
+    shiftTargets = targets;
+    document.documentElement.style.setProperty("--fqa-pc-shift", Math.round(shift) + "px");
+    if (toolbar) {
+      toolbar.style.transition = `transform ${SHIFT_EASE}`;
+      toolbar.style.transform = Math.abs(toolbarDelta) > 0.5 ? `translateX(${toolbarDelta}px)` : "";
+    }
+    elements.drawer.style.left = Math.round(right) + "px";
+    elements.drawer.style.transform = shift > 0.5 ? `translateX(${-Math.round(shift)}px)` : "";
+    elements.inner.style.width = Math.round(dw) + "px";
+    elements.drawer.style.width = Math.round(dw) + "px";
+  }
+  function clearShift() {
+    document.documentElement.style.setProperty("--fqa-pc-shift", "0px");
+    for (const t of shiftTargets) t.classList.remove("fqa-pc-shift-el");
+    shiftTargets = [];
+    const toolbar = document.querySelector(".reader-toolbar");
+    if (toolbar) {
+      toolbar.style.transition = `transform ${SHIFT_EASE}`;
+      toolbar.style.transform = "";
+    }
+    if (els) {
+      els.drawer.style.transform = "";
+      els.drawer.style.width = "0px";
+    }
+  }
+  function isReaderDark() {
+    try {
+      if (document.querySelector(".muye-reader-dark, .muye-reader-content-dark, .muye-reader-bg-dark")) return true;
+      const bg = getComputedStyle(document.body).backgroundColor || "";
+      const nums = bg.match(/\d+/g);
+      if (nums && nums.length >= 3) {
+        const [r = 255, g2 = 255, b = 255] = nums.map(Number);
+        return r * 0.299 + g2 * 0.587 + b * 0.114 < 128;
+      }
+    } catch {
+    }
+    return false;
+  }
+  async function openParaDrawer(container2, paragraph, chip, total, itemId2, bookId2, paraIndex, itemVersion) {
+    var _a;
+    const elements = ensureDrawer();
+    const dark = isReaderDark();
+    elements.drawer.classList.toggle("fqa-pc-dark", dark);
+    document.documentElement.classList.toggle("fqa-pc-reader-dark", dark);
+    elements.count.textContent = total ? `· 共 ${total} 条` : "";
+    elements.body.innerHTML = '<div class="fqa-pc-status">加载中…</div>';
+    elements.body.scrollTop = 0;
+    if ((page == null ? void 0 : page.para) && page.para !== paragraph) page.para.classList.remove("fqa-pc-para-active");
+    document.querySelectorAll(".fqa-pc-chip.fqa-pc-active").forEach((c) => c.classList.remove("fqa-pc-active"));
+    paragraph == null ? void 0 : paragraph.classList.add("fqa-pc-para-active");
+    chip == null ? void 0 : chip.classList.add("fqa-pc-active");
+    elements.drawer.classList.add("fqa-pc-show");
+    applyShift(container2, elements);
+    (_a = paragraph == null ? void 0 : paragraph.scrollIntoView) == null ? void 0 : _a.call(paragraph, { block: "center", behavior: "smooth" });
+    const state2 = {
+      itemId: itemId2,
+      bookId: bookId2,
+      paraIndex,
+      itemVersion,
+      offset: 0,
+      next: 0,
+      hasMore: false,
+      loaded: 0,
+      total,
+      para: paragraph,
+      container: container2,
+      loading: false
+    };
+    page = state2;
+    await fetchPage(elements, state2, true);
+  }
+  async function fetchPage(elements, state2, first) {
+    if (state2.loading) return;
+    state2.loading = true;
+    let comments = [];
+    let hasMore = false;
+    let next = state2.offset;
+    try {
+      const res = await getParaComments(
+        state2.itemId,
+        state2.bookId,
+        state2.paraIndex,
+        state2.itemVersion,
+        state2.offset,
+        PARA_PAGE_SIZE
+      );
+      comments = res.comments;
+      hasMore = res.has_more;
+      next = res.next_offset;
+    } catch (err) {
+      console.warn("[fqa:段评] 加载失败:", err);
+      state2.loading = false;
+      if (first) elements.body.innerHTML = '<div class="fqa-pc-status">加载失败，请稍后重试</div>';
+      return;
+    }
+    if (page !== state2) {
+      state2.loading = false;
+      return;
+    }
+    if (first) elements.body.innerHTML = "";
+    if (first && !comments.length) {
+      elements.body.innerHTML = '<div class="fqa-pc-status">暂无评论</div>';
+      state2.loading = false;
+      return;
+    }
+    let list = elements.body.querySelector(".fqa-pc-list");
+    if (!list) {
+      list = document.createElement("div");
+      list.className = "fqa-pc-list";
+      elements.body.appendChild(list);
+    }
+    const frag = document.createDocumentFragment();
+    for (const c of comments) frag.appendChild(buildCommentItem(c, state2.itemId, state2.bookId));
+    list.appendChild(frag);
+    state2.loaded += comments.length;
+    state2.hasMore = hasMore;
+    state2.next = next || state2.offset + comments.length;
+    elements.count.textContent = state2.total ? `· 已加载 ${state2.loaded} / 共 ${state2.total} 条` : `· 已加载 ${state2.loaded} 条`;
+    state2.loading = false;
+    if (state2.hasMore && elements.body.scrollHeight <= elements.body.clientHeight + 4) {
+      state2.offset = state2.next;
+      await fetchPage(elements, state2, false);
+    }
+  }
+  function closeParaDrawer() {
+    var _a;
+    (_a = page == null ? void 0 : page.para) == null ? void 0 : _a.classList.remove("fqa-pc-para-active");
+    document.querySelectorAll(".fqa-pc-chip.fqa-pc-active").forEach((c) => c.classList.remove("fqa-pc-active"));
+    page = null;
+    if (els) {
+      els.drawer.classList.remove("fqa-pc-show");
+      els.drawer.style.width = "0px";
+    }
+    clearShift();
+  }
+  const paraCommentCss = '/* 段评（段落评论）：段尾标记 + 右侧抽屉 + 章末评论区块。 */\n\n/* 段落末尾的段评标记：[N] 细边小方框，朴素 */\n.fqa-pc-chip {\n	display: inline-flex;\n	align-items: center;\n	justify-content: center;\n	min-width: 1.5em;\n	height: 1.5em;\n	margin: 0 0.3em;\n	padding: 0 0.3em;\n	box-sizing: border-box;\n	font-size: 0.6em;\n	line-height: 1;\n	color: #b3b3b3;\n	background: transparent;\n	border: 1px solid #dcdcdc;\n	border-radius: 3px;\n	vertical-align: 0.15em;\n	cursor: pointer;\n	user-select: none;\n	white-space: nowrap;\n	text-indent: 0;\n	transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;\n}\n\n.fqa-pc-chip:hover {\n	color: #1f1f1f;\n	border-color: #1f1f1f;\n}\n\n.fqa-pc-chip.fqa-pc-active {\n	color: var(--web-brand_normal, #f14646);\n	border-color: currentColor;\n}\n\n.fqa-pc-count {\n	font-weight: 500;\n}\n\n/* 当前打开的段评段落：浅灰高亮 */\n.fqa-pc-para-active {\n	background: rgba(31, 35, 41, 0.055) !important;\n	border-radius: 4px;\n	box-shadow: 0 0 0 6px rgba(31, 35, 41, 0.055);\n}\n\n/* 打开抽屉时被左移的元素（正文块 / 顶部导航） */\n.fqa-pc-shift-el {\n	transform: translateX(calc(-1 * var(--fqa-pc-shift, 0px))) !important;\n	transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);\n}\n\n.fqa-pc-list {\n	display: block;\n}\n\n.fqa-pc-status {\n	padding: 24px 0;\n	color: #9a9a9a;\n	font-size: 13px;\n	text-align: center;\n}\n\n/* 章节顶部「讨论热烈」提示 */\n.fqa-pc-summary {\n	display: flex;\n	align-items: center;\n	gap: 6px;\n	margin: 0 0 18px;\n	color: var(--web-gray_40, #8a8a8a);\n	font-size: 0.8em;\n	text-indent: 0;\n}\n\n.fqa-pc-summary::before {\n	content: "🔥";\n}\n\n/* 段评抽屉：锚在正文右缘，宽度由 0 向右展开 */\n.fqa-pc-drawer {\n	position: fixed;\n	top: 0;\n	right: auto;\n	bottom: 0;\n	left: 50%;\n	width: 0;\n	overflow: hidden;\n	z-index: 2147483601;\n	transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);\n}\n\n.fqa-pc-drawer-inner {\n	display: flex;\n	flex-direction: column;\n	width: min(420px, 92vw);\n	height: 100%;\n	box-sizing: border-box;\n	background: #fff;\n	color: #1f2329;\n	border-left: 1px solid rgba(31, 35, 41, 0.1);\n	box-shadow: -8px 0 24px rgba(0, 0, 0, 0.08);\n	font-size: 14px;\n	line-height: 1.6;\n}\n\n.fqa-pc-drawer-hd {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 8px;\n	padding: 14px 16px;\n	border-bottom: 1px solid rgba(31, 35, 41, 0.08);\n}\n\n.fqa-pc-drawer-title {\n	font-size: 15px;\n	font-weight: 600;\n}\n\n.fqa-pc-drawer-count {\n	margin-left: 4px;\n	color: #9a9a9a;\n	font-size: 12px;\n	font-weight: 400;\n}\n\n.fqa-pc-drawer-close {\n	display: flex;\n	align-items: center;\n	justify-content: center;\n	width: 28px;\n	height: 28px;\n	border: 0;\n	border-radius: 6px;\n	background: transparent;\n	color: #8f959e;\n	font-size: 15px;\n	cursor: pointer;\n}\n\n.fqa-pc-drawer-close:hover {\n	background: rgba(31, 35, 41, 0.06);\n	color: #1f2329;\n}\n\n.fqa-pc-drawer-bd {\n	flex: 1 1 auto;\n	overflow-y: auto;\n	overscroll-behavior: contain;\n	padding: 0 16px;\n}\n\n.fqa-pc-drawer-snippet {\n	margin: 10px 0 0;\n	color: #9a9a9a;\n	font-size: 12px;\n}\n\n/* 单条评论 */\n.fqa-pc-item {\n	display: flex;\n	gap: 10px;\n	padding: 14px 0;\n	border-top: 1px solid rgba(31, 35, 41, 0.06);\n}\n\n.fqa-pc-item:first-child {\n	border-top: none;\n}\n\n.fqa-pc-item > .fqa-pc-avatar {\n	width: 34px !important;\n	height: 34px !important;\n	border-radius: 50%;\n	flex: 0 0 auto;\n	object-fit: cover;\n	background: rgba(31, 35, 41, 0.08);\n}\n\n.fqa-pc-main {\n	flex: 1 1 auto;\n	min-width: 0;\n}\n\n.fqa-pc-user {\n	font-size: 13px;\n	color: #8f959e;\n}\n\n.fqa-pc-text {\n	margin-top: 2px;\n	font-size: 15px;\n	color: #1f2329;\n	word-break: break-word;\n	white-space: pre-wrap;\n	text-indent: 0;\n}\n\n.fqa-pc-imgs {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 8px;\n	margin-top: 8px;\n}\n\n.fqa-pc-imgs > .fqa-pc-img {\n	max-width: min(100%, 260px) !important;\n	max-height: 260px !important;\n	width: auto !important;\n	height: auto !important;\n	border-radius: 8px;\n	object-fit: contain;\n	background: rgba(127, 127, 127, 0.07);\n}\n\n.fqa-pc-meta {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 14px;\n	margin-top: 6px;\n	font-size: 12px;\n	color: #9a9a9a;\n}\n\n/* 楼中楼 */\n.fqa-pc-replies {\n	margin-top: 8px;\n}\n\n.fqa-pc-replies-toggle {\n	padding: 0;\n	border: 0;\n	background: transparent;\n	color: var(--web-brand_normal, #f14646);\n	font-size: 12px;\n	font-family: inherit;\n	cursor: pointer;\n}\n\n.fqa-pc-replies-toggle:hover {\n	text-decoration: underline;\n}\n\n.fqa-pc-replies-list {\n	margin-top: 8px;\n	padding: 8px 10px;\n	border-radius: 8px;\n	background: rgba(127, 127, 127, 0.08);\n	display: flex;\n	flex-direction: column;\n	gap: 7px;\n}\n\n.fqa-pc-replies-list[hidden] {\n	display: none;\n}\n\n.fqa-pc-reply {\n	font-size: 14px;\n	line-height: 1.65;\n	word-break: break-word;\n}\n\n.fqa-pc-reply-user {\n	color: #8f959e;\n}\n\n.fqa-pc-reply-more,\n.fqa-pc-reply-sentinel,\n.fqa-pc-reply-empty {\n	min-height: 1px;\n	font-size: 12px;\n	color: #9a9a9a;\n}\n\n/* 章末评论区块 */\n.fqa-cc-section {\n	margin-top: 2.4em;\n	padding: 1.1em 1.2em 0.4em;\n	border: 1px solid rgba(127, 127, 127, 0.18);\n	border-radius: 12px;\n	background: rgba(127, 127, 127, 0.05);\n	text-indent: 0;\n	line-height: 1.7;\n}\n\n.fqa-cc-section .fqa-pc-item {\n	text-indent: 0;\n}\n\n.fqa-cc-title {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	margin: 0 0 0.2em;\n	padding-bottom: 0.6em;\n	border-bottom: 1px solid rgba(127, 127, 127, 0.15);\n	font-size: 1em;\n	font-weight: 600;\n	color: #1f2329;\n}\n\n.fqa-cc-title::before {\n	content: "";\n	width: 3px;\n	height: 1em;\n	border-radius: 2px;\n	background: var(--web-brand_normal, #f14646);\n}\n\n/* 段评开关：作为工具栏项（放在「字号」下面），样式沿用站点 */\n.fqa-pc-tool {\n	cursor: pointer;\n}\n\n.fqa-pc-tool .reader-toolbar-item-icon {\n	display: flex;\n	align-items: center;\n	justify-content: center;\n}\n\n.fqa-pc-tool.fqa-pc-tool-on .reader-toolbar-item-icon,\n.fqa-pc-tool.fqa-pc-tool-on .reader-toolbar-item-font {\n	color: var(--web-brand_normal, #f14646);\n}\n\n.fqa-pc-tool.fqa-pc-tool-off .reader-toolbar-item-icon,\n.fqa-pc-tool.fqa-pc-tool-off .reader-toolbar-item-font {\n	opacity: 0.45;\n}\n\n/* 兜底：没有站点工具栏时的浮动开关 */\n.fqa-pc-toggle {\n	position: fixed;\n	right: 16px;\n	bottom: 88px;\n	z-index: 2147483000;\n	padding: 6px 12px;\n	border: none;\n	border-radius: 999px;\n	background: var(--web-brand_normal, #f14646);\n	color: #fff;\n	font-size: 13px;\n	line-height: 1.4;\n	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);\n	cursor: pointer;\n	user-select: none;\n}\n\n.fqa-pc-toggle.fqa-pc-toggle-off {\n	background: #9a9a9a;\n}\n\nhtml.fqa-pc-off .fqa-pc-chip,\nhtml.fqa-pc-off .fqa-pc-summary {\n	display: none !important;\n}\n\n/* 深色（阅读器深色主题 / 系统深色） */\n.fqa-pc-drawer.fqa-pc-dark .fqa-pc-drawer-inner {\n	background: #1f1f23;\n	color: #e6e6e6;\n	border-left-color: rgba(255, 255, 255, 0.12);\n}\n\n.fqa-pc-dark .fqa-pc-drawer-hd {\n	border-bottom-color: rgba(255, 255, 255, 0.1);\n}\n\n.fqa-pc-dark .fqa-pc-text {\n	color: #e6e6e6;\n}\n\n.fqa-pc-dark .fqa-pc-item {\n	border-top-color: rgba(255, 255, 255, 0.08);\n}\n\n.fqa-pc-dark .fqa-pc-avatar {\n	background: rgba(255, 255, 255, 0.12);\n}\n\n.fqa-pc-dark .fqa-pc-drawer-close:hover {\n	background: rgba(255, 255, 255, 0.1);\n	color: #fff;\n}\n\n.fqa-pc-dark .fqa-pc-user,\n.fqa-pc-dark .fqa-pc-meta,\n.fqa-pc-dark .fqa-pc-drawer-snippet,\n.fqa-pc-dark .fqa-pc-drawer-count,\n.fqa-pc-dark .fqa-pc-status {\n	color: #9a9a9a;\n}\n\n.fqa-pc-dark .fqa-pc-replies-list {\n	background: rgba(255, 255, 255, 0.08);\n}\n\nhtml.fqa-pc-reader-dark .fqa-pc-para-active {\n	background: rgba(255, 255, 255, 0.08) !important;\n	box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08);\n}\n\nhtml.fqa-pc-reader-dark .fqa-pc-chip {\n	color: #8a8a8a;\n	border-color: #555;\n}\n\nhtml.fqa-pc-reader-dark .fqa-pc-chip:hover {\n	color: #e6e6e6;\n	border-color: #e6e6e6;\n}\n\nhtml.fqa-pc-reader-dark .fqa-cc-section {\n	background: rgba(255, 255, 255, 0.06);\n	border-color: rgba(255, 255, 255, 0.12);\n}\n\nhtml.fqa-pc-reader-dark .fqa-cc-title {\n	color: #e6e6e6;\n	border-bottom-color: rgba(255, 255, 255, 0.12);\n}\n\n@media (prefers-color-scheme: dark) {\n	.fqa-pc-drawer-inner {\n		background: #1f1f23;\n		color: #e6e6e6;\n		border-left-color: rgba(255, 255, 255, 0.12);\n	}\n\n	.fqa-pc-drawer-hd {\n		border-bottom-color: rgba(255, 255, 255, 0.1);\n	}\n\n	.fqa-pc-text {\n		color: #e6e6e6;\n	}\n\n	.fqa-pc-item {\n		border-top-color: rgba(255, 255, 255, 0.08);\n	}\n\n	.fqa-pc-avatar {\n		background: rgba(255, 255, 255, 0.12);\n	}\n\n	.fqa-pc-drawer-close:hover {\n		background: rgba(255, 255, 255, 0.1);\n		color: #fff;\n	}\n\n	.fqa-pc-user,\n	.fqa-pc-meta,\n	.fqa-pc-drawer-snippet,\n	.fqa-pc-drawer-count,\n	.fqa-pc-status {\n		color: #9a9a9a;\n	}\n}\n';
+  const TOOL_ID = "fqa-pc-toggle";
+  const STYLE_ID$5 = "fqa-pc-style";
+  function ensureCss() {
+    if (document.getElementById(STYLE_ID$5)) return;
+    const style = document.createElement("style");
+    style.id = STYLE_ID$5;
+    style.textContent = paraCommentCss;
+    document.head.appendChild(style);
+  }
+  const TOOL_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 4.5c-4.7 0-8.5 3.3-8.5 7.3 0 1.9.8 3.6 2.2 4.9-.2 1.2-.7 2.3-1.5 3.2 1.7-.2 3.2-.8 4.4-1.7.9.2 1.9.4 3.4.4 4.7 0 8.5-3.3 8.5-7.3S16.7 4.5 12 4.5z"/></svg>';
+  function readerParagraphs(container2) {
+    const root = container2.querySelector("article") ?? container2;
+    let els2 = Array.from(root.querySelectorAll("p")).filter((el) => (el.textContent ?? "").trim());
+    if (!els2.length) {
+      els2 = Array.from(root.children).filter(
+        (el) => el.nodeType === 1 && (el.tagName === "P" || el.tagName === "DIV") && Boolean((el.textContent ?? "").trim())
+      );
+    }
+    return els2;
+  }
+  function applyParaCommentState() {
+    document.documentElement.classList.toggle("fqa-pc-off", !settings$1.paraComment);
+    const el = document.getElementById(TOOL_ID);
+    if (!el) return;
+    if (el.classList.contains("fqa-pc-tool")) {
+      el.classList.toggle("fqa-pc-tool-on", settings$1.paraComment);
+      el.classList.toggle("fqa-pc-tool-off", !settings$1.paraComment);
+    } else {
+      el.textContent = settings$1.paraComment ? "段评 开" : "段评 关";
+      el.classList.toggle("fqa-pc-toggle-off", !settings$1.paraComment);
+    }
+  }
+  function initParaCommentToggle() {
+    ensureCss();
+    const toolbar = document.querySelector(".reader-toolbar");
+    if (toolbar) {
+      let item = document.getElementById(TOOL_ID);
+      if (!item || !toolbar.contains(item)) {
+        item = document.createElement("div");
+        item.id = TOOL_ID;
+        item.className = "reader-toolbar-item fqa-pc-tool";
+        item.setAttribute("role", "button");
+        item.setAttribute("tabindex", "0");
+        item.innerHTML = `<div class="reader-toolbar-item-icon">${TOOL_ICON}</div><div class="reader-toolbar-item-font">段评</div>`;
+        item.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          settings$1.paraComment = !settings$1.paraComment;
+          applyParaCommentState();
+        }, true);
+        const items = Array.from(toolbar.querySelectorAll(".reader-toolbar-item"));
+        const fontItem = items.find((el) => {
+          var _a;
+          return /字号|字体/.test(((_a = el.querySelector(".reader-toolbar-item-font")) == null ? void 0 : _a.textContent) ?? "");
+        });
+        if (fontItem) fontItem.insertAdjacentElement("afterend", item);
+        else toolbar.appendChild(item);
+      }
+      applyParaCommentState();
+      return;
+    }
+    let button = document.getElementById(TOOL_ID);
+    if (!button) {
+      button = document.createElement("button");
+      button.id = TOOL_ID;
+      button.type = "button";
+      button.className = "fqa-pc-toggle";
+      button.addEventListener("click", () => {
+        settings$1.paraComment = !settings$1.paraComment;
+        applyParaCommentState();
+      });
+      document.body.appendChild(button);
+    }
+    applyParaCommentState();
+  }
+  async function attachChapterComments(container2, itemId2, bookId2) {
+    var _a, _b, _c, _d;
+    if (container2.querySelector(".fqa-cc-section")) return;
+    const out = [];
+    let offset = 0;
+    for (let page2 = 0; page2 < 3; page2++) {
+      const res = await appGet("/ugc/novel_comment/item/v", {
+        item_id: itemId2,
+        offset: String(offset),
+        count: "50",
+        ...bookId2 ? { book_id: bookId2 } : {}
+      });
+      let data = null;
+      try {
+        data = (_a = res.json()) == null ? void 0 : _a.data;
+      } catch {
+        break;
+      }
+      const list = Array.isArray(data == null ? void 0 : data.comment) ? data.comment : [];
+      for (const c of list) {
+        const id = String((c == null ? void 0 : c.comment_id) ?? "");
+        if (!id) continue;
+        out.push({
+          id,
+          text: String((c == null ? void 0 : c.text) ?? ""),
+          create_time: Number(c == null ? void 0 : c.create_timestamp) || 0,
+          user: {
+            user_id: String(((_b = c == null ? void 0 : c.user_info) == null ? void 0 : _b.user_id) ?? ""),
+            name: String(((_c = c == null ? void 0 : c.user_info) == null ? void 0 : _c.user_name) ?? ""),
+            avatar: String(((_d = c == null ? void 0 : c.user_info) == null ? void 0 : _d.user_avatar) ?? "")
+          },
+          digg_count: Number(c == null ? void 0 : c.digg_count) || 0,
+          reply_count: Number(c == null ? void 0 : c.reply_count) || 0,
+          images: []
+        });
+      }
+      const next = Number(data == null ? void 0 : data.next_offset);
+      if (!(data == null ? void 0 : data.has_more) || !Number.isFinite(next) || next === offset || !list.length) break;
+      offset = next;
+    }
+    if (!out.length) return;
+    const root = container2.querySelector("article") ?? container2;
+    const section = document.createElement("section");
+    section.className = "fqa-cc-section";
+    const head = document.createElement("h3");
+    head.className = "fqa-cc-title";
+    head.textContent = `本章评论 · ${out.length} 条`;
+    section.appendChild(head);
+    for (const c of out) section.appendChild(buildCommentItem(c, itemId2, bookId2));
+    root.appendChild(section);
+  }
+  async function attachParaComments(container2, itemId2, bookId2) {
+    if (!itemId2) return;
+    ensureCss();
+    const paragraphs = readerParagraphs(container2);
+    if (!paragraphs.length) return;
+    const idea = await getParaIdeaList(itemId2, bookId2);
+    if (!idea.counts.size) return;
+    const summary = document.createElement("div");
+    summary.className = "fqa-pc-summary";
+    summary.textContent = `讨论热烈：本章含 ${idea.total} 条段评，${idea.counts.size} 段有评论`;
+    container2.insertBefore(summary, container2.firstChild);
+    for (const [idx, count] of idea.counts) {
+      const paragraph = paragraphs[idx];
+      if (!paragraph) continue;
+      const chip = document.createElement("span");
+      chip.className = "fqa-pc-chip";
+      chip.title = "查看段评";
+      const countEl = document.createElement("span");
+      countEl.className = "fqa-pc-count";
+      countEl.textContent = String(count);
+      chip.appendChild(countEl);
+      chip.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        void openParaDrawer(container2, paragraph, chip, count, itemId2, bookId2, idx, idea.item_version);
+      });
+      paragraph.appendChild(chip);
+    }
+    void attachChapterComments(container2, itemId2, bookId2);
+  }
   let currentBook = null;
   let latestItemId = null;
   let currentChapterWithContent = null;
@@ -5508,7 +6429,7 @@
     return scriptContainer;
   }
   async function insertContent() {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q;
     const itemId2 = ((_a = window.location.pathname.split("/").pop()) == null ? void 0 : _a.substring(0, 19)) || "";
     if (!itemId2) {
       console.warn("No item_id found in URL");
@@ -5553,6 +6474,9 @@
         const scriptContainer = ensureScriptContainer(readerContainer, false);
         scriptContainer.appendChild(toProcess);
         bindFootnoteInteraction(scriptContainer);
+        if (settings$1.paraComment) {
+          void attachParaComments(scriptContainer, itemId2, ((_h = chapter.novel_data) == null ? void 0 : _h.book_id) ?? "");
+        }
       }
     } else if (chapter.content.picInfos) {
       if (chapter.content.encrypt) {
@@ -5631,7 +6555,7 @@
     }
     const muyeReaderTitle = document.querySelector("h1.muye-reader-title");
     let muyeReaderSubtitle = document.querySelector("div.muye-reader-subtitle");
-    (_h = document.querySelector("#fqa-subtitle")) == null ? void 0 : _h.remove();
+    (_i = document.querySelector("#fqa-subtitle")) == null ? void 0 : _i.remove();
     if (muyeReaderSubtitle) {
       let _cloned = cloneElement(muyeReaderSubtitle);
       muyeReaderSubtitle.classList.add("fqa-hide");
@@ -5645,8 +6569,8 @@
       muyeReaderTitle.textContent = chapterTitle;
     }
     console.log("Current book:", currentBook);
-    if (!currentBook || currentBook == null || currentBook.book_id !== ((_i = chapter.novel_data) == null ? void 0 : _i.book_id)) {
-      currentBook = await getBookInfoAndCatalog((_j = chapter.novel_data) == null ? void 0 : _j.book_id);
+    if (!currentBook || currentBook == null || currentBook.book_id !== ((_j = chapter.novel_data) == null ? void 0 : _j.book_id)) {
+      currentBook = await getBookInfoAndCatalog((_k = chapter.novel_data) == null ? void 0 : _k.book_id);
       console.log("Current book:", currentBook);
     }
     if (currentBook && currentBook.chapter_list) {
@@ -5679,18 +6603,18 @@
           updateTimeSpan.innerHTML = "更新时间：" + currentChapterItem.update_time;
         } else {
           console.log("else");
-          (_k = updateTimeSpans[updateTimeSpans.length - 1]) == null ? void 0 : _k.remove();
+          (_l = updateTimeSpans[updateTimeSpans.length - 1]) == null ? void 0 : _l.remove();
           const updateTimeSpan = document.createElement("span");
           updateTimeSpan.className = "desc-item";
           updateTimeSpan.textContent = `更新时间：${currentChapterItem.update_time}`;
-          console.log("assert equal", currentChapterItem.item_id === ((_l = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _l.item_id));
-          console.log("wordcnt", (_m = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _m.chapter_word_number);
+          console.log("assert equal", currentChapterItem.item_id === ((_m = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _m.item_id));
+          console.log("wordcnt", (_n = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _n.chapter_word_number);
           const c = document.getElementById("fqa-current-chapter-volume");
           let b = null;
-          if (currentChapterItem.item_id === ((_n = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _n.item_id)) {
+          if (currentChapterItem.item_id === ((_o = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _o.item_id)) {
             const wordCntSpan = document.createElement("span");
             wordCntSpan.className = "desc-item";
-            wordCntSpan.textContent = `本章字数：${(_o = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _o.chapter_word_number}字`;
+            wordCntSpan.textContent = `本章字数：${(_p = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _p.chapter_word_number}字`;
             console.log(wordCntSpan);
             if (c) {
               console.log("insert wordcnt");
@@ -5699,7 +6623,7 @@
             b = wordCntSpan;
           }
           console.log("insert update time");
-          (_p = b || c) == null ? void 0 : _p.insertAdjacentElement("afterend", updateTimeSpan);
+          (_q = b || c) == null ? void 0 : _q.insertAdjacentElement("afterend", updateTimeSpan);
         }
       }
     }
@@ -5726,41 +6650,56 @@
       title: (currentBook == null ? void 0 : currentBook.title) ?? document.title
     });
   }
+  async function ensureAudiobookButton() {
+    var _a;
+    for (let attempt = 0; attempt < 40; attempt++) {
+      const toolbar = document.querySelector(".reader-toolbar");
+      if (toolbar) {
+        const existing = document.getElementById("fqa-toggle-audiobook");
+        if (existing && toolbar.contains(existing)) return;
+        const items = Array.from(toolbar.querySelectorAll(".reader-toolbar-item"));
+        const template = items[2] ?? items[0];
+        if (template) {
+          const c = cloneElement(template);
+          c.id = "fqa-toggle-audiobook";
+          c.classList.remove("reader-toolbar-item-disabled");
+          const listenIcon = document.createElement("span");
+          listenIcon.textContent = "听";
+          listenIcon.style.width = "24px";
+          listenIcon.style.height = "24px";
+          listenIcon.style.fontSize = "24px";
+          listenIcon.style.lineHeight = "24px";
+          listenIcon.classList.add("muyeicon-icon");
+          listenIcon.classList.add("reader-toolbar-item-icon");
+          (_a = c.firstChild) == null ? void 0 : _a.replaceWith(listenIcon);
+          const l = c.lastChild;
+          if (l) {
+            l.textContent = "听书";
+          }
+          c.addEventListener("click", () => void startAudioPlay());
+          const last = items[items.length - 1] ?? template;
+          last.insertAdjacentElement("afterend", c);
+          return;
+        }
+      }
+      await sleep(200);
+    }
+    console.warn("[fqa:reader] 未找到阅读器工具栏，听书按钮未注入");
+  }
   async function onUrlChange$1(_previous) {
     await insertContent();
   }
   async function onHashChange$1(_previous) {
   }
   async function onLoad$1() {
-    var _a;
     async function fetchBookInfo() {
-      var _a2, _b;
+      var _a, _b;
       const pageState = unsafeWindow.__INITIAL_STATE__;
-      const bid = (_b = (_a2 = pageState == null ? void 0 : pageState.reader) == null ? void 0 : _a2.chapterData) == null ? void 0 : _b.bookId;
+      const bid = (_b = (_a = pageState == null ? void 0 : pageState.reader) == null ? void 0 : _a.chapterData) == null ? void 0 : _b.bookId;
       currentBook = await getBookInfoAndCatalog(bid);
     }
     void fetchBookInfo();
-    const toolbar = document.querySelector("div.reader-toolbar > div");
-    const toolbarButton = document.querySelector("div.reader-toolbar > div > div:nth-child(3)");
-    if (toolbarButton && toolbar) {
-      const c = cloneElement(toolbarButton);
-      c.id = "fqa-toggle-audiobook";
-      const listenIcon = document.createElement("span");
-      listenIcon.textContent = "听";
-      listenIcon.style.width = "24px";
-      listenIcon.style.height = "24px";
-      listenIcon.style.fontSize = "24px";
-      listenIcon.style.lineHeight = "24px";
-      listenIcon.classList.add("muyeicon-icon");
-      listenIcon.classList.add("reader-toolbar-item-icon");
-      (_a = c.firstChild) == null ? void 0 : _a.replaceWith(listenIcon);
-      const l = c.lastChild;
-      if (l) {
-        l.textContent = "听书";
-      }
-      c.addEventListener("click", () => void startAudioPlay());
-      toolbar.appendChild(c);
-    }
+    void ensureAudiobookButton();
     const bookshelfButton = document.querySelector("div.reader-toolbar-item");
     if (userState.isLogin && bookshelfButton && bookshelfButton.innerHTML.includes("书架")) {
       const shelf = cloneElement(bookshelfButton);
@@ -5802,6 +6741,7 @@
       });
     }
     document.querySelector("div.muye-reader-btns");
+    initParaCommentToggle();
     await insertContent();
   }
   function readerFilter(path, _query, _hash) {
@@ -5830,7 +6770,7 @@
   const bookshelf = '<svg xmlns="http://www.w3.org/2000/svg"\r\n     width="24"\r\n     height="24"\r\n     viewBox="0 0 24 24"\r\n     fill="none"\r\n     stroke="currentColor"\r\n     stroke-width="1.2"\r\n     stroke-linecap="round"\r\n     stroke-linejoin="round">\r\n  <path d="M3.5 20h17"/>\r\n  <rect x="5" y="7" width="3.5" height="13" rx="0.8"/>\r\n  <rect x="8.5" y="5" width="4" height="15" rx="0.8"/>\r\n  <path d="M15.1 6.2 18 5.5l3.1 13.6-2.9.7z"/>\r\n  <path d="M9.8 8h1.4M6.1 10h1.3M17 8.8l1.3-.3"/>\r\n</svg>';
   const settings = '<?xml version="1.0" encoding="utf-8"?>\r\n<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">\r\n    <path fill-rule="evenodd" clip-rule="evenodd"\r\n        d="M12 8.25C9.92894 8.25 8.25 9.92893 8.25 12C8.25 14.0711 9.92894 15.75 12 15.75C14.0711 15.75 15.75 14.0711 15.75 12C15.75 9.92893 14.0711 8.25 12 8.25ZM9.75 12C9.75 10.7574 10.7574 9.75 12 9.75C13.2426 9.75 14.25 10.7574 14.25 12C14.25 13.2426 13.2426 14.25 12 14.25C10.7574 14.25 9.75 13.2426 9.75 12Z"\r\n        fill="currentColor" />\r\n    <path fill-rule="evenodd" clip-rule="evenodd"\r\n        d="M11.9747 1.25C11.5303 1.24999 11.1592 1.24999 10.8546 1.27077C10.5375 1.29241 10.238 1.33905 9.94761 1.45933C9.27379 1.73844 8.73843 2.27379 8.45932 2.94762C8.31402 3.29842 8.27467 3.66812 8.25964 4.06996C8.24756 4.39299 8.08454 4.66251 7.84395 4.80141C7.60337 4.94031 7.28845 4.94673 7.00266 4.79568C6.64714 4.60777 6.30729 4.45699 5.93083 4.40743C5.20773 4.31223 4.47642 4.50819 3.89779 4.95219C3.64843 5.14353 3.45827 5.3796 3.28099 5.6434C3.11068 5.89681 2.92517 6.21815 2.70294 6.60307L2.67769 6.64681C2.45545 7.03172 2.26993 7.35304 2.13562 7.62723C1.99581 7.91267 1.88644 8.19539 1.84541 8.50701C1.75021 9.23012 1.94617 9.96142 2.39016 10.5401C2.62128 10.8412 2.92173 11.0602 3.26217 11.2741C3.53595 11.4461 3.68788 11.7221 3.68786 12C3.68785 12.2778 3.53592 12.5538 3.26217 12.7258C2.92169 12.9397 2.62121 13.1587 2.39007 13.4599C1.94607 14.0385 1.75012 14.7698 1.84531 15.4929C1.88634 15.8045 1.99571 16.0873 2.13552 16.3727C2.26983 16.6469 2.45535 16.9682 2.67758 17.3531L2.70284 17.3969C2.92507 17.7818 3.11058 18.1031 3.28089 18.3565C3.45817 18.6203 3.64833 18.8564 3.89769 19.0477C4.47632 19.4917 5.20763 19.6877 5.93073 19.5925C6.30717 19.5429 6.647 19.3922 7.0025 19.2043C7.28833 19.0532 7.60329 19.0596 7.8439 19.1986C8.08452 19.3375 8.24756 19.607 8.25964 19.9301C8.27467 20.3319 8.31403 20.7016 8.45932 21.0524C8.73843 21.7262 9.27379 22.2616 9.94761 22.5407C10.238 22.661 10.5375 22.7076 10.8546 22.7292C11.1592 22.75 11.5303 22.75 11.9747 22.75H12.0252C12.4697 22.75 12.8407 22.75 13.1454 22.7292C13.4625 22.7076 13.762 22.661 14.0524 22.5407C14.7262 22.2616 15.2616 21.7262 15.5407 21.0524C15.686 20.7016 15.7253 20.3319 15.7403 19.93C15.7524 19.607 15.9154 19.3375 16.156 19.1985C16.3966 19.0596 16.7116 19.0532 16.9974 19.2042C17.3529 19.3921 17.6927 19.5429 18.0692 19.5924C18.7923 19.6876 19.5236 19.4917 20.1022 19.0477C20.3516 18.8563 20.5417 18.6203 20.719 18.3565C20.8893 18.1031 21.0748 17.7818 21.297 17.3969L21.3223 17.3531C21.5445 16.9682 21.7301 16.6468 21.8644 16.3726C22.0042 16.0872 22.1135 15.8045 22.1546 15.4929C22.2498 14.7697 22.0538 14.0384 21.6098 13.4598C21.3787 13.1586 21.0782 12.9397 20.7378 12.7258C20.464 12.5538 20.3121 12.2778 20.3121 11.9999C20.3121 11.7221 20.464 11.4462 20.7377 11.2742C21.0783 11.0603 21.3788 10.8414 21.6099 10.5401C22.0539 9.96149 22.2499 9.23019 22.1547 8.50708C22.1136 8.19546 22.0043 7.91274 21.8645 7.6273C21.7302 7.35313 21.5447 7.03183 21.3224 6.64695L21.2972 6.60318C21.0749 6.21825 20.8894 5.89688 20.7191 5.64347C20.5418 5.37967 20.3517 5.1436 20.1023 4.95225C19.5237 4.50826 18.7924 4.3123 18.0692 4.4075C17.6928 4.45706 17.353 4.60782 16.9975 4.79572C16.7117 4.94679 16.3967 4.94036 16.1561 4.80144C15.9155 4.66253 15.7524 4.39297 15.7403 4.06991C15.7253 3.66808 15.686 3.2984 15.5407 2.94762C15.2616 2.27379 14.7262 1.73844 14.0524 1.45933C13.762 1.33905 13.4625 1.29241 13.1454 1.27077C12.8407 1.24999 12.4697 1.24999 12.0252 1.25H11.9747ZM10.5216 2.84515C10.5988 2.81319 10.716 2.78372 10.9567 2.76729C11.2042 2.75041 11.5238 2.75 12 2.75C12.4762 2.75 12.7958 2.75041 13.0432 2.76729C13.284 2.78372 13.4012 2.81319 13.4783 2.84515C13.7846 2.97202 14.028 3.21536 14.1548 3.52165C14.1949 3.61826 14.228 3.76887 14.2414 4.12597C14.271 4.91835 14.68 5.68129 15.4061 6.10048C16.1321 6.51968 16.9974 6.4924 17.6984 6.12188C18.0143 5.9549 18.1614 5.90832 18.265 5.89467C18.5937 5.8514 18.9261 5.94047 19.1891 6.14228C19.2554 6.19312 19.3395 6.27989 19.4741 6.48016C19.6125 6.68603 19.7726 6.9626 20.0107 7.375C20.2488 7.78741 20.4083 8.06438 20.5174 8.28713C20.6235 8.50382 20.6566 8.62007 20.6675 8.70287C20.7108 9.03155 20.6217 9.36397 20.4199 9.62698C20.3562 9.70995 20.2424 9.81399 19.9397 10.0041C19.2684 10.426 18.8122 11.1616 18.8121 11.9999C18.8121 12.8383 19.2683 13.574 19.9397 13.9959C20.2423 14.186 20.3561 14.29 20.4198 14.373C20.6216 14.636 20.7107 14.9684 20.6674 15.2971C20.6565 15.3799 20.6234 15.4961 20.5173 15.7128C20.4082 15.9355 20.2487 16.2125 20.0106 16.6249C19.7725 17.0373 19.6124 17.3139 19.474 17.5198C19.3394 17.72 19.2553 17.8068 19.189 17.8576C18.926 18.0595 18.5936 18.1485 18.2649 18.1053C18.1613 18.0916 18.0142 18.045 17.6983 17.8781C16.9973 17.5075 16.132 17.4803 15.4059 17.8995C14.68 18.3187 14.271 19.0816 14.2414 19.874C14.228 20.2311 14.1949 20.3817 14.1548 20.4784C14.028 20.7846 13.7846 21.028 13.4783 21.1549C13.4012 21.1868 13.284 21.2163 13.0432 21.2327C12.7958 21.2496 12.4762 21.25 12 21.25C11.5238 21.25 11.2042 21.2496 10.9567 21.2327C10.716 21.2163 10.5988 21.1868 10.5216 21.1549C10.2154 21.028 9.97201 20.7846 9.84514 20.4784C9.80512 20.3817 9.77195 20.2311 9.75859 19.874C9.72896 19.0817 9.31997 18.3187 8.5939 17.8995C7.86784 17.4803 7.00262 17.5076 6.30158 17.8781C5.98565 18.0451 5.83863 18.0917 5.73495 18.1053C5.40626 18.1486 5.07385 18.0595 4.81084 17.8577C4.74458 17.8069 4.66045 17.7201 4.52586 17.5198C4.38751 17.314 4.22736 17.0374 3.98926 16.625C3.75115 16.2126 3.59171 15.9356 3.4826 15.7129C3.37646 15.4962 3.34338 15.3799 3.33248 15.2971C3.28921 14.9684 3.37828 14.636 3.5801 14.373C3.64376 14.2901 3.75761 14.186 4.0602 13.9959C4.73158 13.5741 5.18782 12.8384 5.18786 12.0001C5.18791 11.1616 4.73165 10.4259 4.06021 10.004C3.75769 9.81389 3.64385 9.70987 3.58019 9.62691C3.37838 9.3639 3.28931 9.03149 3.33258 8.7028C3.34348 8.62001 3.37656 8.50375 3.4827 8.28707C3.59181 8.06431 3.75125 7.78734 3.98935 7.37493C4.22746 6.96253 4.3876 6.68596 4.52596 6.48009C4.66055 6.27983 4.74468 6.19305 4.81093 6.14222C5.07395 5.9404 5.40636 5.85133 5.73504 5.8946C5.83873 5.90825 5.98576 5.95483 6.30173 6.12184C7.00273 6.49235 7.86791 6.51962 8.59394 6.10045C9.31998 5.68128 9.72896 4.91837 9.75859 4.12602C9.77195 3.76889 9.80512 3.61827 9.84514 3.52165C9.97201 3.21536 10.2154 2.97202 10.5216 2.84515Z"\r\n        fill="currentColor" />\r\n</svg>';
   const name = "fanqie-assistant";
-  const version = "0.0.6";
+  const version = "0.0.7";
   const _hoisted_1$9 = {
     class: "fqa-set-dialog",
     role: "dialog",
@@ -6454,7 +7394,7 @@
       };
     }
   });
-  const settingscss = "/* 助手设置面板 */\n\n.fqa-set-mask {\n    position: fixed;\n    inset: 0;\n    z-index: 2147483200;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    background: rgba(0, 0, 0, 0.45);\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\n        sans-serif;\n    font-size: 14px;\n    line-height: 1.6;\n    color: var(--fqa-set-text, #1f2329);\n}\n\n.fqa-set-dialog {\n    --fqa-set-bg: #fff;\n    --fqa-set-side-bg: #f7f8fa;\n    --fqa-set-text: #1f2329;\n    --fqa-set-sub: #8f959e;\n    --fqa-set-border: rgba(31, 35, 41, 0.1);\n    --fqa-set-accent: #ff6f3d;\n    --fqa-set-hover: rgba(31, 35, 41, 0.05);\n\n    position: relative;\n    display: flex;\n    width: min(760px, 92vw);\n    height: min(520px, 84vh);\n    background: var(--fqa-set-bg);\n    color: var(--fqa-set-text);\n    border-radius: 12px;\n    overflow: hidden;\n    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.24);\n}\n\n.fqa-set-close {\n    position: absolute;\n    top: 10px;\n    right: 12px;\n    width: 28px;\n    height: 28px;\n    padding: 0;\n    border: none;\n    border-radius: 6px;\n    background: transparent;\n    color: var(--fqa-set-sub);\n    font-size: 15px;\n    line-height: 1;\n    cursor: pointer;\n}\n\n.fqa-set-close:hover {\n    background: var(--fqa-set-hover);\n    color: var(--fqa-set-text);\n}\n\n/* 左侧栏 */\n.fqa-set-side {\n    flex: 0 0 148px;\n    padding: 16px 8px;\n    box-sizing: border-box;\n    background: var(--fqa-set-side-bg);\n    border-right: 1px solid var(--fqa-set-border);\n    overflow-y: auto;\n}\n\n.fqa-set-side-title {\n    padding: 0 10px 12px;\n    font-size: 15px;\n    font-weight: 600;\n}\n\n.fqa-set-nav {\n    padding: 8px 10px;\n    margin-bottom: 2px;\n    border-radius: 6px;\n    cursor: pointer;\n    user-select: none;\n}\n\n.fqa-set-nav:hover {\n    background: var(--fqa-set-hover);\n}\n\n.fqa-set-nav-active {\n    background: var(--fqa-set-hover);\n    color: var(--fqa-set-accent);\n    font-weight: 600;\n}\n\n/* 右侧内容 */\n.fqa-set-main {\n    flex: 1 1 auto;\n    padding: 20px 24px;\n    box-sizing: border-box;\n    overflow-y: auto;\n}\n\n.fqa-set-h {\n    margin: 0 0 14px;\n    font-size: 16px;\n    font-weight: 600;\n}\n\n.fqa-set-row {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 16px;\n    padding: 10px 0;\n    border-bottom: 1px solid var(--fqa-set-border);\n}\n\n.fqa-set-row:last-child {\n    border-bottom: none;\n}\n\n.fqa-set-row-col {\n    display: block;\n}\n\n.fqa-set-label {\n    font-size: 14px;\n}\n\n.fqa-set-note {\n    margin: 6px 0 0;\n    font-size: 12px;\n    color: var(--fqa-set-sub);\n}\n\n.fqa-set-warn {\n    margin: 6px 0 10px;\n    padding: 8px 10px;\n    font-size: 12px;\n    color: #a8371f;\n    background: rgba(255, 111, 61, 0.1);\n    border-left: 3px solid var(--fqa-set-accent);\n    border-radius: 0 4px 4px 0;\n}\n\n/* 开关：用原生 checkbox 改造，避免额外依赖 */\n.fqa-set-switch {\n    appearance: none;\n    flex: 0 0 auto;\n    position: relative;\n    width: 38px;\n    height: 22px;\n    margin: 0;\n    border-radius: 11px;\n    background: rgba(31, 35, 41, 0.18);\n    cursor: pointer;\n    transition: background 0.18s ease;\n}\n\n.fqa-set-switch::after {\n    content: '';\n    position: absolute;\n    top: 2px;\n    left: 2px;\n    width: 18px;\n    height: 18px;\n    border-radius: 50%;\n    background: #fff;\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);\n    transition: transform 0.18s ease;\n}\n\n.fqa-set-switch:checked {\n    background: var(--fqa-set-accent);\n}\n\n.fqa-set-switch:checked::after {\n    transform: translateX(16px);\n}\n\n.fqa-set-input {\n    width: 100%;\n    margin-top: 8px;\n    padding: 7px 10px;\n    box-sizing: border-box;\n    border: 1px solid var(--fqa-set-border);\n    border-radius: 6px;\n    background: var(--fqa-set-bg);\n    color: var(--fqa-set-text);\n    font-size: 13px;\n    font-family: inherit;\n}\n\n.fqa-set-input:focus {\n    outline: none;\n    border-color: var(--fqa-set-accent);\n}\n\n.fqa-set-textarea {\n    width: 100%;\n    min-height: 150px;\n    margin-top: 10px;\n    padding: 10px;\n    box-sizing: border-box;\n    border: 1px solid var(--fqa-set-border);\n    border-radius: 6px;\n    background: var(--fqa-set-bg);\n    color: var(--fqa-set-text);\n    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;\n    font-size: 12px;\n    line-height: 1.6;\n    resize: vertical;\n}\n\n.fqa-set-textarea:disabled {\n    background: var(--fqa-set-side-bg);\n    color: var(--fqa-set-sub);\n    cursor: not-allowed;\n}\n\n.fqa-set-textarea:focus {\n    outline: none;\n    border-color: var(--fqa-set-accent);\n}\n\n.fqa-set-radios {\n    display: flex;\n    gap: 20px;\n    margin-top: 8px;\n}\n\n.fqa-set-radio {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    cursor: pointer;\n}\n\n.fqa-set-radio input {\n    accent-color: var(--fqa-set-accent);\n}\n\n.fqa-set-field {\n    display: block;\n    margin-top: 10px;\n    font-size: 12px;\n    color: var(--fqa-set-sub);\n}\n\n.fqa-set-actions {\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    margin-top: 14px;\n}\n\n.fqa-set-btn {\n    padding: 7px 16px;\n    border: 1px solid var(--fqa-set-border);\n    border-radius: 6px;\n    background: var(--fqa-set-bg);\n    color: var(--fqa-set-text);\n    font-size: 13px;\n    font-family: inherit;\n    cursor: pointer;\n}\n\n.fqa-set-btn:hover:not(:disabled) {\n    border-color: var(--fqa-set-accent);\n    color: var(--fqa-set-accent);\n}\n\n.fqa-set-btn:disabled {\n    color: var(--fqa-set-sub);\n    cursor: not-allowed;\n}\n\n/* 关于 */\n.fqa-set-links {\n    margin-top: 12px;\n}\n\n.fqa-set-link-row {\n    margin-bottom: 10px;\n    font-size: 13px;\n    word-break: break-all;\n}\n\n.fqa-set-link-row a {\n    color: var(--fqa-set-accent);\n    text-decoration: none;\n}\n\n.fqa-set-link-row a:hover {\n    text-decoration: underline;\n}\n\n.fqa-set-license {\n    margin-top: 20px;\n    padding-top: 14px;\n    border-top: 1px solid var(--fqa-set-border);\n    font-size: 12px;\n    color: var(--fqa-set-sub);\n}\n\n.fqa-set-license p {\n    margin: 0 0 6px;\n}\n\n/* 深色 */\n@media (prefers-color-scheme: dark) {\n    .fqa-set-dialog {\n        --fqa-set-bg: #23272e;\n        --fqa-set-side-bg: #1c2026;\n        --fqa-set-text: #e5e6eb;\n        --fqa-set-sub: #8f959e;\n        --fqa-set-border: rgba(255, 255, 255, 0.12);\n        --fqa-set-hover: rgba(255, 255, 255, 0.08);\n    }\n\n    .fqa-set-switch {\n        background: rgba(255, 255, 255, 0.2);\n    }\n\n    .fqa-set-warn {\n        color: #ffb59b;\n    }\n}\n";
+  const settingscss = "/* 助手设置面板 */\r\n\r\n.fqa-set-mask {\r\n    position: fixed;\r\n    inset: 0;\r\n    z-index: 2147483200;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    background: rgba(0, 0, 0, 0.45);\r\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\r\n        sans-serif;\r\n    font-size: 14px;\r\n    line-height: 1.6;\r\n    color: var(--fqa-set-text, #1f2329);\r\n}\r\n\r\n.fqa-set-dialog {\r\n    --fqa-set-bg: #fff;\r\n    --fqa-set-side-bg: #f7f8fa;\r\n    --fqa-set-text: #1f2329;\r\n    --fqa-set-sub: #8f959e;\r\n    --fqa-set-border: rgba(31, 35, 41, 0.1);\r\n    --fqa-set-accent: #ff6f3d;\r\n    --fqa-set-hover: rgba(31, 35, 41, 0.05);\r\n\r\n    position: relative;\r\n    display: flex;\r\n    width: min(760px, 92vw);\r\n    height: min(520px, 84vh);\r\n    background: var(--fqa-set-bg);\r\n    color: var(--fqa-set-text);\r\n    border-radius: 12px;\r\n    overflow: hidden;\r\n    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.24);\r\n}\r\n\r\n.fqa-set-close {\r\n    position: absolute;\r\n    top: 10px;\r\n    right: 12px;\r\n    width: 28px;\r\n    height: 28px;\r\n    padding: 0;\r\n    border: none;\r\n    border-radius: 6px;\r\n    background: transparent;\r\n    color: var(--fqa-set-sub);\r\n    font-size: 15px;\r\n    line-height: 1;\r\n    cursor: pointer;\r\n}\r\n\r\n.fqa-set-close:hover {\r\n    background: var(--fqa-set-hover);\r\n    color: var(--fqa-set-text);\r\n}\r\n\r\n/* 左侧栏 */\r\n.fqa-set-side {\r\n    flex: 0 0 148px;\r\n    padding: 16px 8px;\r\n    box-sizing: border-box;\r\n    background: var(--fqa-set-side-bg);\r\n    border-right: 1px solid var(--fqa-set-border);\r\n    overflow-y: auto;\r\n}\r\n\r\n.fqa-set-side-title {\r\n    padding: 0 10px 12px;\r\n    font-size: 15px;\r\n    font-weight: 600;\r\n}\r\n\r\n.fqa-set-nav {\r\n    padding: 8px 10px;\r\n    margin-bottom: 2px;\r\n    border-radius: 6px;\r\n    cursor: pointer;\r\n    user-select: none;\r\n}\r\n\r\n.fqa-set-nav:hover {\r\n    background: var(--fqa-set-hover);\r\n}\r\n\r\n.fqa-set-nav-active {\r\n    background: var(--fqa-set-hover);\r\n    color: var(--fqa-set-accent);\r\n    font-weight: 600;\r\n}\r\n\r\n/* 右侧内容 */\r\n.fqa-set-main {\r\n    flex: 1 1 auto;\r\n    padding: 20px 24px;\r\n    box-sizing: border-box;\r\n    overflow-y: auto;\r\n}\r\n\r\n.fqa-set-h {\r\n    margin: 0 0 14px;\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n}\r\n\r\n.fqa-set-row {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    gap: 16px;\r\n    padding: 10px 0;\r\n    border-bottom: 1px solid var(--fqa-set-border);\r\n}\r\n\r\n.fqa-set-row:last-child {\r\n    border-bottom: none;\r\n}\r\n\r\n.fqa-set-row-col {\r\n    display: block;\r\n}\r\n\r\n.fqa-set-label {\r\n    font-size: 14px;\r\n}\r\n\r\n.fqa-set-note {\r\n    margin: 6px 0 0;\r\n    font-size: 12px;\r\n    color: var(--fqa-set-sub);\r\n}\r\n\r\n.fqa-set-warn {\r\n    margin: 6px 0 10px;\r\n    padding: 8px 10px;\r\n    font-size: 12px;\r\n    color: #a8371f;\r\n    background: rgba(255, 111, 61, 0.1);\r\n    border-left: 3px solid var(--fqa-set-accent);\r\n    border-radius: 0 4px 4px 0;\r\n}\r\n\r\n/* 开关：用原生 checkbox 改造，避免额外依赖 */\r\n.fqa-set-switch {\r\n    appearance: none;\r\n    flex: 0 0 auto;\r\n    position: relative;\r\n    width: 38px;\r\n    height: 22px;\r\n    margin: 0;\r\n    border-radius: 11px;\r\n    background: rgba(31, 35, 41, 0.18);\r\n    cursor: pointer;\r\n    transition: background 0.18s ease;\r\n}\r\n\r\n.fqa-set-switch::after {\r\n    content: '';\r\n    position: absolute;\r\n    top: 2px;\r\n    left: 2px;\r\n    width: 18px;\r\n    height: 18px;\r\n    border-radius: 50%;\r\n    background: #fff;\r\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);\r\n    transition: transform 0.18s ease;\r\n}\r\n\r\n.fqa-set-switch:checked {\r\n    background: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-switch:checked::after {\r\n    transform: translateX(16px);\r\n}\r\n\r\n.fqa-set-input {\r\n    width: 100%;\r\n    margin-top: 8px;\r\n    padding: 7px 10px;\r\n    box-sizing: border-box;\r\n    border: 1px solid var(--fqa-set-border);\r\n    border-radius: 6px;\r\n    background: var(--fqa-set-bg);\r\n    color: var(--fqa-set-text);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n}\r\n\r\n.fqa-set-input:focus {\r\n    outline: none;\r\n    border-color: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-textarea {\r\n    width: 100%;\r\n    min-height: 150px;\r\n    margin-top: 10px;\r\n    padding: 10px;\r\n    box-sizing: border-box;\r\n    border: 1px solid var(--fqa-set-border);\r\n    border-radius: 6px;\r\n    background: var(--fqa-set-bg);\r\n    color: var(--fqa-set-text);\r\n    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;\r\n    font-size: 12px;\r\n    line-height: 1.6;\r\n    resize: vertical;\r\n}\r\n\r\n.fqa-set-textarea:disabled {\r\n    background: var(--fqa-set-side-bg);\r\n    color: var(--fqa-set-sub);\r\n    cursor: not-allowed;\r\n}\r\n\r\n.fqa-set-textarea:focus {\r\n    outline: none;\r\n    border-color: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-radios {\r\n    display: flex;\r\n    gap: 20px;\r\n    margin-top: 8px;\r\n}\r\n\r\n.fqa-set-radio {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    cursor: pointer;\r\n}\r\n\r\n.fqa-set-radio input {\r\n    accent-color: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-field {\r\n    display: block;\r\n    margin-top: 10px;\r\n    font-size: 12px;\r\n    color: var(--fqa-set-sub);\r\n}\r\n\r\n.fqa-set-actions {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 12px;\r\n    margin-top: 14px;\r\n}\r\n\r\n.fqa-set-btn {\r\n    padding: 7px 16px;\r\n    border: 1px solid var(--fqa-set-border);\r\n    border-radius: 6px;\r\n    background: var(--fqa-set-bg);\r\n    color: var(--fqa-set-text);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n    cursor: pointer;\r\n}\r\n\r\n.fqa-set-btn:hover:not(:disabled) {\r\n    border-color: var(--fqa-set-accent);\r\n    color: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-btn:disabled {\r\n    color: var(--fqa-set-sub);\r\n    cursor: not-allowed;\r\n}\r\n\r\n/* 关于 */\r\n.fqa-set-links {\r\n    margin-top: 12px;\r\n}\r\n\r\n.fqa-set-link-row {\r\n    margin-bottom: 10px;\r\n    font-size: 13px;\r\n    word-break: break-all;\r\n}\r\n\r\n.fqa-set-link-row a {\r\n    color: var(--fqa-set-accent);\r\n    text-decoration: none;\r\n}\r\n\r\n.fqa-set-link-row a:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\n.fqa-set-license {\r\n    margin-top: 20px;\r\n    padding-top: 14px;\r\n    border-top: 1px solid var(--fqa-set-border);\r\n    font-size: 12px;\r\n    color: var(--fqa-set-sub);\r\n}\r\n\r\n.fqa-set-license p {\r\n    margin: 0 0 6px;\r\n}\r\n\r\n/* 深色 */\r\n@media (prefers-color-scheme: dark) {\r\n    .fqa-set-dialog {\r\n        --fqa-set-bg: #23272e;\r\n        --fqa-set-side-bg: #1c2026;\r\n        --fqa-set-text: #e5e6eb;\r\n        --fqa-set-sub: #8f959e;\r\n        --fqa-set-border: rgba(255, 255, 255, 0.12);\r\n        --fqa-set-hover: rgba(255, 255, 255, 0.08);\r\n    }\r\n\r\n    .fqa-set-switch {\r\n        background: rgba(255, 255, 255, 0.2);\r\n    }\r\n\r\n    .fqa-set-warn {\r\n        color: #ffb59b;\r\n    }\r\n}\r\n";
   const CONTAINER_ID$3 = "fqa-settings-root";
   const STYLE_ID$4 = "fqa-settings-style";
   let app$3 = null;
@@ -8343,7 +9283,7 @@ ${bodyContent}
       });
     }
   }
-  const appcss = "/* \n * 番茄小说APP内置CSS\n * 版权归属为番茄小说APP官方\n * 修改以兼容网页环境\n *\n * line-space / theme-color 是 APP 排版引擎的私有属性，浏览器和 EPUB 阅读器都不认，\n * 已注释保留以便和原始样式对照。theme-color 的值 color1#0.7 还会让 CSS 解析器跑偏，\n * 把后面几条声明一起吃掉，必须注释而不能留着。\n */\n\nhtml{\n    display:block;\n}\n\nbody{\n    display:block;\n}\n\np{\n    font-size:1em;\n    text-align:justify;\n    display:block;\n    text-indent:2em;\n    margin:0.6em 0em 0.6em 0em;\n}\n\ndiv{\n    display:block;\n}\n\nh1{\n    display:block;\n    font-size:1.42em;\n    font-weight:bold;\n    margin:22px 0em 3em 0em;\n    text-align:left;\n    /* line-space:0.5em; */\n}\n\nh2{\n    display:block;\n    font-size:1.2em;\n    font-weight:bold;\n    margin:1em 0em 0.6em 0em;\n    text-align:left;\n}\n\nh3{\n    display:block;\n    font-size:1em;\n    font-weight:bold;\n    margin:0em 0em 1em 0em;\n    text-align:left;\n}\n\nsup{\n    font-size:smaller;\n}\n\n.picture{\n    text-indent:0em;\n    text-align:center;\n    margin:0em 0em 0em 0em;\n    /* line-space:0em; */\n}\n\n.pictureDesc{\n    font-size:0.73em;\n    text-indent:0em;\n    margin:0.4em 0em 1em 0em;\n    /* theme-color:color1#0.7; */\n    /* line-space:0.3em; */\n    text-align:left;\n}\n\n.pictureTitle{\n    font-size:0.73em;\n    text-indent:0em;\n    margin:1em 0em 0.3em 0em;\n    /* theme-color:color1#0.7; */\n    text-align:left;\n    /* line-space:0em; */\n}\n\n.collectTitle{\n    margin:80px 68px 0em 0px;\n    font-size:1.42em;\n    text-indent:0em;\n    text-align:left;\n}\n\n.collectAuthor{\n    margin:16px 0em 0em 0em;\n    font-size:1em;\n    text-indent:0em;\n    text-align:left;\n}\n\n.collectPicture{\n    margin:24px 0em 0em 0em;\n    text-indent:0em;\n    text-align:right;\n}\n\n.collectDetail{\n    margin:3em 44px 0em 10px;\n    text-indent:0em;\n}\n\n.quoteDefault{\n    font-size:1em;\n    margin:1.5em 0em 1.5em 2em;\n    font-family:'FZShengShiKaiShuS-M-GB';\n    /* line-space:0.5em; */\n}\n\n.quoteStyle1{\n    text-indent:0em;\n    text-align:left;\n}\n\n.alignRight{\n    text-align:right;\n}\n\n.quoteDefaultAlignRight{\n    font-size:1em;\n    margin:0.6em 0em 1.5em 32px;\n    font-family:'FZShengShiKaiShuS-M-GB';\n    text-align:right;\n    /* line-space:0.5em; */\n}\n.chapterTitle1{\n    display:block;\n    font-size:1.42em;\n    font-weight:bold;\n    margin:22px 0em 3em 0em;\n    text-align:left;\n    /* line-space:0.5em; */\n}\n\n.chapterTitle2{\n    display:block;\n    font-size:1.2em;\n    font-weight:bold;\n    margin:1em 0em 0.6em 0em;\n    text-align:left;\n}\n\n.chapterTitle3{\n    display:block;\n    font-size:1em;\n    font-weight:bold;\n    margin:0em 0em 1em 0em;\n    text-align:left;\n}\n\n.bdFootnote{\n    width:0.69em;\n    height:0.84em;\n    margin-top:-0.23em;\n    vertical-align:top;\n}\n\n.bdPicturebg{\n    break-before:always;\n}";
+  const appcss = "/* \r\n * 番茄小说APP内置CSS\r\n * 版权归属为番茄小说APP官方\r\n * 修改以兼容网页环境\r\n *\r\n * line-space / theme-color 是 APP 排版引擎的私有属性，浏览器和 EPUB 阅读器都不认，\r\n * 已注释保留以便和原始样式对照。theme-color 的值 color1#0.7 还会让 CSS 解析器跑偏，\r\n * 把后面几条声明一起吃掉，必须注释而不能留着。\r\n */\r\n\r\nhtml{\r\n    display:block;\r\n}\r\n\r\nbody{\r\n    display:block;\r\n}\r\n\r\np{\r\n    font-size:1em;\r\n    text-align:justify;\r\n    display:block;\r\n    text-indent:2em;\r\n    margin:0.6em 0em 0.6em 0em;\r\n}\r\n\r\ndiv{\r\n    display:block;\r\n}\r\n\r\nh1{\r\n    display:block;\r\n    font-size:1.42em;\r\n    font-weight:bold;\r\n    margin:22px 0em 3em 0em;\r\n    text-align:left;\r\n    /* line-space:0.5em; */\r\n}\r\n\r\nh2{\r\n    display:block;\r\n    font-size:1.2em;\r\n    font-weight:bold;\r\n    margin:1em 0em 0.6em 0em;\r\n    text-align:left;\r\n}\r\n\r\nh3{\r\n    display:block;\r\n    font-size:1em;\r\n    font-weight:bold;\r\n    margin:0em 0em 1em 0em;\r\n    text-align:left;\r\n}\r\n\r\nsup{\r\n    font-size:smaller;\r\n}\r\n\r\n.picture{\r\n    text-indent:0em;\r\n    text-align:center;\r\n    margin:0em 0em 0em 0em;\r\n    /* line-space:0em; */\r\n}\r\n\r\n.pictureDesc{\r\n    font-size:0.73em;\r\n    text-indent:0em;\r\n    margin:0.4em 0em 1em 0em;\r\n    /* theme-color:color1#0.7; */\r\n    /* line-space:0.3em; */\r\n    text-align:left;\r\n}\r\n\r\n.pictureTitle{\r\n    font-size:0.73em;\r\n    text-indent:0em;\r\n    margin:1em 0em 0.3em 0em;\r\n    /* theme-color:color1#0.7; */\r\n    text-align:left;\r\n    /* line-space:0em; */\r\n}\r\n\r\n.collectTitle{\r\n    margin:80px 68px 0em 0px;\r\n    font-size:1.42em;\r\n    text-indent:0em;\r\n    text-align:left;\r\n}\r\n\r\n.collectAuthor{\r\n    margin:16px 0em 0em 0em;\r\n    font-size:1em;\r\n    text-indent:0em;\r\n    text-align:left;\r\n}\r\n\r\n.collectPicture{\r\n    margin:24px 0em 0em 0em;\r\n    text-indent:0em;\r\n    text-align:right;\r\n}\r\n\r\n.collectDetail{\r\n    margin:3em 44px 0em 10px;\r\n    text-indent:0em;\r\n}\r\n\r\n.quoteDefault{\r\n    font-size:1em;\r\n    margin:1.5em 0em 1.5em 2em;\r\n    font-family:'FZShengShiKaiShuS-M-GB';\r\n    /* line-space:0.5em; */\r\n}\r\n\r\n.quoteStyle1{\r\n    text-indent:0em;\r\n    text-align:left;\r\n}\r\n\r\n.alignRight{\r\n    text-align:right;\r\n}\r\n\r\n.quoteDefaultAlignRight{\r\n    font-size:1em;\r\n    margin:0.6em 0em 1.5em 32px;\r\n    font-family:'FZShengShiKaiShuS-M-GB';\r\n    text-align:right;\r\n    /* line-space:0.5em; */\r\n}\r\n.chapterTitle1{\r\n    display:block;\r\n    font-size:1.42em;\r\n    font-weight:bold;\r\n    margin:22px 0em 3em 0em;\r\n    text-align:left;\r\n    /* line-space:0.5em; */\r\n}\r\n\r\n.chapterTitle2{\r\n    display:block;\r\n    font-size:1.2em;\r\n    font-weight:bold;\r\n    margin:1em 0em 0.6em 0em;\r\n    text-align:left;\r\n}\r\n\r\n.chapterTitle3{\r\n    display:block;\r\n    font-size:1em;\r\n    font-weight:bold;\r\n    margin:0em 0em 1em 0em;\r\n    text-align:left;\r\n}\r\n\r\n.bdFootnote{\r\n    width:0.69em;\r\n    height:0.84em;\r\n    margin-top:-0.23em;\r\n    vertical-align:top;\r\n}\r\n\r\n.bdPicturebg{\r\n    break-before:always;\r\n}";
   const TITLE_CLASS = /(^|\s)chapterTitle\d?(\s|$)/;
   function normalizeTitle(text) {
     return text.replace(/[\s​‌‍﻿]+/g, "");
@@ -9270,7 +10210,7 @@ ${body}
       };
     }
   });
-  const bookshelfcss = "#fqa-bookshelf {\n    --fqa-text: #1f2329;\n    --fqa-text-sub: #646a73;\n    --fqa-text-weak: #8f959e;\n    --fqa-border: rgba(31, 35, 41, 0.08);\n    --fqa-hover: rgba(31, 35, 41, 0.04);\n    --fqa-accent: #ff6f3d;\n    --fqa-skeleton: rgba(31, 35, 41, 0.06);\n    --fqa-skeleton-hl: rgba(31, 35, 41, 0.12);\n    --fqa-shadow: 0 4px 16px rgba(31, 35, 41, 0.08);\n\n    display: block;\n    box-sizing: border-box;\n    width: 100%;\n    max-width: 1100px;\n    margin: 0 auto;\n    /* 顶部留出原站 fixed 顶栏（80px）的高度，否则标题和 tab 会被压在下面 */\n    padding: calc(80px + 24px) 16px 64px;\n    color: var(--fqa-text);\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\n        sans-serif;\n}\n\n#fqa-bookshelf *,\n#fqa-bookshelf *::before,\n#fqa-bookshelf *::after {\n    box-sizing: border-box;\n}\n\n#fqa-bookshelf div,\n#fqa-bookshelf span,\n#fqa-bookshelf h1,\n#fqa-bookshelf ul,\n#fqa-bookshelf li {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    list-style: none;\n    float: none;\n    position: static;\n}\n\n/* ------------------------------ 顶部 / Tabs ------------------------------ */\n\n#fqa-bookshelf .fqa-bs-header {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 16px;\n    margin-bottom: 8px;\n}\n\n#fqa-bookshelf .fqa-bs-title {\n    font-size: 24px;\n    font-weight: 600;\n    line-height: 1.4;\n}\n\n#fqa-bookshelf .fqa-bs-actions {\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    font-size: 13px;\n    color: var(--fqa-text-weak);\n}\n\n#fqa-bookshelf .fqa-btn {\n    display: inline-flex;\n    align-items: center;\n    gap: 4px;\n    padding: 6px 14px;\n    border: 1px solid var(--fqa-border);\n    border-radius: 999px;\n    background: transparent;\n    color: var(--fqa-text-sub);\n    font-size: 13px;\n    font-family: inherit;\n    line-height: 1.4;\n    cursor: pointer;\n    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;\n}\n\n#fqa-bookshelf .fqa-btn:hover:not(:disabled) {\n    border-color: var(--fqa-accent);\n    color: var(--fqa-accent);\n    background: rgba(255, 111, 61, 0.06);\n}\n\n#fqa-bookshelf .fqa-btn:disabled {\n    opacity: 0.5;\n    cursor: default;\n}\n\n#fqa-bookshelf .fqa-tabs {\n    position: relative;\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    margin-bottom: 24px;\n    border-bottom: 1px solid var(--fqa-border);\n}\n\n#fqa-bookshelf .fqa-tab {\n    padding: 10px 16px;\n    color: var(--fqa-text-sub);\n    font-size: 15px;\n    line-height: 22px;\n    cursor: pointer;\n    user-select: none;\n    transition: color 0.15s ease;\n}\n\n#fqa-bookshelf .fqa-tab:hover {\n    color: var(--fqa-text);\n}\n\n#fqa-bookshelf .fqa-tab-active {\n    color: var(--fqa-accent);\n    font-weight: 600;\n}\n\n#fqa-bookshelf .fqa-tab-count {\n    margin-left: 4px;\n    font-size: 12px;\n    font-weight: 400;\n    color: var(--fqa-text-weak);\n}\n\n#fqa-bookshelf .fqa-tab-ink {\n    position: absolute;\n    bottom: -1px;\n    left: 0;\n    width: 0;\n    height: 2px;\n    border-radius: 2px;\n    background: var(--fqa-accent);\n    transition: left 0.25s ease, width 0.25s ease;\n}\n\n/* ------------------------------- 书架网格 ------------------------------- */\n\n/* 原站一排最多 4 本；窄屏逐级降到 3 / 2 */\n#fqa-bookshelf .fqa-grid {\n    display: grid;\n    grid-template-columns: repeat(4, minmax(0, 1fr));\n    gap: 28px 24px;\n    align-items: start;\n}\n\n@media (max-width: 900px) {\n    #fqa-bookshelf .fqa-grid {\n        grid-template-columns: repeat(3, minmax(0, 1fr));\n    }\n}\n\n@media (max-width: 600px) {\n    #fqa-bookshelf .fqa-grid {\n        grid-template-columns: repeat(2, minmax(0, 1fr));\n    }\n}\n\n#fqa-bookshelf .fqa-card {\n    display: block;\n    border-radius: 8px;\n    cursor: pointer;\n    outline: none;\n}\n\n#fqa-bookshelf .fqa-card:focus-visible {\n    box-shadow: 0 0 0 2px var(--fqa-accent);\n}\n\n/* 封面：3:4，靠 aspect-ratio 定高，内部元素绝对定位 */\n#fqa-bookshelf .fqa-cover {\n    position: relative;\n    display: block;\n    width: 100%;\n    aspect-ratio: 3 / 4;\n    border-radius: 6px;\n    overflow: hidden;\n    background: var(--fqa-skeleton);\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n#fqa-bookshelf .fqa-card:hover .fqa-cover {\n    transform: translateY(-4px);\n    box-shadow: var(--fqa-shadow);\n}\n\n#fqa-bookshelf .fqa-cover-img {\n    position: absolute;\n    inset: 0;\n    display: block;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    transition: opacity 0.25s ease;\n}\n\n#fqa-bookshelf .fqa-cover-img-loading {\n    opacity: 0;\n}\n\n#fqa-bookshelf .fqa-cover-tag {\n    position: absolute;\n    top: 0;\n    right: 0;\n    z-index: 2;\n    padding: 2px 6px;\n    border-radius: 0 6px 0 6px;\n    background: var(--fqa-accent);\n    color: #fff;\n    font-size: 11px;\n    line-height: 16px;\n    font-weight: 500;\n    white-space: nowrap;\n}\n\n/* 连载 / 完结 / 断更共用：灰底，弱化于“更新”角标 */\n#fqa-bookshelf .fqa-cover-tag-gray {\n    background: rgba(31, 35, 41, 0.55);\n}\n\n@media (prefers-color-scheme: dark) {\n    #fqa-bookshelf .fqa-cover-tag-gray {\n        background: rgba(0, 0, 0, 0.6);\n    }\n}\n\n#fqa-bookshelf .fqa-cover-progress {\n    position: absolute;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    z-index: 2;\n    height: 3px;\n    background: rgba(255, 255, 255, 0.35);\n}\n\n#fqa-bookshelf .fqa-cover-progress-bar {\n    display: block;\n    height: 100%;\n    background: var(--fqa-accent);\n    transition: width 0.3s ease;\n}\n\n/* 文字区：与封面同为普通流元素，不会重叠 */\n#fqa-bookshelf .fqa-card-title {\n    display: -webkit-box;\n    margin-top: 8px;\n    color: var(--fqa-text);\n    font-size: 14px;\n    line-height: 20px;\n    font-weight: 500;\n    -webkit-line-clamp: 2;\n    line-clamp: 2;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n    word-break: break-all;\n}\n\n#fqa-bookshelf .fqa-card-sub {\n    margin-top: 4px;\n    color: var(--fqa-text-weak);\n    font-size: 12px;\n    line-height: 18px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n/* ------------------------------- 分组卡片 ------------------------------- */\n\n#fqa-bookshelf .fqa-group-cover {\n    position: relative;\n    display: block;\n    width: 100%;\n    aspect-ratio: 3 / 4;\n    border-radius: 6px;\n    overflow: hidden;\n    background: linear-gradient(135deg, rgba(255, 111, 61, 0.12), rgba(78, 131, 253, 0.12));\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n#fqa-bookshelf .fqa-card:hover .fqa-group-cover {\n    transform: translateY(-4px);\n    box-shadow: var(--fqa-shadow);\n}\n\n#fqa-bookshelf .fqa-group-grid {\n    position: absolute;\n    inset: 0;\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    grid-template-rows: 1fr 1fr;\n    gap: 4px;\n    padding: 6px;\n}\n\n#fqa-bookshelf .fqa-group-cell {\n    position: relative;\n    border-radius: 3px;\n    overflow: hidden;\n    background: rgba(31, 35, 41, 0.06);\n}\n\n#fqa-bookshelf .fqa-group-cell img {\n    display: block;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n}\n\n/* 分组详情返回条 */\n\n#fqa-bookshelf .fqa-groupbar {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    margin-bottom: 16px;\n}\n\n#fqa-bookshelf .fqa-groupbar-name {\n    font-size: 16px;\n    font-weight: 600;\n}\n\n#fqa-bookshelf .fqa-groupbar-count {\n    color: var(--fqa-text-weak);\n    font-size: 13px;\n}\n\n/* --------------------------- hover 详情浮层 --------------------------- */\n\n/*\n * 用 popover 进入浏览器顶层，不参与页面 z-index 竞争，\n * 因此不会被相邻卡片或原站的层叠上下文盖住。z-index 仅作降级保险。\n */\n#fqa-bookshelf-hover {\n    position: fixed;\n    z-index: 2147483000;\n    /* 容器本身透传，只有内部卡片接收事件，避免空白区挡住下层 */\n    pointer-events: none;\n    opacity: 0;\n    transform: translateY(4px);\n    /* allow-discrete：顶层元素从 display:none 切入时也能播放淡入 */\n    transition: opacity 0.16s ease, transform 0.16s ease, display 0.16s allow-discrete;\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\n        sans-serif;\n}\n\n/* popover 默认带边框/内边距/居中定位，全部清掉，改由 left/top 控制 */\n#fqa-bookshelf-hover:popover-open,\n#fqa-bookshelf-hover[popover] {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    background: transparent;\n    overflow: visible;\n    inset: auto;\n    width: auto;\n    height: auto;\n    max-width: none;\n    max-height: none;\n    color: inherit;\n}\n\n#fqa-bookshelf-hover::backdrop {\n    background: transparent;\n}\n\n#fqa-bookshelf-hover.fqa-visible {\n    opacity: 1;\n    transform: translateY(0);\n}\n\n@starting-style {\n    #fqa-bookshelf-hover.fqa-visible {\n        opacity: 0;\n        transform: translateY(4px);\n    }\n}\n\n/* 高度由 JS 按封面尺寸设定；纵向 flex 让简介吃掉剩余空间 */\n#fqa-bookshelf-hover .fqa-hover-inner {\n    display: flex;\n    flex-direction: column;\n    box-sizing: border-box;\n    width: 280px;\n    padding: 12px 14px;\n    border-radius: 10px;\n    background: #fff;\n    box-shadow: 0 8px 32px rgba(31, 35, 41, 0.16);\n    color: #1f2329;\n    overflow: hidden;\n    /* 卡片可交互：鼠标可以移进来而不触发收起 */\n    pointer-events: auto;\n}\n\n#fqa-bookshelf-hover .fqa-hover-title {\n    flex: none;\n    margin: 0;\n    font-size: 14px;\n    line-height: 20px;\n    font-weight: 600;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n#fqa-bookshelf-hover .fqa-hover-author {\n    flex: none;\n    margin-top: 2px;\n    color: #8f959e;\n    font-size: 12px;\n    line-height: 17px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stats {\n    display: flex;\n    flex: none;\n    margin-top: 10px;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat {\n    flex: 1 1 0;\n    min-width: 0;\n    padding: 0 6px;\n    text-align: center;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat:first-child {\n    padding-left: 0;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat:last-child {\n    padding-right: 0;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat + .fqa-hover-stat {\n    border-left: 1px solid rgba(31, 35, 41, 0.08);\n}\n\n/* 第一栏可悬停切换为更新时间，给个可交互提示 */\n#fqa-bookshelf-hover .fqa-hover-stat:first-child {\n    border-radius: 4px;\n    cursor: default;\n    transition: background 0.15s ease;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat:first-child:hover {\n    background: rgba(31, 35, 41, 0.05);\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat-v {\n    font-size: 13px;\n    line-height: 18px;\n    font-weight: 600;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat-k {\n    margin-top: 1px;\n    color: #8f959e;\n    font-size: 11px;\n    line-height: 16px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n/* 梗概 / 简介 双栏切换 */\n#fqa-bookshelf-hover .fqa-hover-seg {\n    display: flex;\n    flex: none;\n    gap: 4px;\n    margin-top: 10px;\n    padding-top: 10px;\n    border-top: 1px solid rgba(31, 35, 41, 0.08);\n}\n\n#fqa-bookshelf-hover .fqa-hover-seg-btn {\n    flex: 1 1 0;\n    padding: 4px 0;\n    border: 0;\n    border-radius: 5px;\n    background: rgba(31, 35, 41, 0.05);\n    color: #646a73;\n    font-family: inherit;\n    font-size: 12px;\n    line-height: 18px;\n    cursor: pointer;\n    transition: background 0.15s ease, color 0.15s ease;\n}\n\n#fqa-bookshelf-hover .fqa-hover-seg-btn:hover {\n    color: #1f2329;\n}\n\n#fqa-bookshelf-hover .fqa-hover-seg-active {\n    background: rgba(255, 111, 61, 0.12);\n    color: #ff6f3d;\n    font-weight: 500;\n}\n\n#fqa-bookshelf-hover .fqa-hover-seg-active:hover {\n    color: #ff6f3d;\n}\n\n/*\n * 撑满剩余高度。行数不再写死，由容器高度自然裁切；\n * min-height:0 让 flex 子项允许被压缩，否则 overflow 不生效。\n */\n#fqa-bookshelf-hover .fqa-hover-abstract {\n    flex: 1 1 auto;\n    min-height: 0;\n    margin-top: 8px;\n    color: #646a73;\n    font-size: 12px;\n    line-height: 18px;\n    overflow-y: auto;\n    overscroll-behavior: contain;\n}\n\n#fqa-bookshelf-hover .fqa-hover-abstract::-webkit-scrollbar {\n    width: 4px;\n}\n\n#fqa-bookshelf-hover .fqa-hover-abstract::-webkit-scrollbar-thumb {\n    border-radius: 2px;\n    background: rgba(31, 35, 41, 0.18);\n}\n\n\n#fqa-bookshelf-hover .fqa-hover-chapter {\n    display: block;\n    margin-bottom: 1px;\n    color: #1f2329;\n    font-weight: 500;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n/* ------------------------------- 骨架屏 ------------------------------- */\n\n#fqa-bookshelf .fqa-sk-cover {\n    display: block;\n    width: 100%;\n    aspect-ratio: 3 / 4;\n    border-radius: 6px;\n    background: var(--fqa-skeleton);\n}\n\n#fqa-bookshelf .fqa-sk-line {\n    height: 12px;\n    margin-top: 8px;\n    border-radius: 4px;\n    background: var(--fqa-skeleton);\n}\n\n#fqa-bookshelf .fqa-sk-anim {\n    position: relative;\n    overflow: hidden;\n}\n\n/* keyframes fqa-shimmer 在 script.css 里全局声明 */\n#fqa-bookshelf .fqa-sk-anim::after {\n    content: '';\n    position: absolute;\n    inset: 0;\n    transform: translateX(-100%);\n    background: linear-gradient(90deg, transparent, var(--fqa-skeleton-hl), transparent);\n    animation: fqa-shimmer 1.4s infinite;\n}\n\n/* --------------------------- 空态 / 错误态 --------------------------- */\n\n#fqa-bookshelf .fqa-loadmore {\n    padding: 24px 0;\n    text-align: center;\n    color: var(--fqa-text-weak);\n    font-size: 13px;\n}\n\n#fqa-bookshelf .fqa-status {\n    padding: 80px 16px;\n    text-align: center;\n    color: var(--fqa-text-weak);\n    font-size: 14px;\n    line-height: 22px;\n}\n\n#fqa-bookshelf .fqa-status-title {\n    margin-bottom: 8px;\n    color: var(--fqa-text);\n    font-size: 16px;\n    font-weight: 500;\n}\n\n#fqa-bookshelf .fqa-status .fqa-btn {\n    margin-top: 16px;\n}\n\n/* ------------------------------- 深色模式 ------------------------------- */\n\n@media (prefers-color-scheme: dark) {\n    #fqa-bookshelf {\n        --fqa-text: #e6e6e6;\n        --fqa-text-sub: #a6a6a6;\n        --fqa-text-weak: #7a7a7a;\n        --fqa-border: rgba(255, 255, 255, 0.1);\n        --fqa-hover: rgba(255, 255, 255, 0.06);\n        --fqa-skeleton: rgba(255, 255, 255, 0.08);\n        --fqa-skeleton-hl: rgba(255, 255, 255, 0.14);\n        --fqa-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);\n    }\n\n    #fqa-bookshelf-hover .fqa-hover-inner {\n        background: #212125;\n        color: #e6e6e6;\n        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);\n    }\n\n    #fqa-bookshelf-hover .fqa-hover-chapter {\n        color: #e6e6e6;\n    }\n\n    #fqa-bookshelf-hover .fqa-hover-abstract {\n        color: #a6a6a6;\n        border-top-color: rgba(255, 255, 255, 0.1);\n    }\n\n    #fqa-bookshelf-hover .fqa-hover-stat + .fqa-hover-stat {\n        border-left-color: rgba(255, 255, 255, 0.1);\n    }\n}\n\n/* 右键菜单与 toast 样式已移到 script.css，书架和搜索共用 */\n";
+  const bookshelfcss = "#fqa-bookshelf {\r\n    --fqa-text: #1f2329;\r\n    --fqa-text-sub: #646a73;\r\n    --fqa-text-weak: #8f959e;\r\n    --fqa-border: rgba(31, 35, 41, 0.08);\r\n    --fqa-hover: rgba(31, 35, 41, 0.04);\r\n    --fqa-accent: #ff6f3d;\r\n    --fqa-skeleton: rgba(31, 35, 41, 0.06);\r\n    --fqa-skeleton-hl: rgba(31, 35, 41, 0.12);\r\n    --fqa-shadow: 0 4px 16px rgba(31, 35, 41, 0.08);\r\n\r\n    display: block;\r\n    box-sizing: border-box;\r\n    width: 100%;\r\n    max-width: 1100px;\r\n    margin: 0 auto;\r\n    /* 顶部留出原站 fixed 顶栏（80px）的高度，否则标题和 tab 会被压在下面 */\r\n    padding: calc(80px + 24px) 16px 64px;\r\n    color: var(--fqa-text);\r\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\r\n        sans-serif;\r\n}\r\n\r\n#fqa-bookshelf *,\r\n#fqa-bookshelf *::before,\r\n#fqa-bookshelf *::after {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#fqa-bookshelf div,\r\n#fqa-bookshelf span,\r\n#fqa-bookshelf h1,\r\n#fqa-bookshelf ul,\r\n#fqa-bookshelf li {\r\n    margin: 0;\r\n    padding: 0;\r\n    border: 0;\r\n    list-style: none;\r\n    float: none;\r\n    position: static;\r\n}\r\n\r\n/* ------------------------------ 顶部 / Tabs ------------------------------ */\r\n\r\n#fqa-bookshelf .fqa-bs-header {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    gap: 16px;\r\n    margin-bottom: 8px;\r\n}\r\n\r\n#fqa-bookshelf .fqa-bs-title {\r\n    font-size: 24px;\r\n    font-weight: 600;\r\n    line-height: 1.4;\r\n}\r\n\r\n#fqa-bookshelf .fqa-bs-actions {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 12px;\r\n    font-size: 13px;\r\n    color: var(--fqa-text-weak);\r\n}\r\n\r\n#fqa-bookshelf .fqa-btn {\r\n    display: inline-flex;\r\n    align-items: center;\r\n    gap: 4px;\r\n    padding: 6px 14px;\r\n    border: 1px solid var(--fqa-border);\r\n    border-radius: 999px;\r\n    background: transparent;\r\n    color: var(--fqa-text-sub);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n    line-height: 1.4;\r\n    cursor: pointer;\r\n    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;\r\n}\r\n\r\n#fqa-bookshelf .fqa-btn:hover:not(:disabled) {\r\n    border-color: var(--fqa-accent);\r\n    color: var(--fqa-accent);\r\n    background: rgba(255, 111, 61, 0.06);\r\n}\r\n\r\n#fqa-bookshelf .fqa-btn:disabled {\r\n    opacity: 0.5;\r\n    cursor: default;\r\n}\r\n\r\n#fqa-bookshelf .fqa-tabs {\r\n    position: relative;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 4px;\r\n    margin-bottom: 24px;\r\n    border-bottom: 1px solid var(--fqa-border);\r\n}\r\n\r\n#fqa-bookshelf .fqa-tab {\r\n    padding: 10px 16px;\r\n    color: var(--fqa-text-sub);\r\n    font-size: 15px;\r\n    line-height: 22px;\r\n    cursor: pointer;\r\n    user-select: none;\r\n    transition: color 0.15s ease;\r\n}\r\n\r\n#fqa-bookshelf .fqa-tab:hover {\r\n    color: var(--fqa-text);\r\n}\r\n\r\n#fqa-bookshelf .fqa-tab-active {\r\n    color: var(--fqa-accent);\r\n    font-weight: 600;\r\n}\r\n\r\n#fqa-bookshelf .fqa-tab-count {\r\n    margin-left: 4px;\r\n    font-size: 12px;\r\n    font-weight: 400;\r\n    color: var(--fqa-text-weak);\r\n}\r\n\r\n#fqa-bookshelf .fqa-tab-ink {\r\n    position: absolute;\r\n    bottom: -1px;\r\n    left: 0;\r\n    width: 0;\r\n    height: 2px;\r\n    border-radius: 2px;\r\n    background: var(--fqa-accent);\r\n    transition: left 0.25s ease, width 0.25s ease;\r\n}\r\n\r\n/* ------------------------------- 书架网格 ------------------------------- */\r\n\r\n/* 原站一排最多 4 本；窄屏逐级降到 3 / 2 */\r\n#fqa-bookshelf .fqa-grid {\r\n    display: grid;\r\n    grid-template-columns: repeat(4, minmax(0, 1fr));\r\n    gap: 28px 24px;\r\n    align-items: start;\r\n}\r\n\r\n@media (max-width: 900px) {\r\n    #fqa-bookshelf .fqa-grid {\r\n        grid-template-columns: repeat(3, minmax(0, 1fr));\r\n    }\r\n}\r\n\r\n@media (max-width: 600px) {\r\n    #fqa-bookshelf .fqa-grid {\r\n        grid-template-columns: repeat(2, minmax(0, 1fr));\r\n    }\r\n}\r\n\r\n#fqa-bookshelf .fqa-card {\r\n    display: block;\r\n    border-radius: 8px;\r\n    cursor: pointer;\r\n    outline: none;\r\n}\r\n\r\n#fqa-bookshelf .fqa-card:focus-visible {\r\n    box-shadow: 0 0 0 2px var(--fqa-accent);\r\n}\r\n\r\n/* 封面：3:4，靠 aspect-ratio 定高，内部元素绝对定位 */\r\n#fqa-bookshelf .fqa-cover {\r\n    position: relative;\r\n    display: block;\r\n    width: 100%;\r\n    aspect-ratio: 3 / 4;\r\n    border-radius: 6px;\r\n    overflow: hidden;\r\n    background: var(--fqa-skeleton);\r\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\r\n}\r\n\r\n#fqa-bookshelf .fqa-card:hover .fqa-cover {\r\n    transform: translateY(-4px);\r\n    box-shadow: var(--fqa-shadow);\r\n}\r\n\r\n#fqa-bookshelf .fqa-cover-img {\r\n    position: absolute;\r\n    inset: 0;\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n    transition: opacity 0.25s ease;\r\n}\r\n\r\n#fqa-bookshelf .fqa-cover-img-loading {\r\n    opacity: 0;\r\n}\r\n\r\n#fqa-bookshelf .fqa-cover-tag {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    z-index: 2;\r\n    padding: 2px 6px;\r\n    border-radius: 0 6px 0 6px;\r\n    background: var(--fqa-accent);\r\n    color: #fff;\r\n    font-size: 11px;\r\n    line-height: 16px;\r\n    font-weight: 500;\r\n    white-space: nowrap;\r\n}\r\n\r\n/* 连载 / 完结 / 断更共用：灰底，弱化于“更新”角标 */\r\n#fqa-bookshelf .fqa-cover-tag-gray {\r\n    background: rgba(31, 35, 41, 0.55);\r\n}\r\n\r\n@media (prefers-color-scheme: dark) {\r\n    #fqa-bookshelf .fqa-cover-tag-gray {\r\n        background: rgba(0, 0, 0, 0.6);\r\n    }\r\n}\r\n\r\n#fqa-bookshelf .fqa-cover-progress {\r\n    position: absolute;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    z-index: 2;\r\n    height: 3px;\r\n    background: rgba(255, 255, 255, 0.35);\r\n}\r\n\r\n#fqa-bookshelf .fqa-cover-progress-bar {\r\n    display: block;\r\n    height: 100%;\r\n    background: var(--fqa-accent);\r\n    transition: width 0.3s ease;\r\n}\r\n\r\n/* 文字区：与封面同为普通流元素，不会重叠 */\r\n#fqa-bookshelf .fqa-card-title {\r\n    display: -webkit-box;\r\n    margin-top: 8px;\r\n    color: var(--fqa-text);\r\n    font-size: 14px;\r\n    line-height: 20px;\r\n    font-weight: 500;\r\n    -webkit-line-clamp: 2;\r\n    line-clamp: 2;\r\n    -webkit-box-orient: vertical;\r\n    overflow: hidden;\r\n    word-break: break-all;\r\n}\r\n\r\n#fqa-bookshelf .fqa-card-sub {\r\n    margin-top: 4px;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n/* ------------------------------- 分组卡片 ------------------------------- */\r\n\r\n#fqa-bookshelf .fqa-group-cover {\r\n    position: relative;\r\n    display: block;\r\n    width: 100%;\r\n    aspect-ratio: 3 / 4;\r\n    border-radius: 6px;\r\n    overflow: hidden;\r\n    background: linear-gradient(135deg, rgba(255, 111, 61, 0.12), rgba(78, 131, 253, 0.12));\r\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\r\n}\r\n\r\n#fqa-bookshelf .fqa-card:hover .fqa-group-cover {\r\n    transform: translateY(-4px);\r\n    box-shadow: var(--fqa-shadow);\r\n}\r\n\r\n#fqa-bookshelf .fqa-group-grid {\r\n    position: absolute;\r\n    inset: 0;\r\n    display: grid;\r\n    grid-template-columns: 1fr 1fr;\r\n    grid-template-rows: 1fr 1fr;\r\n    gap: 4px;\r\n    padding: 6px;\r\n}\r\n\r\n#fqa-bookshelf .fqa-group-cell {\r\n    position: relative;\r\n    border-radius: 3px;\r\n    overflow: hidden;\r\n    background: rgba(31, 35, 41, 0.06);\r\n}\r\n\r\n#fqa-bookshelf .fqa-group-cell img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n/* 分组详情返回条 */\r\n\r\n#fqa-bookshelf .fqa-groupbar {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 10px;\r\n    margin-bottom: 16px;\r\n}\r\n\r\n#fqa-bookshelf .fqa-groupbar-name {\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n}\r\n\r\n#fqa-bookshelf .fqa-groupbar-count {\r\n    color: var(--fqa-text-weak);\r\n    font-size: 13px;\r\n}\r\n\r\n/* --------------------------- hover 详情浮层 --------------------------- */\r\n\r\n/*\r\n * 用 popover 进入浏览器顶层，不参与页面 z-index 竞争，\r\n * 因此不会被相邻卡片或原站的层叠上下文盖住。z-index 仅作降级保险。\r\n */\r\n#fqa-bookshelf-hover {\r\n    position: fixed;\r\n    z-index: 2147483000;\r\n    /* 容器本身透传，只有内部卡片接收事件，避免空白区挡住下层 */\r\n    pointer-events: none;\r\n    opacity: 0;\r\n    transform: translateY(4px);\r\n    /* allow-discrete：顶层元素从 display:none 切入时也能播放淡入 */\r\n    transition: opacity 0.16s ease, transform 0.16s ease, display 0.16s allow-discrete;\r\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\r\n        sans-serif;\r\n}\r\n\r\n/* popover 默认带边框/内边距/居中定位，全部清掉，改由 left/top 控制 */\r\n#fqa-bookshelf-hover:popover-open,\r\n#fqa-bookshelf-hover[popover] {\r\n    margin: 0;\r\n    padding: 0;\r\n    border: 0;\r\n    background: transparent;\r\n    overflow: visible;\r\n    inset: auto;\r\n    width: auto;\r\n    height: auto;\r\n    max-width: none;\r\n    max-height: none;\r\n    color: inherit;\r\n}\r\n\r\n#fqa-bookshelf-hover::backdrop {\r\n    background: transparent;\r\n}\r\n\r\n#fqa-bookshelf-hover.fqa-visible {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n}\r\n\r\n@starting-style {\r\n    #fqa-bookshelf-hover.fqa-visible {\r\n        opacity: 0;\r\n        transform: translateY(4px);\r\n    }\r\n}\r\n\r\n/* 高度由 JS 按封面尺寸设定；纵向 flex 让简介吃掉剩余空间 */\r\n#fqa-bookshelf-hover .fqa-hover-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    box-sizing: border-box;\r\n    width: 280px;\r\n    padding: 12px 14px;\r\n    border-radius: 10px;\r\n    background: #fff;\r\n    box-shadow: 0 8px 32px rgba(31, 35, 41, 0.16);\r\n    color: #1f2329;\r\n    overflow: hidden;\r\n    /* 卡片可交互：鼠标可以移进来而不触发收起 */\r\n    pointer-events: auto;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-title {\r\n    flex: none;\r\n    margin: 0;\r\n    font-size: 14px;\r\n    line-height: 20px;\r\n    font-weight: 600;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-author {\r\n    flex: none;\r\n    margin-top: 2px;\r\n    color: #8f959e;\r\n    font-size: 12px;\r\n    line-height: 17px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stats {\r\n    display: flex;\r\n    flex: none;\r\n    margin-top: 10px;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat {\r\n    flex: 1 1 0;\r\n    min-width: 0;\r\n    padding: 0 6px;\r\n    text-align: center;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat:first-child {\r\n    padding-left: 0;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat:last-child {\r\n    padding-right: 0;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat + .fqa-hover-stat {\r\n    border-left: 1px solid rgba(31, 35, 41, 0.08);\r\n}\r\n\r\n/* 第一栏可悬停切换为更新时间，给个可交互提示 */\r\n#fqa-bookshelf-hover .fqa-hover-stat:first-child {\r\n    border-radius: 4px;\r\n    cursor: default;\r\n    transition: background 0.15s ease;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat:first-child:hover {\r\n    background: rgba(31, 35, 41, 0.05);\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat-v {\r\n    font-size: 13px;\r\n    line-height: 18px;\r\n    font-weight: 600;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat-k {\r\n    margin-top: 1px;\r\n    color: #8f959e;\r\n    font-size: 11px;\r\n    line-height: 16px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n/* 梗概 / 简介 双栏切换 */\r\n#fqa-bookshelf-hover .fqa-hover-seg {\r\n    display: flex;\r\n    flex: none;\r\n    gap: 4px;\r\n    margin-top: 10px;\r\n    padding-top: 10px;\r\n    border-top: 1px solid rgba(31, 35, 41, 0.08);\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-seg-btn {\r\n    flex: 1 1 0;\r\n    padding: 4px 0;\r\n    border: 0;\r\n    border-radius: 5px;\r\n    background: rgba(31, 35, 41, 0.05);\r\n    color: #646a73;\r\n    font-family: inherit;\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n    cursor: pointer;\r\n    transition: background 0.15s ease, color 0.15s ease;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-seg-btn:hover {\r\n    color: #1f2329;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-seg-active {\r\n    background: rgba(255, 111, 61, 0.12);\r\n    color: #ff6f3d;\r\n    font-weight: 500;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-seg-active:hover {\r\n    color: #ff6f3d;\r\n}\r\n\r\n/*\r\n * 撑满剩余高度。行数不再写死，由容器高度自然裁切；\r\n * min-height:0 让 flex 子项允许被压缩，否则 overflow 不生效。\r\n */\r\n#fqa-bookshelf-hover .fqa-hover-abstract {\r\n    flex: 1 1 auto;\r\n    min-height: 0;\r\n    margin-top: 8px;\r\n    color: #646a73;\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n    overflow-y: auto;\r\n    overscroll-behavior: contain;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-abstract::-webkit-scrollbar {\r\n    width: 4px;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-abstract::-webkit-scrollbar-thumb {\r\n    border-radius: 2px;\r\n    background: rgba(31, 35, 41, 0.18);\r\n}\r\n\r\n\r\n#fqa-bookshelf-hover .fqa-hover-chapter {\r\n    display: block;\r\n    margin-bottom: 1px;\r\n    color: #1f2329;\r\n    font-weight: 500;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n/* ------------------------------- 骨架屏 ------------------------------- */\r\n\r\n#fqa-bookshelf .fqa-sk-cover {\r\n    display: block;\r\n    width: 100%;\r\n    aspect-ratio: 3 / 4;\r\n    border-radius: 6px;\r\n    background: var(--fqa-skeleton);\r\n}\r\n\r\n#fqa-bookshelf .fqa-sk-line {\r\n    height: 12px;\r\n    margin-top: 8px;\r\n    border-radius: 4px;\r\n    background: var(--fqa-skeleton);\r\n}\r\n\r\n#fqa-bookshelf .fqa-sk-anim {\r\n    position: relative;\r\n    overflow: hidden;\r\n}\r\n\r\n/* keyframes fqa-shimmer 在 script.css 里全局声明 */\r\n#fqa-bookshelf .fqa-sk-anim::after {\r\n    content: '';\r\n    position: absolute;\r\n    inset: 0;\r\n    transform: translateX(-100%);\r\n    background: linear-gradient(90deg, transparent, var(--fqa-skeleton-hl), transparent);\r\n    animation: fqa-shimmer 1.4s infinite;\r\n}\r\n\r\n/* --------------------------- 空态 / 错误态 --------------------------- */\r\n\r\n#fqa-bookshelf .fqa-loadmore {\r\n    padding: 24px 0;\r\n    text-align: center;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 13px;\r\n}\r\n\r\n#fqa-bookshelf .fqa-status {\r\n    padding: 80px 16px;\r\n    text-align: center;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 14px;\r\n    line-height: 22px;\r\n}\r\n\r\n#fqa-bookshelf .fqa-status-title {\r\n    margin-bottom: 8px;\r\n    color: var(--fqa-text);\r\n    font-size: 16px;\r\n    font-weight: 500;\r\n}\r\n\r\n#fqa-bookshelf .fqa-status .fqa-btn {\r\n    margin-top: 16px;\r\n}\r\n\r\n/* ------------------------------- 深色模式 ------------------------------- */\r\n\r\n@media (prefers-color-scheme: dark) {\r\n    #fqa-bookshelf {\r\n        --fqa-text: #e6e6e6;\r\n        --fqa-text-sub: #a6a6a6;\r\n        --fqa-text-weak: #7a7a7a;\r\n        --fqa-border: rgba(255, 255, 255, 0.1);\r\n        --fqa-hover: rgba(255, 255, 255, 0.06);\r\n        --fqa-skeleton: rgba(255, 255, 255, 0.08);\r\n        --fqa-skeleton-hl: rgba(255, 255, 255, 0.14);\r\n        --fqa-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);\r\n    }\r\n\r\n    #fqa-bookshelf-hover .fqa-hover-inner {\r\n        background: #212125;\r\n        color: #e6e6e6;\r\n        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);\r\n    }\r\n\r\n    #fqa-bookshelf-hover .fqa-hover-chapter {\r\n        color: #e6e6e6;\r\n    }\r\n\r\n    #fqa-bookshelf-hover .fqa-hover-abstract {\r\n        color: #a6a6a6;\r\n        border-top-color: rgba(255, 255, 255, 0.1);\r\n    }\r\n\r\n    #fqa-bookshelf-hover .fqa-hover-stat + .fqa-hover-stat {\r\n        border-left-color: rgba(255, 255, 255, 0.1);\r\n    }\r\n}\r\n\r\n/* 右键菜单与 toast 样式已移到 script.css，书架和搜索共用 */\r\n";
   const CONTAINER_ID$2 = "fqa-bookshelf-root";
   const STYLE_ID$3 = "fqa-bookshelf-style";
   const ORIGIN_SELECTOR$1 = ".muye-bookshelf, .muye-bookshelf-home-page, .bookshelf-tabs";
@@ -10337,7 +11277,7 @@ ${body}
       };
     }
   });
-  const searchcss = "#fqa-search {\n    --fqa-text: #1f2329;\n    --fqa-text-sub: #646a73;\n    --fqa-text-weak: #8f959e;\n    --fqa-border: rgba(31, 35, 41, 0.08);\n    --fqa-hover: rgba(31, 35, 41, 0.04);\n    --fqa-accent: #ff6f3d;\n    --fqa-skeleton: rgba(31, 35, 41, 0.06);\n    --fqa-skeleton-hl: rgba(31, 35, 41, 0.12);\n    --fqa-shadow: 0 4px 16px rgba(31, 35, 41, 0.08);\n    --fqa-card-bg: #fff;\n\n    display: block;\n    box-sizing: border-box;\n    width: 100%;\n    max-width: 1000px;\n    margin: 0 auto;\n    /* 顶部让开原站 fixed 顶栏 */\n    padding: calc(80px + 24px) 16px 64px;\n    color: var(--fqa-text);\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\n        sans-serif;\n}\n\n#fqa-search *,\n#fqa-search *::before,\n#fqa-search *::after {\n    box-sizing: border-box;\n}\n\n#fqa-search div,\n#fqa-search span,\n#fqa-search h3,\n#fqa-search p {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    float: none;\n    position: static;\n}\n\n/* -------------------------------- 搜索栏 -------------------------------- */\n\n#fqa-search .fqa-s-bar {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    margin-bottom: 20px;\n}\n\n#fqa-search .fqa-s-inputwrap {\n    position: relative;\n    flex: 1 1 auto;\n    min-width: 0;\n}\n\n#fqa-search .fqa-s-input {\n    width: 100%;\n    padding: 11px 36px 11px 16px;\n    box-sizing: border-box;\n    border: 1px solid var(--fqa-border);\n    border-radius: 999px;\n    background: var(--fqa-card-bg);\n    color: var(--fqa-text);\n    font-size: 15px;\n    font-family: inherit;\n    line-height: 22px;\n    transition: border-color 0.15s ease, box-shadow 0.15s ease;\n}\n\n#fqa-search .fqa-s-input::placeholder {\n    color: var(--fqa-text-weak);\n}\n\n#fqa-search .fqa-s-input:focus {\n    outline: none;\n    border-color: var(--fqa-accent);\n    box-shadow: 0 0 0 3px rgba(255, 111, 61, 0.12);\n}\n\n/* 隐藏浏览器自带的 search 清除按钮，用自己的 */\n#fqa-search .fqa-s-input::-webkit-search-cancel-button {\n    appearance: none;\n}\n\n#fqa-search .fqa-s-clear {\n    position: absolute;\n    top: 50%;\n    right: 10px;\n    transform: translateY(-50%);\n    width: 22px;\n    height: 22px;\n    padding: 0;\n    border: 0;\n    border-radius: 50%;\n    background: var(--fqa-hover);\n    color: var(--fqa-text-weak);\n    font-size: 11px;\n    line-height: 1;\n    cursor: pointer;\n}\n\n#fqa-search .fqa-s-clear:hover {\n    color: var(--fqa-text);\n}\n\n#fqa-search .fqa-s-submit {\n    flex: 0 0 auto;\n    padding: 11px 24px;\n    border: 0;\n    border-radius: 999px;\n    background: var(--fqa-accent);\n    color: #fff;\n    font-size: 15px;\n    font-family: inherit;\n    line-height: 22px;\n    cursor: pointer;\n    transition: opacity 0.15s ease;\n}\n\n#fqa-search .fqa-s-submit:hover:not(:disabled) {\n    opacity: 0.88;\n}\n\n#fqa-search .fqa-s-submit:disabled {\n    opacity: 0.45;\n    cursor: default;\n}\n\n/* --------------------------------- tab --------------------------------- */\n\n#fqa-search .fqa-s-tabs {\n    position: relative;\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    margin-bottom: 16px;\n    border-bottom: 1px solid var(--fqa-border);\n    overflow-x: auto;\n    scrollbar-width: none;\n}\n\n#fqa-search .fqa-s-tabs::-webkit-scrollbar {\n    display: none;\n}\n\n#fqa-search .fqa-s-tab {\n    flex: 0 0 auto;\n    padding: 10px 16px;\n    color: var(--fqa-text-sub);\n    font-size: 15px;\n    line-height: 22px;\n    white-space: nowrap;\n    cursor: pointer;\n    user-select: none;\n    transition: color 0.15s ease;\n}\n\n#fqa-search .fqa-s-tab:hover {\n    color: var(--fqa-text);\n}\n\n#fqa-search .fqa-s-tab-active {\n    color: var(--fqa-accent);\n    font-weight: 600;\n}\n\n#fqa-search .fqa-s-tab-ink {\n    position: absolute;\n    bottom: -1px;\n    left: 0;\n    width: 0;\n    height: 2px;\n    border-radius: 2px;\n    background: var(--fqa-accent);\n    transition: left 0.25s ease, width 0.25s ease;\n}\n\n/* -------------------------------- 筛选器 -------------------------------- */\n\n#fqa-search .fqa-s-filterbar {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    margin-bottom: 12px;\n}\n\n#fqa-search .fqa-s-fbtn,\n#fqa-search .fqa-s-fclear {\n    padding: 5px 14px;\n    border: 1px solid var(--fqa-border);\n    border-radius: 999px;\n    background: transparent;\n    color: var(--fqa-text-sub);\n    font-size: 13px;\n    font-family: inherit;\n    line-height: 20px;\n    cursor: pointer;\n    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;\n}\n\n#fqa-search .fqa-s-fbtn:hover,\n#fqa-search .fqa-s-fclear:hover {\n    border-color: var(--fqa-accent);\n    color: var(--fqa-accent);\n}\n\n#fqa-search .fqa-s-fbtn-on {\n    border-color: var(--fqa-accent);\n    color: var(--fqa-accent);\n    background: rgba(255, 111, 61, 0.08);\n}\n\n#fqa-search .fqa-s-fcount {\n    display: inline-block;\n    min-width: 16px;\n    margin-left: 5px;\n    padding: 0 4px;\n    border-radius: 8px;\n    background: var(--fqa-accent);\n    color: #fff;\n    font-size: 11px;\n    line-height: 16px;\n    text-align: center;\n}\n\n#fqa-search .fqa-s-hint {\n    margin-left: auto;\n    color: var(--fqa-text-weak);\n    font-size: 13px;\n}\n\n#fqa-search .fqa-s-filters {\n    margin-bottom: 16px;\n    padding: 14px 16px;\n    border: 1px solid var(--fqa-border);\n    border-radius: 10px;\n    background: var(--fqa-card-bg);\n}\n\n#fqa-search .fqa-s-frow {\n    display: flex;\n    align-items: flex-start;\n    gap: 12px;\n    padding: 7px 0;\n}\n\n#fqa-search .fqa-s-frow-name {\n    flex: 0 0 58px;\n    padding-top: 5px;\n    color: var(--fqa-text-weak);\n    font-size: 13px;\n    line-height: 20px;\n}\n\n#fqa-search .fqa-s-fitems {\n    display: flex;\n    flex: 1 1 auto;\n    flex-wrap: wrap;\n    gap: 8px;\n    min-width: 0;\n}\n\n#fqa-search .fqa-s-fitem {\n    padding: 4px 12px;\n    border: 1px solid transparent;\n    border-radius: 6px;\n    background: var(--fqa-hover);\n    color: var(--fqa-text-sub);\n    font-size: 13px;\n    font-family: inherit;\n    line-height: 20px;\n    cursor: pointer;\n    transition: background 0.15s ease, color 0.15s ease;\n}\n\n#fqa-search .fqa-s-fitem:hover {\n    color: var(--fqa-text);\n}\n\n#fqa-search .fqa-s-fitem-on {\n    background: rgba(255, 111, 61, 0.12);\n    border-color: rgba(255, 111, 61, 0.4);\n    color: var(--fqa-accent);\n    font-weight: 500;\n}\n\n/* ------------------------------- 结果列表 ------------------------------- */\n\n#fqa-search .fqa-s-list {\n    display: flex;\n    flex-direction: column;\n    gap: 4px;\n}\n\n#fqa-search .fqa-sr-card {\n    display: flex;\n    gap: 16px;\n    padding: 16px 12px;\n    border-radius: 10px;\n    cursor: pointer;\n    outline: none;\n    transition: background 0.15s ease;\n}\n\n#fqa-search .fqa-sr-card:hover {\n    background: var(--fqa-hover);\n}\n\n#fqa-search .fqa-sr-card:focus-visible {\n    box-shadow: 0 0 0 2px var(--fqa-accent);\n}\n\n#fqa-search .fqa-sr-skeleton {\n    cursor: default;\n}\n\n#fqa-search .fqa-sr-skeleton:hover {\n    background: transparent;\n}\n\n#fqa-search .fqa-sr-cover {\n    position: relative;\n    flex: 0 0 96px;\n    width: 96px;\n    aspect-ratio: 3 / 4;\n    border-radius: 6px;\n    overflow: hidden;\n    background: var(--fqa-skeleton);\n}\n\n#fqa-search .fqa-sr-cover-img {\n    position: absolute;\n    inset: 0;\n    display: block;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    transition: opacity 0.25s ease;\n}\n\n#fqa-search .fqa-sr-cover-loading {\n    opacity: 0;\n}\n\n#fqa-search .fqa-sr-badge {\n    position: absolute;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    padding: 2px 4px;\n    background: rgba(31, 35, 41, 0.7);\n    color: #fff;\n    font-size: 10px;\n    line-height: 14px;\n    text-align: center;\n}\n\n#fqa-search .fqa-sr-body {\n    display: flex;\n    flex: 1 1 auto;\n    flex-direction: column;\n    min-width: 0;\n}\n\n#fqa-search .fqa-sr-title {\n    color: var(--fqa-text);\n    font-size: 16px;\n    font-weight: 600;\n    line-height: 24px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n/* 接口下发的高亮片段 */\n#fqa-search .fqa-sr-title em {\n    color: var(--fqa-accent);\n    font-style: normal;\n}\n\n#fqa-search .fqa-sr-author {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    margin-top: 3px;\n    color: var(--fqa-text-sub);\n    font-size: 13px;\n    line-height: 20px;\n}\n\n#fqa-search .fqa-sr-author > span:first-child {\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n}\n\n#fqa-search .fqa-sr-score {\n    flex: 0 0 auto;\n    color: var(--fqa-accent);\n    font-weight: 500;\n}\n\n/* 无评分时弱化，不跟真实分数抢注意力 */\n#fqa-search .fqa-sr-score-none {\n    color: var(--fqa-text-weak);\n    font-weight: 400;\n}\n\n#fqa-search .fqa-sr-summary {\n    display: -webkit-box;\n    margin-top: 6px;\n    color: var(--fqa-text-sub);\n    font-size: 13px;\n    line-height: 20px;\n    -webkit-line-clamp: 2;\n    line-clamp: 2;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n}\n\n#fqa-search .fqa-sr-meta {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    gap: 6px;\n    margin-top: 8px;\n}\n\n#fqa-search .fqa-sr-tag {\n    padding: 1px 7px;\n    border-radius: 4px;\n    background: var(--fqa-hover);\n    color: var(--fqa-text-weak);\n    font-size: 12px;\n    line-height: 18px;\n}\n\n#fqa-search .fqa-sr-read {\n    color: var(--fqa-text-weak);\n    font-size: 12px;\n    line-height: 18px;\n}\n\n#fqa-search .fqa-sr-update {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    margin-top: 6px;\n    color: var(--fqa-text-weak);\n    font-size: 12px;\n    line-height: 18px;\n}\n\n#fqa-search .fqa-sr-chapter {\n    min-width: 0;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n}\n\n#fqa-search .fqa-sr-time {\n    flex: 0 0 auto;\n}\n\n@media (max-width: 600px) {\n    #fqa-search .fqa-sr-cover {\n        flex-basis: 72px;\n        width: 72px;\n    }\n\n    #fqa-search .fqa-sr-summary {\n        -webkit-line-clamp: 3;\n        line-clamp: 3;\n    }\n}\n\n/* -------------------------------- 落地页 -------------------------------- */\n\n#fqa-search .fqa-s-sec {\n    margin-bottom: 28px;\n}\n\n#fqa-search .fqa-s-sec-title {\n    margin-bottom: 12px;\n    font-size: 16px;\n    font-weight: 600;\n    line-height: 24px;\n}\n\n#fqa-search .fqa-s-words {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 8px;\n}\n\n#fqa-search .fqa-s-word {\n    display: inline-flex;\n    align-items: center;\n    gap: 5px;\n    padding: 6px 14px;\n    border: 0;\n    border-radius: 999px;\n    background: var(--fqa-hover);\n    color: var(--fqa-text-sub);\n    font-size: 13px;\n    font-family: inherit;\n    line-height: 20px;\n    cursor: pointer;\n    transition: background 0.15s ease, color 0.15s ease;\n}\n\n#fqa-search .fqa-s-word:hover {\n    background: rgba(255, 111, 61, 0.1);\n    color: var(--fqa-accent);\n}\n\n#fqa-search .fqa-s-word-tag {\n    color: var(--fqa-text-weak);\n    font-size: 11px;\n}\n\n/* 「荐」「热」这类角标 */\n#fqa-search .fqa-s-word-label {\n    padding: 0 4px;\n    border-radius: 3px;\n    background: var(--fqa-accent);\n    color: #fff;\n    font-size: 10px;\n    line-height: 15px;\n}\n\n#fqa-search .fqa-s-sugs {\n    display: grid;\n    grid-template-columns: repeat(6, minmax(0, 1fr));\n    gap: 20px 16px;\n}\n\n@media (max-width: 900px) {\n    #fqa-search .fqa-s-sugs {\n        grid-template-columns: repeat(4, minmax(0, 1fr));\n    }\n}\n\n@media (max-width: 600px) {\n    #fqa-search .fqa-s-sugs {\n        grid-template-columns: repeat(3, minmax(0, 1fr));\n    }\n}\n\n#fqa-search .fqa-s-sug {\n    cursor: pointer;\n    outline: none;\n}\n\n#fqa-search .fqa-s-sug-cover {\n    display: block;\n    width: 100%;\n    aspect-ratio: 3 / 4;\n    border-radius: 6px;\n    object-fit: cover;\n    background: var(--fqa-skeleton);\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n#fqa-search .fqa-s-sug:hover .fqa-s-sug-cover {\n    transform: translateY(-4px);\n    box-shadow: var(--fqa-shadow);\n}\n\n#fqa-search .fqa-s-sug-title {\n    margin-top: 7px;\n    font-size: 13px;\n    line-height: 19px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n#fqa-search .fqa-s-sug-sub {\n    margin-top: 2px;\n    color: var(--fqa-text-weak);\n    font-size: 12px;\n    line-height: 18px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n#fqa-search .fqa-s-landing-sk {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 8px;\n}\n\n#fqa-search .fqa-sk-chip {\n    width: 84px;\n    height: 32px;\n    border-radius: 999px;\n    background: var(--fqa-skeleton);\n}\n\n/* ------------------------------ 骨架 / 状态 ------------------------------ */\n\n#fqa-search .fqa-sk-cover {\n    flex: 0 0 96px;\n    width: 96px;\n    aspect-ratio: 3 / 4;\n    border-radius: 6px;\n    background: var(--fqa-skeleton);\n}\n\n#fqa-search .fqa-sk-line {\n    height: 12px;\n    margin-bottom: 9px;\n    border-radius: 4px;\n    background: var(--fqa-skeleton);\n}\n\n#fqa-search .fqa-sk-anim {\n    position: relative;\n    overflow: hidden;\n}\n\n#fqa-search .fqa-sk-anim::after {\n    content: '';\n    position: absolute;\n    inset: 0;\n    transform: translateX(-100%);\n    background: linear-gradient(90deg, transparent, var(--fqa-skeleton-hl), transparent);\n    animation: fqa-shimmer 1.4s infinite;\n}\n\n#fqa-search .fqa-s-status {\n    padding: 72px 16px;\n    text-align: center;\n    color: var(--fqa-text-weak);\n    font-size: 14px;\n    line-height: 22px;\n}\n\n#fqa-search .fqa-s-status-title {\n    margin-bottom: 8px;\n    color: var(--fqa-text);\n    font-size: 16px;\n    font-weight: 500;\n}\n\n#fqa-search .fqa-s-status .fqa-s-submit {\n    margin-top: 16px;\n}\n\n#fqa-search .fqa-s-loadmore {\n    padding: 24px 0;\n    text-align: center;\n    color: var(--fqa-text-weak);\n    font-size: 13px;\n}\n\n#fqa-search .fqa-s-inline-error {\n    padding: 12px 0;\n    text-align: center;\n    color: #f5222d;\n    font-size: 13px;\n}\n\n#fqa-search .fqa-s-privacy {\n    margin-top: 24px;\n    padding-top: 16px;\n    border-top: 1px solid var(--fqa-border);\n    color: var(--fqa-text-weak);\n    font-size: 12px;\n    line-height: 18px;\n    text-align: center;\n}\n\n/* ------------------------------- 深色模式 ------------------------------- */\n\n@media (prefers-color-scheme: dark) {\n    #fqa-search {\n        --fqa-text: #e6e6e6;\n        --fqa-text-sub: #a6a6a6;\n        --fqa-text-weak: #7a7a7a;\n        --fqa-border: rgba(255, 255, 255, 0.1);\n        --fqa-hover: rgba(255, 255, 255, 0.06);\n        --fqa-skeleton: rgba(255, 255, 255, 0.08);\n        --fqa-skeleton-hl: rgba(255, 255, 255, 0.14);\n        --fqa-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);\n        --fqa-card-bg: #212125;\n    }\n}\n";
+  const searchcss = "#fqa-search {\r\n    --fqa-text: #1f2329;\r\n    --fqa-text-sub: #646a73;\r\n    --fqa-text-weak: #8f959e;\r\n    --fqa-border: rgba(31, 35, 41, 0.08);\r\n    --fqa-hover: rgba(31, 35, 41, 0.04);\r\n    --fqa-accent: #ff6f3d;\r\n    --fqa-skeleton: rgba(31, 35, 41, 0.06);\r\n    --fqa-skeleton-hl: rgba(31, 35, 41, 0.12);\r\n    --fqa-shadow: 0 4px 16px rgba(31, 35, 41, 0.08);\r\n    --fqa-card-bg: #fff;\r\n\r\n    display: block;\r\n    box-sizing: border-box;\r\n    width: 100%;\r\n    max-width: 1000px;\r\n    margin: 0 auto;\r\n    /* 顶部让开原站 fixed 顶栏 */\r\n    padding: calc(80px + 24px) 16px 64px;\r\n    color: var(--fqa-text);\r\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\r\n        sans-serif;\r\n}\r\n\r\n#fqa-search *,\r\n#fqa-search *::before,\r\n#fqa-search *::after {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#fqa-search div,\r\n#fqa-search span,\r\n#fqa-search h3,\r\n#fqa-search p {\r\n    margin: 0;\r\n    padding: 0;\r\n    border: 0;\r\n    float: none;\r\n    position: static;\r\n}\r\n\r\n/* -------------------------------- 搜索栏 -------------------------------- */\r\n\r\n#fqa-search .fqa-s-bar {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 10px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n#fqa-search .fqa-s-inputwrap {\r\n    position: relative;\r\n    flex: 1 1 auto;\r\n    min-width: 0;\r\n}\r\n\r\n#fqa-search .fqa-s-input {\r\n    width: 100%;\r\n    padding: 11px 36px 11px 16px;\r\n    box-sizing: border-box;\r\n    border: 1px solid var(--fqa-border);\r\n    border-radius: 999px;\r\n    background: var(--fqa-card-bg);\r\n    color: var(--fqa-text);\r\n    font-size: 15px;\r\n    font-family: inherit;\r\n    line-height: 22px;\r\n    transition: border-color 0.15s ease, box-shadow 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-input::placeholder {\r\n    color: var(--fqa-text-weak);\r\n}\r\n\r\n#fqa-search .fqa-s-input:focus {\r\n    outline: none;\r\n    border-color: var(--fqa-accent);\r\n    box-shadow: 0 0 0 3px rgba(255, 111, 61, 0.12);\r\n}\r\n\r\n/* 隐藏浏览器自带的 search 清除按钮，用自己的 */\r\n#fqa-search .fqa-s-input::-webkit-search-cancel-button {\r\n    appearance: none;\r\n}\r\n\r\n#fqa-search .fqa-s-clear {\r\n    position: absolute;\r\n    top: 50%;\r\n    right: 10px;\r\n    transform: translateY(-50%);\r\n    width: 22px;\r\n    height: 22px;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 50%;\r\n    background: var(--fqa-hover);\r\n    color: var(--fqa-text-weak);\r\n    font-size: 11px;\r\n    line-height: 1;\r\n    cursor: pointer;\r\n}\r\n\r\n#fqa-search .fqa-s-clear:hover {\r\n    color: var(--fqa-text);\r\n}\r\n\r\n#fqa-search .fqa-s-submit {\r\n    flex: 0 0 auto;\r\n    padding: 11px 24px;\r\n    border: 0;\r\n    border-radius: 999px;\r\n    background: var(--fqa-accent);\r\n    color: #fff;\r\n    font-size: 15px;\r\n    font-family: inherit;\r\n    line-height: 22px;\r\n    cursor: pointer;\r\n    transition: opacity 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-submit:hover:not(:disabled) {\r\n    opacity: 0.88;\r\n}\r\n\r\n#fqa-search .fqa-s-submit:disabled {\r\n    opacity: 0.45;\r\n    cursor: default;\r\n}\r\n\r\n/* --------------------------------- tab --------------------------------- */\r\n\r\n#fqa-search .fqa-s-tabs {\r\n    position: relative;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 4px;\r\n    margin-bottom: 16px;\r\n    border-bottom: 1px solid var(--fqa-border);\r\n    overflow-x: auto;\r\n    scrollbar-width: none;\r\n}\r\n\r\n#fqa-search .fqa-s-tabs::-webkit-scrollbar {\r\n    display: none;\r\n}\r\n\r\n#fqa-search .fqa-s-tab {\r\n    flex: 0 0 auto;\r\n    padding: 10px 16px;\r\n    color: var(--fqa-text-sub);\r\n    font-size: 15px;\r\n    line-height: 22px;\r\n    white-space: nowrap;\r\n    cursor: pointer;\r\n    user-select: none;\r\n    transition: color 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-tab:hover {\r\n    color: var(--fqa-text);\r\n}\r\n\r\n#fqa-search .fqa-s-tab-active {\r\n    color: var(--fqa-accent);\r\n    font-weight: 600;\r\n}\r\n\r\n#fqa-search .fqa-s-tab-ink {\r\n    position: absolute;\r\n    bottom: -1px;\r\n    left: 0;\r\n    width: 0;\r\n    height: 2px;\r\n    border-radius: 2px;\r\n    background: var(--fqa-accent);\r\n    transition: left 0.25s ease, width 0.25s ease;\r\n}\r\n\r\n/* -------------------------------- 筛选器 -------------------------------- */\r\n\r\n#fqa-search .fqa-s-filterbar {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 10px;\r\n    margin-bottom: 12px;\r\n}\r\n\r\n#fqa-search .fqa-s-fbtn,\r\n#fqa-search .fqa-s-fclear {\r\n    padding: 5px 14px;\r\n    border: 1px solid var(--fqa-border);\r\n    border-radius: 999px;\r\n    background: transparent;\r\n    color: var(--fqa-text-sub);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n    line-height: 20px;\r\n    cursor: pointer;\r\n    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-fbtn:hover,\r\n#fqa-search .fqa-s-fclear:hover {\r\n    border-color: var(--fqa-accent);\r\n    color: var(--fqa-accent);\r\n}\r\n\r\n#fqa-search .fqa-s-fbtn-on {\r\n    border-color: var(--fqa-accent);\r\n    color: var(--fqa-accent);\r\n    background: rgba(255, 111, 61, 0.08);\r\n}\r\n\r\n#fqa-search .fqa-s-fcount {\r\n    display: inline-block;\r\n    min-width: 16px;\r\n    margin-left: 5px;\r\n    padding: 0 4px;\r\n    border-radius: 8px;\r\n    background: var(--fqa-accent);\r\n    color: #fff;\r\n    font-size: 11px;\r\n    line-height: 16px;\r\n    text-align: center;\r\n}\r\n\r\n#fqa-search .fqa-s-hint {\r\n    margin-left: auto;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 13px;\r\n}\r\n\r\n#fqa-search .fqa-s-filters {\r\n    margin-bottom: 16px;\r\n    padding: 14px 16px;\r\n    border: 1px solid var(--fqa-border);\r\n    border-radius: 10px;\r\n    background: var(--fqa-card-bg);\r\n}\r\n\r\n#fqa-search .fqa-s-frow {\r\n    display: flex;\r\n    align-items: flex-start;\r\n    gap: 12px;\r\n    padding: 7px 0;\r\n}\r\n\r\n#fqa-search .fqa-s-frow-name {\r\n    flex: 0 0 58px;\r\n    padding-top: 5px;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 13px;\r\n    line-height: 20px;\r\n}\r\n\r\n#fqa-search .fqa-s-fitems {\r\n    display: flex;\r\n    flex: 1 1 auto;\r\n    flex-wrap: wrap;\r\n    gap: 8px;\r\n    min-width: 0;\r\n}\r\n\r\n#fqa-search .fqa-s-fitem {\r\n    padding: 4px 12px;\r\n    border: 1px solid transparent;\r\n    border-radius: 6px;\r\n    background: var(--fqa-hover);\r\n    color: var(--fqa-text-sub);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n    line-height: 20px;\r\n    cursor: pointer;\r\n    transition: background 0.15s ease, color 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-fitem:hover {\r\n    color: var(--fqa-text);\r\n}\r\n\r\n#fqa-search .fqa-s-fitem-on {\r\n    background: rgba(255, 111, 61, 0.12);\r\n    border-color: rgba(255, 111, 61, 0.4);\r\n    color: var(--fqa-accent);\r\n    font-weight: 500;\r\n}\r\n\r\n/* ------------------------------- 结果列表 ------------------------------- */\r\n\r\n#fqa-search .fqa-s-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 4px;\r\n}\r\n\r\n#fqa-search .fqa-sr-card {\r\n    display: flex;\r\n    gap: 16px;\r\n    padding: 16px 12px;\r\n    border-radius: 10px;\r\n    cursor: pointer;\r\n    outline: none;\r\n    transition: background 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-sr-card:hover {\r\n    background: var(--fqa-hover);\r\n}\r\n\r\n#fqa-search .fqa-sr-card:focus-visible {\r\n    box-shadow: 0 0 0 2px var(--fqa-accent);\r\n}\r\n\r\n#fqa-search .fqa-sr-skeleton {\r\n    cursor: default;\r\n}\r\n\r\n#fqa-search .fqa-sr-skeleton:hover {\r\n    background: transparent;\r\n}\r\n\r\n#fqa-search .fqa-sr-cover {\r\n    position: relative;\r\n    flex: 0 0 96px;\r\n    width: 96px;\r\n    aspect-ratio: 3 / 4;\r\n    border-radius: 6px;\r\n    overflow: hidden;\r\n    background: var(--fqa-skeleton);\r\n}\r\n\r\n#fqa-search .fqa-sr-cover-img {\r\n    position: absolute;\r\n    inset: 0;\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n    transition: opacity 0.25s ease;\r\n}\r\n\r\n#fqa-search .fqa-sr-cover-loading {\r\n    opacity: 0;\r\n}\r\n\r\n#fqa-search .fqa-sr-badge {\r\n    position: absolute;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    padding: 2px 4px;\r\n    background: rgba(31, 35, 41, 0.7);\r\n    color: #fff;\r\n    font-size: 10px;\r\n    line-height: 14px;\r\n    text-align: center;\r\n}\r\n\r\n#fqa-search .fqa-sr-body {\r\n    display: flex;\r\n    flex: 1 1 auto;\r\n    flex-direction: column;\r\n    min-width: 0;\r\n}\r\n\r\n#fqa-search .fqa-sr-title {\r\n    color: var(--fqa-text);\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n    line-height: 24px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n/* 接口下发的高亮片段 */\r\n#fqa-search .fqa-sr-title em {\r\n    color: var(--fqa-accent);\r\n    font-style: normal;\r\n}\r\n\r\n#fqa-search .fqa-sr-author {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 8px;\r\n    margin-top: 3px;\r\n    color: var(--fqa-text-sub);\r\n    font-size: 13px;\r\n    line-height: 20px;\r\n}\r\n\r\n#fqa-search .fqa-sr-author > span:first-child {\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-search .fqa-sr-score {\r\n    flex: 0 0 auto;\r\n    color: var(--fqa-accent);\r\n    font-weight: 500;\r\n}\r\n\r\n/* 无评分时弱化，不跟真实分数抢注意力 */\r\n#fqa-search .fqa-sr-score-none {\r\n    color: var(--fqa-text-weak);\r\n    font-weight: 400;\r\n}\r\n\r\n#fqa-search .fqa-sr-summary {\r\n    display: -webkit-box;\r\n    margin-top: 6px;\r\n    color: var(--fqa-text-sub);\r\n    font-size: 13px;\r\n    line-height: 20px;\r\n    -webkit-line-clamp: 2;\r\n    line-clamp: 2;\r\n    -webkit-box-orient: vertical;\r\n    overflow: hidden;\r\n}\r\n\r\n#fqa-search .fqa-sr-meta {\r\n    display: flex;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n    gap: 6px;\r\n    margin-top: 8px;\r\n}\r\n\r\n#fqa-search .fqa-sr-tag {\r\n    padding: 1px 7px;\r\n    border-radius: 4px;\r\n    background: var(--fqa-hover);\r\n    color: var(--fqa-text-weak);\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n}\r\n\r\n#fqa-search .fqa-sr-read {\r\n    color: var(--fqa-text-weak);\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n}\r\n\r\n#fqa-search .fqa-sr-update {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 8px;\r\n    margin-top: 6px;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n}\r\n\r\n#fqa-search .fqa-sr-chapter {\r\n    min-width: 0;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-search .fqa-sr-time {\r\n    flex: 0 0 auto;\r\n}\r\n\r\n@media (max-width: 600px) {\r\n    #fqa-search .fqa-sr-cover {\r\n        flex-basis: 72px;\r\n        width: 72px;\r\n    }\r\n\r\n    #fqa-search .fqa-sr-summary {\r\n        -webkit-line-clamp: 3;\r\n        line-clamp: 3;\r\n    }\r\n}\r\n\r\n/* -------------------------------- 落地页 -------------------------------- */\r\n\r\n#fqa-search .fqa-s-sec {\r\n    margin-bottom: 28px;\r\n}\r\n\r\n#fqa-search .fqa-s-sec-title {\r\n    margin-bottom: 12px;\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n    line-height: 24px;\r\n}\r\n\r\n#fqa-search .fqa-s-words {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    gap: 8px;\r\n}\r\n\r\n#fqa-search .fqa-s-word {\r\n    display: inline-flex;\r\n    align-items: center;\r\n    gap: 5px;\r\n    padding: 6px 14px;\r\n    border: 0;\r\n    border-radius: 999px;\r\n    background: var(--fqa-hover);\r\n    color: var(--fqa-text-sub);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n    line-height: 20px;\r\n    cursor: pointer;\r\n    transition: background 0.15s ease, color 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-word:hover {\r\n    background: rgba(255, 111, 61, 0.1);\r\n    color: var(--fqa-accent);\r\n}\r\n\r\n#fqa-search .fqa-s-word-tag {\r\n    color: var(--fqa-text-weak);\r\n    font-size: 11px;\r\n}\r\n\r\n/* 「荐」「热」这类角标 */\r\n#fqa-search .fqa-s-word-label {\r\n    padding: 0 4px;\r\n    border-radius: 3px;\r\n    background: var(--fqa-accent);\r\n    color: #fff;\r\n    font-size: 10px;\r\n    line-height: 15px;\r\n}\r\n\r\n#fqa-search .fqa-s-sugs {\r\n    display: grid;\r\n    grid-template-columns: repeat(6, minmax(0, 1fr));\r\n    gap: 20px 16px;\r\n}\r\n\r\n@media (max-width: 900px) {\r\n    #fqa-search .fqa-s-sugs {\r\n        grid-template-columns: repeat(4, minmax(0, 1fr));\r\n    }\r\n}\r\n\r\n@media (max-width: 600px) {\r\n    #fqa-search .fqa-s-sugs {\r\n        grid-template-columns: repeat(3, minmax(0, 1fr));\r\n    }\r\n}\r\n\r\n#fqa-search .fqa-s-sug {\r\n    cursor: pointer;\r\n    outline: none;\r\n}\r\n\r\n#fqa-search .fqa-s-sug-cover {\r\n    display: block;\r\n    width: 100%;\r\n    aspect-ratio: 3 / 4;\r\n    border-radius: 6px;\r\n    object-fit: cover;\r\n    background: var(--fqa-skeleton);\r\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-sug:hover .fqa-s-sug-cover {\r\n    transform: translateY(-4px);\r\n    box-shadow: var(--fqa-shadow);\r\n}\r\n\r\n#fqa-search .fqa-s-sug-title {\r\n    margin-top: 7px;\r\n    font-size: 13px;\r\n    line-height: 19px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-search .fqa-s-sug-sub {\r\n    margin-top: 2px;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-search .fqa-s-landing-sk {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    gap: 8px;\r\n}\r\n\r\n#fqa-search .fqa-sk-chip {\r\n    width: 84px;\r\n    height: 32px;\r\n    border-radius: 999px;\r\n    background: var(--fqa-skeleton);\r\n}\r\n\r\n/* ------------------------------ 骨架 / 状态 ------------------------------ */\r\n\r\n#fqa-search .fqa-sk-cover {\r\n    flex: 0 0 96px;\r\n    width: 96px;\r\n    aspect-ratio: 3 / 4;\r\n    border-radius: 6px;\r\n    background: var(--fqa-skeleton);\r\n}\r\n\r\n#fqa-search .fqa-sk-line {\r\n    height: 12px;\r\n    margin-bottom: 9px;\r\n    border-radius: 4px;\r\n    background: var(--fqa-skeleton);\r\n}\r\n\r\n#fqa-search .fqa-sk-anim {\r\n    position: relative;\r\n    overflow: hidden;\r\n}\r\n\r\n#fqa-search .fqa-sk-anim::after {\r\n    content: '';\r\n    position: absolute;\r\n    inset: 0;\r\n    transform: translateX(-100%);\r\n    background: linear-gradient(90deg, transparent, var(--fqa-skeleton-hl), transparent);\r\n    animation: fqa-shimmer 1.4s infinite;\r\n}\r\n\r\n#fqa-search .fqa-s-status {\r\n    padding: 72px 16px;\r\n    text-align: center;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 14px;\r\n    line-height: 22px;\r\n}\r\n\r\n#fqa-search .fqa-s-status-title {\r\n    margin-bottom: 8px;\r\n    color: var(--fqa-text);\r\n    font-size: 16px;\r\n    font-weight: 500;\r\n}\r\n\r\n#fqa-search .fqa-s-status .fqa-s-submit {\r\n    margin-top: 16px;\r\n}\r\n\r\n#fqa-search .fqa-s-loadmore {\r\n    padding: 24px 0;\r\n    text-align: center;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 13px;\r\n}\r\n\r\n#fqa-search .fqa-s-inline-error {\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    color: #f5222d;\r\n    font-size: 13px;\r\n}\r\n\r\n#fqa-search .fqa-s-privacy {\r\n    margin-top: 24px;\r\n    padding-top: 16px;\r\n    border-top: 1px solid var(--fqa-border);\r\n    color: var(--fqa-text-weak);\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n    text-align: center;\r\n}\r\n\r\n/* ------------------------------- 深色模式 ------------------------------- */\r\n\r\n@media (prefers-color-scheme: dark) {\r\n    #fqa-search {\r\n        --fqa-text: #e6e6e6;\r\n        --fqa-text-sub: #a6a6a6;\r\n        --fqa-text-weak: #7a7a7a;\r\n        --fqa-border: rgba(255, 255, 255, 0.1);\r\n        --fqa-hover: rgba(255, 255, 255, 0.06);\r\n        --fqa-skeleton: rgba(255, 255, 255, 0.08);\r\n        --fqa-skeleton-hl: rgba(255, 255, 255, 0.14);\r\n        --fqa-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);\r\n        --fqa-card-bg: #212125;\r\n    }\r\n}\r\n";
   const CONTAINER_ID$1 = "fqa-search-root";
   const STYLE_ID$2 = "fqa-search-style";
   const RESULT_SELECTOR = ".muye-search";
@@ -10459,7 +11399,7 @@ ${body}
       handler: overloadTitle
     }
   ];
-  const downloadcss = "/* 下载进度弹窗 */\n\n.fqa-dl-mask {\n    position: fixed;\n    inset: 0;\n    z-index: 2147483300;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    background: rgba(0, 0, 0, 0.45);\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\n        sans-serif;\n    font-size: 14px;\n    line-height: 1.6;\n}\n\n.fqa-dl-box {\n    --fqa-dl-bg: #fff;\n    --fqa-dl-text: #1f2329;\n    --fqa-dl-sub: #8f959e;\n    --fqa-dl-border: rgba(31, 35, 41, 0.1);\n    --fqa-dl-accent: #ff6f3d;\n    --fqa-dl-track: rgba(31, 35, 41, 0.08);\n    --fqa-dl-danger: #f53f3f;\n\n    box-sizing: border-box;\n    width: min(420px, 90vw);\n    padding: 22px 24px 18px;\n    background: var(--fqa-dl-bg);\n    color: var(--fqa-dl-text);\n    border-radius: 12px;\n    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.24);\n}\n\n.fqa-dl-title {\n    margin: 0 0 4px;\n    font-size: 16px;\n    font-weight: 600;\n}\n\n/* 正在处理的章节名，长标题截断 */\n.fqa-dl-sub {\n    margin: 0 0 14px;\n    min-height: 20px;\n    color: var(--fqa-dl-sub);\n    font-size: 12px;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.fqa-dl-bar {\n    height: 8px;\n    border-radius: 4px;\n    background: var(--fqa-dl-track);\n    overflow: hidden;\n}\n\n.fqa-dl-fill {\n    height: 100%;\n    border-radius: 4px;\n    background: var(--fqa-dl-accent);\n    transition: width 0.2s ease;\n}\n\n/* 总量未知时的循环动画 */\n.fqa-dl-fill-indeterminate {\n    width: 35% !important;\n    animation: fqa-dl-slide 1.1s ease-in-out infinite;\n}\n\n@keyframes fqa-dl-slide {\n    0% {\n        margin-left: -35%;\n    }\n    100% {\n        margin-left: 100%;\n    }\n}\n\n.fqa-dl-meta {\n    display: flex;\n    justify-content: space-between;\n    margin-top: 8px;\n    color: var(--fqa-dl-sub);\n    font-size: 12px;\n    font-variant-numeric: tabular-nums;\n}\n\n.fqa-dl-error {\n    margin: 12px 0 0;\n    padding: 8px 10px;\n    border-radius: 6px;\n    background: rgba(245, 63, 63, 0.1);\n    color: var(--fqa-dl-danger);\n    font-size: 12px;\n    word-break: break-all;\n}\n\n.fqa-dl-actions {\n    display: flex;\n    justify-content: flex-end;\n    gap: 8px;\n    margin-top: 18px;\n}\n\n.fqa-dl-btn {\n    padding: 7px 18px;\n    border: 1px solid var(--fqa-dl-border);\n    border-radius: 6px;\n    background: var(--fqa-dl-bg);\n    color: var(--fqa-dl-text);\n    font-size: 13px;\n    font-family: inherit;\n    cursor: pointer;\n}\n\n.fqa-dl-btn:hover {\n    border-color: var(--fqa-dl-accent);\n    color: var(--fqa-dl-accent);\n}\n\n.fqa-dl-btn:disabled {\n    color: var(--fqa-dl-sub);\n    border-color: var(--fqa-dl-border);\n    cursor: not-allowed;\n}\n\n.fqa-dl-btn-primary {\n    border-color: var(--fqa-dl-accent);\n    background: var(--fqa-dl-accent);\n    color: #fff;\n}\n\n.fqa-dl-btn-primary:hover {\n    background: #ff8a5f;\n    border-color: #ff8a5f;\n    color: #fff;\n}\n\n/**\n * 详情页注入的下载按钮。\n *\n * 原站 .info-btn / .add-bookshelf-btn 自带 `position:absolute; bottom:0` 和固定\n * 尺寸，但这两个 class 同时带页面行为（会被站点脚本当成自己的按钮），所以不能照抄。\n * 这里复刻它们的尺寸，水平位置由脚本按前面按钮的实际宽度算出来。\n */\n.fqa-dl-entry {\n    position: absolute;\n    bottom: 0;\n    width: 150px;\n    height: 40px;\n    line-height: 40px;\n    padding: 0;\n    border-radius: 4px;\n    font-size: 16px;\n    text-align: center;\n}\n\n@media (prefers-color-scheme: dark) {\n    .fqa-dl-box {\n        --fqa-dl-bg: #23272e;\n        --fqa-dl-text: #e5e6eb;\n        --fqa-dl-border: rgba(255, 255, 255, 0.12);\n        --fqa-dl-track: rgba(255, 255, 255, 0.12);\n    }\n}\n";
+  const downloadcss = "/* 下载进度弹窗 */\r\n\r\n.fqa-dl-mask {\r\n    position: fixed;\r\n    inset: 0;\r\n    z-index: 2147483300;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    background: rgba(0, 0, 0, 0.45);\r\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\r\n        sans-serif;\r\n    font-size: 14px;\r\n    line-height: 1.6;\r\n}\r\n\r\n.fqa-dl-box {\r\n    --fqa-dl-bg: #fff;\r\n    --fqa-dl-text: #1f2329;\r\n    --fqa-dl-sub: #8f959e;\r\n    --fqa-dl-border: rgba(31, 35, 41, 0.1);\r\n    --fqa-dl-accent: #ff6f3d;\r\n    --fqa-dl-track: rgba(31, 35, 41, 0.08);\r\n    --fqa-dl-danger: #f53f3f;\r\n\r\n    box-sizing: border-box;\r\n    width: min(420px, 90vw);\r\n    padding: 22px 24px 18px;\r\n    background: var(--fqa-dl-bg);\r\n    color: var(--fqa-dl-text);\r\n    border-radius: 12px;\r\n    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.24);\r\n}\r\n\r\n.fqa-dl-title {\r\n    margin: 0 0 4px;\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n}\r\n\r\n/* 正在处理的章节名，长标题截断 */\r\n.fqa-dl-sub {\r\n    margin: 0 0 14px;\r\n    min-height: 20px;\r\n    color: var(--fqa-dl-sub);\r\n    font-size: 12px;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n.fqa-dl-bar {\r\n    height: 8px;\r\n    border-radius: 4px;\r\n    background: var(--fqa-dl-track);\r\n    overflow: hidden;\r\n}\r\n\r\n.fqa-dl-fill {\r\n    height: 100%;\r\n    border-radius: 4px;\r\n    background: var(--fqa-dl-accent);\r\n    transition: width 0.2s ease;\r\n}\r\n\r\n/* 总量未知时的循环动画 */\r\n.fqa-dl-fill-indeterminate {\r\n    width: 35% !important;\r\n    animation: fqa-dl-slide 1.1s ease-in-out infinite;\r\n}\r\n\r\n@keyframes fqa-dl-slide {\r\n    0% {\r\n        margin-left: -35%;\r\n    }\r\n    100% {\r\n        margin-left: 100%;\r\n    }\r\n}\r\n\r\n.fqa-dl-meta {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    margin-top: 8px;\r\n    color: var(--fqa-dl-sub);\r\n    font-size: 12px;\r\n    font-variant-numeric: tabular-nums;\r\n}\r\n\r\n.fqa-dl-error {\r\n    margin: 12px 0 0;\r\n    padding: 8px 10px;\r\n    border-radius: 6px;\r\n    background: rgba(245, 63, 63, 0.1);\r\n    color: var(--fqa-dl-danger);\r\n    font-size: 12px;\r\n    word-break: break-all;\r\n}\r\n\r\n.fqa-dl-actions {\r\n    display: flex;\r\n    justify-content: flex-end;\r\n    gap: 8px;\r\n    margin-top: 18px;\r\n}\r\n\r\n.fqa-dl-btn {\r\n    padding: 7px 18px;\r\n    border: 1px solid var(--fqa-dl-border);\r\n    border-radius: 6px;\r\n    background: var(--fqa-dl-bg);\r\n    color: var(--fqa-dl-text);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n    cursor: pointer;\r\n}\r\n\r\n.fqa-dl-btn:hover {\r\n    border-color: var(--fqa-dl-accent);\r\n    color: var(--fqa-dl-accent);\r\n}\r\n\r\n.fqa-dl-btn:disabled {\r\n    color: var(--fqa-dl-sub);\r\n    border-color: var(--fqa-dl-border);\r\n    cursor: not-allowed;\r\n}\r\n\r\n.fqa-dl-btn-primary {\r\n    border-color: var(--fqa-dl-accent);\r\n    background: var(--fqa-dl-accent);\r\n    color: #fff;\r\n}\r\n\r\n.fqa-dl-btn-primary:hover {\r\n    background: #ff8a5f;\r\n    border-color: #ff8a5f;\r\n    color: #fff;\r\n}\r\n\r\n/**\r\n * 详情页注入的下载按钮。\r\n *\r\n * 原站 .info-btn / .add-bookshelf-btn 自带 `position:absolute; bottom:0` 和固定\r\n * 尺寸，但这两个 class 同时带页面行为（会被站点脚本当成自己的按钮），所以不能照抄。\r\n * 这里复刻它们的尺寸，水平位置由脚本按前面按钮的实际宽度算出来。\r\n */\r\n.fqa-dl-entry {\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 150px;\r\n    height: 40px;\r\n    line-height: 40px;\r\n    padding: 0;\r\n    border-radius: 4px;\r\n    font-size: 16px;\r\n    text-align: center;\r\n}\r\n\r\n@media (prefers-color-scheme: dark) {\r\n    .fqa-dl-box {\r\n        --fqa-dl-bg: #23272e;\r\n        --fqa-dl-text: #e5e6eb;\r\n        --fqa-dl-border: rgba(255, 255, 255, 0.12);\r\n        --fqa-dl-track: rgba(255, 255, 255, 0.12);\r\n    }\r\n}\r\n";
   const STYLE_ID$1 = "fqa-download-style";
   const ENTRY_CLASS = "fqa-dl-entry";
   const ANCHOR_SELECTOR = `.add-bookshelf-btn:not(.${ENTRY_CLASS}), .info-btn:not(.${ENTRY_CLASS})`;
