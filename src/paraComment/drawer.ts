@@ -34,9 +34,16 @@ interface PageState {
 let els: DrawerEls | null = null
 let page: PageState | null = null
 let shiftTargets: HTMLElement[] = []
+let themeObserver: MutationObserver | null = null
+let shiftReapplyTimer: number | null = null
 
 export function isParaDrawerOpen(): boolean {
     return Boolean(els?.drawer.classList.contains('fqa-pc-show'))
+}
+
+/** 当前抽屉对应的段落。用于「再次点击同一段就收起」的判断 */
+export function currentParaDrawerParagraph(): HTMLElement | null {
+    return page?.para ?? null
 }
 
 /** 生成（或复用）抽屉 DOM，并把各种关闭手势一次挂好 */
@@ -61,17 +68,12 @@ function ensureDrawer(): DrawerEls {
     }
 
     drawer.querySelector('.fqa-pc-drawer-close')?.addEventListener('click', () => closeParaDrawer())
-    // 点抽屉内部不冒泡到「点空白关闭」
+    // 点抽屉内部不冒泡到正文的段落点击
     drawer.addEventListener('click', e => e.stopPropagation())
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape') closeParaDrawer()
     })
-    document.addEventListener('click', e => {
-        if (!els?.drawer.classList.contains('fqa-pc-show')) return
-        const t = e.target as HTMLElement | null
-        if (t?.closest?.('.fqa-pc-drawer, .fqa-pc-chip')) return
-        closeParaDrawer()
-    }, true)
+    // 点空白处不再收起：只认 Esc、抽屉右上角 ✕，或再次点击已展开的段落
     window.addEventListener('resize', () => {
         if (page && els?.drawer.classList.contains('fqa-pc-show')) applyShift(page.container, els)
     })
@@ -88,6 +90,8 @@ function ensureDrawer(): DrawerEls {
 
     document.body.appendChild(drawer)
     els = created
+    // 抽屉一旦建好就盯着站点主题，日/夜切换时跟着换色
+    watchReaderTheme()
     return created
 }
 
@@ -128,7 +132,13 @@ function applyShift(container: HTMLElement, elements: DrawerEls): void {
     if (!target) return
 
     const globalShift = parseFloat(document.documentElement.style.getPropertyValue('--fqa-pc-shift')) || 0
-    const cur = target.classList.contains('fqa-pc-shift-el') ? globalShift : 0
+    // 位移有两个来源：<html>.fqa-pc-open 的规则（正文块 / 顶栏），以及兜底的 fqa-pc-shift-el 类。
+    // 只按类名判断会漏掉前者——站点换字号重渲染后类没了，但元素仍被 html 规则左移，
+    // 这时量到的右缘已经是平移后的，再减一次位移就会把抽屉一起带偏。
+    const shiftedByRoot =
+        document.documentElement.classList.contains('fqa-pc-open')
+        && target.matches('.muye-reader-box, .muye-reader-nav')
+    const cur = (shiftedByRoot || target.classList.contains('fqa-pc-shift-el')) ? globalShift : 0
     const r = target.getBoundingClientRect()
     const right = r.right + cur
     const tw = toolbar ? toolbar.offsetWidth || 56 : 0
@@ -157,21 +167,51 @@ function applyShift(container: HTMLElement, elements: DrawerEls): void {
     if (nav && target !== nav && !target.contains(nav)) targets.push(nav)
     for (const t of targets) t.classList.add('fqa-pc-shift-el')
     shiftTargets = targets
+    // 位移的「总开关」挂在 <html> 上：站点重渲染正文块也不会把它冲掉（见 paraComment.css）
+    document.documentElement.classList.add('fqa-pc-open')
 
-    document.documentElement.style.setProperty('--fqa-pc-shift', Math.round(shift) + 'px')
-    if (toolbar) {
-        toolbar.style.transition = `transform ${SHIFT_EASE}`
-        toolbar.style.transform = Math.abs(toolbarDelta) > 0.5 ? `translateX(${toolbarDelta}px)` : ''
+    // 只在值真的变化时写样式。
+    // 位移观察器盯着 style 属性，无脑重写会反复触发自己，表现就是抽屉左右跳动。
+    const root = document.documentElement.style
+    const shiftValue = `${Math.round(shift)}px`
+    if (root.getPropertyValue('--fqa-pc-shift') !== shiftValue) {
+        root.setProperty('--fqa-pc-shift', shiftValue)
     }
-    elements.drawer.style.left = Math.round(right) + 'px'
-    elements.drawer.style.transform = shift > 0.5 ? `translateX(${-Math.round(shift)}px)` : ''
-    elements.inner.style.width = Math.round(dw) + 'px'
-    elements.drawer.style.width = Math.round(dw) + 'px'
+
+    // 目录弹窗按正文实际位置对齐。站点写死 right: calc(50vw - 480px)，
+    // 但正文块实际右缘未必在该处（窗口宽度不同会差几十像素），
+    // 不对齐的话抽屉一展开就会压住目录的一部分。
+    const contentRight = `${Math.round(W - right)}px`
+    const contentWidth = `${Math.round(r.width)}px`
+    if (root.getPropertyValue('--fqa-pc-content-right') !== contentRight) {
+        root.setProperty('--fqa-pc-content-right', contentRight)
+    }
+    if (root.getPropertyValue('--fqa-pc-content-width') !== contentWidth) {
+        root.setProperty('--fqa-pc-content-width', contentWidth)
+    }
+
+    if (toolbar) {
+        const transition = `transform ${SHIFT_EASE}`
+        const transform = Math.abs(toolbarDelta) > 0.5 ? `translateX(${toolbarDelta}px)` : ''
+        if (toolbar.style.transition !== transition) toolbar.style.transition = transition
+        if (toolbar.style.transform !== transform) toolbar.style.transform = transform
+    }
+
+    const leftValue = `${Math.round(right)}px`
+    if (elements.drawer.style.left !== leftValue) elements.drawer.style.left = leftValue
+
+    const drawerTransform = shift > 0.5 ? `translateX(${-Math.round(shift)}px)` : ''
+    if (elements.drawer.style.transform !== drawerTransform) elements.drawer.style.transform = drawerTransform
+
+    const widthValue = `${Math.round(dw)}px`
+    if (elements.inner.style.width !== widthValue) elements.inner.style.width = widthValue
+    if (elements.drawer.style.width !== widthValue) elements.drawer.style.width = widthValue
 }
 
 /** 复位所有平移与工具栏 */
 function clearShift(): void {
     document.documentElement.style.setProperty('--fqa-pc-shift', '0px')
+    document.documentElement.classList.remove('fqa-pc-open')
     for (const t of shiftTargets) t.classList.remove('fqa-pc-shift-el')
     shiftTargets = []
     const toolbar = document.querySelector<HTMLElement>('.reader-toolbar')
@@ -188,7 +228,9 @@ function clearShift(): void {
 /** 阅读器是否处于深色主题 */
 function isReaderDark(): boolean {
     try {
-        if (document.querySelector('.muye-reader-dark, .muye-reader-content-dark, .muye-reader-bg-dark')) return true
+        // 站点的日夜切换落在 <html muye-data-theme="dark"> 上（Reader.js 里 setAttribute）
+        if (document.documentElement.getAttribute('muye-data-theme') === 'dark') return true
+        if (document.querySelector('[muye-data-theme="dark"], .muye-reader-dark, .muye-reader-content-dark, .muye-reader-bg-dark')) return true
         const bg = getComputedStyle(document.body).backgroundColor || ''
         const nums = bg.match(/\d+/g)
         if (nums && nums.length >= 3) {
@@ -199,6 +241,52 @@ function isReaderDark(): boolean {
         // 取不到样式时按浅色处理
     }
     return false
+}
+
+/**
+ * 抽屉打开时，跟着阅读器的日间/夜间切换实时更新配色。
+ *
+ * 站点的切换只是给 <html> 换 muye-data-theme 属性，不会重建我们的抽屉，
+ * 所以必须自己监听属性变化。
+ */
+function watchReaderTheme(): void {
+    if (themeObserver) return
+    themeObserver = new MutationObserver(() => {
+        if (!isParaDrawerOpen()) return
+        const dark = isReaderDark()
+        els?.drawer.classList.toggle('fqa-pc-dark', dark)
+        document.documentElement.classList.toggle('fqa-pc-reader-dark', dark)
+        // 改字号 / 站点重排会把位移类冲掉，这里补一次
+        scheduleShiftReapply()
+    })
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'muye-data-theme'],
+        subtree: true,
+    })
+}
+
+/**
+ * 抽屉打开期间，站点重排（改字号会换 class）可能把位移类冲掉，
+ * 这里防抖后重新贴一次。applyShift 本身是幂等的，重复调用不会叠加位移。
+ */
+function scheduleShiftReapply(): void {
+    // 位移还在就什么都不做。否则我们的观察器会被自己写的 style 反复触发，
+    // 导致抽屉打开时左右抖动。
+    if (shiftStillApplied()) return
+    if (shiftReapplyTimer !== null) return
+    shiftReapplyTimer = window.setTimeout(() => {
+        shiftReapplyTimer = null
+        if (!isParaDrawerOpen() || !page || !els) return
+        if (shiftStillApplied()) return
+        applyShift(page.container, els)
+    }, 80)
+}
+
+/** 位移是否仍然生效：目标还挂在文档里，且位移类还在 */
+function shiftStillApplied(): boolean {
+    if (!shiftTargets.length) return false
+    return shiftTargets.every(el => el.isConnected && el.classList.contains('fqa-pc-shift-el'))
 }
 
 /**
@@ -233,7 +321,6 @@ export async function openParaDrawer(
 
     elements.drawer.classList.add('fqa-pc-show')
     applyShift(container, elements)
-    paragraph?.scrollIntoView?.({ block: 'center', behavior: 'smooth' })
 
     const state: PageState = {
         itemId, bookId, paraIndex, itemVersion,

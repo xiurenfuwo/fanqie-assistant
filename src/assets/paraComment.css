@@ -1,41 +1,76 @@
 /* 段评（段落评论）：段尾标记 + 右侧抽屉 + 章末评论区块。 */
 
-/* 段落末尾的段评标记：[N] 细边小方框，朴素 */
+/*
+ * 段落末尾的段评标记。
+ *
+ * 外形交给内联 SVG（.fqa-pc-shape）来画：左下角要「把圆角换成尖」，
+ * 只用 border-radius 拼不出带描边的缺口，之前用旋转方块总会在圆角旁边
+ * 多出一条线。SVG 一条路径就能把圆角矩形和尖一起描出来。
+ */
 .fqa-pc-chip {
+	--fqa-chip-border: #a8a8a8;
+	--fqa-chip-bg: var(--web-bg, #f7f4ee);
+	position: relative;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	min-width: 1.5em;
+	min-width: 1.8em;
 	height: 1.5em;
-	margin: 0 0.3em;
+	margin: 0 0.45em 0.2em 0.35em;
 	padding: 0 0.3em;
 	box-sizing: border-box;
-	font-size: 0.6em;
+	font-size: 0.66em;
 	line-height: 1;
-	color: #b3b3b3;
+	color: #6e6e6e;
 	background: transparent;
-	border: 1px solid #dcdcdc;
-	border-radius: 3px;
-	vertical-align: 0.15em;
+	border: 0;
+	vertical-align: 0.12em;
 	cursor: pointer;
 	user-select: none;
 	white-space: nowrap;
 	text-indent: 0;
-	transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+	transition: color 0.15s ease;
+}
+
+/* 气泡外形：铺满气泡，overflow 放开让左下角的尖伸到框外 */
+.fqa-pc-shape {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+	pointer-events: none;
+}
+
+.fqa-pc-shape path {
+	fill: var(--fqa-chip-bg);
+	stroke: var(--fqa-chip-border);
+	stroke-width: 1.5;
+	stroke-linejoin: round;
+	/* 路径会被横向拉伸，这个保证线宽恒为 1.5px */
+	vector-effect: non-scaling-stroke;
+	transition: stroke 0.15s ease;
 }
 
 .fqa-pc-chip:hover {
-	color: #1f1f1f;
-	border-color: #1f1f1f;
+	color: #3a3a3a;
+	--fqa-chip-border: #6e6e6e;
 }
 
 .fqa-pc-chip.fqa-pc-active {
 	color: var(--web-brand_normal, #f14646);
-	border-color: currentColor;
+	--fqa-chip-border: currentColor;
 }
 
 .fqa-pc-count {
+	position: relative;
+	/* 数字在 em 框里视觉上偏上，往下压一点点才看着居中 */
+	top: 0.07em;
+	flex: 1 1 auto;
+	text-align: center;
+	line-height: 1;
 	font-weight: 500;
+	font-variant-numeric: tabular-nums;
 }
 
 /* 当前打开的段评段落：浅灰高亮 */
@@ -274,6 +309,14 @@
 	color: #9a9a9a;
 }
 
+/* 楼中楼的点赞数 / 时间 */
+.fqa-pc-reply-meta {
+	margin-top: 2px;
+	font-size: 11px;
+	line-height: 1.4;
+	color: #9a9a9a;
+}
+
 /* 章末评论区块 */
 .fqa-cc-section {
 	margin-top: 2.4em;
@@ -387,6 +430,7 @@ html.fqa-pc-off .fqa-pc-summary {
 
 .fqa-pc-dark .fqa-pc-user,
 .fqa-pc-dark .fqa-pc-meta,
+.fqa-pc-dark .fqa-pc-reply-meta,
 .fqa-pc-dark .fqa-pc-drawer-snippet,
 .fqa-pc-dark .fqa-pc-drawer-count,
 .fqa-pc-dark .fqa-pc-status {
@@ -403,13 +447,13 @@ html.fqa-pc-reader-dark .fqa-pc-para-active {
 }
 
 html.fqa-pc-reader-dark .fqa-pc-chip {
+	--fqa-chip-border: #555;
 	color: #8a8a8a;
-	border-color: #555;
 }
 
 html.fqa-pc-reader-dark .fqa-pc-chip:hover {
+	--fqa-chip-border: #b3b3b3;
 	color: #e6e6e6;
-	border-color: #e6e6e6;
 }
 
 html.fqa-pc-reader-dark .fqa-cc-section {

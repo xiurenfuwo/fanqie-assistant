@@ -13,7 +13,7 @@ import { initAudioPanel } from '../audioPanel'
 import { addToBookshelf, removeFromBookshelf, isInBookshelf } from '../api/bookshelf'
 import { addResponseModifier } from './fetchHook'
 import { userState } from '../api/user'
-import { attachParaComments, initParaCommentToggle } from '../paraComment'
+import { attachParaComments, closeParaDrawer, initParaCommentToggle } from '../paraComment'
 import {
     closeAudiobook,
     openAudiobook,
@@ -133,6 +133,8 @@ async function insertContent() {
         return
     }
     latestItemId = itemId
+    // 换章了：段评抽屉里都是上一章的内容，直接收起
+    closeParaDrawer()
     const chapter = await getChapter(itemId)
     if (!chapter) {
         console.warn('No chapter found for item_id:', itemId)

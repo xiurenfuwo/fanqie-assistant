@@ -61,16 +61,52 @@ function parseUser(raw: any): ParaCommentUser {
  * 评论附带的图。image_data 是主字段（带尺寸/类型），image_url 是 URL 列表，
  * 二者指向同一张图，按去掉 query 的路径去重。
  */
+/**
+ * 同一资源的不同模板里，估一个「谁更大」的分值。
+ *
+ * URL 形如 `...~tplv-xxx:300:0.jpeg`（:宽:高，0 表示按比例），
+ * 也有不带尺寸后缀的（一般是 origin 原图）。原图给最高分。
+ */
+function urlSizeScore(url: string): number {
+    const sized = /:(\d+):(\d+)\./.exec(url)
+    if (sized) {
+        const w = Number(sized[1]) || 0
+        const h = Number(sized[2]) || 0
+        return Math.max(w, h)
+    }
+    // 无尺寸后缀视为原图
+    return 100000
+}
+
+/**
+ * 评论附带的图。image_data 是主字段（带尺寸/类型），image_url 是 URL 列表。
+ *
+ * 同一张图番茄会下发多个不同尺寸的模板地址，路径不同但资源相同：
+ * 按完整 URL 去重会重复渲染，按 `~tplv` 前段（bucket + hash）去重才是一张图。
+ * 另外不能"先到先得"——image_data 里往往是 300px 的缩略模板，
+ * 同一资源若还有更大的模板，要换成大的。
+ */
 function parseImages(raw: any): ParaCommentImage[] {
-    const out: ParaCommentImage[] = []
-    const seen = new Set<string>()
+    const map = new Map<string, ParaCommentImage>()
     const push = (url: unknown, type: unknown, w: unknown, h: unknown) => {
         const s = str(url)
         if (!s) return
-        const key = s.split('?')[0] ?? s
-        if (seen.has(key)) return
-        seen.add(key)
-        out.push({ url: s, width: int(w), height: int(h), emoji: int(type) === 2 })
+        const key = s.split('?')[0]?.split('~tplv')[0] ?? s
+        const next: ParaCommentImage = {
+            url: s,
+            width: int(w),
+            height: int(h),
+            emoji: int(type) === 2,
+        }
+        const prev = map.get(key)
+        if (!prev) {
+            map.set(key, next)
+            return
+        }
+        // 同一资源：保留分辨率更高的那版，其余元数据沿用已有的（image_data 才有）
+        if (urlSizeScore(s) > urlSizeScore(prev.url)) {
+            map.set(key, { ...prev, url: s })
+        }
     }
     if (Array.isArray(raw?.image_data)) {
         for (const d of raw.image_data) {
@@ -80,7 +116,7 @@ function parseImages(raw: any): ParaCommentImage[] {
     if (Array.isArray(raw?.image_url)) {
         for (const u of raw.image_url) push(u, 0, 0, 0)
     }
-    return out
+    return [...map.values()]
 }
 
 /** idea/comment_list 的评论：扁平结构 */
@@ -104,12 +140,14 @@ function parseReply(raw: any): ParaCommentReply | null {
     if (!id) return null
     const common = raw?.common ?? raw?.Common ?? {}
     const content = common.content ?? {}
+    const stat = raw?.stat ?? {}
     const toUser = raw?.reply_to_user_info ?? {}
     const toBase = toUser.base_info ?? {}
     return {
         id,
         text: str(content.text),
         create_time: int(common.create_timestamp),
+        digg_count: int(stat.digg_count),
         user: parseUser(common.user_info),
         to_name: str(toUser.user_name || toBase.user_name),
         images: parseImages(content.image_data_list ? { image_data: Object.values(content.image_data_list) } : {}),

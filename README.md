@@ -232,6 +232,11 @@ src/
   - 保持音调（`preservesPitch`），预缓冲目标按倍速放大，档位本地记忆
 - **修复 听书按钮不显示**：原实现用写死的位置 `div.reader-toolbar > div > div:nth-child(3)` 取模板，站点改版后取不到节点，按钮静默消失。现改为按 `.reader-toolbar-item` 定位并轮询等待工具栏渲染，取不到第 3 个时自动退回任意一个
 
+- **段评交互调整**
+  - 点击气泡不再把段落滚动到屏幕中央
+  - 点击段落或气泡都能展开；点空白不收起；再次点击已展开的段落才收起（点另一段则切换）
+- **目录弹窗重排**：与正文浅色背景同宽同位置（960 居中），章节标题改为一行两个
+
 ## 作者与致谢
 
 - **原作者**：**naiyQAQ** — [GitHub](https://github.com/naiyQAQ/fanqie-assistant) · [GreasyFork](https://greasyfork.org/zh-CN/scripts/589115-%E7%95%AA%E8%8C%84%E5%B0%8F%E8%AF%B4%E5%8A%A9%E6%89%8B)

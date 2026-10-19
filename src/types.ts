@@ -353,6 +353,8 @@ export interface ParaCommentReply {
     id: string
     text: string
     create_time: number
+    /** 点赞数 */
+    digg_count: number
     user: ParaCommentUser
     /** 回复某人时的对方昵称，空串表示回复主楼 */
     to_name: string

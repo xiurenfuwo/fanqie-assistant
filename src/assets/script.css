@@ -238,3 +238,132 @@
 .reader-toolbar {
 	user-select: none;
 }
+/* ---------------------------- 目录弹窗重排 ---------------------------- */
+/*
+ * 站点原本：position:fixed; right:calc(50vw - 480px); width:500px（桌面）
+ * 改成与正文浅色背景块同宽同位置（960 居中），章节标题一行两个。
+ */
+.reader-catalog {
+	right: calc(50vw - 480px) !important;
+	width: min(960px, 100vw) !important;
+	max-width: 100vw !important;
+}
+
+/* 窄屏放不下 960 时就铺满 */
+@media (max-width: 1000px) {
+	.reader-catalog {
+		right: 0 !important;
+		width: 100vw !important;
+	}
+}
+
+/* inline-block 之间会有空白字符，把父级字号归零来消除 */
+.reader-catalog-chapters {
+	font-size: 0 !important;
+}
+
+.reader-catalog-chapters .volume-header {
+	display: block !important;
+	width: 100% !important;
+	font-size: 14px !important;
+}
+
+/* 章节：一行两个 */
+.reader-catalog-chapters .chapter-outer-container {
+	display: inline-block !important;
+	width: 50% !important;
+	box-sizing: border-box;
+	vertical-align: top;
+}
+
+.reader-catalog-chapters .chapter {
+	font-size: 16px !important;
+}
+
+/* ------------------- 段评展开时的联动（目录 / 字号） ------------------- */
+
+/*
+ * 目录弹窗跟着正文一起左移。
+ * 直接吃 --fqa-pc-shift 这个变量，所以目录晚于抽屉打开也能自动对齐，
+ * 不需要额外挂 JS 或补加 shift 类。
+ */
+.reader-catalog {
+	transform: translateX(calc(-1 * var(--fqa-pc-shift, 0px))) !important;
+	transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/*
+ * 工具栏本身没有 z-index，字号弹窗（.font-slider-popover*，绝对定位，
+ * 从工具栏向左展开）会被段评抽屉盖住。把工具栏抬到抽屉之上。
+ */
+.reader-toolbar {
+	z-index: 2147483602 !important;
+}
+
+/*
+ * 目录内容区：站点是 overflow-y:scroll。按 CSS 规范另一个轴会变成 auto，
+ * 两列布局下哪怕只有 1px 误差也会冒出横向滚动条，直接禁掉横轴。
+ */
+.reader-catalog-content-wrap {
+	overflow-x: hidden !important;
+}
+
+/*
+ * 段评展开时的位移「总开关」。
+ *
+ * 以前把 fqa-pc-shift-el 类挂在正文块上，站点一改字号就重排、类被冲掉，
+ * 正文会先跳回原位再由 JS 补回来。改挂到 <html> 上，元素怎么重渲染都不丢。
+ */
+html.fqa-pc-open .muye-reader-box,
+html.fqa-pc-open .muye-reader-nav {
+	transform: translateX(calc(-1 * var(--fqa-pc-shift, 0px))) !important;
+	transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/*
+ * 目录按正文实测位置对齐（--fqa-pc-content-right / -width 由 drawer.ts 写入），
+ * 不再依赖站点写死的 calc(50vw - 480px)，避免抽屉展开时压住目录一角。
+ */
+.reader-catalog {
+	right: var(--fqa-pc-content-right, calc(50vw - 480px)) !important;
+	width: var(--fqa-pc-content-width, 960px) !important;
+}
+
+/* ---------------------- 目录滚动条跟随日夜主题 ---------------------- */
+
+.reader-catalog-content-wrap {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(31, 35, 41, 0.28) transparent;
+}
+
+/* 夜间：color-scheme 让 UA 原生滚动条也走深色，再显式给一版 webkit 样式兜底 */
+[muye-data-theme='dark'] .reader-catalog-content-wrap {
+	color-scheme: dark;
+	scrollbar-color: rgba(255, 255, 255, 0.28) transparent;
+}
+
+.reader-catalog-content-wrap::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+.reader-catalog-content-wrap::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.reader-catalog-content-wrap::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background: rgba(31, 35, 41, 0.28);
+}
+
+.reader-catalog-content-wrap::-webkit-scrollbar-thumb:hover {
+	background: rgba(31, 35, 41, 0.42);
+}
+
+[muye-data-theme='dark'] .reader-catalog-content-wrap::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.28);
+}
+
+[muye-data-theme='dark'] .reader-catalog-content-wrap::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.42);
+}

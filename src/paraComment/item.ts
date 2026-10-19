@@ -76,6 +76,17 @@ export function buildReplyItem(reply: ParaCommentReply): HTMLElement {
     item.appendChild(name)
     item.appendChild(text)
     for (const img of reply.images) item.appendChild(makeImage(img))
+
+    const parts: string[] = []
+    if (reply.digg_count > 0) parts.push(`赞 ${reply.digg_count}`)
+    const time = formatTime(reply.create_time)
+    if (time) parts.push(time)
+    if (parts.length) {
+        const meta = document.createElement('div')
+        meta.className = 'fqa-pc-reply-meta'
+        meta.textContent = parts.join(' · ')
+        item.appendChild(meta)
+    }
     return item
 }
 

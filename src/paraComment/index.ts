@@ -6,13 +6,23 @@
 import { getParaIdeaList } from '../api/paraComment'
 import { appGet } from '../api/app'
 import { settings } from '../settings'
-import { openParaDrawer } from './drawer'
+import { closeParaDrawer, currentParaDrawerParagraph, isParaDrawerOpen, openParaDrawer } from './drawer'
 import { buildCommentItem } from './item'
 import paraCommentCss from '../assets/paraComment.css?raw'
-import type { ParaComment } from '../types'
+import type { ParaComment, ParaIdeaResult } from '../types'
+
+/** 换章时要收起抽屉，供 readerHook 调用 */
+export { closeParaDrawer }
 
 const TOOL_ID = 'fqa-pc-toggle'
 const STYLE_ID = 'fqa-pc-style'
+
+/** 目录「点外部关闭」只挂一次 */
+let catalogClickBound = false
+/** scrollIntoView 只 patch 一次 */
+let catalogScrollPatched = false
+/** 目录打开定位只挂一次 */
+let catalogWatchBound = false
 
 /** 注入段评样式（只注一次） */
 function ensureCss(): void {
@@ -63,9 +73,128 @@ export function applyParaCommentState(): void {
     }
 }
 
+const SVG_NS = 'http://www.w3.org/2000/svg'
+
+/**
+ * 气泡外形（圆角矩形 + 左下角一个尖）。
+ *
+ * 用一条 SVG 路径而不是 CSS 边框：左下角要「把圆角换成尖」，用 border-radius
+ * 拼不出带描边的缺口（之前几个方案都会在圆角旁多出一条线或啃掉圆角）。
+ * 路径会被 preserveAspectRatio="none" 横向拉伸，描边靠
+ * vector-effect:non-scaling-stroke 保证始终 1.5px。
+ */
+function buildChipShape(): SVGSVGElement {
+    const svg = document.createElementNS(SVG_NS, 'svg')
+    svg.setAttribute('class', 'fqa-pc-shape')
+    svg.setAttribute('viewBox', '0 0 100 100')
+    svg.setAttribute('preserveAspectRatio', 'none')
+    svg.setAttribute('aria-hidden', 'true')
+    const path = document.createElementNS(SVG_NS, 'path')
+    //  三个圆角；左下角不放圆角：底边一路向左伸出成尖，再斜着接回左边竖线。
+    //  这样尖在竖线的左边、底边仍是同一根水平线，也不会向下探出。
+    path.setAttribute(
+        'd',
+        'M 19 3 H 81 A 16 16 0 0 1 97 19 V 81 A 16 16 0 0 1 81 97 ' +
+        'H -8 L 3 74 V 19 A 16 16 0 0 1 19 3 Z',
+    )
+    svg.appendChild(path)
+    return svg
+}
+
+/**
+ * 目录弹窗：点面板 / 工具栏以外的地方就收起。
+ *
+ * 站点原本靠点击 .catalog-mask 关闭，但段评抽屉的层级远高于遮罩，
+ * 点抽屉（或任何盖在遮罩上的区域）根本点不到遮罩，目录就关不掉。
+ * 这里在 document 上兜一层：命中外部就替站点点一下遮罩。
+ */
+function initCatalogClickOutside(): void {
+    if (catalogClickBound) return
+    catalogClickBound = true
+    document.addEventListener('click', event => {
+        const target = event.target as HTMLElement | null
+        if (!target) return
+        // 目录没开就不管
+        if (!document.querySelector('.reader-catalog')) return
+        // 目录内部、工具栏（目录按钮自己会切）、遮罩本身（站点自己处理）都跳过
+        if (target.closest('.reader-catalog, .reader-toolbar, .catalog-mask')) return
+        document.querySelector<HTMLElement>('.catalog-mask')?.click()
+    }, true)
+}
+
+/**
+ * 去掉「打开目录时的滚动动画」。
+ *
+ * 站点在目录展开后 200ms 会执行 `scrollIntoView({ behavior: 'smooth' })`
+ * 把当前章节滚进视口，那段平滑滚动看起来像页面在跳。这里只拦目录内部的调用，
+ * 其它地方（注释跳转、听书跟随）不受影响。
+ */
+function patchCatalogScroll(): void {
+    if (catalogScrollPatched) return
+    catalogScrollPatched = true
+
+    const original = Element.prototype.scrollIntoView as (
+        this: Element,
+        arg?: boolean | ScrollIntoViewOptions,
+    ) => void
+
+    Element.prototype.scrollIntoView = function (
+        this: Element,
+        arg?: boolean | ScrollIntoViewOptions,
+    ): void {
+        if (this.closest('.reader-catalog')) {
+            const options: ScrollIntoViewOptions =
+                typeof arg === 'boolean' ? { block: 'start' } : { ...(arg ?? {}) }
+            options.behavior = 'auto'
+            original.call(this, options)
+            return
+        }
+        original.call(this, arg)
+    }
+}
+
+/**
+ * 打开目录时直接停在当前章节，不要「先显示顶部、200ms 后再滚过去」。
+ *
+ * 站点是挂载后 setTimeout(200) 才 scrollIntoView，那 200ms 里看到的是顶部。
+ * 我们在 MutationObserver 回调里同步做同一步：它属于微任务，早于浏览器首次绘制，
+ * 所以目录一出现就已经停在当前章节，肉眼看不到跳转。
+ */
+function watchCatalogOpen(): void {
+    if (catalogWatchBound) return
+    catalogWatchBound = true
+
+    const locate = (): void => {
+        const panel = document.querySelector('.reader-catalog')
+        if (!panel) return
+        const active = panel.querySelector<HTMLElement>('.reader-catalog-chapters .chapter.active')
+        if (!active) return
+        // 与站点一致用 block:'start'，但瞬时完成（站点那次已由 patchCatalogScroll 降级）
+        active.scrollIntoView({ block: 'start', behavior: 'auto' })
+    }
+
+    const observer = new MutationObserver(mutations => {
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (!(node instanceof HTMLElement)) continue
+                if (node.matches('.reader-catalog') || node.querySelector('.reader-catalog')) {
+                    locate()
+                    // 布局尺寸偶尔要等一帧才稳定，再补一次（同样瞬时）
+                    requestAnimationFrame(locate)
+                    return
+                }
+            }
+        }
+    })
+    observer.observe(document.body, { childList: true, subtree: true })
+}
+
 /** 工具栏「段评」开关，插在「字号」下面 */
 export function initParaCommentToggle(): void {
     ensureCss()
+    initCatalogClickOutside()
+    patchCatalogScroll()
+    watchCatalogOpen()
     const toolbar = document.querySelector<HTMLElement>('.reader-toolbar')
     if (toolbar) {
         let item = document.getElementById(TOOL_ID)
@@ -188,20 +317,66 @@ export async function attachParaComments(container: HTMLElement, itemId: string,
     for (const [idx, count] of idea.counts) {
         const paragraph = paragraphs[idx]
         if (!paragraph) continue
+        // 标记「这段有段评」+ 段落下标，点击委托靠它定位
+        paragraph.dataset.fqaParaIdx = String(idx)
         const chip = document.createElement('span')
         chip.className = 'fqa-pc-chip'
         chip.title = '查看段评'
+        chip.appendChild(buildChipShape())
         const countEl = document.createElement('span')
         countEl.className = 'fqa-pc-count'
         countEl.textContent = String(count)
         chip.appendChild(countEl)
-        chip.addEventListener('click', e => {
-            e.preventDefault()
-            e.stopPropagation()
-            void openParaDrawer(container, paragraph, chip, count, itemId, bookId, idx, idea.item_version)
-        })
         paragraph.appendChild(chip)
     }
 
+    bindParagraphToggle(container, itemId, bookId, idea)
+
     void attachChapterComments(container, itemId, bookId)
+}
+
+/**
+ * 段落 / 气泡点击 -> 展开段评；再次点击同一段 -> 收起。
+ *
+ * 点空白、点别的元素都不收起。收起只有三条路：Esc、抽屉右上角 ✕、
+ * 再次点击已展开的那一段。
+ *
+ * 用事件委托挂在正文容器上。容器跨章节是复用的，所以每次重挂前先 abort 上一次，
+ * 避免监听器越积越多。
+ */
+function bindParagraphToggle(
+    container: HTMLElement,
+    itemId: string,
+    bookId: string,
+    idea: ParaIdeaResult,
+): void {
+    const holder = container as HTMLElement & { __fqaParaToggle?: AbortController }
+    holder.__fqaParaToggle?.abort()
+    const controller = new AbortController()
+    holder.__fqaParaToggle = controller
+
+    container.addEventListener('click', event => {
+        const target = event.target as HTMLElement | null
+        if (!target) return
+        // 链接 / 注释上标 / 表单控件不抢行为
+        if (target.closest('a, sup, button, input, textarea, select')) return
+        // 正在划词复制时不要误触
+        const selection = window.getSelection()
+        if (selection && selection.toString().trim()) return
+
+        const paragraph = target.closest<HTMLElement>('p[data-fqa-para-idx]')
+        if (!paragraph) return
+
+        const idx = Number(paragraph.dataset.fqaParaIdx)
+        const count = idea.counts.get(idx)
+        if (!Number.isFinite(idx) || count === undefined) return
+
+        // 已展开的就是这一段 -> 收起
+        if (isParaDrawerOpen() && currentParaDrawerParagraph() === paragraph) {
+            closeParaDrawer()
+            return
+        }
+        const chip = paragraph.querySelector<HTMLElement>('.fqa-pc-chip')
+        void openParaDrawer(container, paragraph, chip, count, itemId, bookId, idx, idea.item_version)
+    }, { signal: controller.signal })
 }
