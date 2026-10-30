@@ -1,5 +1,6 @@
 import { type HookConfig } from '../config'
 import { getChapter } from '../api/content'
+import { rememberBook } from '../bookMemory'
 import { getBookInfoAndCatalog } from '../api/book'
 import { applyBookCss } from '../api/bookcss'
 import { processFootnotes, bindFootnoteInteraction } from '../utils/footnote'
@@ -14,6 +15,10 @@ import { addToBookshelf, removeFromBookshelf, isInBookshelf } from '../api/books
 import { addResponseModifier } from './fetchHook'
 import { userState } from '../api/user'
 import { attachParaComments, closeParaDrawer, initParaCommentToggle } from '../paraComment'
+import { initBackToTop, setupInfiniteScroll } from '../readerScroll'
+import { applyReaderPreferences, initReaderSettings } from '../readerSettings'
+import { setupBlockedReader, initBlockedReader } from '../blockedReader'
+import { watchCatalogMarks } from '../imageScan'
 import {
     closeAudiobook,
     openAudiobook,
@@ -126,6 +131,30 @@ function ensureScriptContainer(readerContainer: Element, comic: boolean): HTMLDi
     return scriptContainer
 }
 
+/**
+ * 正文取不到时的补救：被屏蔽的书仍然要把导航栏标题和目录弹窗补齐。
+ * 书籍信息还没有就自己拉一次（失败就只补导航栏里能拿到的部分）。
+ */
+async function repairBlockedReader(itemId: string): Promise<void> {
+    if (!currentBook) {
+        const pageState: any = (unsafeWindow as typeof unsafeWindow & {
+            __INITIAL_STATE__?: { reader?: { chapterData?: { bookId?: string } }; page?: { bookId?: string } }
+        }).__INITIAL_STATE__
+        const bid = pageState?.reader?.chapterData?.bookId ?? pageState?.page?.bookId
+        if (!bid) {
+            setupBlockedReader(null, itemId)
+            return
+        }
+        try {
+            currentBook = await getBookInfoAndCatalog(bid)
+        } catch (err) {
+            console.warn('[fqa:blocked] 取书籍信息失败:', err)
+        }
+    }
+    setupBlockedReader(currentBook, itemId)
+    if (currentBook?.book_id) watchCatalogMarks(currentBook.book_id)
+}
+
 async function insertContent() {
     const itemId = window.location.pathname.split('/').pop()?.substring(0, 19) || ''
     if (!itemId) {
@@ -138,6 +167,8 @@ async function insertContent() {
     const chapter = await getChapter(itemId)
     if (!chapter) {
         console.warn('No chapter found for item_id:', itemId)
+        // 站点不给正文（被屏蔽的书），但导航栏 / 目录仍然要能用
+        void repairBlockedReader(itemId)
         return
     }
 
@@ -149,9 +180,14 @@ async function insertContent() {
     currentChapterWithContent = chapter
 
     const pageState: any = (unsafeWindow as typeof unsafeWindow & {
-        __INITIAL_STATE__?: { reader?: { chapterData?: { title?: string } } }
+        __INITIAL_STATE__?: { reader?: { chapterData?: { title?: string; bookId?: string } } }
     }).__INITIAL_STATE__
     const chapterTitle = chapter.novel_data?.title || pageState?.reader?.chapterData?.title
+    // 记下书号：有些书详情页会跳到 /page/undefined，靠这个补回去
+    rememberBook(
+        chapter.novel_data?.book_id || pageState?.reader?.chapterData?.bookId,
+        currentBook?.title,
+    )
     if (typeof chapter.content === 'string') {
         // 书籍自带的排版样式（css_map），作用域限定在正文容器内后注入
         void applyBookCss(chapter.novel_data?.css_map, '#fqa-reader-content')
@@ -343,6 +379,10 @@ async function insertContent() {
         currentBook = await getBookInfoAndCatalog(chapter.novel_data?.book_id)
         console.log('Current book:', currentBook)
     }
+    // 被网页端屏蔽的书：导航栏没有章节名、目录弹窗为空，用接口数据补上
+    setupBlockedReader(currentBook, itemId)
+    // 目录弹窗里给「检查过插图」的章节自动补标记（只读本地结论，不发请求）
+    if (currentBook?.book_id) watchCatalogMarks(currentBook.book_id)
     if (currentBook && currentBook.chapter_list) {
         const currentChapterItem = currentBook.chapter_list.find(c => c.item_id === itemId)
         if (currentChapterItem) {
@@ -419,6 +459,19 @@ async function insertContent() {
     } else {
         refreshParagraphs()
     }
+
+    // 无限滚动：滑到接近底部就自动把下一章拼到下面（是否生效由翻页模式决定）
+    const appendContainer = document.getElementById(SCRIPT_CONTAINER_ID)
+    if (appendContainer && currentBook?.chapter_list?.length && typeof chapter.content === 'string') {
+        setupInfiniteScroll(
+            appendContainer,
+            itemId,
+            currentBook.book_id,
+            currentBook.chapter_list.map(c => c.item_id),
+            // 标题后缀要用它来算（document.title 里把章节名剥掉）
+            chapterTitle ?? '',
+        )
+    }
 }
 
 /**
@@ -451,41 +504,114 @@ async function startAudioPlay(): Promise<void> {
  *
  * 已经在听的时候再点就是停止。切音色走左下角悬浮栏。
  */
+
+const AUDIO_TOOL_ID = 'fqa-toggle-audiobook'
+let audioClickGuardInstalled = false
+let audioGuardLogged = false
+
+/**
+ * 听书按钮的点击守卫。
+ *
+ * 站点的工具栏按钮是 React 渲染的，事件最终落到「工具栏/文档上的委托处理」。
+ * 我们插进去的按钮不属于它的 React 树，点击会冒泡到那层委托，被按位置/层级
+ * 当成「字号」按钮处理 —— 这就是点听书却弹出字号面板的原因。
+ * 只在自己的 click 里 stopPropagation 不够（人家可能挂在捕获阶段），
+ * 所以在 window 捕获阶段就把落在听书按钮上的事件全部吞掉，并自己触发播放。
+ * 捕获阶段停掉后，按钮自身的 click 收不到事件，所以动作必须在这里做。
+ */
+function installAudioClickGuard(): void {
+    if (audioClickGuardInstalled) return
+    audioClickGuardInstalled = true
+
+    const hits = (e: Event): boolean => {
+        const t = e.target as Element | null
+        return !!t?.closest?.(`#${AUDIO_TOOL_ID}`)
+    }
+
+    const swallow = (e: Event) => {
+        if (!hits(e)) return
+        if (!audioGuardLogged) {
+            audioGuardLogged = true
+            console.debug('[fqa:audio] 已接管听书按钮的事件（' + e.type + '）')
+        }
+        e.stopPropagation()
+        e.stopImmediatePropagation()
+    }
+
+    // 按下 / 抬起 / 触摸：站点有可能在这些阶段就打开面板
+    for (const type of ['pointerdown', 'pointerup', 'mousedown', 'mouseup', 'touchstart', 'touchend']) {
+        window.addEventListener(type, swallow, true)
+    }
+
+    window.addEventListener(
+        'click',
+        e => {
+            if (!hits(e)) return
+            e.preventDefault()
+            e.stopPropagation()
+            e.stopImmediatePropagation()
+            if (!audioGuardLogged) {
+                audioGuardLogged = true
+                console.debug('[fqa:audio] 已接管听书按钮的点击')
+            }
+            void startAudioPlay()
+        },
+        true,
+    )
+}
+
 async function ensureAudiobookButton(): Promise<void> {
+    installAudioClickGuard()
     for (let attempt = 0; attempt < 40; attempt++) {
         const toolbar = document.querySelector<HTMLElement>('.reader-toolbar')
         if (toolbar) {
-            const existing = document.getElementById('fqa-toggle-audiobook')
+            const existing = document.getElementById(AUDIO_TOOL_ID)
             if (existing && toolbar.contains(existing)) return
 
-            const items = Array.from(toolbar.querySelectorAll<HTMLElement>('.reader-toolbar-item'))
-            // 优先第 3 个（夜间，作者原选），取不到再退回任意一个
-            const template = items[2] ?? items[0]
-            if (template) {
-                const c = cloneElement(template)
-                c.id = 'fqa-toggle-audiobook'
-                c.classList.remove('reader-toolbar-item-disabled')
+            // 自己拼一个 .reader-toolbar-item，不再克隆站点按钮。
+            // 原先拿 items[2]（当时是「夜间」）当模板克隆，站点一调整工具栏顺序，
+            // 模板就变成「字号」按钮，克隆体带着站点的 class / 事件上下文，
+            // 点「听书」会把字号面板弹出来。
+            const btn = document.createElement('div')
+            btn.id = AUDIO_TOOL_ID
+            btn.className = 'reader-toolbar-item'
+            btn.setAttribute('tabindex', '0')
+            // 站点工具栏里可能有占满整格的定位元素，保证我们能收到点击
+            btn.style.position = 'relative'
+            btn.style.zIndex = '3'
+            btn.style.pointerEvents = 'auto'
 
-                const listenIcon = document.createElement('span')
-                listenIcon.textContent = '听'
-                listenIcon.style.width = '24px'
-                listenIcon.style.height = '24px'
-                listenIcon.style.fontSize = '24px'
-                listenIcon.style.lineHeight = '24px'
-                listenIcon.classList.add('muyeicon-icon')
-                listenIcon.classList.add('reader-toolbar-item-icon')
-                c.firstChild?.replaceWith(listenIcon)
+            const iconWrap = document.createElement('div')
+            iconWrap.className = 'reader-toolbar-item-icon'
+            const icon = document.createElement('span')
+            icon.textContent = '听'
+            icon.style.cssText =
+                'display:block;width:24px;height:24px;font-size:24px;line-height:24px;text-align:center'
+            iconWrap.appendChild(icon)
 
-                const l = c.lastChild as HTMLDivElement | null
-                if (l) {
-                    l.textContent = '听书'
-                }
+            const labelEl = document.createElement('div')
+            labelEl.className = 'reader-toolbar-item-font'
+            labelEl.textContent = '听书'
 
-                c.addEventListener('click', () => void startAudioPlay())
-                const last = items[items.length - 1] ?? template
-                last.insertAdjacentElement('afterend', c)
-                return
+            btn.append(iconWrap, labelEl)
+            btn.addEventListener('click', e => {
+                // 必须掐断冒泡：站点在工具栏上有委托点击，放任冒泡会顺手打开别的面板
+                e.preventDefault()
+                e.stopPropagation()
+                void startAudioPlay()
+            })
+
+            // 顺序：… 听书 → 日/夜 → 设置 → 回到顶部
+            const themeBtn = document.getElementById('fqa-theme-toggle')
+            const backTop = document.getElementById('fqa-back-top')
+            if (themeBtn?.parentElement && toolbar.contains(themeBtn)) {
+                themeBtn.insertAdjacentElement('beforebegin', btn)
+            } else if (backTop?.parentElement && toolbar.contains(backTop)) {
+                backTop.insertAdjacentElement('beforebegin', btn)
+            } else {
+                toolbar.appendChild(btn)
             }
+            return
         }
         await sleep(200)
     }
@@ -503,10 +629,16 @@ async function onHashChange(_previous?: string): Promise<void> {
 async function onLoad(): Promise<void> {
     async function fetchBookInfo(): Promise<void> {
         const pageState: any = (unsafeWindow as typeof unsafeWindow & {
-            __INITIAL_STATE__?: { reader?: { chapterData?: { title?: string } } }
+            __INITIAL_STATE__?: { reader?: { chapterData?: { bookId?: string } }; page?: { bookId?: string } }
         }).__INITIAL_STATE__
-        const bid = pageState?.reader?.chapterData?.bookId
-        currentBook = await getBookInfoAndCatalog(bid)
+        const bid = pageState?.reader?.chapterData?.bookId ?? pageState?.page?.bookId
+        // 被屏蔽的书这里是空对象，取不到书号就不拉；insertContent 里会用 App 接口拿到的书号补
+        if (!bid) return
+        try {
+            currentBook = await getBookInfoAndCatalog(bid)
+        } catch (err) {
+            console.warn('[fqa:reader] 取书籍信息失败:', err)
+        }
     }
     void fetchBookInfo() // 后台继续执行
     /*
@@ -584,6 +716,11 @@ async function onLoad(): Promise<void> {
         }*/
     }
     initParaCommentToggle()
+    initBackToTop()
+    initReaderSettings()
+    applyReaderPreferences()
+    // 被屏蔽的书：尽早挂上目录观察，免得用户比正文先打开目录
+    initBlockedReader()
     await insertContent()
 }
 

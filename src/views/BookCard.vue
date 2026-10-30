@@ -31,20 +31,36 @@ const tag = computed(() => {
     return null
 })
 
+/**
+ * 章节序号。
+ *
+ * 详情里有就用详情（书架的场景）；阅读历史走 APP 通道时，列表本身就带
+ * real_chapter_order（接口 read_progress/list/v），那时详情还没回来也能先显示。
+ */
+const chapterOrder = computed(() => {
+    const fromDetail = detail.value?.current_chapter_order || 0
+    if (fromDetail) return fromDetail
+    return props.entry.historyChapterOrder || 0
+})
+
+/** 历史通道给的章节内进度（0~1），没有就不参与计算 */
+const historyRate = computed(() => props.entry.historyProgressRate ?? 0)
+
 const progressText = computed(() => {
     const d = detail.value
-    if (!d) return ''
-    const total = d.total_chapter_count || 0
+    const total = d?.total_chapter_count || 0
+    if (!d && !chapterOrder.value) return ''
     // 没有阅读记录时 real_chapter_order 为 0
-    const order = Math.max(0, Math.min(d.current_chapter_order || 0, total))
+    const order = Math.max(0, Math.min(chapterOrder.value, total || chapterOrder.value))
     if (!order) return total ? `未读 · 共${total}章` : '未读'
-    return `${order}章/${total}章`
+    return total ? `${order}章/${total}章` : `第${order}章`
 })
 
 const progressPercent = computed(() => {
-    const d = detail.value
-    if (!d || !d.total_chapter_count) return 0
-    const ratio = (d.current_chapter_order || 0) / d.total_chapter_count
+    const total = detail.value?.total_chapter_count || 0
+    if (!total) return historyRate.value * 100
+    // 章节序号 + 章节内进度，比单纯「第几章/总章数」更贴近真实进度
+    const ratio = (Math.max(0, chapterOrder.value - 1) + historyRate.value) / total
     return Math.max(0, Math.min(1, ratio)) * 100
 })
 

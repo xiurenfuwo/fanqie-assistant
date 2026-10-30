@@ -12,11 +12,15 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@rollup/wasm-node": "^4.64.7",
     "@types/node": "^26.1.1",
     "@types/tampermonkey": "^5.0.5",
     "typescript": "~6.0.2",
     "vite": "6.4.3",
     "vite-plugin-monkey": "^5.0.9"
+  },
+  "overrides": {
+    "rollup": "npm:@rollup/wasm-node@^4.64.7"
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^6.0.8",

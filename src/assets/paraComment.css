@@ -74,10 +74,20 @@
 }
 
 /* 当前打开的段评段落：浅灰高亮 */
+/*
+ * 填充改用「内阴影」铺满，而不是靠 background。
+ *
+ * 书源自带的样式经常给段落写 background（个别还带 !important 或内联），
+ * 一旦压过这里的 background，就只剩外圈那个 6px 的 box-shadow —— 看起来
+ * 就是「一个空心的色框」。box-shadow 不会被子元素/书籍样式覆盖，
+ * 内阴影铺满整个段落，稳定呈现整段高亮。
+ */
 .fqa-pc-para-active {
-	background: rgba(31, 35, 41, 0.055) !important;
+	background: transparent !important;
 	border-radius: 4px;
-	box-shadow: 0 0 0 6px rgba(31, 35, 41, 0.055);
+	box-shadow:
+		0 0 0 6px rgba(31, 35, 41, 0.055),
+		inset 0 0 0 999px rgba(31, 35, 41, 0.055);
 }
 
 /* 打开抽屉时被左移的元素（正文块 / 顶部导航） */
@@ -91,9 +101,9 @@
 }
 
 .fqa-pc-status {
-	padding: 24px 0;
+	padding: 1.6em 0;
 	color: #9a9a9a;
-	font-size: 13px;
+	font-size: 0.867em;
 	text-align: center;
 }
 
@@ -122,6 +132,14 @@
 	width: 0;
 	overflow: hidden;
 	z-index: 2147483601;
+	/*
+	 * 位移直接吃 --fqa-pc-shift，和正文块用**同一个变量、同一条缓动**。
+	 *
+	 * 以前这里的 translateX 是 JS 写内联样式、和正文的位移各自起过渡：
+	 * 关闭时两边只要错开一帧，抽屉左缘就和正文右缘拉开一条缝。
+	 * 交给变量后，两者由同一次变量变化驱动，过渡天然同步。
+	 */
+	transform: translateX(calc(-1 * var(--fqa-pc-shift, 0px)));
 	transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
@@ -131,11 +149,13 @@
 	width: min(420px, 92vw);
 	height: 100%;
 	box-sizing: border-box;
-	background: #fff;
-	color: #1f2329;
+	/* 跟随阅读主题：正文底板用的就是 --web-bg，抽屉保持同色 */
+	background: var(--web-bg, #fff);
+	color: var(--web-text, #1f2329);
 	border-left: 1px solid rgba(31, 35, 41, 0.1);
 	box-shadow: -8px 0 24px rgba(0, 0, 0, 0.08);
-	font-size: 14px;
+	/* 以正文实际字号为基准：24px 正文 → 15px，32px → 19px（上下限夹住） */
+	font-size: clamp(13px, calc(var(--fqa-pc-base, 24px) * 0.625), 19px);
 	line-height: 1.6;
 }
 
@@ -143,20 +163,20 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 8px;
-	padding: 14px 16px;
+	gap: 0.533em;
+	padding: 0.933em 1.067em;
 	border-bottom: 1px solid rgba(31, 35, 41, 0.08);
 }
 
 .fqa-pc-drawer-title {
-	font-size: 15px;
+	font-size: 1em;
 	font-weight: 600;
 }
 
 .fqa-pc-drawer-count {
-	margin-left: 4px;
+	margin-left: 0.267em;
 	color: #9a9a9a;
-	font-size: 12px;
+	font-size: 0.8em;
 	font-weight: 400;
 }
 
@@ -170,7 +190,7 @@
 	border-radius: 6px;
 	background: transparent;
 	color: #8f959e;
-	font-size: 15px;
+	font-size: 1em;
 	cursor: pointer;
 }
 
@@ -183,20 +203,20 @@
 	flex: 1 1 auto;
 	overflow-y: auto;
 	overscroll-behavior: contain;
-	padding: 0 16px;
+	padding: 0 1.067em;
 }
 
 .fqa-pc-drawer-snippet {
-	margin: 10px 0 0;
+	margin: 0.667em 0 0;
 	color: #9a9a9a;
-	font-size: 12px;
+	font-size: 0.8em;
 }
 
 /* 单条评论 */
 .fqa-pc-item {
 	display: flex;
-	gap: 10px;
-	padding: 14px 0;
+	gap: 0.667em;
+	padding: 0.933em 0;
 	border-top: 1px solid rgba(31, 35, 41, 0.06);
 }
 
@@ -205,8 +225,8 @@
 }
 
 .fqa-pc-item > .fqa-pc-avatar {
-	width: 34px !important;
-	height: 34px !important;
+	width: 2.267em !important;
+	height: 2.267em !important;
 	border-radius: 50%;
 	flex: 0 0 auto;
 	object-fit: cover;
@@ -219,13 +239,13 @@
 }
 
 .fqa-pc-user {
-	font-size: 13px;
+	font-size: 0.867em;
 	color: #8f959e;
 }
 
 .fqa-pc-text {
-	margin-top: 2px;
-	font-size: 15px;
+	margin-top: 0.133em;
+	font-size: 1em;
 	color: #1f2329;
 	word-break: break-word;
 	white-space: pre-wrap;
@@ -235,13 +255,13 @@
 .fqa-pc-imgs {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 8px;
-	margin-top: 8px;
+	gap: 0.533em;
+	margin-top: 0.533em;
 }
 
 .fqa-pc-imgs > .fqa-pc-img {
-	max-width: min(100%, 260px) !important;
-	max-height: 260px !important;
+	max-width: min(100%, 17.33em) !important;
+	max-height: 17.33em !important;
 	width: auto !important;
 	height: auto !important;
 	border-radius: 8px;
@@ -252,9 +272,9 @@
 .fqa-pc-meta {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 14px;
-	margin-top: 6px;
-	font-size: 12px;
+	gap: 0.933em;
+	margin-top: 0.4em;
+	font-size: 0.8em;
 	color: #9a9a9a;
 }
 
@@ -268,7 +288,7 @@
 	border: 0;
 	background: transparent;
 	color: var(--web-brand_normal, #f14646);
-	font-size: 12px;
+	font-size: 0.8em;
 	font-family: inherit;
 	cursor: pointer;
 }
@@ -278,8 +298,8 @@
 }
 
 .fqa-pc-replies-list {
-	margin-top: 8px;
-	padding: 8px 10px;
+	margin-top: 0.533em;
+	padding: 0.533em 0.667em;
 	border-radius: 8px;
 	background: rgba(127, 127, 127, 0.08);
 	display: flex;
@@ -292,7 +312,7 @@
 }
 
 .fqa-pc-reply {
-	font-size: 14px;
+	font-size: 0.933em;
 	line-height: 1.65;
 	word-break: break-word;
 }
@@ -305,14 +325,14 @@
 .fqa-pc-reply-sentinel,
 .fqa-pc-reply-empty {
 	min-height: 1px;
-	font-size: 12px;
+	font-size: 0.8em;
 	color: #9a9a9a;
 }
 
 /* 楼中楼的点赞数 / 时间 */
 .fqa-pc-reply-meta {
-	margin-top: 2px;
-	font-size: 11px;
+	margin-top: 0.133em;
+	font-size: 0.733em;
 	line-height: 1.4;
 	color: #9a9a9a;
 }
@@ -384,7 +404,7 @@
 	border-radius: 999px;
 	background: var(--web-brand_normal, #f14646);
 	color: #fff;
-	font-size: 13px;
+	font-size: 0.867em;
 	line-height: 1.4;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
@@ -401,9 +421,8 @@ html.fqa-pc-off .fqa-pc-summary {
 }
 
 /* 深色（阅读器深色主题 / 系统深色） */
+/* 夜间：底色与文字已由 --web-bg / --web-text 接管，这里只调边框 */
 .fqa-pc-drawer.fqa-pc-dark .fqa-pc-drawer-inner {
-	background: #1f1f23;
-	color: #e6e6e6;
 	border-left-color: rgba(255, 255, 255, 0.12);
 }
 
@@ -442,8 +461,10 @@ html.fqa-pc-off .fqa-pc-summary {
 }
 
 html.fqa-pc-reader-dark .fqa-pc-para-active {
-	background: rgba(255, 255, 255, 0.08) !important;
-	box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08);
+	background: transparent !important;
+	box-shadow:
+		0 0 0 6px rgba(255, 255, 255, 0.08),
+		inset 0 0 0 999px rgba(255, 255, 255, 0.08);
 }
 
 html.fqa-pc-reader-dark .fqa-pc-chip {
@@ -468,8 +489,6 @@ html.fqa-pc-reader-dark .fqa-cc-title {
 
 @media (prefers-color-scheme: dark) {
 	.fqa-pc-drawer-inner {
-		background: #1f1f23;
-		color: #e6e6e6;
 		border-left-color: rgba(255, 255, 255, 0.12);
 	}
 
@@ -501,4 +520,51 @@ html.fqa-pc-reader-dark .fqa-cc-title {
 	.fqa-pc-status {
 		color: #9a9a9a;
 	}
+}
+
+/* ---------------------------- 抽屉滚动条 ---------------------------- */
+
+/* 默认：细、透明轨道、圆角滑块；夜间换成浅色滑块 */
+.fqa-pc-drawer-bd {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(31, 35, 41, 0.22) transparent;
+}
+
+.fqa-pc-drawer.fqa-pc-dark .fqa-pc-drawer-bd,
+html.fqa-pc-reader-dark .fqa-pc-drawer-bd {
+	scrollbar-color: rgba(255, 255, 255, 0.24) transparent;
+}
+
+.fqa-pc-drawer-bd::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+.fqa-pc-drawer-bd::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.fqa-pc-drawer-bd::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background: rgba(31, 35, 41, 0.2);
+}
+
+.fqa-pc-drawer-bd::-webkit-scrollbar-thumb:hover {
+	background: rgba(31, 35, 41, 0.34);
+}
+
+.fqa-pc-drawer.fqa-pc-dark .fqa-pc-drawer-bd::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.22);
+}
+
+.fqa-pc-drawer.fqa-pc-dark .fqa-pc-drawer-bd::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.36);
+}
+
+html.fqa-pc-reader-dark .fqa-pc-drawer-bd::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.22);
+}
+
+html.fqa-pc-reader-dark .fqa-pc-drawer-bd::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.36);
 }

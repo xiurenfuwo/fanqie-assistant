@@ -46,7 +46,7 @@
   const _config = {
     currentConfig: defaultConfig
   };
-  const scriptcss = "/* 移除章节锁定图标 */\r\n.muyeicon-lock {\r\n	display: none;\r\n}\r\n/* 移除APP推广图标 */\r\n.muye-to-fanqie {\r\n	display: none!important;\r\n}\r\n.reader-toolbar-item-download {\r\n	display: none!important;\r\n}\r\n.download-btn {\r\n	display: none!important;\r\n}\r\n.download-icon {\r\n	display: none!important;\r\n}\r\n\r\n.fqa-hide {\r\n	display: none!important;\r\n}\r\n/* 404 */\r\n.no-content {\r\n	display: none!important;\r\n}\r\n\r\n.fqa-comic-img {\r\n	width: 100%!important;\r\n	height: 100%!important;\r\n	max-width: 100%!important;\r\n	max-height: 100%!important;\r\n	padding-top: 0!important;\r\n	padding-bottom: 0!important;\r\n	margin-top: 0!important;\r\n	margin-bottom: 0!important;\r\n}\r\n\r\n.fqa-comic-reader {\r\n	line-height: 0!important;\r\n}\r\n\r\n.fqa-menu-item,\r\n.arco-menu-item {\r\n	width: 100%!important;\r\n}\r\n\r\n#dynamic-el {\r\n	display: none!important;\r\n}\r\n\r\n.fqa-footnote-ref {\r\n	display: inline-block;\r\n	margin: 0 0.15em;\r\n	padding: 0 0.25em;\r\n	font-size: 0.7em;\r\n	line-height: 1.4;\r\n	vertical-align: super;\r\n	color: var(--web-brand_normal, #f14646);\r\n	cursor: pointer;\r\n	user-select: none;\r\n	border-radius: 3px;\r\n	text-indent: 0;\r\n}\r\n\r\n.fqa-footnote-ref:hover,\r\n.fqa-footnote-ref:focus-visible {\r\n	background: var(--web-brand_light, rgba(241, 70, 70, 0.12));\r\n	outline: none;\r\n}\r\n\r\n\r\n.fqa-footnote {\r\n	margin-top: 2em;\r\n	padding-top: 1em;\r\n	border-top: 1px solid var(--web-gray_20, rgba(128, 128, 128, 0.25));\r\n	font-size: var(--fqa-body-size, 1.6rem);\r\n}\r\n\r\n.muye-reader-content-16 .fqa-footnote { font-size: var(--fqa-body-size, 1.6rem); }\r\n.muye-reader-content-20 .fqa-footnote { font-size: var(--fqa-body-size, 2rem); }\r\n.muye-reader-content-24 .fqa-footnote { font-size: var(--fqa-body-size, 2.4rem); }\r\n.muye-reader-content-28 .fqa-footnote { font-size: var(--fqa-body-size, 2.8rem); }\r\n.muye-reader-content-32 .fqa-footnote { font-size: var(--fqa-body-size, 3.2rem); }\r\n\r\n.fqa-footnote-title {\r\n	margin-bottom: 0.6em;\r\n	font-size: 0.85em;\r\n	font-weight: 600;\r\n	color: var(--web-gray_40, #8a8a8a);\r\n	text-indent: 0;\r\n}\r\n\r\n.fqa-footnote-list {\r\n	margin: 0;\r\n	padding-left: 1.6em;\r\n	font-size: 0.85em;\r\n	line-height: 1.7;\r\n	color: var(--web-gray_40, #8a8a8a);\r\n}\r\n\r\n.fqa-footnote-list li {\r\n	margin-bottom: 0.5em;\r\n	text-indent: 0;\r\n	transition: background-color 0.3s ease;\r\n}\r\n\r\n.fqa-footnote-list li.fqa-footnote-active {\r\n	background: var(--web-brand_light, rgba(241, 70, 70, 0.12));\r\n	border-radius: 4px;\r\n}\r\n\r\n.muye-reader-content > body {\r\n	background-color: var(--web-bg)!important;\r\n}\r\n\r\n.fqa-icon-dark {\r\n	color: #B3B3B3\r\n}\r\n\r\n/* ----------------------------- 右键菜单 / Toast ----------------------------- */\r\n\r\n/*\r\n * 书架与搜索共用。两者都把菜单 Teleport 到 body，\r\n * 拿不到各自根节点上的变量，所以在这里声明一份全局色板。\r\n */\r\n.fqa-menu {\r\n	--fqa-menu-bg: #fff;\r\n	--fqa-menu-text: #1f2329;\r\n	--fqa-menu-sub: #8f959e;\r\n	--fqa-menu-hover: rgba(31, 35, 41, 0.06);\r\n	--fqa-menu-danger: #f5222d;\r\n\r\n	position: fixed;\r\n	z-index: 2147483001;\r\n	min-width: 132px;\r\n	max-width: 240px;\r\n	padding: 4px;\r\n	box-sizing: border-box;\r\n	background: var(--fqa-menu-bg);\r\n	border: 1px solid rgba(31, 35, 41, 0.08);\r\n	border-radius: 8px;\r\n	box-shadow: 0 6px 24px rgba(31, 35, 41, 0.16);\r\n	font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\r\n		sans-serif;\r\n	font-size: 13px;\r\n	color: var(--fqa-menu-text);\r\n	user-select: none;\r\n}\r\n\r\n/* 二级面板：分组数量多时可滚动 */\r\n.fqa-menu-sub {\r\n	max-height: 320px;\r\n	overflow-y: auto;\r\n}\r\n\r\n.fqa-menu-row {\r\n	display: flex;\r\n	align-items: center;\r\n	justify-content: space-between;\r\n	gap: 12px;\r\n	padding: 7px 10px;\r\n	border-radius: 5px;\r\n	line-height: 1.4;\r\n	cursor: pointer;\r\n	white-space: nowrap;\r\n	overflow: hidden;\r\n}\r\n\r\n.fqa-menu-row > span:first-child {\r\n	overflow: hidden;\r\n	text-overflow: ellipsis;\r\n}\r\n\r\n.fqa-menu-row:hover,\r\n.fqa-menu-row.fqa-menu-open {\r\n	background: var(--fqa-menu-hover);\r\n}\r\n\r\n.fqa-menu-arrow {\r\n	color: var(--fqa-menu-sub);\r\n	font-size: 15px;\r\n	line-height: 1;\r\n}\r\n\r\n.fqa-menu-danger {\r\n	color: var(--fqa-menu-danger);\r\n}\r\n\r\n.fqa-menu-disabled {\r\n	color: var(--fqa-menu-sub);\r\n	cursor: not-allowed;\r\n}\r\n\r\n.fqa-menu-disabled:hover {\r\n	background: transparent;\r\n}\r\n\r\n/* 操作结果提示 */\r\n.fqa-toast {\r\n	position: fixed;\r\n	left: 50%;\r\n	bottom: 48px;\r\n	transform: translateX(-50%);\r\n	z-index: 2147483002;\r\n	max-width: 80vw;\r\n	padding: 10px 18px;\r\n	box-sizing: border-box;\r\n	background: rgba(31, 35, 41, 0.88);\r\n	color: #fff;\r\n	border-radius: 8px;\r\n	font-size: 13px;\r\n	line-height: 1.4;\r\n	box-shadow: 0 6px 24px rgba(31, 35, 41, 0.24);\r\n	pointer-events: none;\r\n}\r\n\r\n/* 骨架屏微光。书架与搜索共用同一个动画名 */\r\n@keyframes fqa-shimmer {\r\n	100% {\r\n		transform: translateX(100%);\r\n	}\r\n}\r\n\r\n@media (prefers-color-scheme: dark) {\r\n	.fqa-menu {\r\n		--fqa-menu-bg: #23272e;\r\n		--fqa-menu-text: #e5e6eb;\r\n		--fqa-menu-sub: #8f959e;\r\n		--fqa-menu-hover: rgba(255, 255, 255, 0.08);\r\n		border-color: rgba(255, 255, 255, 0.1);\r\n	}\r\n}\r\n\r\n.info {\r\n	width: 100%!important;\r\n}\r\n\r\n.reader-toolbar {\r\n	user-select: none;\r\n}\r\n/* ---------------------------- 目录弹窗重排 ---------------------------- */\r\n/*\r\n * 站点原本：position:fixed; right:calc(50vw - 480px); width:500px（桌面）\r\n * 改成与正文浅色背景块同宽同位置（960 居中），章节标题一行两个。\r\n */\r\n.reader-catalog {\r\n	right: calc(50vw - 480px) !important;\r\n	width: min(960px, 100vw) !important;\r\n	max-width: 100vw !important;\r\n}\r\n\r\n/* 窄屏放不下 960 时就铺满 */\r\n@media (max-width: 1000px) {\r\n	.reader-catalog {\r\n		right: 0 !important;\r\n		width: 100vw !important;\r\n	}\r\n}\r\n\r\n/* inline-block 之间会有空白字符，把父级字号归零来消除 */\r\n.reader-catalog-chapters {\r\n	font-size: 0 !important;\r\n}\r\n\r\n.reader-catalog-chapters .volume-header {\r\n	display: block !important;\r\n	width: 100% !important;\r\n	font-size: 14px !important;\r\n}\r\n\r\n/* 章节：一行两个 */\r\n.reader-catalog-chapters .chapter-outer-container {\r\n	display: inline-block !important;\r\n	width: 50% !important;\r\n	box-sizing: border-box;\r\n	vertical-align: top;\r\n}\r\n\r\n.reader-catalog-chapters .chapter {\r\n	font-size: 16px !important;\r\n}\r\n\r\n/* ------------------- 段评展开时的联动（目录 / 字号） ------------------- */\r\n\r\n/*\r\n * 目录弹窗跟着正文一起左移。\r\n * 直接吃 --fqa-pc-shift 这个变量，所以目录晚于抽屉打开也能自动对齐，\r\n * 不需要额外挂 JS 或补加 shift 类。\r\n */\r\n.reader-catalog {\r\n	transform: translateX(calc(-1 * var(--fqa-pc-shift, 0px))) !important;\r\n	transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);\r\n}\r\n\r\n/*\r\n * 工具栏本身没有 z-index，字号弹窗（.font-slider-popover*，绝对定位，\r\n * 从工具栏向左展开）会被段评抽屉盖住。把工具栏抬到抽屉之上。\r\n */\r\n.reader-toolbar {\r\n	z-index: 2147483602 !important;\r\n}\r\n\r\n/*\r\n * 目录内容区：站点是 overflow-y:scroll。按 CSS 规范另一个轴会变成 auto，\r\n * 两列布局下哪怕只有 1px 误差也会冒出横向滚动条，直接禁掉横轴。\r\n */\r\n.reader-catalog-content-wrap {\r\n	overflow-x: hidden !important;\r\n}\r\n\r\n/*\r\n * 段评展开时的位移「总开关」。\r\n *\r\n * 以前把 fqa-pc-shift-el 类挂在正文块上，站点一改字号就重排、类被冲掉，\r\n * 正文会先跳回原位再由 JS 补回来。改挂到 <html> 上，元素怎么重渲染都不丢。\r\n */\r\nhtml.fqa-pc-open .muye-reader-box,\r\nhtml.fqa-pc-open .muye-reader-nav {\r\n	transform: translateX(calc(-1 * var(--fqa-pc-shift, 0px))) !important;\r\n	transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);\r\n}\r\n\r\n/*\r\n * 目录按正文实测位置对齐（--fqa-pc-content-right / -width 由 drawer.ts 写入），\r\n * 不再依赖站点写死的 calc(50vw - 480px)，避免抽屉展开时压住目录一角。\r\n */\r\n.reader-catalog {\r\n	right: var(--fqa-pc-content-right, calc(50vw - 480px)) !important;\r\n	width: var(--fqa-pc-content-width, 960px) !important;\r\n}\r\n\r\n/* ---------------------- 目录滚动条跟随日夜主题 ---------------------- */\r\n\r\n.reader-catalog-content-wrap {\r\n	scrollbar-width: thin;\r\n	scrollbar-color: rgba(31, 35, 41, 0.28) transparent;\r\n}\r\n\r\n/* 夜间：color-scheme 让 UA 原生滚动条也走深色，再显式给一版 webkit 样式兜底 */\r\n[muye-data-theme='dark'] .reader-catalog-content-wrap {\r\n	color-scheme: dark;\r\n	scrollbar-color: rgba(255, 255, 255, 0.28) transparent;\r\n}\r\n\r\n.reader-catalog-content-wrap::-webkit-scrollbar {\r\n	width: 8px;\r\n	height: 8px;\r\n}\r\n\r\n.reader-catalog-content-wrap::-webkit-scrollbar-track {\r\n	background: transparent;\r\n}\r\n\r\n.reader-catalog-content-wrap::-webkit-scrollbar-thumb {\r\n	border-radius: 4px;\r\n	background: rgba(31, 35, 41, 0.28);\r\n}\r\n\r\n.reader-catalog-content-wrap::-webkit-scrollbar-thumb:hover {\r\n	background: rgba(31, 35, 41, 0.42);\r\n}\r\n\r\n[muye-data-theme='dark'] .reader-catalog-content-wrap::-webkit-scrollbar-thumb {\r\n	background: rgba(255, 255, 255, 0.28);\r\n}\r\n\r\n[muye-data-theme='dark'] .reader-catalog-content-wrap::-webkit-scrollbar-thumb:hover {\r\n	background: rgba(255, 255, 255, 0.42);\r\n}\r\n";
+  const scriptcss = "/* 移除章节锁定图标 */\n.muyeicon-lock {\n	display: none;\n}\n/* 移除APP推广图标 */\n.muye-to-fanqie {\n	display: none!important;\n}\n.reader-toolbar-item-download {\n	display: none!important;\n}\n.download-btn {\n	display: none!important;\n}\n.download-icon {\n	display: none!important;\n}\n\n.fqa-hide {\n	display: none!important;\n}\n/* 404 */\n.no-content {\n	display: none!important;\n}\n\n.fqa-comic-img {\n	width: 100%!important;\n	height: 100%!important;\n	max-width: 100%!important;\n	max-height: 100%!important;\n	padding-top: 0!important;\n	padding-bottom: 0!important;\n	margin-top: 0!important;\n	margin-bottom: 0!important;\n}\n\n.fqa-comic-reader {\n	line-height: 0!important;\n}\n\n.fqa-menu-item,\n.arco-menu-item {\n	width: 100%!important;\n}\n\n#dynamic-el {\n	display: none!important;\n}\n\n.fqa-footnote-ref {\n	display: inline-block;\n	margin: 0 0.15em;\n	padding: 0 0.25em;\n	font-size: 0.7em;\n	line-height: 1.4;\n	vertical-align: super;\n	color: var(--web-brand_normal, #f14646);\n	cursor: pointer;\n	user-select: none;\n	border-radius: 3px;\n	text-indent: 0;\n}\n\n.fqa-footnote-ref:hover,\n.fqa-footnote-ref:focus-visible {\n	background: var(--web-brand_light, rgba(241, 70, 70, 0.12));\n	outline: none;\n}\n\n\n.fqa-footnote {\n	margin-top: 2em;\n	padding-top: 1em;\n	border-top: 1px solid var(--web-gray_20, rgba(128, 128, 128, 0.25));\n	font-size: var(--fqa-body-size, 1.6rem);\n}\n\n.muye-reader-content-16 .fqa-footnote { font-size: var(--fqa-body-size, 1.6rem); }\n.muye-reader-content-20 .fqa-footnote { font-size: var(--fqa-body-size, 2rem); }\n.muye-reader-content-24 .fqa-footnote { font-size: var(--fqa-body-size, 2.4rem); }\n.muye-reader-content-28 .fqa-footnote { font-size: var(--fqa-body-size, 2.8rem); }\n.muye-reader-content-32 .fqa-footnote { font-size: var(--fqa-body-size, 3.2rem); }\n\n.fqa-footnote-title {\n	margin-bottom: 0.6em;\n	font-size: 0.85em;\n	font-weight: 600;\n	color: var(--web-gray_40, #8a8a8a);\n	text-indent: 0;\n}\n\n.fqa-footnote-list {\n	margin: 0;\n	padding-left: 1.6em;\n	font-size: 0.85em;\n	line-height: 1.7;\n	color: var(--web-gray_40, #8a8a8a);\n}\n\n.fqa-footnote-list li {\n	margin-bottom: 0.5em;\n	text-indent: 0;\n	transition: background-color 0.3s ease;\n}\n\n.fqa-footnote-list li.fqa-footnote-active {\n	background: var(--web-brand_light, rgba(241, 70, 70, 0.12));\n	border-radius: 4px;\n}\n\n/*\n * 正文底色。\n *\n * 主题色直接画在正文容器上（站点的纸色也画在 .muye-reader-box 上，两者一致），\n * 这样追加章节里就算有元素透明，露出来的也是主题色。\n *\n * 注意：这里绝不能再给「追加章节内部」加 background: transparent !important。\n * 段评的段落高亮 .fqa-pc-para-active 就是靠 background + box-shadow 实现的，\n * 之前一刀切透明会把背景压掉、只剩一个色框。\n */\n#fqa-reader-content {\n	background-color: var(--web-bg)!important;\n}\n\n/* 滚动翻页时，站点章节末尾那层浅色渐变也一并去掉（它留在两章之间） */\nhtml.fqa-page-scroll .muye-to-fanqie .scan-gradient,\nhtml.fqa-page-scroll .muye-reader-scan-hint-box .scan-gradient {\n	background: none!important;\n}\n\n.fqa-icon-dark {\n	color: #B3B3B3\n}\n\n/* ----------------------------- 右键菜单 / Toast ----------------------------- */\n\n/*\n * 书架与搜索共用。两者都把菜单 Teleport 到 body，\n * 拿不到各自根节点上的变量，所以在这里声明一份全局色板。\n */\n.fqa-menu {\n	--fqa-menu-bg: #fff;\n	--fqa-menu-text: #1f2329;\n	--fqa-menu-sub: #8f959e;\n	--fqa-menu-hover: rgba(31, 35, 41, 0.06);\n	--fqa-menu-danger: #f5222d;\n\n	position: fixed;\n	z-index: 2147483001;\n	min-width: 132px;\n	max-width: 240px;\n	padding: 4px;\n	box-sizing: border-box;\n	background: var(--fqa-menu-bg);\n	border: 1px solid rgba(31, 35, 41, 0.08);\n	border-radius: 8px;\n	box-shadow: 0 6px 24px rgba(31, 35, 41, 0.16);\n	font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\n		sans-serif;\n	font-size: 13px;\n	color: var(--fqa-menu-text);\n	user-select: none;\n}\n\n/* 二级面板：分组数量多时可滚动 */\n.fqa-menu-sub {\n	max-height: 320px;\n	overflow-y: auto;\n}\n\n.fqa-menu-row {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 12px;\n	padding: 7px 10px;\n	border-radius: 5px;\n	line-height: 1.4;\n	cursor: pointer;\n	white-space: nowrap;\n	overflow: hidden;\n}\n\n.fqa-menu-row > span:first-child {\n	overflow: hidden;\n	text-overflow: ellipsis;\n}\n\n.fqa-menu-row:hover,\n.fqa-menu-row.fqa-menu-open {\n	background: var(--fqa-menu-hover);\n}\n\n.fqa-menu-arrow {\n	color: var(--fqa-menu-sub);\n	font-size: 15px;\n	line-height: 1;\n}\n\n.fqa-menu-danger {\n	color: var(--fqa-menu-danger);\n}\n\n.fqa-menu-disabled {\n	color: var(--fqa-menu-sub);\n	cursor: not-allowed;\n}\n\n.fqa-menu-disabled:hover {\n	background: transparent;\n}\n\n/* 操作结果提示 */\n.fqa-toast {\n	position: fixed;\n	left: 50%;\n	bottom: 48px;\n	transform: translateX(-50%);\n	z-index: 2147483002;\n	max-width: 80vw;\n	padding: 10px 18px;\n	box-sizing: border-box;\n	background: rgba(31, 35, 41, 0.88);\n	color: #fff;\n	border-radius: 8px;\n	font-size: 13px;\n	line-height: 1.4;\n	box-shadow: 0 6px 24px rgba(31, 35, 41, 0.24);\n	pointer-events: none;\n}\n\n/* 骨架屏微光。书架与搜索共用同一个动画名 */\n@keyframes fqa-shimmer {\n	100% {\n		transform: translateX(100%);\n	}\n}\n\n@media (prefers-color-scheme: dark) {\n	.fqa-menu {\n		--fqa-menu-bg: #23272e;\n		--fqa-menu-text: #e5e6eb;\n		--fqa-menu-sub: #8f959e;\n		--fqa-menu-hover: rgba(255, 255, 255, 0.08);\n		border-color: rgba(255, 255, 255, 0.1);\n	}\n}\n\n.info {\n	width: 100%!important;\n}\n\n.reader-toolbar {\n	user-select: none;\n}\n/* ---------------------------- 目录弹窗重排 ---------------------------- */\n/*\n * 站点原本：position:fixed; right:calc(50vw - 480px); width:500px（桌面）\n * 改成与正文浅色背景块同宽同位置（960 居中），章节标题一行两个。\n */\n.reader-catalog {\n	right: calc(50vw - 480px) !important;\n	width: min(960px, 100vw) !important;\n	max-width: 100vw !important;\n}\n\n/*\n * 阅读页目录里「本章含插图」的标记。\n *\n * 与详情页同一套视觉（见 download.css），但这里挂在 .chapter 上：\n * 目录行是 .chapter > .chapter-text，标记绝对定位到行右缘，\n * 给 .chapter-text 留出 padding-right，长标题截断时也不会压住标记。\n */\n.reader-catalog-chapters .chapter {\n    position: relative;\n}\n\n.reader-catalog-chapters .chapter.fqa-has-image .chapter-text {\n    box-sizing: border-box;\n    padding-right: 46px;\n}\n\n.reader-catalog-chapters .chapter.fqa-has-image::after {\n    content: '插图';\n    position: absolute;\n    top: 50%;\n    right: 6px;\n    transform: translateY(-50%);\n    padding: 0 5px;\n    border-radius: 4px;\n    font-size: 11px;\n    font-weight: 500;\n    line-height: 16px;\n    letter-spacing: 0.2px;\n    color: #fa6725;\n    background: linear-gradient(180deg, rgba(250, 103, 37, 0.14), rgba(250, 103, 37, 0.08));\n    box-shadow: inset 0 0 0 1px rgba(250, 103, 37, 0.22);\n    white-space: nowrap;\n    pointer-events: none;\n    user-select: none;\n}\n\n/* 夜间：底色调深，避免浅橙在深色目录上发白 */\nhtml[muye-data-theme='dark'] .reader-catalog-chapters .chapter.fqa-has-image::after {\n    color: #ff8a4c;\n    background: linear-gradient(180deg, rgba(255, 138, 76, 0.22), rgba(255, 138, 76, 0.14));\n    box-shadow: inset 0 0 0 1px rgba(255, 138, 76, 0.32);\n}\n\n/* 窄屏放不下 960 时就铺满 */\n@media (max-width: 1000px) {\n	.reader-catalog {\n		right: 0 !important;\n		width: 100vw !important;\n	}\n}\n\n/* inline-block 之间会有空白字符，把父级字号归零来消除 */\n.reader-catalog-chapters {\n	font-size: 0 !important;\n}\n\n.reader-catalog-chapters .volume-header {\n	display: block !important;\n	width: 100% !important;\n	font-size: 14px !important;\n}\n\n/* 章节：一行两个 */\n.reader-catalog-chapters .chapter-outer-container {\n	display: inline-block !important;\n	width: 50% !important;\n	box-sizing: border-box;\n	vertical-align: top;\n}\n\n.reader-catalog-chapters .chapter {\n	font-size: 16px !important;\n}\n\n/* ------------------- 段评展开时的联动（目录 / 字号） ------------------- */\n\n/*\n * 目录弹窗跟着正文一起左移。\n * 直接吃 --fqa-pc-shift 这个变量，所以目录晚于抽屉打开也能自动对齐，\n * 不需要额外挂 JS 或补加 shift 类。\n */\n.reader-catalog {\n	transform: translateX(calc(-1 * var(--fqa-pc-shift, 0px))) !important;\n	transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);\n}\n\n/*\n * 工具栏本身没有 z-index，字号弹窗（.font-slider-popover*，绝对定位，\n * 从工具栏向左展开）会被段评抽屉盖住。把工具栏抬到抽屉之上。\n */\n.reader-toolbar {\n	z-index: 2147483602 !important;\n}\n\n/*\n * 目录内容区：站点是 overflow-y:scroll。按 CSS 规范另一个轴会变成 auto，\n * 两列布局下哪怕只有 1px 误差也会冒出横向滚动条，直接禁掉横轴。\n */\n.reader-catalog-content-wrap {\n	overflow-x: hidden !important;\n}\n\n/*\n * 段评展开时的位移「总开关」。\n *\n * 以前把 fqa-pc-shift-el 类挂在正文块上，站点一改字号就重排、类被冲掉，\n * 正文会先跳回原位再由 JS 补回来。改挂到 <html> 上，元素怎么重渲染都不丢。\n */\nhtml.fqa-pc-open .muye-reader-box,\nhtml.fqa-pc-open .muye-reader-nav {\n	transform: translateX(calc(-1 * var(--fqa-pc-shift, 0px))) !important;\n	transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);\n}\n\n/*\n * 被网页端屏蔽的书：导航栏标题由脚本补书名（见 blockedReader.ts）。\n * 链接沿用 h1 的继承色，去掉下划线，hover 时给一点提示但不改颜色。\n */\n.muye-reader-nav-title .fqa-nav-book-link {\n	color: inherit;\n	text-decoration: none;\n	cursor: pointer;\n}\n\n.muye-reader-nav-title .fqa-nav-book-link:hover {\n	text-decoration: underline;\n}\n\n/*\n * 目录按正文实测位置对齐（--fqa-pc-content-right / -width 由 drawer.ts 写入），\n * 不再依赖站点写死的 calc(50vw - 480px)，避免抽屉展开时压住目录一角。\n */\n.reader-catalog {	right: var(--fqa-pc-content-right, calc(50vw - 480px)) !important;\n	width: var(--fqa-pc-content-width, 960px) !important;\n}\n\n/* ---------------------- 目录滚动条跟随日夜主题 ---------------------- */\n\n.reader-catalog-content-wrap {\n	scrollbar-width: thin;\n	scrollbar-color: rgba(31, 35, 41, 0.28) transparent;\n}\n\n/* 夜间：color-scheme 让 UA 原生滚动条也走深色，再显式给一版 webkit 样式兜底 */\n[muye-data-theme='dark'] .reader-catalog-content-wrap {\n	color-scheme: dark;\n	scrollbar-color: rgba(255, 255, 255, 0.28) transparent;\n}\n\n.reader-catalog-content-wrap::-webkit-scrollbar {\n	width: 8px;\n	height: 8px;\n}\n\n.reader-catalog-content-wrap::-webkit-scrollbar-track {\n	background: transparent;\n}\n\n.reader-catalog-content-wrap::-webkit-scrollbar-thumb {\n	border-radius: 4px;\n	background: rgba(31, 35, 41, 0.28);\n}\n\n.reader-catalog-content-wrap::-webkit-scrollbar-thumb:hover {\n	background: rgba(31, 35, 41, 0.42);\n}\n\n[muye-data-theme='dark'] .reader-catalog-content-wrap::-webkit-scrollbar-thumb {\n	background: rgba(255, 255, 255, 0.28);\n}\n\n[muye-data-theme='dark'] .reader-catalog-content-wrap::-webkit-scrollbar-thumb:hover {\n	background: rgba(255, 255, 255, 0.42);\n}\n\n/* ---------------------- 无限滚动追加的章节 ---------------------- */\n\n.fqa-appended-chapter {\n	display: block;\n	margin-top: 2.6em;\n	padding-top: 2.2em;\n	border-top: 1px solid rgba(127, 127, 127, 0.18);\n}\n\n.fqa-append-title {\n	margin: 0 0 1.1em;\n	font-size: 1.15em;\n	font-weight: 600;\n	line-height: 1.5;\n	text-indent: 0;\n}\n\n/* ---------------------- 全站滚动条美化 ---------------------- */\n\n/*\n * 页面滚动条：正文阅读区真正滚动的是 .muye-reader（height:100vh; overflow:auto），\n * html/body 兜底书城、搜索等其它页面。\n * 浏览器缩放时 px 会一起缩放，不需要单独适配。\n */\n\nhtml,\nhtml body,\nhtml .muye-reader,\nhtml .fqa-rs-panel {\n	scrollbar-width: thin;\n	scrollbar-color: rgba(31, 35, 41, 0.22) transparent;\n}\n\n/* 米黄：滑块用暖灰，避免在米色底上显脏 */\nhtml.fqa-theme-sepia,\nhtml.fqa-theme-sepia body,\nhtml.fqa-theme-sepia .muye-reader,\nhtml.fqa-theme-sepia .fqa-rs-panel {\n	scrollbar-color: rgba(74, 68, 54, 0.28) transparent;\n}\n\n/* 夜间：先让 UA 原生控件（含滚动条、下拉框）走深色，再显式覆盖 webkit */\nhtml[muye-data-theme='dark'] {\n	color-scheme: dark;\n}\n\nhtml[muye-data-theme='dark'],\nhtml[muye-data-theme='dark'] body,\nhtml[muye-data-theme='dark'] .muye-reader,\nhtml[muye-data-theme='dark'] .fqa-rs-panel {\n	scrollbar-color: rgba(255, 255, 255, 0.24) transparent;\n}\n\n/* 页面滚动条：10px 宽，透明轨道，圆角滑块 */\nhtml::-webkit-scrollbar,\nhtml body::-webkit-scrollbar,\nhtml .muye-reader::-webkit-scrollbar {\n	width: 10px;\n	height: 10px;\n}\n\nhtml::-webkit-scrollbar-track,\nhtml body::-webkit-scrollbar-track,\nhtml .muye-reader::-webkit-scrollbar-track,\nhtml .fqa-rs-panel::-webkit-scrollbar-track {\n	background: transparent;\n}\n\nhtml::-webkit-scrollbar-corner,\nhtml body::-webkit-scrollbar-corner,\nhtml .muye-reader::-webkit-scrollbar-corner {\n	background: transparent;\n}\n\n/*\n * 用透明的 2px 边框 + background-clip 做内缩：\n * 轨道宽 10px，但滑块看起来只有 6px，贴着边缘也不会显得笨重。\n */\nhtml::-webkit-scrollbar-thumb,\nhtml body::-webkit-scrollbar-thumb,\nhtml .muye-reader::-webkit-scrollbar-thumb {\n	border: 2px solid transparent;\n	border-radius: 6px;\n	background-color: rgba(31, 35, 41, 0.22);\n	background-clip: content-box;\n}\n\nhtml::-webkit-scrollbar-thumb:hover,\nhtml body::-webkit-scrollbar-thumb:hover,\nhtml .muye-reader::-webkit-scrollbar-thumb:hover {\n	background-color: rgba(31, 35, 41, 0.36);\n}\n\nhtml.fqa-theme-sepia::-webkit-scrollbar-thumb,\nhtml.fqa-theme-sepia body::-webkit-scrollbar-thumb,\nhtml.fqa-theme-sepia .muye-reader::-webkit-scrollbar-thumb {\n	background-color: rgba(74, 68, 54, 0.28);\n}\n\nhtml.fqa-theme-sepia::-webkit-scrollbar-thumb:hover,\nhtml.fqa-theme-sepia body::-webkit-scrollbar-thumb:hover,\nhtml.fqa-theme-sepia .muye-reader::-webkit-scrollbar-thumb:hover {\n	background-color: rgba(74, 68, 54, 0.44);\n}\n\nhtml[muye-data-theme='dark']::-webkit-scrollbar-thumb,\nhtml[muye-data-theme='dark'] body::-webkit-scrollbar-thumb,\nhtml[muye-data-theme='dark'] .muye-reader::-webkit-scrollbar-thumb {\n	background-color: rgba(255, 255, 255, 0.24);\n}\n\nhtml[muye-data-theme='dark']::-webkit-scrollbar-thumb:hover,\nhtml[muye-data-theme='dark'] body::-webkit-scrollbar-thumb:hover,\nhtml[muye-data-theme='dark'] .muye-reader::-webkit-scrollbar-thumb:hover {\n	background-color: rgba(255, 255, 255, 0.4);\n}\n\n/* 设置面板内部滚动区：和段评抽屉统一用 8px */\nhtml .fqa-rs-panel::-webkit-scrollbar {\n	width: 8px;\n	height: 8px;\n}\n\nhtml .fqa-rs-panel::-webkit-scrollbar-thumb {\n	border: 2px solid transparent;\n	border-radius: 5px;\n	background-color: rgba(31, 35, 41, 0.2);\n	background-clip: content-box;\n}\n\nhtml .fqa-rs-panel::-webkit-scrollbar-thumb:hover {\n	background-color: rgba(31, 35, 41, 0.34);\n}\n\nhtml[muye-data-theme='dark'] .fqa-rs-panel::-webkit-scrollbar-thumb {\n	background-color: rgba(255, 255, 255, 0.22);\n}\n\nhtml[muye-data-theme='dark'] .fqa-rs-panel::-webkit-scrollbar-thumb:hover {\n	background-color: rgba(255, 255, 255, 0.36);\n}\n\n/* ---------------------- 滚动翻页：隐藏上一章 / 下一章 ---------------------- */\n\n/*\n * 滚动翻页时下一章是自动接在下面的，站点自带的「上一章 / 下一章」按钮会横在\n * 两章之间，既碍事又容易误点。\n * 注意这里只用 display:none —— 元素还在 DOM 里，听书读到章末时对\n * .chapter-btn.next 调 .click() 依然有效，不会被这个开关打断。\n */\nhtml.fqa-page-scroll .muye-reader-btns .chapter-btn,\nhtml.fqa-page-scroll .chapter-btn.next,\nhtml.fqa-page-scroll .chapter-btn.last {\n	display: none !important;\n}\n\n/* 那一排如果只剩下这两个按钮，连容器一起收掉，免得章节末尾留一条空白 */\nhtml.fqa-page-scroll .muye-reader-btns:not(:has(> :not(.chapter-btn))) {\n	display: none !important;\n}\n\n/*\n * 滚动翻页的底部留白。\n *\n * 站点原来的「上一章 / 下一章」按钮被藏掉之后，最后一章的末尾会直接顶到\n * 屏幕底边。这里在正文容器上补一段空白（追加章节也是 append 进这个容器，\n * 所以对「读到最后一章」同样有效）。\n */\nhtml.fqa-page-scroll #fqa-reader-content {\n	padding-bottom: max(120px, 16vh);\n}\n\n/* ---------------------- 滚动翻页的「全书完」收尾 ---------------------- */\n\n.fqa-end-mark {\n	margin: 3.2em 0 0;\n	text-align: center;\n	font-size: 0.9em;\n	letter-spacing: 0.24em;\n	text-indent: 0;\n	color: var(--web-gray_40, rgba(127, 127, 127, 0.55));\n	user-select: none;\n	pointer-events: none;\n}\n\n/* ---------------------- 详情页右侧浮动条 ---------------------- */\n\n/*\n * 站点 .float-wrapper 里只有「番茄小说 / 帮助中心 / 作家助手」三个产品入口，\n * 用户不需要，整条隐藏（逐个隐藏会留下空白底板）。\n *\n * 标记挂在 <html> 上而不是元素本身：站点重渲染会重建整棵树，挂在元素上的类\n * 会丢。属性由 backTop.ts 在 document-start 设置，配合同一时间 GM_addStyle\n * 注入的同一规则，站点画第一帧时就已经是隐藏状态，不会闪现。\n * （这里再写一份是给 script.css 的完整样式表兜底，两处规则等价。）\n */\nhtml[data-fqa-no-float-bar] .float-wrapper {\n    display: none !important;\n}\n\n/* ---------------------- 详情页作者栏收窄 ---------------------- */\n\n/*\n * 详情页那排按钮是绝对定位的（开始阅读 0、加入书架 160、下载 320、检查插图 480），\n * 实测整排要到 598px 左右，而站点作者栏是 float:right + width:364px，\n * 在 1200px 的内容宽里只从 836px 开始 —— 脚本加的「检查插图」会压在作者栏的分隔线上。\n * 收窄到 300px，左边缘推到 900px，留出约 54px 间距。\n *\n * 兜底页和正常详情页都要，所以不放在兜底页的样式里，直接全局生效。\n * 作者栏是 text-align:center + float:right，变窄只是整体右移，垂直布局不受影响。\n */\n.page-header-info .author {\n	width: 300px;\n}\n\n/*\n * 让 .info 里的按钮能露出边界。\n * 站点 .info 是 max-width:585px + overflow:hidden，而脚本追加的「下载」「检查插图」\n * 是绝对定位、整排要排到 630px 左右，最后一个按钮会被裁掉一条。\n */\n.page-header-info .info {\n	overflow: visible;\n}\n";
   async function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
@@ -72,11 +72,11 @@
     return new Promise((resolve) => {
       let timer;
       const observer2 = new MutationObserver(() => {
-        const el = document.querySelector(selector);
-        if (el) {
+        const el2 = document.querySelector(selector);
+        if (el2) {
           if (timer) clearTimeout(timer);
           observer2.disconnect();
-          resolve(el);
+          resolve(el2);
         }
       });
       const start = () => {
@@ -93,7 +93,7 @@
       }
     });
   }
-  function chunk(list, size) {
+  function chunk$1(list, size) {
     const result = [];
     for (let i2 = 0; i2 < list.length; i2 += size) {
       result.push(list.slice(i2, i2 + size));
@@ -157,6 +157,10 @@
     audiobookChapterEnd: "next",
     audiobookFollow: true,
     paraComment: true,
+    readerTheme: "",
+    readerThemeLastDay: "light",
+    readerFontSize: 0,
+    readerPageMode: "chapter",
     apiPreference: "app",
     deviceId: "",
     installId: "",
@@ -267,8 +271,8 @@
   const NO_GLYPH = "?";
   const flatCache = /* @__PURE__ */ new Map();
   function tableOf(fontId) {
-    const cached = flatCache.get(fontId);
-    if (cached) return cached;
+    const cached2 = flatCache.get(fontId);
+    if (cached2) return cached2;
     const rows = mapping[fontId];
     if (!rows) return null;
     const flat = [...rows.join("")];
@@ -394,33 +398,52 @@
       }
     );
   }
-  const STYLE_ID$7 = "fqa-user-style";
-  const READER_SCOPE = "#fqa-reader-content, .muye-reader-content";
+  const STYLE_ID$a = "fqa-user-style";
+  const READER_SCOPE = [
+    // 脚本接管后的正文容器（克隆自 .muye-reader-content，同时带这个类）
+    "#fqa-reader-content",
+    // 站点原始正文容器：未接管 / 漫画章等场景仍用它
+    ".muye-reader-box .muye-reader-content"
+  ].join(", ");
+  const BODY_DESCENDANTS = [
+    "#fqa-reader-content p",
+    "#fqa-reader-content blk",
+    "#fqa-reader-content div",
+    "#fqa-reader-content span:not(.fqa-pc-chip)",
+    "#fqa-reader-content article"
+  ].join(", ");
   function buildCss() {
     const parts = [];
     const font = settings$1.readerFont.trim();
     if (font) {
-      const family = /^["']|,/.test(font) ? font : `"${font}"`;
-      parts.push(`${READER_SCOPE}, ${READER_SCOPE} p { font-family: ${family}, inherit !important; }`);
+      const family = normalizeFamily(font);
+      parts.push(
+        `${READER_SCOPE}, ${BODY_DESCENDANTS} { font-family: ${family} !important; }`
+      );
     }
     if (settings$1.customCssEnabled && settings$1.customCss.trim()) {
       parts.push(settings$1.customCss);
     }
     return parts.join("\n");
   }
+  function normalizeFamily(input) {
+    if (/[,]/.test(input)) return input;
+    const quoted = /^["'].*["']$/.test(input) ? input : `"${input.replace(/"/g, "")}"`;
+    return `${quoted}, serif`;
+  }
   function apply() {
     const css = buildCss();
-    let el = document.getElementById(STYLE_ID$7);
+    let el2 = document.getElementById(STYLE_ID$a);
     if (!css) {
-      el == null ? void 0 : el.remove();
+      el2 == null ? void 0 : el2.remove();
       return;
     }
-    if (!el) {
-      el = document.createElement("style");
-      el.id = STYLE_ID$7;
-      document.head.appendChild(el);
+    if (!el2) {
+      el2 = document.createElement("style");
+      el2.id = STYLE_ID$a;
+      document.head.appendChild(el2);
     }
-    el.textContent = css;
+    el2.textContent = css;
   }
   function initUserStyle() {
     apply();
@@ -1577,11 +1600,11 @@
       console.log("使用设置里手填的设备:", manual.device_id);
       return manual;
     }
-    const cached = load();
-    if (cached) {
-      _config.currentConfig = cached;
-      console.log("复用已缓存设备:", cached.device_id);
-      return cached;
+    const cached2 = load();
+    if (cached2) {
+      _config.currentConfig = cached2;
+      console.log("复用已缓存设备:", cached2.device_id);
+      return cached2;
     }
     try {
       return await provisionDevice();
@@ -1978,6 +2001,18 @@
     }
     return results;
   }
+  const KEY = "fqa:last-book";
+  function rememberBook(bookId2, title) {
+    if (!bookId2 || !/^\d{10,20}$/.test(String(bookId2))) return;
+    const id = String(bookId2);
+    const prev = read(KEY);
+    if ((prev == null ? void 0 : prev.bookId) === id && (prev == null ? void 0 : prev.title) === title) return;
+    write(KEY, { bookId: id, title, t: Date.now() });
+  }
+  function getLastBook() {
+    const v = read(KEY);
+    return v && typeof v.bookId === "string" ? v : null;
+  }
   async function getCatalogRaw(bookId2) {
     var _a;
     const response = await appGet("/bookapi/directory/all_items/v", { book_id: bookId2 });
@@ -2062,6 +2097,145 @@
     console.log("Book Info:", j);
     return j.data;
   }
+  function pickAvatar(bookInfo) {
+    var _a, _b, _c, _d, _e;
+    const candidates = [
+      (_a = bookInfo == null ? void 0 : bookInfo.author_info) == null ? void 0 : _a.user_avatar,
+      (_b = bookInfo == null ? void 0 : bookInfo.author_info) == null ? void 0 : _b.expand_user_avatar,
+      bookInfo == null ? void 0 : bookInfo.author_avatar,
+      bookInfo == null ? void 0 : bookInfo.author_avatar_uri,
+      bookInfo == null ? void 0 : bookInfo.authorAvatar,
+      (_c = bookInfo == null ? void 0 : bookInfo.author_info) == null ? void 0 : _c.avatar,
+      (_d = bookInfo == null ? void 0 : bookInfo.author_info) == null ? void 0 : _d.avatar_uri,
+      (_e = bookInfo == null ? void 0 : bookInfo.author_info) == null ? void 0 : _e.avatar_url
+    ];
+    for (const v of candidates) {
+      if (typeof v === "string" && v.trim()) {
+        return v.startsWith("//") ? `https:${v}` : v;
+      }
+    }
+    return void 0;
+  }
+  function pickAuthorId(bookInfo) {
+    var _a, _b;
+    const raw = (bookInfo == null ? void 0 : bookInfo.originalAuthors) ?? (bookInfo == null ? void 0 : bookInfo.original_authors);
+    if (typeof raw === "string" && raw.includes("[")) {
+      const m = /"AuthorId"\s*:\s*"?(\d+)"?/i.exec(raw);
+      if (m == null ? void 0 : m[1]) return m[1];
+    }
+    const candidates = [
+      (_a = bookInfo == null ? void 0 : bookInfo.author_info) == null ? void 0 : _a.user_id,
+      bookInfo == null ? void 0 : bookInfo.creator_id,
+      bookInfo == null ? void 0 : bookInfo.author_id,
+      (_b = bookInfo == null ? void 0 : bookInfo.author_info) == null ? void 0 : _b.author_id
+    ];
+    for (const v of candidates) {
+      if (v != null && String(v).trim()) return String(v).trim();
+    }
+    return void 0;
+  }
+  function pickAuthorDesc(bookInfo) {
+    var _a, _b;
+    const candidates = [
+      (_a = bookInfo == null ? void 0 : bookInfo.author_info) == null ? void 0 : _a.description,
+      (_b = bookInfo == null ? void 0 : bookInfo.author_info) == null ? void 0 : _b.desc,
+      bookInfo == null ? void 0 : bookInfo.author_desc,
+      bookInfo == null ? void 0 : bookInfo.author_description,
+      bookInfo == null ? void 0 : bookInfo.description
+    ];
+    for (const v of candidates) {
+      if (typeof v === "string" && v.trim()) return v.trim();
+    }
+    return "";
+  }
+  const DEFAULT_AUTHOR_DESC = "关注我，掌握书籍最新动态";
+  function isDefaultAuthorDesc(text) {
+    return (text ?? "").trim() === DEFAULT_AUTHOR_DESC;
+  }
+  const authorBioCache = /* @__PURE__ */ new Map();
+  async function getAuthorBioFromHomepage(authorUid, authorId) {
+    const aid = authorId.trim();
+    if (!aid) return void 0;
+    const uid = authorUid.trim();
+    const key = `${uid}-${aid}`;
+    if (authorBioCache.has(key)) return authorBioCache.get(key);
+    const path = uid ? `/author-page/${uid}-${aid}` : `/author-page/${aid}`;
+    try {
+      const res = await fetch$1(path, { credentials: "same-origin" });
+      if (!res.ok) return void 0;
+      const html = await res.text();
+      const raw = extractAuthorBio(html);
+      if (raw === void 0) return void 0;
+      const bio = decodeAuthorBio(html, raw);
+      authorBioCache.set(key, bio);
+      return bio;
+    } catch (err) {
+      console.warn("[fqa:author] 读取作者主页失败:", err);
+      return void 0;
+    }
+  }
+  function decodeAuthorBio(html, raw) {
+    var _a;
+    const fontId = (_a = /class="desc[^"]*\bfont-([A-Za-z0-9]+)\b/.exec(html)) == null ? void 0 : _a[1];
+    if (!fontId) return raw;
+    const decoded = decryptText(raw, fontId);
+    if (decoded === raw) {
+      console.warn("[fqa:author] 作者简介疑似未知字体，未能还原:", fontId);
+    }
+    return decoded;
+  }
+  function extractAuthorBio(html) {
+    const marker = /"userInfo"\s*:\s*\{/.exec(html);
+    const brace = marker ? html.indexOf("{", marker.index) : -1;
+    if (brace >= 0) {
+      const raw = sliceObject(html, brace);
+      if (raw) {
+        try {
+          const info = JSON.parse(raw);
+          if (typeof info.description === "string") return info.description.trim();
+        } catch {
+        }
+        const m = /"description"\s*:\s*("(?:[^"\\]|\\.)*")/.exec(raw);
+        if (m == null ? void 0 : m[1]) {
+          try {
+            return JSON.parse(m[1]).trim();
+          } catch {
+          }
+        }
+      }
+    }
+    return void 0;
+  }
+  function sliceObject(text, start) {
+    let depth = 0;
+    let inStr = false;
+    let esc = false;
+    for (let i2 = start; i2 < text.length; i2++) {
+      const ch = text[i2];
+      if (inStr) {
+        if (esc) esc = false;
+        else if (ch === "\\") esc = true;
+        else if (ch === '"') inStr = false;
+        continue;
+      }
+      if (ch === '"') inStr = true;
+      else if (ch === "{") depth += 1;
+      else if (ch === "}") {
+        depth -= 1;
+        if (depth === 0) return text.slice(start, i2 + 1);
+      }
+    }
+    return null;
+  }
+  function pickAuthorUid(bookInfo) {
+    var _a;
+    const raw = ((_a = bookInfo == null ? void 0 : bookInfo.author_info) == null ? void 0 : _a.user_id) ?? (bookInfo == null ? void 0 : bookInfo.creator_id);
+    if (raw == null) return void 0;
+    const s = String(raw).trim();
+    if (!s) return void 0;
+    const digits = s.split("_").pop() ?? s;
+    return digits.trim() || void 0;
+  }
   async function getBookInfo(bookId2) {
     const bookInfo = await getBookInfoRaw(bookId2);
     if (!bookInfo) {
@@ -2071,17 +2245,62 @@
       book_id: bookInfo.book_id,
       title: bookInfo.book_name || bookInfo.original_book_name,
       author: bookInfo.author,
+      // 作者头像字段各版本接口不统一，挨个试，取到就用
+      author_avatar: pickAvatar(bookInfo),
+      // 作者 id（保留在数据里，站点目录弹窗等地方可能用得到；详情页作者栏不挂链接）
+      author_id: pickAuthorId(bookInfo),
+      // 作者主页链接的前缀（站点是 page.authorId，App 接口对应 author_info.user_id）
+      author_uid: pickAuthorUid(bookInfo),
+      // 作者名下面那行简介（站点是 page.description）
+      author_desc: pickAuthorDesc(bookInfo),
       cover_url: bookInfo.thumb_url,
       summary: bookInfo.abstract,
       // volume_list: bookInfo.volume_list,
       update_time: moment(bookInfo.last_chapter_first_pass_time * 1e3).format("YYYY-MM-DD HH:mm:ss"),
-      status: mappingCreationStatus(bookInfo.creation_status)
+      status: mappingCreationStatus(bookInfo.creation_status),
+      // 详情页的灰色分类标签：category / category_v2 形态不稳定，统一归一化
+      category: normalizeCategories([bookInfo.category, bookInfo.category_v2]).join(",")
       // chapter_count: bookInfo.chapter_count,
     };
   }
+  function normalizeCategories(raw) {
+    const out = [];
+    const walk = (v) => {
+      if (v == null) return;
+      if (typeof v === "string") {
+        const s = v.trim();
+        if (!s) return;
+        if (s.startsWith("[") || s.startsWith("{")) {
+          try {
+            walk(JSON.parse(s));
+            return;
+          } catch {
+          }
+        }
+        for (const part of s.split(/[,，]/)) {
+          const t = part.trim();
+          if (t) out.push(t);
+        }
+        return;
+      }
+      if (Array.isArray(v)) {
+        v.forEach(walk);
+        return;
+      }
+      if (typeof v === "object") {
+        const name2 = v.Name ?? v.name;
+        if (typeof name2 === "string" && name2.trim()) out.push(name2.trim());
+      }
+    };
+    walk(raw);
+    return [...new Set(out)].slice(0, 6);
+  }
   async function getBookInfoAndCatalog(book) {
-    if (typeof book !== "string") {
+    if (book && typeof book !== "string") {
       book = book.book_id;
+    }
+    if (!book) {
+      throw new Error("book id is empty");
     }
     const bookInfo = await getBookInfo(book);
     if (!bookInfo) {
@@ -2175,8 +2394,8 @@
     }
   }
   async function fetchCss(uri) {
-    const cached = cssCache.get(uri);
-    if (cached !== void 0) return cached;
+    const cached2 = cssCache.get(uri);
+    if (cached2 !== void 0) return cached2;
     try {
       const res = await fetch(CDN_PREFIX + uri);
       const text = res.ok ? await res.text() : "";
@@ -2197,25 +2416,25 @@
   }
   async function applyBookCss(cssMap, scope, styleId = "fqa-book-style") {
     const css = await getScopedBookCss(cssMap, scope);
-    let el = document.getElementById(styleId);
+    let el2 = document.getElementById(styleId);
     if (!css) {
-      el == null ? void 0 : el.remove();
+      el2 == null ? void 0 : el2.remove();
       return false;
     }
-    if (!el) {
-      el = document.createElement("style");
-      el.id = styleId;
-      document.head.appendChild(el);
+    if (!el2) {
+      el2 = document.createElement("style");
+      el2.id = styleId;
+      document.head.appendChild(el2);
     }
-    el.textContent = css;
+    el2.textContent = css;
     return true;
   }
   const FOOTNOTE_CLASS = "fqa-footnote";
   const FOOTNOTE_REF_CLASS = "fqa-footnote-ref";
   const FOOTNOTE_LIST_CLASS = "fqa-footnote-list";
   function byAttr(root, tag, attr, value) {
-    return [...root.querySelectorAll(tag)].filter((el) => {
-      const v = el.getAttribute(attr);
+    return [...root.querySelectorAll(tag)].filter((el2) => {
+      const v = el2.getAttribute(attr);
       if (v === null) return false;
       return value === void 0 || v === value;
     });
@@ -2243,7 +2462,7 @@
       }
       return [...scope.querySelectorAll("a")].filter((a) => set.has(a));
     };
-    const inSection = (el) => sections.some((s) => s.contains(el));
+    const inSection = (el2) => sections.some((s) => s.contains(el2));
     const refs = collectRefs(root).filter((a) => !inSection(a));
     if (refs.length === 0 && notes.size === 0) return 0;
     const ordered = [];
@@ -2307,9 +2526,9 @@
     return ordered.length;
   }
   function stripTags(html) {
-    const el = document.createElement("div");
-    el.innerHTML = html;
-    return (el.textContent ?? "").replace(/\s+/g, " ").trim();
+    const el2 = document.createElement("div");
+    el2.innerHTML = html;
+    return (el2.textContent ?? "").replace(/\s+/g, " ").trim();
   }
   const KNOWN_TIERS = /muye-reader-content-(16|20|24|28|32)\b/;
   function syncFootnoteFontSize(container2) {
@@ -3191,8 +3410,8 @@
       /** 播放倍速。预缓冲目标按它缩放，避免高倍速时缓冲不够 */
       __publicField(this, "playbackRate", 1);
       __publicField(this, "onSeeking", () => {
-        const context = this.context;
-        if (!context || this.state === "destroyed" || this.session === 0) return;
+        const context2 = this.context;
+        if (!context2 || this.state === "destroyed" || this.session === 0) return;
         if (this.audio.error) return;
         const target = this.audio.currentTime;
         if (!Number.isFinite(target) || this.isTimeBuffered(target)) return;
@@ -3258,11 +3477,11 @@
      * 另外 preservesPitch 也随之重设，快放不变声。
      */
     applyPlaybackRate() {
-      const el = this.audio;
-      el.defaultPlaybackRate = this.playbackRate;
-      el.playbackRate = this.playbackRate;
-      if ("preservesPitch" in el) el.preservesPitch = true;
-      if ("webkitPreservesPitch" in el) el.webkitPreservesPitch = true;
+      const el2 = this.audio;
+      el2.defaultPlaybackRate = this.playbackRate;
+      el2.playbackRate = this.playbackRate;
+      if ("preservesPitch" in el2) el2.preservesPitch = true;
+      if ("webkitPreservesPitch" in el2) el2.webkitPreservesPitch = true;
     }
     /** 加载并开始后台缓冲；autoplay 只表示首次缓冲后尝试调用 audio.play。 */
     async load(source, autoplay = false) {
@@ -3568,8 +3787,8 @@
     }
     startStream(startSample, existingStream) {
       var _a;
-      const context = this.context;
-      if (!context || this.state === "destroyed") return;
+      const context2 = this.context;
+      if (!context2 || this.state === "destroyed") return;
       if (!existingStream) {
         (_a = this.streamController) == null ? void 0 : _a.abort();
         this.streamController = new AbortController();
@@ -3578,7 +3797,7 @@
       if (!controller) return;
       const token = ++this.streamToken;
       void this.runStream(
-        context,
+        context2,
         this.session,
         token,
         startSample,
@@ -3586,33 +3805,33 @@
         existingStream
       );
     }
-    async runStream(context, session, token, startSample, signal, existingStream) {
+    async runStream(context2, session, token, startSample, signal, existingStream) {
       var _a;
       let sample = startSample;
       let first = true;
       let stream = existingStream ?? null;
       try {
-        stream ?? (stream = this.createSampleStream(context, startSample, signal));
-        while (this.isStreamCurrent(session, token, signal) && sample < context.meta.sampleCount) {
+        stream ?? (stream = this.createSampleStream(context2, startSample, signal));
+        while (this.isStreamCurrent(session, token, signal) && sample < context2.meta.sampleCount) {
           await this.waitForRoom(session, token, signal);
           if (!this.isStreamCurrent(session, token, signal)) return;
-          const endSample = Math.min(context.meta.sampleCount, sample + context.samplesPerSegment);
-          const byteLength = context.meta.offsets[endSample] - context.meta.offsets[sample];
+          const endSample = Math.min(context2.meta.sampleCount, sample + context2.samplesPerSegment);
+          const byteLength = context2.meta.offsets[endSample] - context2.meta.offsets[sample];
           const encrypted = await stream.readExactly(byteLength);
           if (!this.isStreamCurrent(session, token, signal)) return;
-          const plain = await this.decryptRange(context, encrypted, sample, endSample);
+          const plain = await this.decryptRange(context2, encrypted, sample, endSample);
           if (!this.isStreamCurrent(session, token, signal)) return;
-          const segment = context.meta.codec === "opus" ? buildWebmCluster(
-            Math.round(context.ticks[sample] * 1e3 / context.meta.timescale),
+          const segment = context2.meta.codec === "opus" ? buildWebmCluster(
+            Math.round(context2.ticks[sample] * 1e3 / context2.meta.timescale),
             plain.map((_, index) => Math.round(
-              context.ticks[sample + index] * 1e3 / context.meta.timescale
-            ) - Math.round(context.ticks[sample] * 1e3 / context.meta.timescale)),
+              context2.ticks[sample + index] * 1e3 / context2.meta.timescale
+            ) - Math.round(context2.ticks[sample] * 1e3 / context2.meta.timescale)),
             plain
           ) : buildMp4Segment(
-            context.ticks[sample],
+            context2.ticks[sample],
             plain.map((data, index) => ({
               data,
-              duration: context.meta.durations[sample + index]
+              duration: context2.meta.durations[sample + index]
             })),
             ++this.segmentSequence
           );
@@ -3631,10 +3850,10 @@
           sample = endSample;
           this.emitProgress({
             processedSamples: sample,
-            totalSamples: context.meta.sampleCount,
-            percent: Math.round(sample / context.meta.sampleCount * 100),
+            totalSamples: context2.meta.sampleCount,
+            percent: Math.round(sample / context2.meta.sampleCount * 100),
             bufferedAhead: this.bufferedAhead(),
-            durationSeconds: context.meta.totalTicks / context.meta.timescale
+            durationSeconds: context2.meta.totalTicks / context2.meta.timescale
           });
           if (first && this.autoplay) {
             first = false;
@@ -3680,10 +3899,10 @@
      * 但那时前面还有没缓冲的区间，提前 endOfStream 会把 duration 定在错的位置。
      */
     async finishStream(session, lastSample) {
-      const context = this.context;
+      const context2 = this.context;
       const mediaSource = this.mediaSource;
-      if (!context || !mediaSource) return;
-      if (lastSample < context.meta.sampleCount) return;
+      if (!context2 || !mediaSource) return;
+      if (lastSample < context2.meta.sampleCount) return;
       if (mediaSource.readyState !== "open") return;
       await this.sourceBufferChain.catch(() => void 0);
       if (!this.isCurrent(session)) return;
@@ -3707,34 +3926,34 @@
      * seek 后的新流。目标仍在已保存的 MP4 头内时先复用内存字节，读完再从
      * head.length 开一条网络流；否则直接从目标 sample 的绝对偏移续传。
      */
-    createSampleStream(context, startSample, signal) {
-      const start = context.meta.mdatStart + context.meta.offsets[startSample];
-      if (start < context.head.length) {
+    createSampleStream(context2, startSample, signal) {
+      const start = context2.meta.mdatStart + context2.meta.offsets[startSample];
+      if (start < context2.head.length) {
         return this.createNetworkStream(
-          context.url,
-          context.head.length,
+          context2.url,
+          context2.head.length,
           signal,
-          context.head.slice(start)
+          context2.head.slice(start)
         );
       }
-      return this.createNetworkStream(context.url, start, signal);
+      return this.createNetworkStream(context2.url, start, signal);
     }
-    async decryptRange(context, encrypted, startSample, endSample) {
-      const ivSize = cencIvSize(context.meta);
+    async decryptRange(context2, encrypted, startSample, endSample) {
+      const ivSize = cencIvSize(context2.meta);
       const jobs = [];
       for (let i2 = startSample; i2 < endSample; i2++) {
-        const relative = context.meta.offsets[i2] - context.meta.offsets[startSample];
-        const size = context.meta.sizes[i2];
+        const relative = context2.meta.offsets[i2] - context2.meta.offsets[startSample];
+        const size = context2.meta.sizes[i2];
         jobs.push({
-          iv: context.meta.ivs.slice(i2 * ivSize, (i2 + 1) * ivSize),
+          iv: context2.meta.ivs.slice(i2 * ivSize, (i2 + 1) * ivSize),
           ciphertext: encrypted.slice(relative, relative + size)
         });
       }
       return mapLimit(jobs, this.options.decryptConcurrency, (job) => decryptCencSample(
-        context.key,
+        context2.key,
         job.iv,
         job.ciphertext,
-        context.counterStart
+        context2.counterStart
       ));
     }
     async detectCounterStart(meta, head, key) {
@@ -3782,8 +4001,8 @@
     }
     async restartAt(target, wasPlaying) {
       var _a, _b;
-      const context = this.context;
-      if (!context) return;
+      const context2 = this.context;
+      if (!context2) return;
       if (this.audio.error) {
         this.emitMessage("播放元素已进入错误态，无法跳转，请重新开始听书", "warn");
         return;
@@ -3793,19 +4012,19 @@
       this.streamToken++;
       (_a = this.streamController) == null ? void 0 : _a.abort();
       let low = 0;
-      let high = context.meta.sampleCount - 1;
+      let high = context2.meta.sampleCount - 1;
       let index = 0;
-      const targetTicks = target * context.meta.timescale;
+      const targetTicks = target * context2.meta.timescale;
       while (low <= high) {
         const middle = low + high >> 1;
-        if (context.ticks[middle] <= targetTicks) {
+        if (context2.ticks[middle] <= targetTicks) {
           index = middle;
           low = middle + 1;
         } else {
           high = middle - 1;
         }
       }
-      const preSamples = Math.max(1, Math.round(context.samplesPerSecond * 2));
+      const preSamples = Math.max(1, Math.round(context2.samplesPerSecond * 2));
       const startSample = Math.max(0, index - preSamples);
       this.emitMessage(`跳转到 ${target.toFixed(1)} 秒`, "info");
       await this.sourceBufferChain.catch(() => void 0);
@@ -4132,7 +4351,7 @@
   const TONE_STORE_KEY = "audiobook_tone";
   const AUDIO_SPEEDS = [0.5, 0.75, 1, 1.25, 1.5, 2];
   const SPEED_STORE_KEY = "audiobook_speed";
-  const state = vue.reactive({
+  const state$1 = vue.reactive({
     open: false,
     collapsed: false,
     tonePickerOpen: false,
@@ -4158,7 +4377,7 @@
   let playToken = 0;
   let paragraphClickBound = false;
   const onParagraphClick = (event) => {
-    if (!state.open || state.toneId === null) return;
+    if (!state$1.open || state$1.toneId === null) return;
     const target = event.target;
     if (target instanceof HTMLElement && target.closest("a, button, sup")) return;
     const index = highlighter.tagIndexOfNode(target);
@@ -4167,7 +4386,7 @@
     if (seconds === null || !audio) return;
     audio.currentTime = seconds;
     highlighter.applyTag(index, false);
-    if (!state.playing) void togglePlay();
+    if (!state$1.playing) void togglePlay();
   };
   function bindParagraphClick() {
     if (paragraphClickBound) return;
@@ -4193,19 +4412,19 @@
       onMessage: (message, level) => {
         if (level === "error") {
           console.error("[fqa:audio]", message);
-          state.error = message;
+          state$1.error = message;
         } else {
           console.log("[fqa:audio]", message);
         }
       }
     });
-    player.setPlaybackRate(state.speed);
+    player.setPlaybackRate(state$1.speed);
     return player;
   }
   function onPlayerState(playerState) {
-    state.playing = playerState === "playing";
-    state.spinning = playerState === "playing" || playerState === "loading";
-    if (playerState === "playing") state.error = "";
+    state$1.playing = playerState === "playing";
+    state$1.spinning = playerState === "playing" || playerState === "loading";
+    if (playerState === "playing") state$1.error = "";
     if (playerState === "playing") startTracking();
     else stopTracking();
     if (playerState === "ended") {
@@ -4217,27 +4436,27 @@
   function onChapterEnd() {
     var _a;
     if (settings$1.audiobookChapterEnd !== "next") {
-      state.spinning = false;
+      state$1.spinning = false;
       return;
     }
     const next = (_a = document.querySelector(NEXT_CHAPTER_SELECTOR)) == null ? void 0 : _a.firstChild;
     if (typeof (next == null ? void 0 : next.click) !== "function") {
-      state.spinning = false;
-      state.error = "已经是最后一章";
+      state$1.spinning = false;
+      state$1.error = "已经是最后一章";
       return;
     }
-    state.spinning = true;
+    state$1.spinning = true;
     const before = itemId;
     next.click();
     unsafeWindow.setTimeout(() => {
       var _a2;
-      if (!state.open || itemId !== before) return;
+      if (!state$1.open || itemId !== before) return;
       const current = ((_a2 = window.location.pathname.split("/").pop()) == null ? void 0 : _a2.substring(0, 19)) || "";
       if (current && current !== before) {
-        void switchChapter(current, { cover: state.cover, title: state.title });
+        void switchChapter(current, { cover: state$1.cover, title: state$1.title });
       } else {
-        state.spinning = false;
-        state.error = "自动切章失败";
+        state$1.spinning = false;
+        state$1.error = "自动切章失败";
       }
     }, 3e3);
   }
@@ -4264,93 +4483,93 @@
   async function openAudiobook(chapter, book, meta) {
     itemId = chapter;
     bookId = book;
-    state.cover = meta.cover;
-    state.title = meta.title;
-    state.error = "";
-    state.open = true;
-    state.collapsed = false;
-    if (state.tones.length === 0) {
+    state$1.cover = meta.cover;
+    state$1.title = meta.title;
+    state$1.error = "";
+    state$1.open = true;
+    state$1.collapsed = false;
+    if (state$1.tones.length === 0) {
       try {
-        state.tones = await getBookAvailableTones(bookId);
+        state$1.tones = await getBookAvailableTones(bookId);
       } catch (e) {
-        state.error = "取音色列表失败";
+        state$1.error = "取音色列表失败";
         console.error("[fqa:audio] 取音色列表失败:", e);
         return;
       }
     }
-    if (state.tones.length === 0) {
-      state.error = "这本书没有可用音色";
+    if (state$1.tones.length === 0) {
+      state$1.error = "这本书没有可用音色";
       return;
     }
     const remembered = storedToneId();
-    if (remembered !== null && state.tones.some((t) => t.id === remembered)) {
+    if (remembered !== null && state$1.tones.some((t) => t.id === remembered)) {
       await selectTone(remembered);
       return;
     }
-    state.tonePickerOpen = true;
+    state$1.tonePickerOpen = true;
   }
   async function selectTone(toneId) {
-    state.tonePickerOpen = false;
-    const tone = state.tones.find((t) => t.id === toneId);
-    state.toneId = toneId;
-    state.toneName = (tone == null ? void 0 : tone.name) ?? "";
+    state$1.tonePickerOpen = false;
+    const tone = state$1.tones.find((t) => t.id === toneId);
+    state$1.toneId = toneId;
+    state$1.toneName = (tone == null ? void 0 : tone.name) ?? "";
     write(TONE_STORE_KEY, toneId);
     await playCurrent();
   }
   function openTonePicker() {
-    state.speedPickerOpen = false;
-    state.tonePickerOpen = true;
+    state$1.speedPickerOpen = false;
+    state$1.tonePickerOpen = true;
   }
   function closeTonePicker() {
-    state.tonePickerOpen = false;
-    if (state.toneId === null) closeAudiobook();
+    state$1.tonePickerOpen = false;
+    if (state$1.toneId === null) closeAudiobook();
   }
   function openSpeedPicker() {
-    state.tonePickerOpen = false;
-    state.speedPickerOpen = true;
+    state$1.tonePickerOpen = false;
+    state$1.speedPickerOpen = true;
   }
   function closeSpeedPicker() {
-    state.speedPickerOpen = false;
+    state$1.speedPickerOpen = false;
   }
   function setSpeed(speed) {
     if (!AUDIO_SPEEDS.includes(speed)) return;
-    state.speed = speed;
-    state.speedPickerOpen = false;
+    state$1.speed = speed;
+    state$1.speedPickerOpen = false;
     write(SPEED_STORE_KEY, speed);
     player == null ? void 0 : player.setPlaybackRate(speed);
   }
   async function changeTone(toneId) {
-    if (toneId === state.toneId) {
-      state.tonePickerOpen = false;
+    if (toneId === state$1.toneId) {
+      state$1.tonePickerOpen = false;
       return;
     }
     pendingTagIndex = highlighter.currentTagIndex;
     await selectTone(toneId);
   }
   async function playCurrent() {
-    const toneId = state.toneId;
+    const toneId = state$1.toneId;
     if (toneId === null || !itemId) return;
     const token = ++playToken;
     const chapter = itemId;
-    state.loading = true;
-    state.spinning = true;
-    state.error = "";
+    state$1.loading = true;
+    state$1.spinning = true;
+    state$1.error = "";
     try {
       const [contexts, tags] = await Promise.all([
         getPlayInfo(chapter, toneId),
         getChapterParagraphTimeTag(chapter, toneId)
       ]);
       if (token !== playToken) return;
-      const context = contexts.find((c) => c.item_id === chapter) ?? contexts[0];
-      const url = context == null ? void 0 : context.urls[0];
-      if (!context || !url) {
-        state.error = "这一章没有音频";
+      const context2 = contexts.find((c) => c.item_id === chapter) ?? contexts[0];
+      const url = context2 == null ? void 0 : context2.urls[0];
+      if (!context2 || !url) {
+        state$1.error = "这一章没有音频";
         return;
       }
       highlighter.reset(tags);
       bindParagraphClick();
       const instance = ensurePlayer();
-      await instance.start({ url, key: context.key });
+      await instance.start({ url, key: context2.key });
       if (token !== playToken) return;
       if (pendingTagIndex >= 0) {
         const tag = tags[pendingTagIndex];
@@ -4362,16 +4581,16 @@
       }
     } catch (e) {
       const message = e instanceof Error ? e.message : String(e);
-      state.error = message;
+      state$1.error = message;
       console.error("[fqa:audio] 播放失败:", e);
     } finally {
-      state.loading = false;
-      if (!state.playing) state.spinning = false;
+      state$1.loading = false;
+      if (!state$1.playing) state$1.spinning = false;
     }
   }
   async function togglePlay() {
     if (!player) return;
-    if (state.playing) {
+    if (state$1.playing) {
       player.pause();
       return;
     }
@@ -4383,18 +4602,18 @@
     }
   }
   function toggleCollapsed() {
-    state.collapsed = !state.collapsed;
+    state$1.collapsed = !state$1.collapsed;
   }
   async function switchChapter(chapter, meta) {
-    if (!state.open || state.toneId === null) return;
+    if (!state$1.open || state$1.toneId === null) return;
     itemId = chapter;
-    state.cover = meta.cover;
-    state.title = meta.title;
+    state$1.cover = meta.cover;
+    state$1.title = meta.title;
     pendingTagIndex = -1;
     await playCurrent();
   }
   function refreshParagraphs() {
-    if (state.open) highlighter.refresh();
+    if (state$1.open) highlighter.refresh();
   }
   function closeAudiobook() {
     stopTracking();
@@ -4402,41 +4621,41 @@
     playToken++;
     highlighter.clear();
     player == null ? void 0 : player.stop();
-    state.open = false;
-    state.collapsed = false;
-    state.tonePickerOpen = false;
-    state.speedPickerOpen = false;
-    state.playing = false;
-    state.spinning = false;
-    state.loading = false;
-    state.error = "";
+    state$1.open = false;
+    state$1.collapsed = false;
+    state$1.tonePickerOpen = false;
+    state$1.speedPickerOpen = false;
+    state$1.playing = false;
+    state$1.spinning = false;
+    state$1.loading = false;
+    state$1.error = "";
   }
-  const _hoisted_1$b = {
+  const _hoisted_1$c = {
     class: "fqa-tone-box",
     role: "dialog",
     "aria-modal": "true",
     "aria-label": "选择音色"
   };
-  const _hoisted_2$b = { class: "fqa-tone-title" };
-  const _hoisted_3$b = { class: "fqa-tone-list" };
-  const _hoisted_4$a = ["onClick"];
-  const _hoisted_5$a = ["src", "alt"];
-  const _hoisted_6$a = {
+  const _hoisted_2$c = { class: "fqa-tone-title" };
+  const _hoisted_3$c = { class: "fqa-tone-list" };
+  const _hoisted_4$b = ["onClick"];
+  const _hoisted_5$b = ["src", "alt"];
+  const _hoisted_6$b = {
     key: 1,
     class: "fqa-tone-icon fqa-tone-icon-empty"
   };
-  const _hoisted_7$8 = { class: "fqa-tone-text" };
-  const _hoisted_8$8 = { class: "fqa-tone-name" };
-  const _hoisted_9$8 = {
+  const _hoisted_7$9 = { class: "fqa-tone-text" };
+  const _hoisted_8$9 = { class: "fqa-tone-name" };
+  const _hoisted_9$9 = {
     key: 0,
     class: "fqa-tone-gender"
   };
-  const _hoisted_10$8 = {
+  const _hoisted_10$9 = {
     key: 0,
     class: "fqa-tone-desc"
   };
-  const _hoisted_11$7 = { class: "fqa-tone-actions" };
-  const _sfc_main$b = /* @__PURE__ */ vue.defineComponent({
+  const _hoisted_11$8 = { class: "fqa-tone-actions" };
+  const _sfc_main$c = /* @__PURE__ */ vue.defineComponent({
     __name: "TonePicker",
     props: {
       tones: {},
@@ -4456,10 +4675,10 @@
           class: "fqa-tone-mask",
           onClick: _cache[1] || (_cache[1] = vue.withModifiers(($event) => emit("close"), ["self"]))
         }, [
-          vue.createElementVNode("div", _hoisted_1$b, [
-            vue.createElementVNode("h3", _hoisted_2$b, vue.toDisplayString(props.current === null ? "选择音色" : "切换音色"), 1),
+          vue.createElementVNode("div", _hoisted_1$c, [
+            vue.createElementVNode("h3", _hoisted_2$c, vue.toDisplayString(props.current === null ? "选择音色" : "切换音色"), 1),
             _cache[2] || (_cache[2] = vue.createElementVNode("p", { class: "fqa-tone-sub" }, "切换后会从当前段落开头继续", -1)),
-            vue.createElementVNode("div", _hoisted_3$b, [
+            vue.createElementVNode("div", _hoisted_3$c, [
               (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(props.tones, (tone) => {
                 return vue.openBlock(), vue.createElementBlock("button", {
                   key: tone.id,
@@ -4472,18 +4691,18 @@
                     class: "fqa-tone-icon",
                     src: tone.icon,
                     alt: tone.name
-                  }, null, 8, _hoisted_5$a)) : (vue.openBlock(), vue.createElementBlock("span", _hoisted_6$a, vue.toDisplayString(tone.name.slice(0, 1)), 1)),
-                  vue.createElementVNode("span", _hoisted_7$8, [
-                    vue.createElementVNode("span", _hoisted_8$8, [
+                  }, null, 8, _hoisted_5$b)) : (vue.openBlock(), vue.createElementBlock("span", _hoisted_6$b, vue.toDisplayString(tone.name.slice(0, 1)), 1)),
+                  vue.createElementVNode("span", _hoisted_7$9, [
+                    vue.createElementVNode("span", _hoisted_8$9, [
                       vue.createTextVNode(vue.toDisplayString(tone.name) + " ", 1),
-                      genderLabel(tone.gender) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_9$8, vue.toDisplayString(genderLabel(tone.gender)), 1)) : vue.createCommentVNode("", true)
+                      genderLabel(tone.gender) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_9$9, vue.toDisplayString(genderLabel(tone.gender)), 1)) : vue.createCommentVNode("", true)
                     ]),
-                    tone.description ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_10$8, vue.toDisplayString(tone.description), 1)) : vue.createCommentVNode("", true)
+                    tone.description ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_10$9, vue.toDisplayString(tone.description), 1)) : vue.createCommentVNode("", true)
                   ])
-                ], 10, _hoisted_4$a);
+                ], 10, _hoisted_4$b);
               }), 128))
             ]),
-            vue.createElementVNode("div", _hoisted_11$7, [
+            vue.createElementVNode("div", _hoisted_11$8, [
               vue.createElementVNode("button", {
                 type: "button",
                 class: "fqa-tone-btn",
@@ -4495,50 +4714,50 @@
       };
     }
   });
-  const _hoisted_1$a = ["innerHTML"];
-  const _hoisted_2$a = {
+  const _hoisted_1$b = ["innerHTML"];
+  const _hoisted_2$b = {
     key: 1,
     class: "fqa-audio-bar"
   };
-  const _hoisted_3$a = ["title", "aria-label"];
-  const _hoisted_4$9 = ["src"];
-  const _hoisted_5$9 = {
+  const _hoisted_3$b = ["title", "aria-label"];
+  const _hoisted_4$a = ["src"];
+  const _hoisted_5$a = {
     key: 1,
     class: "fqa-audio-cover-empty"
   };
-  const _hoisted_6$9 = ["innerHTML"];
-  const _hoisted_7$7 = { class: "fqa-audio-meta" };
-  const _hoisted_8$7 = { class: "fqa-audio-title" };
-  const _hoisted_9$7 = { class: "fqa-audio-sub" };
-  const _hoisted_10$7 = ["title"];
-  const _hoisted_11$6 = ["innerHTML"];
-  const _hoisted_12$6 = {
+  const _hoisted_6$a = ["innerHTML"];
+  const _hoisted_7$8 = { class: "fqa-audio-meta" };
+  const _hoisted_8$8 = { class: "fqa-audio-title" };
+  const _hoisted_9$8 = { class: "fqa-audio-sub" };
+  const _hoisted_10$8 = ["title"];
+  const _hoisted_11$7 = ["innerHTML"];
+  const _hoisted_12$7 = {
     key: 2,
     class: "fqa-audio-speeds",
     role: "menu",
     "aria-label": "播放倍速"
   };
-  const _hoisted_13$5 = ["onClick"];
-  const _sfc_main$a = /* @__PURE__ */ vue.defineComponent({
+  const _hoisted_13$6 = ["onClick"];
+  const _sfc_main$b = /* @__PURE__ */ vue.defineComponent({
     __name: "AudioBar",
     setup(__props) {
       function onSelect(id) {
-        if (state.toneId === null) void selectTone(id);
+        if (state$1.toneId === null) void selectTone(id);
         else void changeTone(id);
       }
       function speedLabel(v) {
         return `${v}×`;
       }
       function toggleSpeedPicker() {
-        if (state.speedPickerOpen) closeSpeedPicker();
+        if (state$1.speedPickerOpen) closeSpeedPicker();
         else openSpeedPicker();
       }
       return (_ctx, _cache) => {
-        return vue.unref(state).open ? (vue.openBlock(), vue.createElementBlock("div", {
+        return vue.unref(state$1).open ? (vue.openBlock(), vue.createElementBlock("div", {
           key: 0,
-          class: vue.normalizeClass(["fqa-audio-root", { "fqa-audio-collapsed": vue.unref(state).collapsed }])
+          class: vue.normalizeClass(["fqa-audio-root", { "fqa-audio-collapsed": vue.unref(state$1).collapsed }])
         }, [
-          vue.unref(state).collapsed ? (vue.openBlock(), vue.createElementBlock("button", {
+          vue.unref(state$1).collapsed ? (vue.openBlock(), vue.createElementBlock("button", {
             key: 0,
             type: "button",
             class: "fqa-audio-expand",
@@ -4550,41 +4769,41 @@
             vue.createElementVNode("span", {
               class: "fqa-audio-icon fqa-audio-icon-flip",
               innerHTML: vue.unref(leftIcon)
-            }, null, 8, _hoisted_1$a)
-          ])) : (vue.openBlock(), vue.createElementBlock("div", _hoisted_2$a, [
+            }, null, 8, _hoisted_1$b)
+          ])) : (vue.openBlock(), vue.createElementBlock("div", _hoisted_2$b, [
             vue.createElementVNode("button", {
               type: "button",
               class: "fqa-audio-cover",
-              title: vue.unref(state).playing ? "暂停" : "播放",
-              "aria-label": vue.unref(state).playing ? "暂停" : "播放",
+              title: vue.unref(state$1).playing ? "暂停" : "播放",
+              "aria-label": vue.unref(state$1).playing ? "暂停" : "播放",
               onClick: _cache[1] || (_cache[1] = //@ts-ignore
               (...args) => vue.unref(togglePlay) && vue.unref(togglePlay)(...args))
             }, [
               vue.createElementVNode("span", {
-                class: vue.normalizeClass(["fqa-audio-disc", { "fqa-audio-spin": vue.unref(state).spinning }])
+                class: vue.normalizeClass(["fqa-audio-disc", { "fqa-audio-spin": vue.unref(state$1).spinning }])
               }, [
-                vue.unref(state).cover ? (vue.openBlock(), vue.createElementBlock("img", {
+                vue.unref(state$1).cover ? (vue.openBlock(), vue.createElementBlock("img", {
                   key: 0,
-                  src: vue.unref(state).cover,
+                  src: vue.unref(state$1).cover,
                   alt: ""
-                }, null, 8, _hoisted_4$9)) : (vue.openBlock(), vue.createElementBlock("span", _hoisted_5$9, "听"))
+                }, null, 8, _hoisted_4$a)) : (vue.openBlock(), vue.createElementBlock("span", _hoisted_5$a, "听"))
               ], 2),
               vue.createElementVNode("span", {
                 class: "fqa-audio-state",
-                innerHTML: vue.unref(state).playing ? vue.unref(playingIcon) : vue.unref(pausedIcon)
-              }, null, 8, _hoisted_6$9)
-            ], 8, _hoisted_3$a),
-            vue.createElementVNode("div", _hoisted_7$7, [
-              vue.createElementVNode("span", _hoisted_8$7, vue.toDisplayString(vue.unref(state).title), 1),
-              vue.createElementVNode("span", _hoisted_9$7, vue.toDisplayString(vue.unref(state).error || (vue.unref(state).loading ? "缓冲中…" : vue.unref(state).toneName)), 1)
+                innerHTML: vue.unref(state$1).playing ? vue.unref(playingIcon) : vue.unref(pausedIcon)
+              }, null, 8, _hoisted_6$a)
+            ], 8, _hoisted_3$b),
+            vue.createElementVNode("div", _hoisted_7$8, [
+              vue.createElementVNode("span", _hoisted_8$8, vue.toDisplayString(vue.unref(state$1).title), 1),
+              vue.createElementVNode("span", _hoisted_9$8, vue.toDisplayString(vue.unref(state$1).error || (vue.unref(state$1).loading ? "缓冲中…" : vue.unref(state$1).toneName)), 1)
             ]),
             vue.createElementVNode("button", {
               type: "button",
               class: "fqa-audio-btn fqa-audio-speed",
-              title: `播放倍速：${speedLabel(vue.unref(state).speed)}`,
+              title: `播放倍速：${speedLabel(vue.unref(state$1).speed)}`,
               "aria-label": "播放倍速",
               onClick: toggleSpeedPicker
-            }, vue.toDisplayString(speedLabel(vue.unref(state).speed)), 9, _hoisted_10$7),
+            }, vue.toDisplayString(speedLabel(vue.unref(state$1).speed)), 9, _hoisted_10$8),
             vue.createElementVNode("button", {
               type: "button",
               class: "fqa-audio-btn",
@@ -4606,7 +4825,7 @@
               vue.createElementVNode("span", {
                 class: "fqa-audio-icon",
                 innerHTML: vue.unref(leftIcon)
-              }, null, 8, _hoisted_11$6)
+              }, null, 8, _hoisted_11$7)
             ]),
             vue.createElementVNode("button", {
               type: "button",
@@ -4617,20 +4836,20 @@
               (...args) => vue.unref(closeAudiobook) && vue.unref(closeAudiobook)(...args))
             }, " × ")
           ])),
-          vue.unref(state).speedPickerOpen ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_12$6, [
+          vue.unref(state$1).speedPickerOpen ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_12$7, [
             (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(vue.unref(AUDIO_SPEEDS), (v) => {
               return vue.openBlock(), vue.createElementBlock("button", {
                 key: v,
                 type: "button",
-                class: vue.normalizeClass(["fqa-audio-speed-item", { "fqa-audio-speed-active": vue.unref(state).speed === v }]),
+                class: vue.normalizeClass(["fqa-audio-speed-item", { "fqa-audio-speed-active": vue.unref(state$1).speed === v }]),
                 onClick: ($event) => vue.unref(setSpeed)(v)
-              }, vue.toDisplayString(speedLabel(v)), 11, _hoisted_13$5);
+              }, vue.toDisplayString(speedLabel(v)), 11, _hoisted_13$6);
             }), 128))
           ])) : vue.createCommentVNode("", true),
-          vue.unref(state).tonePickerOpen ? (vue.openBlock(), vue.createBlock(_sfc_main$b, {
+          vue.unref(state$1).tonePickerOpen ? (vue.openBlock(), vue.createBlock(_sfc_main$c, {
             key: 3,
-            tones: vue.unref(state).tones,
-            current: vue.unref(state).toneId,
+            tones: vue.unref(state$1).tones,
+            current: vue.unref(state$1).toneId,
             onSelect,
             onClose: vue.unref(closeTonePicker)
           }, null, 8, ["tones", "current", "onClose"])) : vue.createCommentVNode("", true)
@@ -4652,7 +4871,15 @@
 	position: fixed;\r
 	left: 20px;\r
 	bottom: 20px;\r
-	z-index: 2147483000;\r
+	/*\r
+	 * 必须高于段评抽屉（2147483601）。\r
+	 *\r
+	 * 音色弹窗（.fqa-tone-mask）是这个根节点的子元素，会被困在它建立的层叠上下文里：\r
+	 * 根节点层级不够时，子元素自己的 z-index 再大也盖不住抽屉 —— 这就是\r
+	 * 「切音色时遮罩没遮住段评抽屉」的原因。这里取 2147483650：\r
+	 * 高于段评抽屉(…601)和阅读工具栏(…602)，低于设置弹窗(…660)。\r
+	 */\r
+	z-index: 2147483650;\r
 	font-size: 14px;\r
 	color: var(--fqa-audio-text);\r
 }\r
@@ -4881,6 +5108,7 @@
 .fqa-tone-mask {\r
 	position: fixed;\r
 	inset: 0;\r
+	/* 相对 .fqa-audio-root 的层叠上下文；根节点的层级见 audiobook.css 顶部注释 */\r
 	z-index: 2147483002;\r
 	display: flex;\r
 	align-items: center;\r
@@ -5053,14 +5281,14 @@
 }\r
 `;
   const CONTAINER_ID$4 = "fqa-audio-root";
-  const STYLE_ID$6 = "fqa-audio-style";
+  const STYLE_ID$9 = "fqa-audio-style";
   let app$4 = null;
   let container$4 = null;
   let themeObserver$1 = null;
-  function injectStyle$5() {
-    if (document.getElementById(STYLE_ID$6)) return;
+  function injectStyle$6() {
+    if (document.getElementById(STYLE_ID$9)) return;
     const style = document.createElement("style");
-    style.id = STYLE_ID$6;
+    style.id = STYLE_ID$9;
     style.textContent = audiobookcss;
     document.head.appendChild(style);
   }
@@ -5080,13 +5308,13 @@
   }
   function initAudioPanel() {
     if (app$4) return;
-    injectStyle$5();
+    injectStyle$6();
     container$4 = document.createElement("div");
     container$4.id = CONTAINER_ID$4;
     document.body.appendChild(container$4);
     syncTheme();
     watchTheme();
-    app$4 = vue.createApp({ render: () => vue.h(_sfc_main$a) });
+    app$4 = vue.createApp({ render: () => vue.h(_sfc_main$b) });
     app$4.config.errorHandler = (err, _instance, info) => {
       console.error(`[fqa:audio] Vue error (${info}):`, err);
     };
@@ -5548,7 +5776,7 @@
       };
     }
   };
-  const _exports$5 = [];
+  const _exports$6 = [];
   let userState = {
     isLogin: false,
     userInfo: null
@@ -5612,21 +5840,21 @@
   const PARA_PAGE_SIZE = 50;
   const PARA_REPLY_PAGE_SIZE = 10;
   const SOURCE_PARA = 502;
-  const COMMENT_TYPE = 1;
+  const COMMENT_TYPE$1 = 1;
   const GROUP_TYPE_ITEM = 15;
-  function str(v) {
+  function str$2(v) {
     return typeof v === "string" ? v : v == null ? "" : String(v);
   }
-  function int(v) {
+  function int$1(v) {
     const n = Number(v);
     return Number.isFinite(n) ? Math.trunc(n) : 0;
   }
-  function parseUser(raw) {
+  function parseUser$1(raw) {
     const base = (raw == null ? void 0 : raw.base_info) ?? {};
     return {
-      user_id: str((raw == null ? void 0 : raw.user_id) || base.user_id),
-      name: str((raw == null ? void 0 : raw.user_name) || base.user_name),
-      avatar: str((raw == null ? void 0 : raw.user_avatar) || base.user_avatar)
+      user_id: str$2((raw == null ? void 0 : raw.user_id) || base.user_id),
+      name: str$2((raw == null ? void 0 : raw.user_name) || base.user_name),
+      avatar: str$2((raw == null ? void 0 : raw.user_avatar) || base.user_avatar)
     };
   }
   function urlSizeScore(url) {
@@ -5642,14 +5870,14 @@
     const map = /* @__PURE__ */ new Map();
     const push = (url, type, w, h2) => {
       var _a;
-      const s = str(url);
+      const s = str$2(url);
       if (!s) return;
       const key = ((_a = s.split("?")[0]) == null ? void 0 : _a.split("~tplv")[0]) ?? s;
       const next = {
         url: s,
-        width: int(w),
-        height: int(h2),
-        emoji: int(type) === 2
+        width: int$1(w),
+        height: int$1(h2),
+        emoji: int$1(type) === 2
       };
       const prev = map.get(key);
       if (!prev) {
@@ -5671,20 +5899,20 @@
     return [...map.values()];
   }
   function parseParaComment(raw) {
-    const id = str(raw == null ? void 0 : raw.comment_id);
+    const id = str$2(raw == null ? void 0 : raw.comment_id);
     if (!id) return null;
     return {
       id,
-      text: str(raw == null ? void 0 : raw.text),
-      create_time: int(raw == null ? void 0 : raw.create_timestamp),
-      user: parseUser(raw == null ? void 0 : raw.user_info),
-      digg_count: int(raw == null ? void 0 : raw.digg_count),
-      reply_count: int(raw == null ? void 0 : raw.reply_count),
+      text: str$2(raw == null ? void 0 : raw.text),
+      create_time: int$1(raw == null ? void 0 : raw.create_timestamp),
+      user: parseUser$1(raw == null ? void 0 : raw.user_info),
+      digg_count: int$1(raw == null ? void 0 : raw.digg_count),
+      reply_count: int$1(raw == null ? void 0 : raw.reply_count),
       images: parseImages(raw)
     };
   }
-  function parseReply(raw) {
-    const id = str(raw == null ? void 0 : raw.reply_id);
+  function parseReply$1(raw) {
+    const id = str$2(raw == null ? void 0 : raw.reply_id);
     if (!id) return null;
     const common = (raw == null ? void 0 : raw.common) ?? (raw == null ? void 0 : raw.Common) ?? {};
     const content = common.content ?? {};
@@ -5693,11 +5921,11 @@
     const toBase = toUser.base_info ?? {};
     return {
       id,
-      text: str(content.text),
-      create_time: int(common.create_timestamp),
-      digg_count: int(stat.digg_count),
-      user: parseUser(common.user_info),
-      to_name: str(toUser.user_name || toBase.user_name),
+      text: str$2(content.text),
+      create_time: int$1(common.create_timestamp),
+      digg_count: int$1(stat.digg_count),
+      user: parseUser$1(common.user_info),
+      to_name: str$2(toUser.user_name || toBase.user_name),
       images: parseImages(content.image_data_list ? { image_data: Object.values(content.image_data_list) } : {})
     };
   }
@@ -5719,13 +5947,13 @@
     let total = 0;
     for (const [k, v] of Object.entries(ideaData)) {
       const idx = Number(k);
-      const count = int(v == null ? void 0 : v.idea_count);
+      const count = int$1(v == null ? void 0 : v.idea_count);
       if (Number.isFinite(idx) && idx >= 0 && count > 0) {
         counts.set(idx, count);
         total += count;
       }
     }
-    return { counts, item_version: str(data.newest_item_version || "0"), total };
+    return { counts, item_version: str$2(data.newest_item_version || "0"), total };
   }
   async function getParaComments(itemId2, bookId2, paraIndex, itemVersion, offset = 0, count = PARA_PAGE_SIZE) {
     var _a;
@@ -5749,8 +5977,8 @@
     return {
       comments,
       has_more: Boolean(data == null ? void 0 : data.has_more),
-      next_offset: int(data == null ? void 0 : data.next_offset) || offset + comments.length,
-      para_src_content: str(data == null ? void 0 : data.para_src_content)
+      next_offset: int$1(data == null ? void 0 : data.next_offset) || offset + comments.length,
+      para_src_content: str$2(data == null ? void 0 : data.para_src_content)
     };
   }
   async function getParaReplies(itemId2, bookId2, commentId, cursor = "0", count = PARA_REPLY_PAGE_SIZE) {
@@ -5762,7 +5990,7 @@
         business_param: { book_id: bookId2, need_count: true },
         comment_id: commentId,
         comment_source: SOURCE_PARA,
-        comment_type: COMMENT_TYPE,
+        comment_type: COMMENT_TYPE$1,
         count,
         cursor: String(cursor || "0"),
         group_id: itemId2,
@@ -5777,12 +6005,364 @@
     const list = Array.isArray(data == null ? void 0 : data.reply_list) ? data.reply_list : [];
     const info = (data == null ? void 0 : data.comment_list_info) ?? {};
     return {
-      replies: list.map(parseReply).filter((r) => !!r),
-      total: int(info.total),
+      replies: list.map(parseReply$1).filter((r) => !!r),
+      total: int$1(info.total),
       has_more: Boolean(info.has_more),
-      cursor: str(info.cursor)
+      cursor: str$2(info.cursor)
     };
   }
+  const BACK_TOP_ID = "fqa-back-top";
+  const APPEND_CLASS = "fqa-appended-chapter";
+  const APPEND_TITLE_CLASS = "fqa-append-title";
+  const PREFETCH_PX = 700;
+  const rawReplaceState = unsafeWindow.history.replaceState.bind(unsafeWindow.history);
+  const BACK_TOP_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6"/><path d="M6 11l6-6 6 6"/></svg>';
+  function resolveScroller() {
+    const reader = document.querySelector(".muye-reader");
+    if (reader) {
+      const overflowY = getComputedStyle(reader).overflowY;
+      if (overflowY === "auto" || overflowY === "scroll") return reader;
+    }
+    return document.scrollingElement ?? document.documentElement;
+  }
+  function initBackToTop() {
+    void ensureBackTop();
+  }
+  async function ensureBackTop() {
+    for (let attempt = 0; attempt < 40; attempt++) {
+      const toolbar = document.querySelector(".reader-toolbar");
+      const anchor = toolbar == null ? void 0 : toolbar.querySelector(".reader-toolbar-item");
+      if (toolbar && anchor) {
+        if (document.getElementById(BACK_TOP_ID)) return;
+        const btn = document.createElement("div");
+        btn.id = BACK_TOP_ID;
+        btn.className = "reader-toolbar-item fqa-back-top";
+        btn.setAttribute("role", "button");
+        btn.setAttribute("tabindex", "0");
+        btn.title = "回到顶部";
+        btn.innerHTML = `<div class="reader-toolbar-item-icon">${BACK_TOP_ICON}</div><div class="reader-toolbar-item-font">顶部</div>`;
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          resolveScroller().scrollTo({ top: 0, behavior: "smooth" });
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        const items = Array.from(toolbar.querySelectorAll(".reader-toolbar-item"));
+        const last = items[items.length - 1] ?? anchor;
+        last.insertAdjacentElement("afterend", btn);
+        return;
+      }
+      await sleep(200);
+    }
+  }
+  const END_MARK_ID = "fqa-end-mark";
+  function ensureEndMark(container2) {
+    if (container2.querySelector(`#${END_MARK_ID}`)) return;
+    const el2 = document.createElement("div");
+    el2.id = END_MARK_ID;
+    el2.className = "fqa-end-mark";
+    el2.textContent = "— 全书完 —";
+    container2.appendChild(el2);
+  }
+  function removeEndMark() {
+    var _a;
+    (_a = document.getElementById(END_MARK_ID)) == null ? void 0 : _a.remove();
+  }
+  function paperColor() {
+    const box = document.querySelector(".muye-reader-box");
+    const bg = getComputedStyle(box ?? document.body).backgroundColor;
+    return bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent" ? bg : "";
+  }
+  function applyPaperTheme(container2) {
+    const paper = paperColor();
+    if (!paper) return;
+    container2.style.setProperty("background-color", paper, "important");
+  }
+  let paperObserver = null;
+  function watchPaperTheme(container2) {
+    if (paperObserver) return;
+    paperObserver = new MutationObserver(() => {
+      const st = state;
+      if (st && st.container === container2) applyPaperTheme(container2);
+    });
+    paperObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class", "muye-data-theme"] });
+  }
+  let urlBase = null;
+  let titleSuffix = "";
+  let titleSuffixResolved = false;
+  let lastActiveId = null;
+  let locationSyncTimer = 0;
+  function rememberUrlBase(initialId) {
+    const segs = location.pathname.split("/");
+    const last = segs[segs.length - 1] ?? "";
+    urlBase = last.startsWith(initialId) ? { prefix: `${segs.slice(0, -1).join("/")}/`, suffix: last.slice(initialId.length) } : null;
+  }
+  function resolveTitleSuffix() {
+    if (titleSuffixResolved) return;
+    titleSuffixResolved = true;
+    const base = (context == null ? void 0 : context.title) ?? "";
+    const t = document.title;
+    titleSuffix = base && t.includes(base) ? t.slice(t.indexOf(base) + base.length) : "";
+  }
+  function updateUrlFor(id) {
+    if (!urlBase) return;
+    const next = `${urlBase.prefix}${id}${urlBase.suffix}${location.search}${location.hash}`;
+    if (next === `${location.pathname}${location.search}${location.hash}`) return;
+    try {
+      rawReplaceState(unsafeWindow.history.state, "", next);
+    } catch {
+    }
+  }
+  function updateTitleFor(title) {
+    if (!title) return;
+    resolveTitleSuffix();
+    const next = `${title}${titleSuffix}`;
+    if (document.title !== next) document.title = next;
+  }
+  function syncLocationState() {
+    var _a, _b;
+    const st = state;
+    const ctx = context;
+    if (!st || !ctx || settings$1.readerPageMode !== "scroll") return;
+    const scroller = resolveScroller();
+    const line = scroller.getBoundingClientRect().top + 120;
+    let activeId = ctx.itemId;
+    let activeTitle = ctx.title;
+    const sections = st.container.querySelectorAll(`.${APPEND_CLASS}`);
+    for (const sec of sections) {
+      if (sec.getBoundingClientRect().top > line) break;
+      activeId = sec.dataset.itemId ?? activeId;
+      activeTitle = ((_b = (_a = sec.querySelector(`.${APPEND_TITLE_CLASS}`)) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) || activeTitle;
+    }
+    if (activeId === lastActiveId) return;
+    lastActiveId = activeId;
+    updateUrlFor(activeId);
+    updateTitleFor(activeTitle);
+  }
+  function scrollToSection(sec) {
+    const scroller = resolveScroller();
+    const top = sec.getBoundingClientRect().top - scroller.getBoundingClientRect().top + scroller.scrollTop;
+    scroller.scrollTo({ top, behavior: "smooth" });
+  }
+  async function jumpChapter(delta) {
+    var _a, _b;
+    const st = state;
+    const ctx = context;
+    if (!st || !ctx) return;
+    const cur = lastActiveId ?? ctx.itemId;
+    const idx = st.ids.indexOf(cur);
+    if (idx < 0) return;
+    const target = idx + delta;
+    if (target < 0 || target >= st.ids.length) return;
+    const id = st.ids[target];
+    const find = () => st.container.querySelector(`.${APPEND_CLASS}[data-item-id="${id}"]`);
+    let guard = 0;
+    while (!find() && st.next <= target && guard++ < 30) {
+      if (st.loading) {
+        await sleep(120);
+        continue;
+      }
+      await appendNext();
+    }
+    const sec = find();
+    if (sec) {
+      scrollToSection(sec);
+      lastActiveId = id;
+      updateUrlFor(id);
+      updateTitleFor(((_b = (_a = sec.querySelector(`.${APPEND_TITLE_CLASS}`)) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) || "");
+    }
+  }
+  function siblingChapterId(dir) {
+    const ctx = context;
+    if (!ctx) return null;
+    const from = ctx.ids.indexOf(settings$1.readerPageMode === "scroll" ? lastActiveId ?? ctx.itemId : ctx.itemId);
+    if (from < 0) return null;
+    const target = from + dir;
+    return target >= 0 && target < ctx.ids.length ? ctx.ids[target] : null;
+  }
+  function navigateChapters(dir) {
+    const id = siblingChapterId(dir);
+    if (!id || !urlBase) return;
+    unsafeWindow.history.pushState(null, "", `${urlBase.prefix}${id}${urlBase.suffix}${location.search}${location.hash}`);
+  }
+  function installChapterNavGuard() {
+    window.addEventListener(
+      "keydown",
+      (e) => {
+        if (!context || e.altKey || e.ctrlKey || e.metaKey) return;
+        const el2 = e.target;
+        if (el2 && (el2.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el2.tagName))) return;
+        if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+        const dir = e.key === "ArrowRight" ? 1 : -1;
+        if (!siblingChapterId(dir)) return;
+        if (settings$1.readerPageMode === "scroll" && !state) return;
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        if (settings$1.readerPageMode === "scroll" && state) void jumpChapter(dir);
+        else navigateChapters(dir);
+      },
+      true
+    );
+    document.addEventListener(
+      "click",
+      (e) => {
+        var _a, _b;
+        if (!context) return;
+        const btn = (_b = (_a = e.target) == null ? void 0 : _a.closest) == null ? void 0 : _b.call(_a, ".chapter-btn");
+        if (!btn) return;
+        const dir = btn.classList.contains("next") ? 1 : btn.classList.contains("last") ? -1 : 0;
+        if (!dir || !siblingChapterId(dir)) return;
+        if (settings$1.readerPageMode === "scroll" && state) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          void jumpChapter(dir);
+          return;
+        }
+        if (!urlBase) return;
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        navigateChapters(dir);
+      },
+      true
+    );
+  }
+  let state = null;
+  let context = null;
+  let scrollBound = false;
+  function setupInfiniteScroll(container2, itemId2, bookId2, ids, chapterTitle = "") {
+    context = ids.length ? { container: container2, itemId: itemId2, bookId: bookId2, ids, title: chapterTitle } : null;
+    lastActiveId = itemId2;
+    if (context) rememberUrlBase(itemId2);
+    syncScrollState();
+    syncEndMark();
+    applyPaperTheme(container2);
+    watchPaperTheme(container2);
+    if (scrollBound) return;
+    scrollBound = true;
+    window.addEventListener("scroll", onScroll$1, { capture: true, passive: true });
+  }
+  function syncEndMark() {
+    const st = state;
+    if (!st) {
+      removeEndMark();
+      return;
+    }
+    if (st.next >= st.ids.length) ensureEndMark(st.container);
+    else removeEndMark();
+  }
+  function resetScrollContext() {
+    state = null;
+    context = null;
+    lastActiveId = null;
+    removeEndMark();
+    paperObserver == null ? void 0 : paperObserver.disconnect();
+    paperObserver = null;
+    resolveScroller().scrollTo({ top: 0, behavior: "auto" });
+  }
+  function currentScrollChapterId() {
+    if (settings$1.readerPageMode !== "scroll") return null;
+    return lastActiveId ?? (context == null ? void 0 : context.itemId) ?? null;
+  }
+  function refreshInfiniteScrollMode() {
+    syncScrollState();
+    syncEndMark();
+  }
+  function syncScrollState() {
+    if (!context || settings$1.readerPageMode !== "scroll") {
+      state = null;
+      return;
+    }
+    state = {
+      bookId: context.bookId,
+      ids: context.ids,
+      next: context.ids.indexOf(context.itemId) + 1,
+      loading: false,
+      container: context.container
+    };
+  }
+  function onScroll$1() {
+    if (locationSyncTimer) clearTimeout(locationSyncTimer);
+    locationSyncTimer = window.setTimeout(syncLocationState, 150);
+    const st = state;
+    if (!st || st.loading || st.next >= st.ids.length) return;
+    const scroller = resolveScroller();
+    if (scroller.scrollTop + scroller.clientHeight < scroller.scrollHeight - PREFETCH_PX) return;
+    void appendNext();
+  }
+  async function appendNext() {
+    const st = state;
+    if (!st || st.loading || st.next >= st.ids.length) return;
+    st.loading = true;
+    const id = st.ids[st.next];
+    if (st.container.querySelector(`.${APPEND_CLASS}[data-item-id="${id}"]`)) {
+      st.next += 1;
+      st.loading = false;
+      syncEndMark();
+      return;
+    }
+    try {
+      const chapter = await getChapter(id);
+      if (state !== st) return;
+      if (!chapter || typeof chapter.content !== "string") {
+        st.next += 1;
+        syncEndMark();
+        return;
+      }
+      const section = buildSection(chapter, id);
+      st.container.appendChild(section);
+      st.next += 1;
+      bindFootnoteInteraction(section);
+      if (settings$1.paraComment) void attachParaComments(section, id, st.bookId);
+      applyPaperTheme(st.container);
+      syncEndMark();
+    } catch (err) {
+      console.warn("[fqa:scroll] 追加下一章失败:", err);
+    } finally {
+      st.loading = false;
+    }
+  }
+  function buildSection(chapter, itemId2) {
+    var _a;
+    const section = document.createElement("section");
+    section.className = APPEND_CLASS;
+    section.dataset.itemId = itemId2;
+    const chapterTitle = String(((_a = chapter == null ? void 0 : chapter.novel_data) == null ? void 0 : _a.title) ?? "");
+    if (chapterTitle) {
+      const title = document.createElement("h2");
+      title.className = APPEND_TITLE_CLASS;
+      title.textContent = chapterTitle;
+      section.appendChild(title);
+    }
+    const doc = new DOMParser().parseFromString(String(chapter.content), "text/html");
+    const body = doc.body;
+    body.querySelectorAll('link[rel="stylesheet"]').forEach((el2) => el2.remove());
+    const article = body.querySelector("article");
+    let target = article ?? body;
+    if (target.tagName === "BODY") {
+      const wrap = document.createElement("div");
+      wrap.className = body.className;
+      const style = body.getAttribute("style");
+      if (style) wrap.setAttribute("style", style.replace(/background[^;]*;?/gi, ""));
+      wrap.innerHTML = body.innerHTML;
+      target = wrap;
+    }
+    processFootnotes(target);
+    if (chapterTitle) {
+      const headings = target.querySelectorAll("h1, h2, h3");
+      for (const h2 of Array.from(headings).slice(0, 2)) {
+        if ((h2.textContent ?? "").trim() === chapterTitle) {
+          h2.remove();
+          break;
+        }
+      }
+    }
+    section.appendChild(target);
+    return section;
+  }
+  installChapterNavGuard();
   const EMOJI_UNICODE = {
     微笑: "😊",
     偷笑: "🤭",
@@ -5839,8 +6419,15 @@
     书架加一: "📚"
   };
   const EMOJI_TOKEN = /\[[^\]]{1,12}\]/g;
+  function replaceEmojiTokens(raw) {
+    if (!raw || raw.indexOf("[") === -1) return raw;
+    return raw.replace(EMOJI_TOKEN, (token) => EMOJI_UNICODE[token.slice(1, -1)] ?? token);
+  }
+  function emojiTextNode(raw) {
+    return document.createTextNode(replaceEmojiTokens(raw));
+  }
   function renderCommentText(raw) {
-    return document.createTextNode(raw.replace(EMOJI_TOKEN, (token) => EMOJI_UNICODE[token.slice(1, -1)] ?? token));
+    return emojiTextNode(raw);
   }
   function formatTime(ts) {
     if (!Number.isFinite(ts) || ts <= 0) return "";
@@ -5849,16 +6436,16 @@
     return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
   }
   function makeImage(img) {
-    const el = document.createElement("img");
-    el.className = "fqa-pc-img";
-    el.loading = "lazy";
-    el.referrerPolicy = "no-referrer";
-    el.alt = "";
-    el.src = img.url;
-    el.addEventListener("error", () => {
-      el.style.visibility = "hidden";
+    const el2 = document.createElement("img");
+    el2.className = "fqa-pc-img";
+    el2.loading = "lazy";
+    el2.referrerPolicy = "no-referrer";
+    el2.alt = "";
+    el2.src = img.url;
+    el2.addEventListener("error", () => {
+      el2.style.visibility = "hidden";
     });
-    return el;
+    return el2;
   }
   function buildCommentItem(comment, itemId2, bookId2) {
     const item = document.createElement("div");
@@ -5873,21 +6460,21 @@
       avatar.style.visibility = "hidden";
     });
     item.appendChild(avatar);
-    const main = document.createElement("div");
-    main.className = "fqa-pc-main";
+    const main2 = document.createElement("div");
+    main2.className = "fqa-pc-main";
     const userLine = document.createElement("div");
     userLine.className = "fqa-pc-user";
     userLine.textContent = comment.user.name || "读者";
-    main.appendChild(userLine);
+    main2.appendChild(userLine);
     const text = document.createElement("div");
     text.className = "fqa-pc-text";
     text.appendChild(renderCommentText(comment.text));
-    main.appendChild(text);
+    main2.appendChild(text);
     if (comment.images.length) {
       const imgs = document.createElement("div");
       imgs.className = "fqa-pc-imgs";
       for (const img of comment.images) imgs.appendChild(makeImage(img));
-      main.appendChild(imgs);
+      main2.appendChild(imgs);
     }
     const parts = [];
     if (comment.digg_count > 0) parts.push(`赞 ${comment.digg_count}`);
@@ -5898,12 +6485,12 @@
       const meta = document.createElement("div");
       meta.className = "fqa-pc-meta";
       meta.textContent = parts.join(" · ");
-      main.appendChild(meta);
+      main2.appendChild(meta);
     }
     if (comment.reply_count > 0) {
-      main.appendChild(buildRepliesBlock(comment.id, comment.reply_count, itemId2, bookId2));
+      main2.appendChild(buildRepliesBlock(comment.id, comment.reply_count, itemId2, bookId2));
     }
-    item.appendChild(main);
+    item.appendChild(main2);
     return item;
   }
   function buildReplyItem(reply) {
@@ -6024,9 +6611,10 @@
     wrap.appendChild(list);
     return wrap;
   }
-  const DRAWER_MAX_WIDTH = 420;
   const PAGE_MARGIN = 24;
+  const DRAWER_MAX_WIDTH = 420;
   const SHIFT_EASE = "0.3s cubic-bezier(0.22, 0.61, 0.36, 1)";
+  const SHIFT_RESET_MS = 320;
   let els = null;
   let page = null;
   let shiftTargets = [];
@@ -6074,9 +6662,26 @@
     watchReaderTheme();
     return created;
   }
+  function updateBaseFontSize(container2) {
+    const base = measureBaseFontSize(container2);
+    document.documentElement.style.setProperty("--fqa-pc-base", `${Math.round(base)}px`);
+  }
+  function refreshParaDrawerMetrics() {
+    const container2 = page == null ? void 0 : page.container;
+    if (!container2) return;
+    updateBaseFontSize(container2);
+    if (isParaDrawerOpen() && els) applyShift(container2, els);
+  }
+  function measureBaseFontSize(container2) {
+    const root = container2.querySelector("article") ?? container2;
+    const probe = root.querySelector("p") ?? root;
+    const size = parseFloat(getComputedStyle(probe).fontSize);
+    return Number.isFinite(size) && size > 0 ? size : 24;
+  }
   function findPanelEl(start) {
     const W = window.innerWidth;
-    for (let n = start; n && n !== document.body && n !== document.documentElement; n = n.parentElement) {
+    for (let n = start.parentElement; n && n !== document.body && n !== document.documentElement; n = n.parentElement) {
+      if (n.id === "fqa-reader-content") continue;
       const bg = getComputedStyle(n).backgroundColor;
       if (bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent") {
         const r = n.getBoundingClientRect();
@@ -6086,6 +6691,7 @@
     return null;
   }
   function applyShift(container2, elements) {
+    cancelShiftReset();
     const W = window.innerWidth;
     const toolbar = document.querySelector(".reader-toolbar");
     const nav = document.querySelector(".muye-reader-nav");
@@ -6110,17 +6716,19 @@
     const cur = shiftedByRoot || target.classList.contains("fqa-pc-shift-el") ? globalShift : 0;
     const r = target.getBoundingClientRect();
     const right = r.right + cur;
+    const margin = W < 720 ? 8 : PAGE_MARGIN;
+    updateBaseFontSize(container2);
     const tw = toolbar ? toolbar.offsetWidth || 56 : 0;
-    let origToolbarLeft = W - PAGE_MARGIN - tw;
+    let origToolbarLeft = W - margin - tw;
     if (toolbar) {
       const m = /translateX\((-?[\d.]+)px\)/.exec(toolbar.style.transform || "");
       const curTb = (m == null ? void 0 : m[1]) ? parseFloat(m[1]) : 0;
       const tr = toolbar.getBoundingClientRect();
       if (tr.width > 0) origToolbarLeft = Math.round(tr.left - curTb);
     }
-    const toolbarMaxLeft = W - PAGE_MARGIN - tw;
+    const toolbarMaxLeft = W - margin - tw;
     const dwFull = Math.min(DRAWER_MAX_WIDTH, Math.round(W * 0.92));
-    const maxShift = Math.max(0, Math.round(r.width - PAGE_MARGIN));
+    const maxShift = Math.max(0, Math.round(r.width - margin));
     let shift = origToolbarLeft + dwFull - toolbarMaxLeft;
     shift = Math.max(0, Math.min(shift, maxShift));
     let dw = dwFull;
@@ -6153,25 +6761,64 @@
     }
     const leftValue = `${Math.round(right)}px`;
     if (elements.drawer.style.left !== leftValue) elements.drawer.style.left = leftValue;
-    const drawerTransform = shift > 0.5 ? `translateX(${-Math.round(shift)}px)` : "";
-    if (elements.drawer.style.transform !== drawerTransform) elements.drawer.style.transform = drawerTransform;
+    if (elements.drawer.style.transform) elements.drawer.style.transform = "";
     const widthValue = `${Math.round(dw)}px`;
     if (elements.inner.style.width !== widthValue) elements.inner.style.width = widthValue;
     if (elements.drawer.style.width !== widthValue) elements.drawer.style.width = widthValue;
   }
+  let shiftResetTimer = null;
+  let shiftFollowRaf = null;
+  function cancelShiftReset() {
+    if (shiftResetTimer !== null) {
+      window.clearTimeout(shiftResetTimer);
+      shiftResetTimer = null;
+    }
+    if (shiftFollowRaf !== null) {
+      cancelAnimationFrame(shiftFollowRaf);
+      shiftFollowRaf = null;
+    }
+  }
+  function followPanelDuringClose(target, elements) {
+    elements.drawer.style.left = `${Math.round(target.getBoundingClientRect().right)}px`;
+    elements.drawer.style.transform = "none";
+    elements.drawer.style.transition = "width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1)";
+    const started = performance.now();
+    const step = () => {
+      if (!target.isConnected) {
+        shiftFollowRaf = null;
+        return;
+      }
+      elements.drawer.style.left = `${Math.round(target.getBoundingClientRect().right)}px`;
+      if (performance.now() - started < SHIFT_RESET_MS) {
+        shiftFollowRaf = requestAnimationFrame(step);
+      } else {
+        shiftFollowRaf = null;
+        elements.drawer.style.transform = "";
+        elements.drawer.style.transition = "";
+      }
+    };
+    shiftFollowRaf = requestAnimationFrame(step);
+  }
   function clearShift() {
     document.documentElement.style.setProperty("--fqa-pc-shift", "0px");
-    document.documentElement.classList.remove("fqa-pc-open");
-    for (const t of shiftTargets) t.classList.remove("fqa-pc-shift-el");
+    const targets = shiftTargets;
     shiftTargets = [];
+    cancelShiftReset();
+    shiftResetTimer = window.setTimeout(() => {
+      shiftResetTimer = null;
+      document.documentElement.classList.remove("fqa-pc-open");
+      for (const t of targets) t.classList.remove("fqa-pc-shift-el");
+    }, SHIFT_RESET_MS);
     const toolbar = document.querySelector(".reader-toolbar");
     if (toolbar) {
       toolbar.style.transition = `transform ${SHIFT_EASE}`;
       toolbar.style.transform = "";
     }
     if (els) {
-      els.drawer.style.transform = "";
       els.drawer.style.width = "0px";
+      const panel = targets.find((t) => t.isConnected);
+      if (panel) followPanelDuringClose(panel, els);
+      else els.drawer.style.transform = "none";
     }
   }
   function isReaderDark() {
@@ -6215,7 +6862,7 @@
   }
   function shiftStillApplied() {
     if (!shiftTargets.length) return false;
-    return shiftTargets.every((el) => el.isConnected && el.classList.contains("fqa-pc-shift-el"));
+    return shiftTargets.every((el2) => el2.isConnected && el2.classList.contains("fqa-pc-shift-el"));
   }
   async function openParaDrawer(container2, paragraph, chip, total, itemId2, bookId2, paraIndex, itemVersion) {
     const elements = ensureDrawer();
@@ -6312,40 +6959,41 @@
     }
     clearShift();
   }
-  const paraCommentCss = '/* 段评（段落评论）：段尾标记 + 右侧抽屉 + 章末评论区块。 */\n\n/*\n * 段落末尾的段评标记。\n *\n * 外形交给内联 SVG（.fqa-pc-shape）来画：左下角要「把圆角换成尖」，\n * 只用 border-radius 拼不出带描边的缺口，之前用旋转方块总会在圆角旁边\n * 多出一条线。SVG 一条路径就能把圆角矩形和尖一起描出来。\n */\n.fqa-pc-chip {\n	--fqa-chip-border: #a8a8a8;\n	--fqa-chip-bg: var(--web-bg, #f7f4ee);\n	position: relative;\n	display: inline-flex;\n	align-items: center;\n	justify-content: center;\n	min-width: 1.8em;\n	height: 1.5em;\n	margin: 0 0.45em 0.2em 0.35em;\n	padding: 0 0.3em;\n	box-sizing: border-box;\n	font-size: 0.66em;\n	line-height: 1;\n	color: #6e6e6e;\n	background: transparent;\n	border: 0;\n	vertical-align: 0.12em;\n	cursor: pointer;\n	user-select: none;\n	white-space: nowrap;\n	text-indent: 0;\n	transition: color 0.15s ease;\n}\n\n/* 气泡外形：铺满气泡，overflow 放开让左下角的尖伸到框外 */\n.fqa-pc-shape {\n	position: absolute;\n	inset: 0;\n	width: 100%;\n	height: 100%;\n	overflow: visible;\n	pointer-events: none;\n}\n\n.fqa-pc-shape path {\n	fill: var(--fqa-chip-bg);\n	stroke: var(--fqa-chip-border);\n	stroke-width: 1.5;\n	stroke-linejoin: round;\n	/* 路径会被横向拉伸，这个保证线宽恒为 1.5px */\n	vector-effect: non-scaling-stroke;\n	transition: stroke 0.15s ease;\n}\n\n.fqa-pc-chip:hover {\n	color: #3a3a3a;\n	--fqa-chip-border: #6e6e6e;\n}\n\n.fqa-pc-chip.fqa-pc-active {\n	color: var(--web-brand_normal, #f14646);\n	--fqa-chip-border: currentColor;\n}\n\n.fqa-pc-count {\n	position: relative;\n	/* 数字在 em 框里视觉上偏上，往下压一点点才看着居中 */\n	top: 0.07em;\n	flex: 1 1 auto;\n	text-align: center;\n	line-height: 1;\n	font-weight: 500;\n	font-variant-numeric: tabular-nums;\n}\n\n/* 当前打开的段评段落：浅灰高亮 */\n.fqa-pc-para-active {\n	background: rgba(31, 35, 41, 0.055) !important;\n	border-radius: 4px;\n	box-shadow: 0 0 0 6px rgba(31, 35, 41, 0.055);\n}\n\n/* 打开抽屉时被左移的元素（正文块 / 顶部导航） */\n.fqa-pc-shift-el {\n	transform: translateX(calc(-1 * var(--fqa-pc-shift, 0px))) !important;\n	transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);\n}\n\n.fqa-pc-list {\n	display: block;\n}\n\n.fqa-pc-status {\n	padding: 24px 0;\n	color: #9a9a9a;\n	font-size: 13px;\n	text-align: center;\n}\n\n/* 章节顶部「讨论热烈」提示 */\n.fqa-pc-summary {\n	display: flex;\n	align-items: center;\n	gap: 6px;\n	margin: 0 0 18px;\n	color: var(--web-gray_40, #8a8a8a);\n	font-size: 0.8em;\n	text-indent: 0;\n}\n\n.fqa-pc-summary::before {\n	content: "🔥";\n}\n\n/* 段评抽屉：锚在正文右缘，宽度由 0 向右展开 */\n.fqa-pc-drawer {\n	position: fixed;\n	top: 0;\n	right: auto;\n	bottom: 0;\n	left: 50%;\n	width: 0;\n	overflow: hidden;\n	z-index: 2147483601;\n	transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);\n}\n\n.fqa-pc-drawer-inner {\n	display: flex;\n	flex-direction: column;\n	width: min(420px, 92vw);\n	height: 100%;\n	box-sizing: border-box;\n	background: #fff;\n	color: #1f2329;\n	border-left: 1px solid rgba(31, 35, 41, 0.1);\n	box-shadow: -8px 0 24px rgba(0, 0, 0, 0.08);\n	font-size: 14px;\n	line-height: 1.6;\n}\n\n.fqa-pc-drawer-hd {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 8px;\n	padding: 14px 16px;\n	border-bottom: 1px solid rgba(31, 35, 41, 0.08);\n}\n\n.fqa-pc-drawer-title {\n	font-size: 15px;\n	font-weight: 600;\n}\n\n.fqa-pc-drawer-count {\n	margin-left: 4px;\n	color: #9a9a9a;\n	font-size: 12px;\n	font-weight: 400;\n}\n\n.fqa-pc-drawer-close {\n	display: flex;\n	align-items: center;\n	justify-content: center;\n	width: 28px;\n	height: 28px;\n	border: 0;\n	border-radius: 6px;\n	background: transparent;\n	color: #8f959e;\n	font-size: 15px;\n	cursor: pointer;\n}\n\n.fqa-pc-drawer-close:hover {\n	background: rgba(31, 35, 41, 0.06);\n	color: #1f2329;\n}\n\n.fqa-pc-drawer-bd {\n	flex: 1 1 auto;\n	overflow-y: auto;\n	overscroll-behavior: contain;\n	padding: 0 16px;\n}\n\n.fqa-pc-drawer-snippet {\n	margin: 10px 0 0;\n	color: #9a9a9a;\n	font-size: 12px;\n}\n\n/* 单条评论 */\n.fqa-pc-item {\n	display: flex;\n	gap: 10px;\n	padding: 14px 0;\n	border-top: 1px solid rgba(31, 35, 41, 0.06);\n}\n\n.fqa-pc-item:first-child {\n	border-top: none;\n}\n\n.fqa-pc-item > .fqa-pc-avatar {\n	width: 34px !important;\n	height: 34px !important;\n	border-radius: 50%;\n	flex: 0 0 auto;\n	object-fit: cover;\n	background: rgba(31, 35, 41, 0.08);\n}\n\n.fqa-pc-main {\n	flex: 1 1 auto;\n	min-width: 0;\n}\n\n.fqa-pc-user {\n	font-size: 13px;\n	color: #8f959e;\n}\n\n.fqa-pc-text {\n	margin-top: 2px;\n	font-size: 15px;\n	color: #1f2329;\n	word-break: break-word;\n	white-space: pre-wrap;\n	text-indent: 0;\n}\n\n.fqa-pc-imgs {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 8px;\n	margin-top: 8px;\n}\n\n.fqa-pc-imgs > .fqa-pc-img {\n	max-width: min(100%, 260px) !important;\n	max-height: 260px !important;\n	width: auto !important;\n	height: auto !important;\n	border-radius: 8px;\n	object-fit: contain;\n	background: rgba(127, 127, 127, 0.07);\n}\n\n.fqa-pc-meta {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 14px;\n	margin-top: 6px;\n	font-size: 12px;\n	color: #9a9a9a;\n}\n\n/* 楼中楼 */\n.fqa-pc-replies {\n	margin-top: 8px;\n}\n\n.fqa-pc-replies-toggle {\n	padding: 0;\n	border: 0;\n	background: transparent;\n	color: var(--web-brand_normal, #f14646);\n	font-size: 12px;\n	font-family: inherit;\n	cursor: pointer;\n}\n\n.fqa-pc-replies-toggle:hover {\n	text-decoration: underline;\n}\n\n.fqa-pc-replies-list {\n	margin-top: 8px;\n	padding: 8px 10px;\n	border-radius: 8px;\n	background: rgba(127, 127, 127, 0.08);\n	display: flex;\n	flex-direction: column;\n	gap: 7px;\n}\n\n.fqa-pc-replies-list[hidden] {\n	display: none;\n}\n\n.fqa-pc-reply {\n	font-size: 14px;\n	line-height: 1.65;\n	word-break: break-word;\n}\n\n.fqa-pc-reply-user {\n	color: #8f959e;\n}\n\n.fqa-pc-reply-more,\n.fqa-pc-reply-sentinel,\n.fqa-pc-reply-empty {\n	min-height: 1px;\n	font-size: 12px;\n	color: #9a9a9a;\n}\n\n/* 楼中楼的点赞数 / 时间 */\n.fqa-pc-reply-meta {\n	margin-top: 2px;\n	font-size: 11px;\n	line-height: 1.4;\n	color: #9a9a9a;\n}\n\n/* 章末评论区块 */\n.fqa-cc-section {\n	margin-top: 2.4em;\n	padding: 1.1em 1.2em 0.4em;\n	border: 1px solid rgba(127, 127, 127, 0.18);\n	border-radius: 12px;\n	background: rgba(127, 127, 127, 0.05);\n	text-indent: 0;\n	line-height: 1.7;\n}\n\n.fqa-cc-section .fqa-pc-item {\n	text-indent: 0;\n}\n\n.fqa-cc-title {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	margin: 0 0 0.2em;\n	padding-bottom: 0.6em;\n	border-bottom: 1px solid rgba(127, 127, 127, 0.15);\n	font-size: 1em;\n	font-weight: 600;\n	color: #1f2329;\n}\n\n.fqa-cc-title::before {\n	content: "";\n	width: 3px;\n	height: 1em;\n	border-radius: 2px;\n	background: var(--web-brand_normal, #f14646);\n}\n\n/* 段评开关：作为工具栏项（放在「字号」下面），样式沿用站点 */\n.fqa-pc-tool {\n	cursor: pointer;\n}\n\n.fqa-pc-tool .reader-toolbar-item-icon {\n	display: flex;\n	align-items: center;\n	justify-content: center;\n}\n\n.fqa-pc-tool.fqa-pc-tool-on .reader-toolbar-item-icon,\n.fqa-pc-tool.fqa-pc-tool-on .reader-toolbar-item-font {\n	color: var(--web-brand_normal, #f14646);\n}\n\n.fqa-pc-tool.fqa-pc-tool-off .reader-toolbar-item-icon,\n.fqa-pc-tool.fqa-pc-tool-off .reader-toolbar-item-font {\n	opacity: 0.45;\n}\n\n/* 兜底：没有站点工具栏时的浮动开关 */\n.fqa-pc-toggle {\n	position: fixed;\n	right: 16px;\n	bottom: 88px;\n	z-index: 2147483000;\n	padding: 6px 12px;\n	border: none;\n	border-radius: 999px;\n	background: var(--web-brand_normal, #f14646);\n	color: #fff;\n	font-size: 13px;\n	line-height: 1.4;\n	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);\n	cursor: pointer;\n	user-select: none;\n}\n\n.fqa-pc-toggle.fqa-pc-toggle-off {\n	background: #9a9a9a;\n}\n\nhtml.fqa-pc-off .fqa-pc-chip,\nhtml.fqa-pc-off .fqa-pc-summary {\n	display: none !important;\n}\n\n/* 深色（阅读器深色主题 / 系统深色） */\n.fqa-pc-drawer.fqa-pc-dark .fqa-pc-drawer-inner {\n	background: #1f1f23;\n	color: #e6e6e6;\n	border-left-color: rgba(255, 255, 255, 0.12);\n}\n\n.fqa-pc-dark .fqa-pc-drawer-hd {\n	border-bottom-color: rgba(255, 255, 255, 0.1);\n}\n\n.fqa-pc-dark .fqa-pc-text {\n	color: #e6e6e6;\n}\n\n.fqa-pc-dark .fqa-pc-item {\n	border-top-color: rgba(255, 255, 255, 0.08);\n}\n\n.fqa-pc-dark .fqa-pc-avatar {\n	background: rgba(255, 255, 255, 0.12);\n}\n\n.fqa-pc-dark .fqa-pc-drawer-close:hover {\n	background: rgba(255, 255, 255, 0.1);\n	color: #fff;\n}\n\n.fqa-pc-dark .fqa-pc-user,\n.fqa-pc-dark .fqa-pc-meta,\n.fqa-pc-dark .fqa-pc-reply-meta,\n.fqa-pc-dark .fqa-pc-drawer-snippet,\n.fqa-pc-dark .fqa-pc-drawer-count,\n.fqa-pc-dark .fqa-pc-status {\n	color: #9a9a9a;\n}\n\n.fqa-pc-dark .fqa-pc-replies-list {\n	background: rgba(255, 255, 255, 0.08);\n}\n\nhtml.fqa-pc-reader-dark .fqa-pc-para-active {\n	background: rgba(255, 255, 255, 0.08) !important;\n	box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08);\n}\n\nhtml.fqa-pc-reader-dark .fqa-pc-chip {\n	--fqa-chip-border: #555;\n	color: #8a8a8a;\n}\n\nhtml.fqa-pc-reader-dark .fqa-pc-chip:hover {\n	--fqa-chip-border: #b3b3b3;\n	color: #e6e6e6;\n}\n\nhtml.fqa-pc-reader-dark .fqa-cc-section {\n	background: rgba(255, 255, 255, 0.06);\n	border-color: rgba(255, 255, 255, 0.12);\n}\n\nhtml.fqa-pc-reader-dark .fqa-cc-title {\n	color: #e6e6e6;\n	border-bottom-color: rgba(255, 255, 255, 0.12);\n}\n\n@media (prefers-color-scheme: dark) {\n	.fqa-pc-drawer-inner {\n		background: #1f1f23;\n		color: #e6e6e6;\n		border-left-color: rgba(255, 255, 255, 0.12);\n	}\n\n	.fqa-pc-drawer-hd {\n		border-bottom-color: rgba(255, 255, 255, 0.1);\n	}\n\n	.fqa-pc-text {\n		color: #e6e6e6;\n	}\n\n	.fqa-pc-item {\n		border-top-color: rgba(255, 255, 255, 0.08);\n	}\n\n	.fqa-pc-avatar {\n		background: rgba(255, 255, 255, 0.12);\n	}\n\n	.fqa-pc-drawer-close:hover {\n		background: rgba(255, 255, 255, 0.1);\n		color: #fff;\n	}\n\n	.fqa-pc-user,\n	.fqa-pc-meta,\n	.fqa-pc-drawer-snippet,\n	.fqa-pc-drawer-count,\n	.fqa-pc-status {\n		color: #9a9a9a;\n	}\n}\n';
-  const TOOL_ID = "fqa-pc-toggle";
-  const STYLE_ID$5 = "fqa-pc-style";
+  const paraCommentCss = '/* 段评（段落评论）：段尾标记 + 右侧抽屉 + 章末评论区块。 */\n\n/*\n * 段落末尾的段评标记。\n *\n * 外形交给内联 SVG（.fqa-pc-shape）来画：左下角要「把圆角换成尖」，\n * 只用 border-radius 拼不出带描边的缺口，之前用旋转方块总会在圆角旁边\n * 多出一条线。SVG 一条路径就能把圆角矩形和尖一起描出来。\n */\n.fqa-pc-chip {\n	--fqa-chip-border: #a8a8a8;\n	--fqa-chip-bg: var(--web-bg, #f7f4ee);\n	position: relative;\n	display: inline-flex;\n	align-items: center;\n	justify-content: center;\n	min-width: 1.8em;\n	height: 1.5em;\n	margin: 0 0.45em 0.2em 0.35em;\n	padding: 0 0.3em;\n	box-sizing: border-box;\n	font-size: 0.66em;\n	line-height: 1;\n	color: #6e6e6e;\n	background: transparent;\n	border: 0;\n	vertical-align: 0.12em;\n	cursor: pointer;\n	user-select: none;\n	white-space: nowrap;\n	text-indent: 0;\n	transition: color 0.15s ease;\n}\n\n/* 气泡外形：铺满气泡，overflow 放开让左下角的尖伸到框外 */\n.fqa-pc-shape {\n	position: absolute;\n	inset: 0;\n	width: 100%;\n	height: 100%;\n	overflow: visible;\n	pointer-events: none;\n}\n\n.fqa-pc-shape path {\n	fill: var(--fqa-chip-bg);\n	stroke: var(--fqa-chip-border);\n	stroke-width: 1.5;\n	stroke-linejoin: round;\n	/* 路径会被横向拉伸，这个保证线宽恒为 1.5px */\n	vector-effect: non-scaling-stroke;\n	transition: stroke 0.15s ease;\n}\n\n.fqa-pc-chip:hover {\n	color: #3a3a3a;\n	--fqa-chip-border: #6e6e6e;\n}\n\n.fqa-pc-chip.fqa-pc-active {\n	color: var(--web-brand_normal, #f14646);\n	--fqa-chip-border: currentColor;\n}\n\n.fqa-pc-count {\n	position: relative;\n	/* 数字在 em 框里视觉上偏上，往下压一点点才看着居中 */\n	top: 0.07em;\n	flex: 1 1 auto;\n	text-align: center;\n	line-height: 1;\n	font-weight: 500;\n	font-variant-numeric: tabular-nums;\n}\n\n/* 当前打开的段评段落：浅灰高亮 */\n/*\n * 填充改用「内阴影」铺满，而不是靠 background。\n *\n * 书源自带的样式经常给段落写 background（个别还带 !important 或内联），\n * 一旦压过这里的 background，就只剩外圈那个 6px 的 box-shadow —— 看起来\n * 就是「一个空心的色框」。box-shadow 不会被子元素/书籍样式覆盖，\n * 内阴影铺满整个段落，稳定呈现整段高亮。\n */\n.fqa-pc-para-active {\n	background: transparent !important;\n	border-radius: 4px;\n	box-shadow:\n		0 0 0 6px rgba(31, 35, 41, 0.055),\n		inset 0 0 0 999px rgba(31, 35, 41, 0.055);\n}\n\n/* 打开抽屉时被左移的元素（正文块 / 顶部导航） */\n.fqa-pc-shift-el {\n	transform: translateX(calc(-1 * var(--fqa-pc-shift, 0px))) !important;\n	transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);\n}\n\n.fqa-pc-list {\n	display: block;\n}\n\n.fqa-pc-status {\n	padding: 1.6em 0;\n	color: #9a9a9a;\n	font-size: 0.867em;\n	text-align: center;\n}\n\n/* 章节顶部「讨论热烈」提示 */\n.fqa-pc-summary {\n	display: flex;\n	align-items: center;\n	gap: 6px;\n	margin: 0 0 18px;\n	color: var(--web-gray_40, #8a8a8a);\n	font-size: 0.8em;\n	text-indent: 0;\n}\n\n.fqa-pc-summary::before {\n	content: "🔥";\n}\n\n/* 段评抽屉：锚在正文右缘，宽度由 0 向右展开 */\n.fqa-pc-drawer {\n	position: fixed;\n	top: 0;\n	right: auto;\n	bottom: 0;\n	left: 50%;\n	width: 0;\n	overflow: hidden;\n	z-index: 2147483601;\n	/*\n	 * 位移直接吃 --fqa-pc-shift，和正文块用**同一个变量、同一条缓动**。\n	 *\n	 * 以前这里的 translateX 是 JS 写内联样式、和正文的位移各自起过渡：\n	 * 关闭时两边只要错开一帧，抽屉左缘就和正文右缘拉开一条缝。\n	 * 交给变量后，两者由同一次变量变化驱动，过渡天然同步。\n	 */\n	transform: translateX(calc(-1 * var(--fqa-pc-shift, 0px)));\n	transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);\n}\n\n.fqa-pc-drawer-inner {\n	display: flex;\n	flex-direction: column;\n	width: min(420px, 92vw);\n	height: 100%;\n	box-sizing: border-box;\n	/* 跟随阅读主题：正文底板用的就是 --web-bg，抽屉保持同色 */\n	background: var(--web-bg, #fff);\n	color: var(--web-text, #1f2329);\n	border-left: 1px solid rgba(31, 35, 41, 0.1);\n	box-shadow: -8px 0 24px rgba(0, 0, 0, 0.08);\n	/* 以正文实际字号为基准：24px 正文 → 15px，32px → 19px（上下限夹住） */\n	font-size: clamp(13px, calc(var(--fqa-pc-base, 24px) * 0.625), 19px);\n	line-height: 1.6;\n}\n\n.fqa-pc-drawer-hd {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 0.533em;\n	padding: 0.933em 1.067em;\n	border-bottom: 1px solid rgba(31, 35, 41, 0.08);\n}\n\n.fqa-pc-drawer-title {\n	font-size: 1em;\n	font-weight: 600;\n}\n\n.fqa-pc-drawer-count {\n	margin-left: 0.267em;\n	color: #9a9a9a;\n	font-size: 0.8em;\n	font-weight: 400;\n}\n\n.fqa-pc-drawer-close {\n	display: flex;\n	align-items: center;\n	justify-content: center;\n	width: 28px;\n	height: 28px;\n	border: 0;\n	border-radius: 6px;\n	background: transparent;\n	color: #8f959e;\n	font-size: 1em;\n	cursor: pointer;\n}\n\n.fqa-pc-drawer-close:hover {\n	background: rgba(31, 35, 41, 0.06);\n	color: #1f2329;\n}\n\n.fqa-pc-drawer-bd {\n	flex: 1 1 auto;\n	overflow-y: auto;\n	overscroll-behavior: contain;\n	padding: 0 1.067em;\n}\n\n.fqa-pc-drawer-snippet {\n	margin: 0.667em 0 0;\n	color: #9a9a9a;\n	font-size: 0.8em;\n}\n\n/* 单条评论 */\n.fqa-pc-item {\n	display: flex;\n	gap: 0.667em;\n	padding: 0.933em 0;\n	border-top: 1px solid rgba(31, 35, 41, 0.06);\n}\n\n.fqa-pc-item:first-child {\n	border-top: none;\n}\n\n.fqa-pc-item > .fqa-pc-avatar {\n	width: 2.267em !important;\n	height: 2.267em !important;\n	border-radius: 50%;\n	flex: 0 0 auto;\n	object-fit: cover;\n	background: rgba(31, 35, 41, 0.08);\n}\n\n.fqa-pc-main {\n	flex: 1 1 auto;\n	min-width: 0;\n}\n\n.fqa-pc-user {\n	font-size: 0.867em;\n	color: #8f959e;\n}\n\n.fqa-pc-text {\n	margin-top: 0.133em;\n	font-size: 1em;\n	color: #1f2329;\n	word-break: break-word;\n	white-space: pre-wrap;\n	text-indent: 0;\n}\n\n.fqa-pc-imgs {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 0.533em;\n	margin-top: 0.533em;\n}\n\n.fqa-pc-imgs > .fqa-pc-img {\n	max-width: min(100%, 17.33em) !important;\n	max-height: 17.33em !important;\n	width: auto !important;\n	height: auto !important;\n	border-radius: 8px;\n	object-fit: contain;\n	background: rgba(127, 127, 127, 0.07);\n}\n\n.fqa-pc-meta {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 0.933em;\n	margin-top: 0.4em;\n	font-size: 0.8em;\n	color: #9a9a9a;\n}\n\n/* 楼中楼 */\n.fqa-pc-replies {\n	margin-top: 8px;\n}\n\n.fqa-pc-replies-toggle {\n	padding: 0;\n	border: 0;\n	background: transparent;\n	color: var(--web-brand_normal, #f14646);\n	font-size: 0.8em;\n	font-family: inherit;\n	cursor: pointer;\n}\n\n.fqa-pc-replies-toggle:hover {\n	text-decoration: underline;\n}\n\n.fqa-pc-replies-list {\n	margin-top: 0.533em;\n	padding: 0.533em 0.667em;\n	border-radius: 8px;\n	background: rgba(127, 127, 127, 0.08);\n	display: flex;\n	flex-direction: column;\n	gap: 7px;\n}\n\n.fqa-pc-replies-list[hidden] {\n	display: none;\n}\n\n.fqa-pc-reply {\n	font-size: 0.933em;\n	line-height: 1.65;\n	word-break: break-word;\n}\n\n.fqa-pc-reply-user {\n	color: #8f959e;\n}\n\n.fqa-pc-reply-more,\n.fqa-pc-reply-sentinel,\n.fqa-pc-reply-empty {\n	min-height: 1px;\n	font-size: 0.8em;\n	color: #9a9a9a;\n}\n\n/* 楼中楼的点赞数 / 时间 */\n.fqa-pc-reply-meta {\n	margin-top: 0.133em;\n	font-size: 0.733em;\n	line-height: 1.4;\n	color: #9a9a9a;\n}\n\n/* 章末评论区块 */\n.fqa-cc-section {\n	margin-top: 2.4em;\n	padding: 1.1em 1.2em 0.4em;\n	border: 1px solid rgba(127, 127, 127, 0.18);\n	border-radius: 12px;\n	background: rgba(127, 127, 127, 0.05);\n	text-indent: 0;\n	line-height: 1.7;\n}\n\n.fqa-cc-section .fqa-pc-item {\n	text-indent: 0;\n}\n\n.fqa-cc-title {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	margin: 0 0 0.2em;\n	padding-bottom: 0.6em;\n	border-bottom: 1px solid rgba(127, 127, 127, 0.15);\n	font-size: 1em;\n	font-weight: 600;\n	color: #1f2329;\n}\n\n.fqa-cc-title::before {\n	content: "";\n	width: 3px;\n	height: 1em;\n	border-radius: 2px;\n	background: var(--web-brand_normal, #f14646);\n}\n\n/* 段评开关：作为工具栏项（放在「字号」下面），样式沿用站点 */\n.fqa-pc-tool {\n	cursor: pointer;\n}\n\n.fqa-pc-tool .reader-toolbar-item-icon {\n	display: flex;\n	align-items: center;\n	justify-content: center;\n}\n\n.fqa-pc-tool.fqa-pc-tool-on .reader-toolbar-item-icon,\n.fqa-pc-tool.fqa-pc-tool-on .reader-toolbar-item-font {\n	color: var(--web-brand_normal, #f14646);\n}\n\n.fqa-pc-tool.fqa-pc-tool-off .reader-toolbar-item-icon,\n.fqa-pc-tool.fqa-pc-tool-off .reader-toolbar-item-font {\n	opacity: 0.45;\n}\n\n/* 兜底：没有站点工具栏时的浮动开关 */\n.fqa-pc-toggle {\n	position: fixed;\n	right: 16px;\n	bottom: 88px;\n	z-index: 2147483000;\n	padding: 6px 12px;\n	border: none;\n	border-radius: 999px;\n	background: var(--web-brand_normal, #f14646);\n	color: #fff;\n	font-size: 0.867em;\n	line-height: 1.4;\n	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);\n	cursor: pointer;\n	user-select: none;\n}\n\n.fqa-pc-toggle.fqa-pc-toggle-off {\n	background: #9a9a9a;\n}\n\nhtml.fqa-pc-off .fqa-pc-chip,\nhtml.fqa-pc-off .fqa-pc-summary {\n	display: none !important;\n}\n\n/* 深色（阅读器深色主题 / 系统深色） */\n/* 夜间：底色与文字已由 --web-bg / --web-text 接管，这里只调边框 */\n.fqa-pc-drawer.fqa-pc-dark .fqa-pc-drawer-inner {\n	border-left-color: rgba(255, 255, 255, 0.12);\n}\n\n.fqa-pc-dark .fqa-pc-drawer-hd {\n	border-bottom-color: rgba(255, 255, 255, 0.1);\n}\n\n.fqa-pc-dark .fqa-pc-text {\n	color: #e6e6e6;\n}\n\n.fqa-pc-dark .fqa-pc-item {\n	border-top-color: rgba(255, 255, 255, 0.08);\n}\n\n.fqa-pc-dark .fqa-pc-avatar {\n	background: rgba(255, 255, 255, 0.12);\n}\n\n.fqa-pc-dark .fqa-pc-drawer-close:hover {\n	background: rgba(255, 255, 255, 0.1);\n	color: #fff;\n}\n\n.fqa-pc-dark .fqa-pc-user,\n.fqa-pc-dark .fqa-pc-meta,\n.fqa-pc-dark .fqa-pc-reply-meta,\n.fqa-pc-dark .fqa-pc-drawer-snippet,\n.fqa-pc-dark .fqa-pc-drawer-count,\n.fqa-pc-dark .fqa-pc-status {\n	color: #9a9a9a;\n}\n\n.fqa-pc-dark .fqa-pc-replies-list {\n	background: rgba(255, 255, 255, 0.08);\n}\n\nhtml.fqa-pc-reader-dark .fqa-pc-para-active {\n	background: transparent !important;\n	box-shadow:\n		0 0 0 6px rgba(255, 255, 255, 0.08),\n		inset 0 0 0 999px rgba(255, 255, 255, 0.08);\n}\n\nhtml.fqa-pc-reader-dark .fqa-pc-chip {\n	--fqa-chip-border: #555;\n	color: #8a8a8a;\n}\n\nhtml.fqa-pc-reader-dark .fqa-pc-chip:hover {\n	--fqa-chip-border: #b3b3b3;\n	color: #e6e6e6;\n}\n\nhtml.fqa-pc-reader-dark .fqa-cc-section {\n	background: rgba(255, 255, 255, 0.06);\n	border-color: rgba(255, 255, 255, 0.12);\n}\n\nhtml.fqa-pc-reader-dark .fqa-cc-title {\n	color: #e6e6e6;\n	border-bottom-color: rgba(255, 255, 255, 0.12);\n}\n\n@media (prefers-color-scheme: dark) {\n	.fqa-pc-drawer-inner {\n		border-left-color: rgba(255, 255, 255, 0.12);\n	}\n\n	.fqa-pc-drawer-hd {\n		border-bottom-color: rgba(255, 255, 255, 0.1);\n	}\n\n	.fqa-pc-text {\n		color: #e6e6e6;\n	}\n\n	.fqa-pc-item {\n		border-top-color: rgba(255, 255, 255, 0.08);\n	}\n\n	.fqa-pc-avatar {\n		background: rgba(255, 255, 255, 0.12);\n	}\n\n	.fqa-pc-drawer-close:hover {\n		background: rgba(255, 255, 255, 0.1);\n		color: #fff;\n	}\n\n	.fqa-pc-user,\n	.fqa-pc-meta,\n	.fqa-pc-drawer-snippet,\n	.fqa-pc-drawer-count,\n	.fqa-pc-status {\n		color: #9a9a9a;\n	}\n}\n\n/* ---------------------------- 抽屉滚动条 ---------------------------- */\n\n/* 默认：细、透明轨道、圆角滑块；夜间换成浅色滑块 */\n.fqa-pc-drawer-bd {\n	scrollbar-width: thin;\n	scrollbar-color: rgba(31, 35, 41, 0.22) transparent;\n}\n\n.fqa-pc-drawer.fqa-pc-dark .fqa-pc-drawer-bd,\nhtml.fqa-pc-reader-dark .fqa-pc-drawer-bd {\n	scrollbar-color: rgba(255, 255, 255, 0.24) transparent;\n}\n\n.fqa-pc-drawer-bd::-webkit-scrollbar {\n	width: 8px;\n	height: 8px;\n}\n\n.fqa-pc-drawer-bd::-webkit-scrollbar-track {\n	background: transparent;\n}\n\n.fqa-pc-drawer-bd::-webkit-scrollbar-thumb {\n	border-radius: 4px;\n	background: rgba(31, 35, 41, 0.2);\n}\n\n.fqa-pc-drawer-bd::-webkit-scrollbar-thumb:hover {\n	background: rgba(31, 35, 41, 0.34);\n}\n\n.fqa-pc-drawer.fqa-pc-dark .fqa-pc-drawer-bd::-webkit-scrollbar-thumb {\n	background: rgba(255, 255, 255, 0.22);\n}\n\n.fqa-pc-drawer.fqa-pc-dark .fqa-pc-drawer-bd::-webkit-scrollbar-thumb:hover {\n	background: rgba(255, 255, 255, 0.36);\n}\n\nhtml.fqa-pc-reader-dark .fqa-pc-drawer-bd::-webkit-scrollbar-thumb {\n	background: rgba(255, 255, 255, 0.22);\n}\n\nhtml.fqa-pc-reader-dark .fqa-pc-drawer-bd::-webkit-scrollbar-thumb:hover {\n	background: rgba(255, 255, 255, 0.36);\n}\n';
+  const TOOL_ID$1 = "fqa-pc-toggle";
+  const STYLE_ID$8 = "fqa-pc-style";
   let catalogClickBound = false;
   let catalogScrollPatched = false;
   let catalogWatchBound = false;
+  let catalogItemBound = false;
   function ensureCss() {
-    if (document.getElementById(STYLE_ID$5)) return;
+    if (document.getElementById(STYLE_ID$8)) return;
     const style = document.createElement("style");
-    style.id = STYLE_ID$5;
+    style.id = STYLE_ID$8;
     style.textContent = paraCommentCss;
     document.head.appendChild(style);
   }
   const TOOL_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 4.5c-4.7 0-8.5 3.3-8.5 7.3 0 1.9.8 3.6 2.2 4.9-.2 1.2-.7 2.3-1.5 3.2 1.7-.2 3.2-.8 4.4-1.7.9.2 1.9.4 3.4.4 4.7 0 8.5-3.3 8.5-7.3S16.7 4.5 12 4.5z"/></svg>';
   function readerParagraphs(container2) {
     const root = container2.querySelector("article") ?? container2;
-    let els2 = Array.from(root.querySelectorAll("p")).filter((el) => (el.textContent ?? "").trim());
+    let els2 = Array.from(root.querySelectorAll("p")).filter((el2) => (el2.textContent ?? "").trim());
     if (!els2.length) {
       els2 = Array.from(root.children).filter(
-        (el) => el.nodeType === 1 && (el.tagName === "P" || el.tagName === "DIV") && Boolean((el.textContent ?? "").trim())
+        (el2) => el2.nodeType === 1 && (el2.tagName === "P" || el2.tagName === "DIV") && Boolean((el2.textContent ?? "").trim())
       );
     }
     return els2;
   }
   function applyParaCommentState() {
     document.documentElement.classList.toggle("fqa-pc-off", !settings$1.paraComment);
-    const el = document.getElementById(TOOL_ID);
-    if (!el) return;
-    if (el.classList.contains("fqa-pc-tool")) {
-      el.classList.toggle("fqa-pc-tool-on", settings$1.paraComment);
-      el.classList.toggle("fqa-pc-tool-off", !settings$1.paraComment);
+    const el2 = document.getElementById(TOOL_ID$1);
+    if (!el2) return;
+    if (el2.classList.contains("fqa-pc-tool")) {
+      el2.classList.toggle("fqa-pc-tool-on", settings$1.paraComment);
+      el2.classList.toggle("fqa-pc-tool-off", !settings$1.paraComment);
     } else {
-      el.textContent = settings$1.paraComment ? "段评 开" : "段评 关";
-      el.classList.toggle("fqa-pc-toggle-off", !settings$1.paraComment);
+      el2.textContent = settings$1.paraComment ? "段评 开" : "段评 关";
+      el2.classList.toggle("fqa-pc-toggle-off", !settings$1.paraComment);
     }
   }
   const SVG_NS = "http://www.w3.org/2000/svg";
@@ -6381,23 +7029,76 @@
     const original = Element.prototype.scrollIntoView;
     Element.prototype.scrollIntoView = function(arg) {
       if (this.closest(".reader-catalog")) {
+        let target = this;
+        const wanted = currentScrollChapterId();
+        if (wanted) {
+          const hit = document.querySelector(
+            `.reader-catalog-chapters .chapter[data-item-id="${wanted}"]`
+          );
+          if (hit) target = hit;
+        }
         const options = typeof arg === "boolean" ? { block: "start" } : { ...arg ?? {} };
         options.behavior = "auto";
-        original.call(this, options);
+        original.call(target, options);
         return;
       }
       original.call(this, arg);
     };
   }
+  function bindCatalogItemClicks() {
+    if (catalogItemBound) return;
+    catalogItemBound = true;
+    document.addEventListener(
+      "click",
+      (e) => {
+        var _a, _b, _c;
+        const panel = document.querySelector(".reader-catalog");
+        if (!panel) return;
+        const item = (_b = (_a = e.target) == null ? void 0 : _a.closest) == null ? void 0 : _b.call(_a, ".chapter");
+        if (!item || !panel.contains(item)) return;
+        const id = item.dataset.itemId;
+        if (!id) return;
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        if (id === currentScrollChapterId()) return;
+        (_c = document.querySelector(".catalog-mask")) == null ? void 0 : _c.click();
+        resetScrollContext();
+        const segs = location.pathname.split("/");
+        segs[segs.length - 1] = id;
+        const url = `${segs.join("/")}${location.search}${location.hash}`;
+        try {
+          unsafeWindow.history.pushState(null, "", url);
+        } catch (err) {
+          console.warn("[fqa] 目录跳转失败:", err);
+        }
+      },
+      true
+    );
+  }
   function watchCatalogOpen() {
     if (catalogWatchBound) return;
     catalogWatchBound = true;
-    const locate = () => {
+    const locate = (retry = 3) => {
       const panel = document.querySelector(".reader-catalog");
       if (!panel) return;
-      const active = panel.querySelector(".reader-catalog-chapters .chapter.active");
-      if (!active) return;
-      active.scrollIntoView({ block: "start", behavior: "auto" });
+      const wanted = currentScrollChapterId();
+      const target = wanted && panel.querySelector(
+        `.reader-catalog-chapters .chapter[data-item-id="${wanted}"]`
+      ) || panel.querySelector(".reader-catalog-chapters .chapter.active");
+      if (!target) {
+        if (retry > 0) setTimeout(() => locate(retry - 1), 120);
+        return;
+      }
+      if (wanted) {
+        panel.querySelectorAll(".reader-catalog-chapters .chapter.active").forEach((el2) => el2.classList.remove("active"));
+        target.classList.add("active");
+        const icon = panel.querySelector(
+          ".reader-catalog-chapters .chapter .chapter-active-icon"
+        );
+        if (icon && !target.contains(icon)) target.insertBefore(icon, target.firstChild);
+      }
+      target.scrollIntoView({ block: "start", behavior: "auto" });
     };
     const observer2 = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
@@ -6405,7 +7106,7 @@
           if (!(node instanceof HTMLElement)) continue;
           if (node.matches(".reader-catalog") || node.querySelector(".reader-catalog")) {
             locate();
-            requestAnimationFrame(locate);
+            requestAnimationFrame(() => locate());
             return;
           }
         }
@@ -6418,12 +7119,13 @@
     initCatalogClickOutside();
     patchCatalogScroll();
     watchCatalogOpen();
+    bindCatalogItemClicks();
     const toolbar = document.querySelector(".reader-toolbar");
     if (toolbar) {
-      let item = document.getElementById(TOOL_ID);
+      let item = document.getElementById(TOOL_ID$1);
       if (!item || !toolbar.contains(item)) {
         item = document.createElement("div");
-        item.id = TOOL_ID;
+        item.id = TOOL_ID$1;
         item.className = "reader-toolbar-item fqa-pc-tool";
         item.setAttribute("role", "button");
         item.setAttribute("tabindex", "0");
@@ -6436,9 +7138,9 @@
           applyParaCommentState();
         }, true);
         const items = Array.from(toolbar.querySelectorAll(".reader-toolbar-item"));
-        const fontItem = items.find((el) => {
+        const fontItem = items.find((el2) => {
           var _a;
-          return /字号|字体/.test(((_a = el.querySelector(".reader-toolbar-item-font")) == null ? void 0 : _a.textContent) ?? "");
+          return /字号|字体/.test(((_a = el2.querySelector(".reader-toolbar-item-font")) == null ? void 0 : _a.textContent) ?? "");
         });
         if (fontItem) fontItem.insertAdjacentElement("afterend", item);
         else toolbar.appendChild(item);
@@ -6446,10 +7148,10 @@
       applyParaCommentState();
       return;
     }
-    let button = document.getElementById(TOOL_ID);
+    let button = document.getElementById(TOOL_ID$1);
     if (!button) {
       button = document.createElement("button");
-      button.id = TOOL_ID;
+      button.id = TOOL_ID$1;
       button.type = "button";
       button.className = "fqa-pc-toggle";
       button.addEventListener("click", () => {
@@ -6518,10 +7220,10 @@
     if (!paragraphs.length) return;
     const idea = await getParaIdeaList(itemId2, bookId2);
     if (!idea.counts.size) return;
-    const summary = document.createElement("div");
-    summary.className = "fqa-pc-summary";
-    summary.textContent = `讨论热烈：本章含 ${idea.total} 条段评，${idea.counts.size} 段有评论`;
-    container2.insertBefore(summary, container2.firstChild);
+    const summary2 = document.createElement("div");
+    summary2.className = "fqa-pc-summary";
+    summary2.textContent = `讨论热烈：本章含 ${idea.total} 条段评，${idea.counts.size} 段有评论`;
+    container2.insertBefore(summary2, container2.firstChild);
     for (const [idx, count] of idea.counts) {
       const paragraph = paragraphs[idx];
       if (!paragraph) continue;
@@ -6553,6 +7255,12 @@
       if (selection && selection.toString().trim()) return;
       const paragraph = target.closest("p[data-fqa-para-idx]");
       if (!paragraph) return;
+      const owner = paragraph.closest(".fqa-appended-chapter");
+      if (container2.classList.contains("fqa-appended-chapter")) {
+        if (owner !== container2) return;
+      } else if (owner) {
+        return;
+      }
       const idx = Number(paragraph.dataset.fqaParaIdx);
       const count = idea.counts.get(idx);
       if (!Number.isFinite(idx) || count === void 0) return;
@@ -6563,6 +7271,1033 @@
       const chip = paragraph.querySelector(".fqa-pc-chip");
       void openParaDrawer(container2, paragraph, chip, count, itemId2, bookId2, idx, idea.item_version);
     }, { signal: controller.signal });
+  }
+  const TOOL_ID = "fqa-reader-settings";
+  const THEME_TOGGLE_ID = "fqa-theme-toggle";
+  const DIALOG_ID = "fqa-rs-dialog";
+  const STYLE_ID$7 = "fqa-rs-style";
+  const SUN_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+  const MOON_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+  const FONT_SIZES = [16, 20, 24, 28, 32];
+  const ICON = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1A1.7 1.7 0 0 0 8.9 19a1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 5 8.9a1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9.5a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9.5a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>';
+  function isDark() {
+    return document.documentElement.getAttribute("muye-data-theme") === "dark";
+  }
+  function currentTheme() {
+    if (isDark()) return "dark";
+    return document.documentElement.classList.contains("fqa-theme-sepia") ? "sepia" : "light";
+  }
+  function fontSizeElement() {
+    return document.querySelector('[class*="muye-reader-content-"]');
+  }
+  function currentFontSize() {
+    const el2 = fontSizeElement();
+    const m = el2 ? /muye-reader-content-(\d+)/.exec(el2.className) : null;
+    return (m == null ? void 0 : m[1]) ? Number(m[1]) : 24;
+  }
+  const SEPIA_STYLE_ID = "fqa-sepia-style";
+  const SEPIA_CSS = `html.fqa-theme-sepia{
+--web-text:#4a4436;--web-margin:#e0dac9;--web-bg:#f1ece0;--web-middle:#f0ebdd;--web-card:#f6f2e6;--web-white:#fff;
+--web-gray_70:rgba(74,68,54,.7);--web-gray_40:rgba(74,68,54,.4);--web-gray_30:rgba(74,68,54,.3);
+--web-gray_08:rgba(74,68,54,.08);--web-gray_05:rgba(74,68,54,.05);--web-gray_03:rgba(74,68,54,.03);
+--web-mask:rgba(235,229,214,.3)}`;
+  function ensureSepiaStyle() {
+    if (document.getElementById(SEPIA_STYLE_ID)) return;
+    const style = document.createElement("style");
+    style.id = SEPIA_STYLE_ID;
+    style.textContent = SEPIA_CSS;
+    const host = document.head ?? document.documentElement;
+    host == null ? void 0 : host.appendChild(style);
+  }
+  function setReaderTheme(theme) {
+    settings$1.readerTheme = theme;
+    ensureSepiaStyle();
+    const root = document.documentElement;
+    root.classList.toggle("fqa-theme-sepia", theme === "sepia");
+    root.setAttribute("muye-data-theme", theme === "dark" ? "dark" : "light");
+    if (theme !== "dark") settings$1.readerThemeLastDay = theme;
+    syncThemeToggle();
+  }
+  function setReaderFontSize(size) {
+    if (!FONT_SIZES.includes(size)) return;
+    settings$1.readerFontSize = size;
+    const el2 = fontSizeElement();
+    if (!el2) return;
+    const next = el2.className.replace(/muye-reader-content-\d+/, `muye-reader-content-${size}`);
+    if (next !== el2.className) el2.className = next;
+    refreshParaDrawerMetrics();
+  }
+  function syncPageModeClass() {
+    document.documentElement.classList.toggle("fqa-page-scroll", settings$1.readerPageMode === "scroll");
+  }
+  function applyReaderPreferences() {
+    if (!location.pathname.startsWith("/reader")) return;
+    syncPageModeClass();
+    if (settings$1.readerTheme) {
+      setReaderTheme(settings$1.readerTheme);
+      guardTheme();
+    }
+    if (settings$1.readerFontSize) setReaderFontSize(settings$1.readerFontSize);
+  }
+  let themeGuard = null;
+  let themeReverts = 0;
+  let themeRevertTimer = null;
+  function themeRevertAllowed() {
+    themeReverts++;
+    if (themeRevertTimer) clearTimeout(themeRevertTimer);
+    themeRevertTimer = setTimeout(() => {
+      themeReverts = 0;
+    }, 1e3);
+    if (themeReverts > 60) {
+      themeGuard == null ? void 0 : themeGuard.disconnect();
+      themeGuard = null;
+      console.warn("[fqa] 主题守卫疑似死循环，已自动停用");
+      return false;
+    }
+    return true;
+  }
+  function guardTheme() {
+    if (themeGuard) return;
+    const root = document.documentElement;
+    themeGuard = new MutationObserver(() => {
+      const want = settings$1.readerTheme;
+      if (!want) return;
+      const wantDark = want === "dark";
+      const wantSepia = want === "sepia";
+      const darkMismatch = root.getAttribute("muye-data-theme") === "dark" !== wantDark;
+      const sepiaMismatch = root.classList.contains("fqa-theme-sepia") !== wantSepia;
+      if (!darkMismatch && !sepiaMismatch) return;
+      if (!themeRevertAllowed()) return;
+      if (darkMismatch) root.setAttribute("muye-data-theme", wantDark ? "dark" : "light");
+      if (sepiaMismatch) root.classList.toggle("fqa-theme-sepia", wantSepia);
+      const culprit = lastSiteToolbarClick;
+      if (culprit && culprit.el.isConnected && Date.now() - culprit.t < 800) {
+        culprit.el.classList.add(HIDE_CLASS);
+        culprit.el.style.display = "none";
+      }
+      lastSiteToolbarClick = null;
+      syncThemeToggle();
+    });
+    themeGuard.observe(root, { attributes: true, attributeFilter: ["class", "muye-data-theme"] });
+  }
+  let lastSiteToolbarClick = null;
+  let siteClickHooked = false;
+  function hookSiteToolbarClicks() {
+    if (siteClickHooked) return;
+    siteClickHooked = true;
+    document.addEventListener(
+      "click",
+      (e) => {
+        var _a, _b;
+        const item = (_b = (_a = e.target) == null ? void 0 : _a.closest) == null ? void 0 : _b.call(_a, ".reader-toolbar-item");
+        if (!item) return;
+        if (item.id === TOOL_ID || item.id === THEME_TOGGLE_ID) return;
+        lastSiteToolbarClick = { el: item, t: Date.now() };
+      },
+      true
+    );
+  }
+  function ensureStyle$1() {
+    if (document.getElementById(STYLE_ID$7)) return;
+    const style = document.createElement("style");
+    style.id = STYLE_ID$7;
+    style.textContent = `
+.fqa-rs-mask{position:fixed;inset:0;z-index:2147483700;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35)}
+.fqa-rs-panel{position:relative;width:min(560px,92vw);max-height:86vh;overflow:auto;padding:26px 28px 22px;border-radius:14px;background:#f7f5f0;color:#2b2b2b;box-shadow:0 16px 48px rgba(0,0,0,.24);font-size:14px;line-height:1.6}
+[muye-data-theme='dark'] .fqa-rs-panel{background:#242428;color:#e6e6e6}
+.fqa-rs-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border:0;border-radius:50%;background:rgba(0,0,0,.06);color:inherit;font-size:15px;cursor:pointer}
+.fqa-rs-title{margin:0 0 6px;font-size:22px;font-weight:600}
+.fqa-rs-row{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid rgba(127,127,127,.14)}
+.fqa-rs-row:last-child{border-bottom:0}
+.fqa-rs-label{flex:0 0 84px;color:#8a8a8a;font-size:14px}
+.fqa-rs-body{flex:1 1 auto;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.fqa-rs-swatch{width:38px;height:38px;padding:0;border:1px solid rgba(0,0,0,.12);border-radius:50%;cursor:pointer;box-sizing:border-box}
+.fqa-rs-swatch-on{outline:2px solid #f14646;outline-offset:2px}
+.fqa-rs-swatch-day{background:#f7f5f0}
+.fqa-rs-swatch-sepia{background:#ebe5d6}
+.fqa-rs-swatch-night{background:#1f1f23}
+.fqa-rs-group{display:flex;align-items:center;gap:14px;border-radius:10px;background:rgba(0,0,0,.06);padding:4px 10px}
+.fqa-rs-btn{min-width:34px;padding:6px 8px;border:0;border-radius:6px;background:transparent;color:inherit;font-family:inherit;font-size:18px;cursor:pointer}
+.fqa-rs-btn:hover{background:rgba(0,0,0,.08)}
+.fqa-rs-value{min-width:52px;text-align:center;font-size:18px;font-weight:500;font-variant-numeric:tabular-nums}
+.fqa-rs-seg{padding:8px 22px;border:1px solid rgba(0,0,0,.1);border-radius:8px;background:transparent;color:inherit;font-family:inherit;font-size:14px;cursor:pointer}
+.fqa-rs-seg-on{border-color:#f14646;background:rgba(241,70,70,.08);color:#f14646;font-weight:600}
+.fqa-rs-switch{appearance:none;flex:0 0 auto;position:relative;width:44px;height:24px;margin:0;border-radius:12px;background:rgba(0,0,0,.18);cursor:pointer;transition:background .18s ease}
+.fqa-rs-switch::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:transform .18s ease}
+.fqa-rs-switch:checked{background:#f14646}
+.fqa-rs-switch:checked::after{transform:translateX(20px)}
+/* 站点自带的日/夜、字号按钮：隐藏掉，避免和我们的按钮重复 */
+.reader-toolbar .reader-toolbar-item.fqa-toolbar-hide{display:none!important}
+`;
+    document.head.appendChild(style);
+  }
+  function buildDialog() {
+    var _a;
+    const mask = document.createElement("div");
+    mask.className = "fqa-rs-mask";
+    mask.id = DIALOG_ID;
+    mask.addEventListener("click", (e) => {
+      if (e.target === mask) close$1();
+    });
+    const panel = document.createElement("div");
+    panel.className = "fqa-rs-panel";
+    panel.innerHTML = '<button class="fqa-rs-close" type="button" aria-label="关闭">✕</button><h3 class="fqa-rs-title">设置</h3>';
+    const row = (label) => {
+      const el2 = document.createElement("div");
+      el2.className = "fqa-rs-row";
+      el2.innerHTML = `<span class="fqa-rs-label">${label}</span>`;
+      const body = document.createElement("div");
+      body.className = "fqa-rs-body";
+      el2.appendChild(body);
+      panel.appendChild(el2);
+      return body;
+    };
+    const themeBody = row("阅读主题");
+    const syncTheme2 = () => {
+      const cur = currentTheme();
+      themeBody.querySelectorAll(".fqa-rs-swatch").forEach((el2) => {
+        el2.classList.toggle("fqa-rs-swatch-on", el2.dataset.theme === cur);
+      });
+    };
+    const makeSwatch = (cls, title, theme) => {
+      const el2 = document.createElement("button");
+      el2.type = "button";
+      el2.className = `fqa-rs-swatch ${cls}`;
+      el2.title = title;
+      el2.dataset.theme = theme;
+      el2.addEventListener("click", () => {
+        setReaderTheme(theme);
+        syncTheme2();
+        syncFont();
+      });
+      themeBody.appendChild(el2);
+    };
+    makeSwatch("fqa-rs-swatch-day", "日间", "light");
+    makeSwatch("fqa-rs-swatch-sepia", "米黄", "sepia");
+    makeSwatch("fqa-rs-swatch-night", "夜间", "dark");
+    const fontBody = row("字体大小");
+    const group = document.createElement("div");
+    group.className = "fqa-rs-group";
+    const minus = document.createElement("button");
+    minus.type = "button";
+    minus.className = "fqa-rs-btn";
+    minus.textContent = "A-";
+    const value = document.createElement("span");
+    value.className = "fqa-rs-value";
+    const plus = document.createElement("button");
+    plus.type = "button";
+    plus.className = "fqa-rs-btn";
+    plus.textContent = "A+";
+    const syncFont = () => {
+      value.textContent = String(currentFontSize());
+    };
+    minus.addEventListener("click", () => {
+      const i2 = FONT_SIZES.indexOf(currentFontSize());
+      setReaderFontSize(FONT_SIZES[Math.max(0, i2 - 1)] ?? 16);
+      syncFont();
+    });
+    plus.addEventListener("click", () => {
+      const i2 = FONT_SIZES.indexOf(currentFontSize());
+      setReaderFontSize(FONT_SIZES[Math.min(FONT_SIZES.length - 1, i2 + 1)] ?? 32);
+      syncFont();
+    });
+    group.append(minus, value, plus);
+    fontBody.appendChild(group);
+    const modeBody = row("翻页模式");
+    const chapterBtn = document.createElement("button");
+    chapterBtn.type = "button";
+    chapterBtn.className = "fqa-rs-seg";
+    chapterBtn.textContent = "章节翻页";
+    const scrollBtn = document.createElement("button");
+    scrollBtn.type = "button";
+    scrollBtn.className = "fqa-rs-seg";
+    scrollBtn.textContent = "滚动翻页";
+    const syncMode = () => {
+      const scroll = settings$1.readerPageMode === "scroll";
+      chapterBtn.classList.toggle("fqa-rs-seg-on", !scroll);
+      scrollBtn.classList.toggle("fqa-rs-seg-on", scroll);
+    };
+    chapterBtn.addEventListener("click", () => {
+      settings$1.readerPageMode = "chapter";
+      refreshInfiniteScrollMode();
+      syncPageModeClass();
+      syncMode();
+    });
+    scrollBtn.addEventListener("click", () => {
+      settings$1.readerPageMode = "scroll";
+      refreshInfiniteScrollMode();
+      syncPageModeClass();
+      syncMode();
+    });
+    modeBody.append(chapterBtn, scrollBtn);
+    const paraBody = row("段评");
+    const paraSwitch = document.createElement("input");
+    paraSwitch.type = "checkbox";
+    paraSwitch.className = "fqa-rs-switch";
+    paraSwitch.checked = settings$1.paraComment;
+    paraSwitch.addEventListener("change", () => {
+      settings$1.paraComment = paraSwitch.checked;
+      applyParaCommentState();
+    });
+    paraBody.appendChild(paraSwitch);
+    syncTheme2();
+    syncFont();
+    syncMode();
+    (_a = panel.querySelector(".fqa-rs-close")) == null ? void 0 : _a.addEventListener("click", () => close$1());
+    mask.appendChild(panel);
+    return mask;
+  }
+  function close$1() {
+    var _a;
+    (_a = document.getElementById(DIALOG_ID)) == null ? void 0 : _a.remove();
+    document.removeEventListener("keydown", onKey, true);
+  }
+  function onKey(e) {
+    if (e.key === "Escape") close$1();
+  }
+  function openReaderSettings() {
+    if (document.getElementById(DIALOG_ID)) return;
+    ensureStyle$1();
+    document.body.appendChild(buildDialog());
+    document.addEventListener("keydown", onKey, true);
+  }
+  function initReaderSettings() {
+    void ensureEntry();
+  }
+  function makeEntry(id, label, icon, onClick) {
+    const btn = document.createElement("div");
+    btn.id = id;
+    btn.className = "reader-toolbar-item fqa-rs-tool";
+    btn.setAttribute("role", "button");
+    btn.setAttribute("tabindex", "0");
+    btn.innerHTML = `<div class="reader-toolbar-item-icon">${icon}</div><div class="reader-toolbar-item-font">${label}</div>`;
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      onClick();
+    });
+    return btn;
+  }
+  function toggleDayNight() {
+    const next = isDark() ? settings$1.readerThemeLastDay || "light" : "dark";
+    setReaderTheme(next);
+    syncThemeToggle();
+  }
+  let themeIconBtn = null;
+  let themeIconFor = null;
+  function syncThemeToggle() {
+    const btn = document.getElementById(THEME_TOGGLE_ID);
+    if (!btn) return;
+    const dark = isDark();
+    const want = dark ? "dark" : "light";
+    if (themeIconBtn !== btn || themeIconFor !== want) {
+      const icon = btn.querySelector(".reader-toolbar-item-icon");
+      if (icon) icon.innerHTML = dark ? SUN_ICON : MOON_ICON;
+      themeIconBtn = btn;
+      themeIconFor = want;
+    }
+    const label = btn.querySelector(".reader-toolbar-item-font");
+    const nextLabel = dark ? "日间" : "夜间";
+    if (label && label.textContent !== nextLabel) label.textContent = nextLabel;
+  }
+  const SITE_ITEM_RE = /夜间|日间|白天|护眼|字号|字体|主题|背景|自动订阅/;
+  const HIDE_CLASS = "fqa-toolbar-hide";
+  function hideSiteToolbarItems(toolbar) {
+    const items = toolbar.querySelectorAll(".reader-toolbar-item");
+    for (const item of items) {
+      if (item.id === TOOL_ID || item.id === THEME_TOGGLE_ID) continue;
+      const text = (item.textContent ?? "").replace(/\s+/g, "");
+      const meta = `${item.getAttribute("title") ?? ""}${item.getAttribute("aria-label") ?? ""}`;
+      if (!SITE_ITEM_RE.test(text + meta)) continue;
+      if (!item.classList.contains(HIDE_CLASS)) item.classList.add(HIDE_CLASS);
+      if (item.style.display !== "none") item.style.display = "none";
+    }
+  }
+  let toolbarObserver = null;
+  let toolbarWatched = null;
+  let toolbarBusy = false;
+  let toolbarPasses = 0;
+  let toolbarPassTimer = null;
+  function toolbarPassAllowed() {
+    toolbarPasses++;
+    if (toolbarPassTimer) clearTimeout(toolbarPassTimer);
+    toolbarPassTimer = setTimeout(() => {
+      toolbarPasses = 0;
+    }, 1e3);
+    if (toolbarPasses > 120) {
+      toolbarObserver == null ? void 0 : toolbarObserver.disconnect();
+      toolbarObserver = null;
+      console.warn("[fqa] 工具栏监听疑似死循环，已自动停用");
+      return false;
+    }
+    return true;
+  }
+  function watchToolbar(toolbar) {
+    if (toolbarObserver && toolbarWatched === toolbar) return;
+    toolbarObserver == null ? void 0 : toolbarObserver.disconnect();
+    toolbarWatched = toolbar;
+    toolbarObserver = new MutationObserver(() => {
+      if (toolbarBusy) return;
+      if (!toolbarPassAllowed()) return;
+      toolbarBusy = true;
+      try {
+        hideSiteToolbarItems(toolbar);
+        syncThemeToggle();
+      } finally {
+        toolbarObserver == null ? void 0 : toolbarObserver.takeRecords();
+        toolbarBusy = false;
+      }
+    });
+    toolbarObserver.observe(toolbar, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["class", "style"]
+    });
+  }
+  async function ensureEntry() {
+    for (let attempt = 0; attempt < 40; attempt++) {
+      const toolbar = document.querySelector(".reader-toolbar");
+      if (toolbar) {
+        ensureStyle$1();
+        hideSiteToolbarItems(toolbar);
+        watchToolbar(toolbar);
+        hookSiteToolbarClicks();
+        const paraToggle = document.getElementById("fqa-pc-toggle");
+        if (paraToggle) paraToggle.style.display = "none";
+        const insertAtEnd = (el2) => {
+          const backTop = document.getElementById("fqa-back-top");
+          if ((backTop == null ? void 0 : backTop.parentElement) && toolbar.contains(backTop)) {
+            backTop.insertAdjacentElement("beforebegin", el2);
+            return;
+          }
+          const all = toolbar.querySelectorAll(".reader-toolbar-item");
+          const tail = all[all.length - 1];
+          if (tail) tail.insertAdjacentElement("afterend", el2);
+          else toolbar.appendChild(el2);
+        };
+        if (!document.getElementById(TOOL_ID)) {
+          insertAtEnd(makeEntry(TOOL_ID, "设置", ICON, () => openReaderSettings()));
+        }
+        if (!document.getElementById(THEME_TOGGLE_ID)) {
+          const themeBtn = makeEntry(THEME_TOGGLE_ID, "", MOON_ICON, () => toggleDayNight());
+          const settingsBtn = document.getElementById(TOOL_ID);
+          if (settingsBtn) settingsBtn.insertAdjacentElement("beforebegin", themeBtn);
+          else insertAtEnd(themeBtn);
+        }
+        syncThemeToggle();
+        return;
+      }
+      await sleep(200);
+    }
+  }
+  const SECOND = 1e3;
+  const MINUTE = 60 * SECOND;
+  const HOUR = 60 * MINUTE;
+  const DAY = 24 * HOUR;
+  const MONTH = 30 * DAY;
+  const YEAR = 365 * DAY;
+  function normalizeTimestamp$1(ts) {
+    if (!ts || ts <= 0) return 0;
+    return ts < 1e12 ? ts * 1e3 : ts;
+  }
+  function fromNow(ts) {
+    const time = normalizeTimestamp$1(ts);
+    if (!time) return "从未";
+    const diff = Date.now() - time;
+    if (diff < MINUTE) return "刚刚";
+    if (diff < HOUR) return `${Math.floor(diff / MINUTE)}分钟前`;
+    if (diff < DAY) return `${Math.floor(diff / HOUR)}小时前`;
+    if (diff < MONTH) return `${Math.floor(diff / DAY)}天前`;
+    if (diff < YEAR) return `${Math.floor(diff / MONTH)}个月前`;
+    return `${Math.floor(diff / YEAR)}年前`;
+  }
+  function formatDateTime(ts) {
+    const time = normalizeTimestamp$1(ts);
+    if (!time) return "未知";
+    const d = new Date(time);
+    const pad = (n) => String(n).padStart(2, "0");
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  }
+  function readReaderState() {
+    var _a;
+    const state2 = unsafeWindow.__INITIAL_STATE__;
+    const chapter = (_a = state2 == null ? void 0 : state2.reader) == null ? void 0 : _a.chapterData;
+    return chapter && Object.keys(chapter).length ? chapter : void 0;
+  }
+  function isBlockedReader() {
+    var _a;
+    const chapter = readReaderState();
+    if (!chapter) return true;
+    if (chapter.content) return false;
+    if (chapter.isChapterLock || chapter.isPaidPublication) return true;
+    const state2 = unsafeWindow.__INITIAL_STATE__;
+    const page2 = state2 == null ? void 0 : state2.page;
+    return !(((_a = page2 == null ? void 0 : page2.chapterList) == null ? void 0 : _a.length) || (page2 == null ? void 0 : page2.chapterTotal) > 0);
+  }
+  const CATALOG_CONTENT_SEL = "#catalog-content";
+  const DIALOG_SEL = ".reader-catalog";
+  const CHAPTERS = ".reader-catalog-chapters";
+  function fillHeader(book, chapters) {
+    var _a, _b;
+    const dialog = document.querySelector(DIALOG_SEL);
+    if (!dialog) return;
+    const total = chapters.length;
+    const nameNode = dialog.querySelector(".reader-catalog-book-name");
+    if (nameNode && (book == null ? void 0 : book.title)) {
+      const arrow = nameNode.querySelector("svg");
+      const current = ((_a = nameNode.textContent) == null ? void 0 : _a.replace(/\s/g, "")) ?? "";
+      if (!current) {
+        nameNode.textContent = book.title;
+        if (arrow) nameNode.appendChild(arrow);
+      }
+    }
+    const descNode = dialog.querySelector(".reader-catalog-desc");
+    if (descNode) {
+      const text = descNode.textContent ?? "";
+      const meaningful = text.replace(/[・\s]/g, "").replace(/^更新$/, "");
+      if (!meaningful) {
+        const desc = buildCatalogDesc(book, chapters);
+        if (desc) descNode.textContent = desc;
+      }
+    }
+    const authorNode = dialog.querySelector(".reader-catalog-author");
+    if (authorNode && (book == null ? void 0 : book.author) && !((_b = authorNode.textContent) == null ? void 0 : _b.trim())) {
+      authorNode.textContent = book.author;
+    }
+    const coverImg = dialog.querySelector(".reader-catalog-header-left img");
+    if (coverImg && (book == null ? void 0 : book.cover_url) && !coverImg.getAttribute("src")) {
+      coverImg.src = book.cover_url;
+      coverImg.alt = book.title ?? "";
+    }
+    const operatorLeft = dialog.querySelector(".reader-catalog-operator-left");
+    if (operatorLeft) operatorLeft.textContent = `目录・${total}`;
+  }
+  function buildCatalogDesc(book, chapters) {
+    const status = (book == null ? void 0 : book.status) === "连载" ? "连载中" : (book == null ? void 0 : book.status) || "连载中";
+    if (status === "完结") return status;
+    const last = chapters.slice(-1)[0];
+    const updated = last ? fromNow(parseChapterTime(last)) : "";
+    const rel = updated && updated !== "从未" ? updated : "";
+    const tail = rel ? `${rel}更新` : (book == null ? void 0 : book.update_time) ? `${book.update_time}更新` : "";
+    return [status, tail].filter(Boolean).join("・") || "目录由脚本补全";
+  }
+  function parseChapterTime(chapter) {
+    const parsed = Date.parse((chapter.update_time ?? "").replace(" ", "T"));
+    return Number.isFinite(parsed) ? parsed : 0;
+  }
+  function buildChapterRow(chapter, currentItemId2) {
+    const row = document.createElement("div");
+    row.className = "chapter";
+    row.setAttribute("data-item-id", chapter.item_id);
+    if (chapter.item_id === currentItemId2) row.classList.add("active");
+    const text = document.createElement("div");
+    text.className = "chapter-text";
+    text.textContent = chapter.title;
+    text.title = chapter.title;
+    row.appendChild(text);
+    return row;
+  }
+  function cleanVolumeTitle$1(title) {
+    return (title ?? "").replace(/[：:]\s*默认$/, "").trim();
+  }
+  function findChapterRoot() {
+    const direct = document.querySelector(`${CATALOG_CONTENT_SEL} ${CHAPTERS}`);
+    if (direct) return direct;
+    const byClass = document.querySelector(`${DIALOG_SEL} ${CHAPTERS}`);
+    if (byClass) return byClass;
+    const content = document.querySelector(CATALOG_CONTENT_SEL);
+    if (content) return content;
+    return null;
+  }
+  async function ensureCatalogFilled(book, bookId2, currentItemId2) {
+    if (!bookId2) return;
+    let catalog;
+    try {
+      catalog = await getCatalog(bookId2);
+    } catch (err) {
+      console.warn("[fqa:blocked] 取目录失败:", err);
+      return;
+    }
+    const chapters = ((catalog == null ? void 0 : catalog.chapter_list) ?? []).filter(Boolean);
+    if (!chapters.length) {
+      console.warn("[fqa:blocked] 接口也没有这本书的目录");
+      return;
+    }
+    fillHeader(book, chapters);
+    let root = null;
+    for (let i2 = 0; i2 < 20; i2++) {
+      root = findChapterRoot();
+      if (root) break;
+      await new Promise((resolve) => requestAnimationFrame(() => resolve()));
+    }
+    if (!root) return;
+    if (root.querySelector(".chapter")) return;
+    const frag = document.createDocumentFragment();
+    const appendVolume = (title, list, showHeader) => {
+      if (!list.length) return;
+      const group = document.createElement("div");
+      if (showHeader) {
+        const header = document.createElement("div");
+        header.className = "volume-header";
+        header.appendChild(document.createTextNode(`${title} · 共${list.length}章`));
+        const arrow = document.createElement("i");
+        arrow.className = "arrow";
+        header.appendChild(arrow);
+        group.appendChild(header);
+      }
+      for (const chapter of list) {
+        const outer = document.createElement("div");
+        outer.className = "chapter-outer-container";
+        outer.appendChild(buildChapterRow(chapter, currentItemId2));
+        group.appendChild(outer);
+      }
+      frag.appendChild(group);
+    };
+    const volumes = catalog.volume_list ?? [];
+    if (volumes.length > 1) {
+      for (const vol of volumes) {
+        appendVolume(
+          cleanVolumeTitle$1(vol.title),
+          ((vol == null ? void 0 : vol.chapter_list) ?? []).filter(Boolean),
+          true
+        );
+      }
+    } else {
+      const title = volumes.length === 1 ? cleanVolumeTitle$1(volumes[0].title) : "";
+      appendVolume(title, chapters, !!title);
+    }
+    root.appendChild(frag);
+    const active = root.querySelector(".chapter.active");
+    if (active) {
+      try {
+        active.scrollIntoView({ block: "start", behavior: "auto" });
+      } catch {
+      }
+    }
+    console.debug("[fqa:blocked] 已补齐目录:", chapters.length, "章 ->", root.className || root.id);
+  }
+  const NAV_TITLE = "h1.muye-reader-nav-title";
+  const NAV_LINK_CLASS = "fqa-nav-book-link";
+  const CATALOG_SELECTOR = ".reader-catalog";
+  let blockedBookId = "";
+  let blockedBook = null;
+  let blockedItemId = "";
+  let onBookKnown = () => {
+  };
+  function rememberBlockedBook(bookId2, book, itemId2) {
+    if (bookId2) blockedBookId = bookId2;
+    if (book) blockedBook = book;
+    if (itemId2) blockedItemId = itemId2;
+    onBookKnown();
+  }
+  function patchNavTitle(bookTitle) {
+    const h1 = document.querySelector(NAV_TITLE);
+    if (!h1) return;
+    if (blockedBookId) h1.dataset.bookId = blockedBookId;
+    if (h1.querySelector(`.${NAV_LINK_CLASS}`)) {
+      ensureBackLink(h1);
+      return;
+    }
+    const existingText = Array.from(h1.childNodes).filter((n) => n.nodeType === Node.TEXT_NODE).map((n) => {
+      var _a;
+      return ((_a = n.textContent) == null ? void 0 : _a.trim()) ?? "";
+    }).join("");
+    const label = (bookTitle ?? (blockedBook == null ? void 0 : blockedBook.title) ?? "").trim();
+    if (label && !existingText) {
+      if (blockedBookId) {
+        const link = document.createElement("a");
+        link.className = NAV_LINK_CLASS;
+        link.href = `/page/${blockedBookId}`;
+        link.textContent = label;
+        h1.appendChild(link);
+      } else {
+        h1.appendChild(document.createTextNode(label));
+      }
+    }
+    ensureBackLink(h1);
+  }
+  function ensureBackLink(h1) {
+    const svg = h1.querySelector("svg");
+    if (!svg || svg.dataset.fqaBack === "1") return;
+    if (!isBlockedReader()) return;
+    svg.dataset.fqaBack = "1";
+    svg.style.cursor = "pointer";
+    svg.addEventListener(
+      "click",
+      (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (window.history.length > 1) window.history.back();
+        else if (blockedBookId) window.location.href = `/page/${blockedBookId}`;
+      },
+      true
+    );
+  }
+  let catalogObserver$1 = null;
+  let catalogFilling = false;
+  let catalogRecheckTimer = null;
+  let suppressObserver = false;
+  function scheduleFill() {
+    if (!blockedBookId) return;
+    if (suppressObserver) return;
+    if (catalogFilling) {
+      if (catalogRecheckTimer) return;
+      catalogRecheckTimer = setTimeout(() => {
+        catalogRecheckTimer = null;
+        scheduleFill();
+      }, 300);
+      return;
+    }
+    const dialog = document.querySelector(CATALOG_SELECTOR);
+    if (!dialog) return;
+    catalogFilling = true;
+    suppressObserver = true;
+    void ensureCatalogFilled(blockedBook, blockedBookId, blockedItemId || currentItemId()).catch((err) => console.warn("[fqa:blocked] 补目录失败:", err)).finally(() => {
+      catalogFilling = false;
+      catalogObserver$1 == null ? void 0 : catalogObserver$1.takeRecords();
+      suppressObserver = false;
+      if (catalogRecheckTimer) clearTimeout(catalogRecheckTimer);
+      catalogRecheckTimer = setTimeout(() => {
+        catalogRecheckTimer = null;
+        if (ensureCatalogNeedsRecheck()) scheduleFill();
+      }, 600);
+    });
+  }
+  function ensureCatalogNeedsRecheck() {
+    const dialog = document.querySelector(CATALOG_SELECTOR);
+    if (!dialog) return false;
+    return !dialog.querySelector("#catalog-content .chapter, .reader-catalog-chapters .chapter");
+  }
+  onBookKnown = () => {
+    if (blockedBookId) scheduleFill();
+  };
+  function watchCatalog() {
+    if (catalogObserver$1) return;
+    catalogObserver$1 = new MutationObserver(() => {
+      if (!blockedBookId) return;
+      scheduleFill();
+    });
+    catalogObserver$1.observe(document.documentElement, { childList: true, subtree: true });
+    if (isBlockedReader()) patchNavTitle();
+    scheduleFill();
+  }
+  function initBlockedReader() {
+    watchCatalog();
+  }
+  function stopWatchingCatalog() {
+    catalogObserver$1 == null ? void 0 : catalogObserver$1.disconnect();
+    catalogObserver$1 = null;
+    if (catalogRecheckTimer) clearTimeout(catalogRecheckTimer);
+    catalogRecheckTimer = null;
+    catalogFilling = false;
+    suppressObserver = false;
+  }
+  function currentItemId() {
+    var _a;
+    return ((_a = window.location.pathname.split("/").filter(Boolean).pop()) == null ? void 0 : _a.substring(0, 19)) ?? "";
+  }
+  function setupBlockedReader(book, itemId2) {
+    var _a;
+    if (!isBlockedReader()) {
+      stopWatchingCatalog();
+      (_a = document.querySelector(NAV_TITLE)) == null ? void 0 : _a.removeAttribute("data-book-id");
+      return;
+    }
+    rememberBlockedBook((book == null ? void 0 : book.book_id) ?? "", book, itemId2);
+    patchNavTitle(book == null ? void 0 : book.title);
+    watchCatalog();
+  }
+  const BATCH_SIZE = 40;
+  const CONCURRENCY = 3;
+  const STORE_PREFIX = "fqa:img:";
+  const cache = /* @__PURE__ */ new Map();
+  const MAX_BOOKS = 20;
+  const INDEX_KEY = "fqa:img:_index";
+  function loadPersisted(bookId2, ids) {
+    const v = read(`${STORE_PREFIX}${bookId2}`);
+    const through = Number.isInteger(v == null ? void 0 : v.through) ? Math.max(0, Math.min(v.through, ids.length)) : 0;
+    const checked = new Set(ids.slice(0, through));
+    for (const id of (v == null ? void 0 : v.partial) ?? []) checked.add(id);
+    for (const id of (v == null ? void 0 : v.checked) ?? []) checked.add(id);
+    return {
+      hits: Array.isArray(v == null ? void 0 : v.hits) ? v.hits : [],
+      checked,
+      skipped: Array.isArray(v == null ? void 0 : v.skipped) ? v.skipped : [],
+      through
+    };
+  }
+  function touchIndex(bookId2) {
+    const now = Date.now();
+    const list = (read(INDEX_KEY) ?? []).filter((x) => x && typeof x.id === "string");
+    const next = list.filter((x) => x.id !== bookId2);
+    next.push({ id: bookId2, t: now });
+    next.sort((a, b) => b.t - a.t);
+    const keep = next.slice(0, MAX_BOOKS);
+    for (const drop of next.slice(MAX_BOOKS)) {
+      try {
+        del(`${STORE_PREFIX}${drop.id}`);
+        cache.delete(drop.id);
+      } catch (err) {
+        console.warn("[fqa:images] 清理旧缓存失败:", err);
+      }
+    }
+    try {
+      write(INDEX_KEY, keep);
+    } catch (err) {
+      console.warn("[fqa:images] 写入索引失败:", err);
+    }
+  }
+  function savePersisted(bookId2, ids, hits, checked, skipped) {
+    let through = 0;
+    while (through < ids.length && checked.has(ids[through])) through += 1;
+    const partial = [];
+    for (let i2 = through; i2 < ids.length; i2++) {
+      const id = ids[i2];
+      if (checked.has(id)) partial.push(id);
+    }
+    try {
+      write(`${STORE_PREFIX}${bookId2}`, { hits, through, partial, skipped, t: Date.now() });
+      touchIndex(bookId2);
+    } catch (err) {
+      console.warn("[fqa:images] 写入扫描缓存失败:", err);
+    }
+  }
+  function clearImageScanCache(bookId2) {
+    const list = (read(INDEX_KEY) ?? []).filter(
+      (x) => x && typeof x.id === "string"
+    );
+    const targets = bookId2 ? list.filter((x) => x.id === bookId2) : list;
+    let cleared = 0;
+    for (const item of targets) {
+      try {
+        del(`${STORE_PREFIX}${item.id}`);
+        cache.delete(item.id);
+        cleared += 1;
+      } catch (err) {
+        console.warn("[fqa:images] 删除缓存失败:", err);
+      }
+    }
+    if (bookId2 && cleared === 0) {
+      try {
+        del(`${STORE_PREFIX}${bookId2}`);
+        cache.delete(bookId2);
+        cleared = 1;
+      } catch {
+      }
+    }
+    try {
+      write(INDEX_KEY, bookId2 ? list.filter((x) => x.id !== bookId2) : []);
+    } catch {
+    }
+    return cleared;
+  }
+  function getCachedImageScan(bookId2) {
+    return cache.get(bookId2);
+  }
+  function chapterHasImage(chapter) {
+    const content = chapter == null ? void 0 : chapter.content;
+    if (!content) return false;
+    if (typeof content === "object") {
+      return Array.isArray(content.picInfos) ? content.picInfos.length > 0 : Boolean(content.picInfos);
+    }
+    if (typeof content !== "string") return false;
+    return /<img[\s>]/i.test(content) || /data-fanqie-type\s*=\s*["']?image/i.test(content) || /class\s*=\s*["'][^"']*\bpicture\b/i.test(content);
+  }
+  function chunk(list, size) {
+    const out = [];
+    for (let i2 = 0; i2 < list.length; i2 += size) out.push(list.slice(i2, i2 + size));
+    return out;
+  }
+  const CATALOG_MARK_CLASS = "fqa-has-image";
+  function persistedHits(bookId2) {
+    const v = read(`${STORE_PREFIX}${bookId2}`);
+    return Array.isArray(v == null ? void 0 : v.hits) ? v.hits.map(String) : [];
+  }
+  function getImageHits(bookId2) {
+    var _a;
+    return ((_a = cache.get(bookId2)) == null ? void 0 : _a.hits) ?? persistedHits(bookId2);
+  }
+  function markCatalogImages(bookId2, overrideHits) {
+    var _a, _b;
+    const hits = new Set(overrideHits ?? getImageHits(bookId2));
+    const links = document.querySelectorAll(
+      ".page-directory-content a.chapter-item-title"
+    );
+    for (const a of links) {
+      const id = ((_b = (_a = a.getAttribute("href")) == null ? void 0 : _a.match(/\/reader\/(\d+)/)) == null ? void 0 : _b[1]) ?? "";
+      const item = a.closest(".chapter-item");
+      if (!item) continue;
+      applyMark(item, Boolean(id) && hits.has(id));
+    }
+  }
+  function markReaderCatalogImages(bookId2, overrideHits) {
+    const hits = new Set(getImageHits(bookId2));
+    if (hits.size === 0) return;
+    const rows = document.querySelectorAll(
+      ".reader-catalog-chapters .chapter[data-item-id]"
+    );
+    for (const row of rows) {
+      const id = row.dataset.itemId ?? "";
+      applyMark(row, Boolean(id) && hits.has(id));
+    }
+  }
+  function applyMark(el2, hit) {
+    if (hit) {
+      if (el2.classList.contains(CATALOG_MARK_CLASS)) return;
+      el2.classList.add(CATALOG_MARK_CLASS);
+      el2.setAttribute("data-fqa-image", "1");
+      if (!el2.getAttribute("title")) el2.setAttribute("title", "本章含插图");
+    } else if (el2.classList.contains(CATALOG_MARK_CLASS)) {
+      el2.classList.remove(CATALOG_MARK_CLASS);
+      el2.removeAttribute("data-fqa-image");
+      if (el2.getAttribute("title") === "本章含插图") el2.removeAttribute("title");
+    }
+  }
+  let watchedBookId = "";
+  let catalogObserver = null;
+  let markScheduled = false;
+  function applyAllMarks(bookId2) {
+    if (!document.querySelector(".reader-catalog-chapters, .page-directory-content")) return;
+    markCatalogImages(bookId2);
+    markReaderCatalogImages(bookId2);
+  }
+  function scheduleMarks() {
+    if (markScheduled) return;
+    markScheduled = true;
+    requestAnimationFrame(() => {
+      markScheduled = false;
+      if (watchedBookId) applyAllMarks(watchedBookId);
+    });
+  }
+  function watchCatalogMarks(bookId2) {
+    if (!bookId2) return;
+    watchedBookId = bookId2;
+    applyAllMarks(bookId2);
+    if (catalogObserver) return;
+    catalogObserver = new MutationObserver(scheduleMarks);
+    catalogObserver.observe(document.documentElement, { childList: true, subtree: true });
+  }
+  function isLocked(raw) {
+    if (!raw) return false;
+    const pay = raw.needPay ?? raw.need_pay;
+    return Boolean(raw.isChapterLock ?? raw.is_chapter_lock) || Number(pay) > 0;
+  }
+  function noteReason(reasons, reason) {
+    const key = reason.length > 40 ? `${reason.slice(0, 40)}…` : reason;
+    reasons[key] = (reasons[key] ?? 0) + 1;
+  }
+  async function scanBookImages(bookId2, onProgress) {
+    const catalog = await getCatalog(bookId2);
+    const items = (catalog == null ? void 0 : catalog.chapter_list) ?? [];
+    const ids = items.map((it) => it.item_id);
+    const lockedIds = /* @__PURE__ */ new Set();
+    try {
+      let raw = (await getCatalogRaw(bookId2))[0];
+      if (!raw || raw.length === 0) raw = (await webCatalog(bookId2))[0] ?? null;
+      for (const it of raw ?? []) {
+        const id = String((it == null ? void 0 : it.item_id) ?? (it == null ? void 0 : it.itemId) ?? "");
+        if (id && isLocked(it)) lockedIds.add(id);
+      }
+    } catch (err) {
+      console.warn("[fqa:images] 读取目录锁定状态失败，按可读处理:", err);
+    }
+    const skipped = [];
+    const scannable = [];
+    for (const id of ids) (lockedIds.has(id) ? skipped : scannable).push(id);
+    const persisted = loadPersisted(bookId2, ids);
+    const checkedBefore = persisted.checked;
+    const scannableSet = new Set(scannable);
+    const hitsBefore = persisted.hits.filter((id) => scannableSet.has(id));
+    const hitSet = new Set(hitsBefore);
+    const todo = scannable.filter((id) => !checkedBefore.has(id));
+    const hits = [...hitsBefore];
+    let failed = [];
+    const reasons = {};
+    let done = ids.length - todo.length;
+    let saveTimer2 = 0;
+    const checkedNow = new Set(checkedBefore);
+    const persistSoon = () => {
+      if (saveTimer2) return;
+      saveTimer2 = window.setTimeout(() => {
+        saveTimer2 = 0;
+        savePersisted(bookId2, ids, [...hits], checkedNow, skipped);
+      }, 500);
+    };
+    onProgress == null ? void 0 : onProgress({ done, total: ids.length, hits: [...hits] });
+    const fetchGroup = async (group) => {
+      try {
+        const map = await getChapters(group, bookId2);
+        let missing = [];
+        for (const id of group) {
+          const ch = map[id];
+          if (!ch || ch.error) {
+            missing.push(id);
+            continue;
+          }
+          if (chapterHasImage(ch) && !hitSet.has(id)) {
+            hitSet.add(id);
+            hits.push(id);
+          }
+        }
+        if (missing.length && missing.length < group.length && group.length > 1) {
+          await fetchGroup(missing);
+        } else if (missing.length === group.length) {
+          if (group.length > 1) {
+            const mid = Math.ceil(group.length / 2);
+            await fetchGroup(group.slice(0, mid));
+            await fetchGroup(group.slice(mid));
+          } else {
+            failed.push(group[0]);
+            noteReason(reasons, "接口未返回该章");
+          }
+        }
+      } catch (err) {
+        if (group.length > 1) {
+          const mid = Math.ceil(group.length / 2);
+          await fetchGroup(group.slice(0, mid));
+          await fetchGroup(group.slice(mid));
+        } else {
+          failed.push(group[0]);
+          noteReason(reasons, `整批请求失败：${String(err).slice(0, 30)}`);
+        }
+      }
+    };
+    const groups = chunk(todo, BATCH_SIZE);
+    let nextGroup = 0;
+    const worker = async () => {
+      for (; ; ) {
+        const idx = nextGroup++;
+        const group = groups[idx];
+        if (!group) return;
+        await fetchGroup(group);
+        for (const id of group) checkedNow.add(id);
+        done += group.length;
+        onProgress == null ? void 0 : onProgress({ done, total: ids.length, hits: [...hits] });
+        if (idx % 3 === 0) markCatalogImages(bookId2, hits);
+        persistSoon();
+      }
+    };
+    await Promise.all(Array.from({ length: Math.min(CONCURRENCY, groups.length) }, () => worker()));
+    if (failed.length) {
+      console.warn(
+        `[fqa:images] ${failed.length} 章最终未取到：`,
+        Object.entries(reasons).map(([r, n]) => `${r}×${n}`).join(", ")
+      );
+    }
+    markCatalogImages(bookId2, hits);
+    savePersisted(bookId2, ids, [...hits], checkedNow, skipped);
+    const result = {
+      bookId: bookId2,
+      hits,
+      scanned: done,
+      total: ids.length,
+      failed,
+      skipped,
+      reasons
+    };
+    cache.set(bookId2, result);
+    return result;
   }
   let currentBook = null;
   let latestItemId = null;
@@ -6604,8 +8339,26 @@
     readerContainer.classList.add("fqa-hide");
     return scriptContainer;
   }
+  async function repairBlockedReader(itemId2) {
+    var _a, _b, _c;
+    if (!currentBook) {
+      const pageState = unsafeWindow.__INITIAL_STATE__;
+      const bid = ((_b = (_a = pageState == null ? void 0 : pageState.reader) == null ? void 0 : _a.chapterData) == null ? void 0 : _b.bookId) ?? ((_c = pageState == null ? void 0 : pageState.page) == null ? void 0 : _c.bookId);
+      if (!bid) {
+        setupBlockedReader(null, itemId2);
+        return;
+      }
+      try {
+        currentBook = await getBookInfoAndCatalog(bid);
+      } catch (err) {
+        console.warn("[fqa:blocked] 取书籍信息失败:", err);
+      }
+    }
+    setupBlockedReader(currentBook, itemId2);
+    if (currentBook == null ? void 0 : currentBook.book_id) watchCatalogMarks(currentBook.book_id);
+  }
   async function insertContent() {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t, _u;
     const itemId2 = ((_a = window.location.pathname.split("/").pop()) == null ? void 0 : _a.substring(0, 19)) || "";
     if (!itemId2) {
       console.warn("No item_id found in URL");
@@ -6616,6 +8369,7 @@
     const chapter = await getChapter(itemId2);
     if (!chapter) {
       console.warn("No chapter found for item_id:", itemId2);
+      void repairBlockedReader(itemId2);
       return;
     }
     if (latestItemId !== itemId2) {
@@ -6626,17 +8380,21 @@
     currentChapterWithContent = chapter;
     const pageState = unsafeWindow.__INITIAL_STATE__;
     const chapterTitle = ((_b = chapter.novel_data) == null ? void 0 : _b.title) || ((_d = (_c = pageState == null ? void 0 : pageState.reader) == null ? void 0 : _c.chapterData) == null ? void 0 : _d.title);
+    rememberBook(
+      ((_e = chapter.novel_data) == null ? void 0 : _e.book_id) || ((_g = (_f = pageState == null ? void 0 : pageState.reader) == null ? void 0 : _f.chapterData) == null ? void 0 : _g.bookId),
+      currentBook == null ? void 0 : currentBook.title
+    );
     if (typeof chapter.content === "string") {
-      void applyBookCss((_e = chapter.novel_data) == null ? void 0 : _e.css_map, "#fqa-reader-content");
+      void applyBookCss((_h = chapter.novel_data) == null ? void 0 : _h.css_map, "#fqa-reader-content");
       const dp = new DOMParser();
       const doc = dp.parseFromString(chapter.content, "text/html");
       const body = doc.body;
-      body.querySelectorAll('link[rel="stylesheet"]').forEach((el) => el.remove());
+      body.querySelectorAll('link[rel="stylesheet"]').forEach((el2) => el2.remove());
       let article = body.querySelector("article");
       let toProcess = article || body;
       processFootnotes(toProcess);
       for (let i2 = 0; i2 < toProcess.childNodes.length; i2++) {
-        if (i2 < 2 && ((_g = (_f = toProcess.childNodes[i2]) == null ? void 0 : _f.innerHTML) == null ? void 0 : _g.includes(chapterTitle))) {
+        if (i2 < 2 && ((_j = (_i = toProcess.childNodes[i2]) == null ? void 0 : _i.innerHTML) == null ? void 0 : _j.includes(chapterTitle))) {
           toProcess.removeChild(toProcess.childNodes[i2]);
           break;
         }
@@ -6652,7 +8410,7 @@
         scriptContainer.appendChild(toProcess);
         bindFootnoteInteraction(scriptContainer);
         if (settings$1.paraComment) {
-          void attachParaComments(scriptContainer, itemId2, ((_h = chapter.novel_data) == null ? void 0 : _h.book_id) ?? "");
+          void attachParaComments(scriptContainer, itemId2, ((_k = chapter.novel_data) == null ? void 0 : _k.book_id) ?? "");
         }
       }
     } else if (chapter.content.picInfos) {
@@ -6732,7 +8490,7 @@
     }
     const muyeReaderTitle = document.querySelector("h1.muye-reader-title");
     let muyeReaderSubtitle = document.querySelector("div.muye-reader-subtitle");
-    (_i = document.querySelector("#fqa-subtitle")) == null ? void 0 : _i.remove();
+    (_l = document.querySelector("#fqa-subtitle")) == null ? void 0 : _l.remove();
     if (muyeReaderSubtitle) {
       let _cloned = cloneElement(muyeReaderSubtitle);
       muyeReaderSubtitle.classList.add("fqa-hide");
@@ -6746,10 +8504,12 @@
       muyeReaderTitle.textContent = chapterTitle;
     }
     console.log("Current book:", currentBook);
-    if (!currentBook || currentBook == null || currentBook.book_id !== ((_j = chapter.novel_data) == null ? void 0 : _j.book_id)) {
-      currentBook = await getBookInfoAndCatalog((_k = chapter.novel_data) == null ? void 0 : _k.book_id);
+    if (!currentBook || currentBook == null || currentBook.book_id !== ((_m = chapter.novel_data) == null ? void 0 : _m.book_id)) {
+      currentBook = await getBookInfoAndCatalog((_n = chapter.novel_data) == null ? void 0 : _n.book_id);
       console.log("Current book:", currentBook);
     }
+    setupBlockedReader(currentBook, itemId2);
+    if (currentBook == null ? void 0 : currentBook.book_id) watchCatalogMarks(currentBook.book_id);
     if (currentBook && currentBook.chapter_list) {
       const currentChapterItem = currentBook.chapter_list.find((c) => c.item_id === itemId2);
       if (currentChapterItem) {
@@ -6780,18 +8540,18 @@
           updateTimeSpan.innerHTML = "更新时间：" + currentChapterItem.update_time;
         } else {
           console.log("else");
-          (_l = updateTimeSpans[updateTimeSpans.length - 1]) == null ? void 0 : _l.remove();
+          (_o = updateTimeSpans[updateTimeSpans.length - 1]) == null ? void 0 : _o.remove();
           const updateTimeSpan = document.createElement("span");
           updateTimeSpan.className = "desc-item";
           updateTimeSpan.textContent = `更新时间：${currentChapterItem.update_time}`;
-          console.log("assert equal", currentChapterItem.item_id === ((_m = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _m.item_id));
-          console.log("wordcnt", (_n = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _n.chapter_word_number);
+          console.log("assert equal", currentChapterItem.item_id === ((_p = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _p.item_id));
+          console.log("wordcnt", (_q = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _q.chapter_word_number);
           const c = document.getElementById("fqa-current-chapter-volume");
           let b = null;
-          if (currentChapterItem.item_id === ((_o = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _o.item_id)) {
+          if (currentChapterItem.item_id === ((_r = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _r.item_id)) {
             const wordCntSpan = document.createElement("span");
             wordCntSpan.className = "desc-item";
-            wordCntSpan.textContent = `本章字数：${(_p = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _p.chapter_word_number}字`;
+            wordCntSpan.textContent = `本章字数：${(_s = currentChapterWithContent == null ? void 0 : currentChapterWithContent.novel_data) == null ? void 0 : _s.chapter_word_number}字`;
             console.log(wordCntSpan);
             if (c) {
               console.log("insert wordcnt");
@@ -6800,11 +8560,11 @@
             b = wordCntSpan;
           }
           console.log("insert update time");
-          (_q = b || c) == null ? void 0 : _q.insertAdjacentElement("afterend", updateTimeSpan);
+          (_t = b || c) == null ? void 0 : _t.insertAdjacentElement("afterend", updateTimeSpan);
         }
       }
     }
-    if (state.open) {
+    if (state$1.open) {
       await switchChapter(itemId2, {
         cover: (currentBook == null ? void 0 : currentBook.cover_url) ?? "",
         title: (currentBook == null ? void 0 : currentBook.title) ?? document.title
@@ -6812,10 +8572,21 @@
     } else {
       refreshParagraphs();
     }
+    const appendContainer = document.getElementById(SCRIPT_CONTAINER_ID);
+    if (appendContainer && ((_u = currentBook == null ? void 0 : currentBook.chapter_list) == null ? void 0 : _u.length) && typeof chapter.content === "string") {
+      setupInfiniteScroll(
+        appendContainer,
+        itemId2,
+        currentBook.book_id,
+        currentBook.chapter_list.map((c) => c.item_id),
+        // 标题后缀要用它来算（document.title 里把章节名剥掉）
+        chapterTitle ?? ""
+      );
+    }
   }
   async function startAudioPlay() {
     var _a;
-    if (state.open) {
+    if (state$1.open) {
       closeAudiobook();
       return;
     }
@@ -6827,37 +8598,84 @@
       title: (currentBook == null ? void 0 : currentBook.title) ?? document.title
     });
   }
+  const AUDIO_TOOL_ID = "fqa-toggle-audiobook";
+  let audioClickGuardInstalled = false;
+  let audioGuardLogged = false;
+  function installAudioClickGuard() {
+    if (audioClickGuardInstalled) return;
+    audioClickGuardInstalled = true;
+    const hits = (e) => {
+      var _a;
+      const t = e.target;
+      return !!((_a = t == null ? void 0 : t.closest) == null ? void 0 : _a.call(t, `#${AUDIO_TOOL_ID}`));
+    };
+    const swallow = (e) => {
+      if (!hits(e)) return;
+      if (!audioGuardLogged) {
+        audioGuardLogged = true;
+        console.debug("[fqa:audio] 已接管听书按钮的事件（" + e.type + "）");
+      }
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+    };
+    for (const type of ["pointerdown", "pointerup", "mousedown", "mouseup", "touchstart", "touchend"]) {
+      window.addEventListener(type, swallow, true);
+    }
+    window.addEventListener(
+      "click",
+      (e) => {
+        if (!hits(e)) return;
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        if (!audioGuardLogged) {
+          audioGuardLogged = true;
+          console.debug("[fqa:audio] 已接管听书按钮的点击");
+        }
+        void startAudioPlay();
+      },
+      true
+    );
+  }
   async function ensureAudiobookButton() {
-    var _a;
+    installAudioClickGuard();
     for (let attempt = 0; attempt < 40; attempt++) {
       const toolbar = document.querySelector(".reader-toolbar");
       if (toolbar) {
-        const existing = document.getElementById("fqa-toggle-audiobook");
+        const existing = document.getElementById(AUDIO_TOOL_ID);
         if (existing && toolbar.contains(existing)) return;
-        const items = Array.from(toolbar.querySelectorAll(".reader-toolbar-item"));
-        const template = items[2] ?? items[0];
-        if (template) {
-          const c = cloneElement(template);
-          c.id = "fqa-toggle-audiobook";
-          c.classList.remove("reader-toolbar-item-disabled");
-          const listenIcon = document.createElement("span");
-          listenIcon.textContent = "听";
-          listenIcon.style.width = "24px";
-          listenIcon.style.height = "24px";
-          listenIcon.style.fontSize = "24px";
-          listenIcon.style.lineHeight = "24px";
-          listenIcon.classList.add("muyeicon-icon");
-          listenIcon.classList.add("reader-toolbar-item-icon");
-          (_a = c.firstChild) == null ? void 0 : _a.replaceWith(listenIcon);
-          const l = c.lastChild;
-          if (l) {
-            l.textContent = "听书";
-          }
-          c.addEventListener("click", () => void startAudioPlay());
-          const last = items[items.length - 1] ?? template;
-          last.insertAdjacentElement("afterend", c);
-          return;
+        const btn = document.createElement("div");
+        btn.id = AUDIO_TOOL_ID;
+        btn.className = "reader-toolbar-item";
+        btn.setAttribute("tabindex", "0");
+        btn.style.position = "relative";
+        btn.style.zIndex = "3";
+        btn.style.pointerEvents = "auto";
+        const iconWrap = document.createElement("div");
+        iconWrap.className = "reader-toolbar-item-icon";
+        const icon = document.createElement("span");
+        icon.textContent = "听";
+        icon.style.cssText = "display:block;width:24px;height:24px;font-size:24px;line-height:24px;text-align:center";
+        iconWrap.appendChild(icon);
+        const labelEl = document.createElement("div");
+        labelEl.className = "reader-toolbar-item-font";
+        labelEl.textContent = "听书";
+        btn.append(iconWrap, labelEl);
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          void startAudioPlay();
+        });
+        const themeBtn = document.getElementById("fqa-theme-toggle");
+        const backTop = document.getElementById("fqa-back-top");
+        if ((themeBtn == null ? void 0 : themeBtn.parentElement) && toolbar.contains(themeBtn)) {
+          themeBtn.insertAdjacentElement("beforebegin", btn);
+        } else if ((backTop == null ? void 0 : backTop.parentElement) && toolbar.contains(backTop)) {
+          backTop.insertAdjacentElement("beforebegin", btn);
+        } else {
+          toolbar.appendChild(btn);
         }
+        return;
       }
       await sleep(200);
     }
@@ -6870,10 +8688,15 @@
   }
   async function onLoad$1() {
     async function fetchBookInfo() {
-      var _a, _b;
+      var _a, _b, _c;
       const pageState = unsafeWindow.__INITIAL_STATE__;
-      const bid = (_b = (_a = pageState == null ? void 0 : pageState.reader) == null ? void 0 : _a.chapterData) == null ? void 0 : _b.bookId;
-      currentBook = await getBookInfoAndCatalog(bid);
+      const bid = ((_b = (_a = pageState == null ? void 0 : pageState.reader) == null ? void 0 : _a.chapterData) == null ? void 0 : _b.bookId) ?? ((_c = pageState == null ? void 0 : pageState.page) == null ? void 0 : _c.bookId);
+      if (!bid) return;
+      try {
+        currentBook = await getBookInfoAndCatalog(bid);
+      } catch (err) {
+        console.warn("[fqa:reader] 取书籍信息失败:", err);
+      }
     }
     void fetchBookInfo();
     void ensureAudiobookButton();
@@ -6919,12 +8742,16 @@
     }
     document.querySelector("div.muye-reader-btns");
     initParaCommentToggle();
+    initBackToTop();
+    initReaderSettings();
+    applyReaderPreferences();
+    initBlockedReader();
     await insertContent();
   }
   function readerFilter(path, _query, _hash) {
     return path.startsWith("/reader") || path.startsWith("reader");
   }
-  const _exports$4 = [
+  const _exports$5 = [
     {
       id: "readerHook_load",
       event: "load",
@@ -6948,89 +8775,89 @@
   const settings = '<?xml version="1.0" encoding="utf-8"?>\r\n<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">\r\n    <path fill-rule="evenodd" clip-rule="evenodd"\r\n        d="M12 8.25C9.92894 8.25 8.25 9.92893 8.25 12C8.25 14.0711 9.92894 15.75 12 15.75C14.0711 15.75 15.75 14.0711 15.75 12C15.75 9.92893 14.0711 8.25 12 8.25ZM9.75 12C9.75 10.7574 10.7574 9.75 12 9.75C13.2426 9.75 14.25 10.7574 14.25 12C14.25 13.2426 13.2426 14.25 12 14.25C10.7574 14.25 9.75 13.2426 9.75 12Z"\r\n        fill="currentColor" />\r\n    <path fill-rule="evenodd" clip-rule="evenodd"\r\n        d="M11.9747 1.25C11.5303 1.24999 11.1592 1.24999 10.8546 1.27077C10.5375 1.29241 10.238 1.33905 9.94761 1.45933C9.27379 1.73844 8.73843 2.27379 8.45932 2.94762C8.31402 3.29842 8.27467 3.66812 8.25964 4.06996C8.24756 4.39299 8.08454 4.66251 7.84395 4.80141C7.60337 4.94031 7.28845 4.94673 7.00266 4.79568C6.64714 4.60777 6.30729 4.45699 5.93083 4.40743C5.20773 4.31223 4.47642 4.50819 3.89779 4.95219C3.64843 5.14353 3.45827 5.3796 3.28099 5.6434C3.11068 5.89681 2.92517 6.21815 2.70294 6.60307L2.67769 6.64681C2.45545 7.03172 2.26993 7.35304 2.13562 7.62723C1.99581 7.91267 1.88644 8.19539 1.84541 8.50701C1.75021 9.23012 1.94617 9.96142 2.39016 10.5401C2.62128 10.8412 2.92173 11.0602 3.26217 11.2741C3.53595 11.4461 3.68788 11.7221 3.68786 12C3.68785 12.2778 3.53592 12.5538 3.26217 12.7258C2.92169 12.9397 2.62121 13.1587 2.39007 13.4599C1.94607 14.0385 1.75012 14.7698 1.84531 15.4929C1.88634 15.8045 1.99571 16.0873 2.13552 16.3727C2.26983 16.6469 2.45535 16.9682 2.67758 17.3531L2.70284 17.3969C2.92507 17.7818 3.11058 18.1031 3.28089 18.3565C3.45817 18.6203 3.64833 18.8564 3.89769 19.0477C4.47632 19.4917 5.20763 19.6877 5.93073 19.5925C6.30717 19.5429 6.647 19.3922 7.0025 19.2043C7.28833 19.0532 7.60329 19.0596 7.8439 19.1986C8.08452 19.3375 8.24756 19.607 8.25964 19.9301C8.27467 20.3319 8.31403 20.7016 8.45932 21.0524C8.73843 21.7262 9.27379 22.2616 9.94761 22.5407C10.238 22.661 10.5375 22.7076 10.8546 22.7292C11.1592 22.75 11.5303 22.75 11.9747 22.75H12.0252C12.4697 22.75 12.8407 22.75 13.1454 22.7292C13.4625 22.7076 13.762 22.661 14.0524 22.5407C14.7262 22.2616 15.2616 21.7262 15.5407 21.0524C15.686 20.7016 15.7253 20.3319 15.7403 19.93C15.7524 19.607 15.9154 19.3375 16.156 19.1985C16.3966 19.0596 16.7116 19.0532 16.9974 19.2042C17.3529 19.3921 17.6927 19.5429 18.0692 19.5924C18.7923 19.6876 19.5236 19.4917 20.1022 19.0477C20.3516 18.8563 20.5417 18.6203 20.719 18.3565C20.8893 18.1031 21.0748 17.7818 21.297 17.3969L21.3223 17.3531C21.5445 16.9682 21.7301 16.6468 21.8644 16.3726C22.0042 16.0872 22.1135 15.8045 22.1546 15.4929C22.2498 14.7697 22.0538 14.0384 21.6098 13.4598C21.3787 13.1586 21.0782 12.9397 20.7378 12.7258C20.464 12.5538 20.3121 12.2778 20.3121 11.9999C20.3121 11.7221 20.464 11.4462 20.7377 11.2742C21.0783 11.0603 21.3788 10.8414 21.6099 10.5401C22.0539 9.96149 22.2499 9.23019 22.1547 8.50708C22.1136 8.19546 22.0043 7.91274 21.8645 7.6273C21.7302 7.35313 21.5447 7.03183 21.3224 6.64695L21.2972 6.60318C21.0749 6.21825 20.8894 5.89688 20.7191 5.64347C20.5418 5.37967 20.3517 5.1436 20.1023 4.95225C19.5237 4.50826 18.7924 4.3123 18.0692 4.4075C17.6928 4.45706 17.353 4.60782 16.9975 4.79572C16.7117 4.94679 16.3967 4.94036 16.1561 4.80144C15.9155 4.66253 15.7524 4.39297 15.7403 4.06991C15.7253 3.66808 15.686 3.2984 15.5407 2.94762C15.2616 2.27379 14.7262 1.73844 14.0524 1.45933C13.762 1.33905 13.4625 1.29241 13.1454 1.27077C12.8407 1.24999 12.4697 1.24999 12.0252 1.25H11.9747ZM10.5216 2.84515C10.5988 2.81319 10.716 2.78372 10.9567 2.76729C11.2042 2.75041 11.5238 2.75 12 2.75C12.4762 2.75 12.7958 2.75041 13.0432 2.76729C13.284 2.78372 13.4012 2.81319 13.4783 2.84515C13.7846 2.97202 14.028 3.21536 14.1548 3.52165C14.1949 3.61826 14.228 3.76887 14.2414 4.12597C14.271 4.91835 14.68 5.68129 15.4061 6.10048C16.1321 6.51968 16.9974 6.4924 17.6984 6.12188C18.0143 5.9549 18.1614 5.90832 18.265 5.89467C18.5937 5.8514 18.9261 5.94047 19.1891 6.14228C19.2554 6.19312 19.3395 6.27989 19.4741 6.48016C19.6125 6.68603 19.7726 6.9626 20.0107 7.375C20.2488 7.78741 20.4083 8.06438 20.5174 8.28713C20.6235 8.50382 20.6566 8.62007 20.6675 8.70287C20.7108 9.03155 20.6217 9.36397 20.4199 9.62698C20.3562 9.70995 20.2424 9.81399 19.9397 10.0041C19.2684 10.426 18.8122 11.1616 18.8121 11.9999C18.8121 12.8383 19.2683 13.574 19.9397 13.9959C20.2423 14.186 20.3561 14.29 20.4198 14.373C20.6216 14.636 20.7107 14.9684 20.6674 15.2971C20.6565 15.3799 20.6234 15.4961 20.5173 15.7128C20.4082 15.9355 20.2487 16.2125 20.0106 16.6249C19.7725 17.0373 19.6124 17.3139 19.474 17.5198C19.3394 17.72 19.2553 17.8068 19.189 17.8576C18.926 18.0595 18.5936 18.1485 18.2649 18.1053C18.1613 18.0916 18.0142 18.045 17.6983 17.8781C16.9973 17.5075 16.132 17.4803 15.4059 17.8995C14.68 18.3187 14.271 19.0816 14.2414 19.874C14.228 20.2311 14.1949 20.3817 14.1548 20.4784C14.028 20.7846 13.7846 21.028 13.4783 21.1549C13.4012 21.1868 13.284 21.2163 13.0432 21.2327C12.7958 21.2496 12.4762 21.25 12 21.25C11.5238 21.25 11.2042 21.2496 10.9567 21.2327C10.716 21.2163 10.5988 21.1868 10.5216 21.1549C10.2154 21.028 9.97201 20.7846 9.84514 20.4784C9.80512 20.3817 9.77195 20.2311 9.75859 19.874C9.72896 19.0817 9.31997 18.3187 8.5939 17.8995C7.86784 17.4803 7.00262 17.5076 6.30158 17.8781C5.98565 18.0451 5.83863 18.0917 5.73495 18.1053C5.40626 18.1486 5.07385 18.0595 4.81084 17.8577C4.74458 17.8069 4.66045 17.7201 4.52586 17.5198C4.38751 17.314 4.22736 17.0374 3.98926 16.625C3.75115 16.2126 3.59171 15.9356 3.4826 15.7129C3.37646 15.4962 3.34338 15.3799 3.33248 15.2971C3.28921 14.9684 3.37828 14.636 3.5801 14.373C3.64376 14.2901 3.75761 14.186 4.0602 13.9959C4.73158 13.5741 5.18782 12.8384 5.18786 12.0001C5.18791 11.1616 4.73165 10.4259 4.06021 10.004C3.75769 9.81389 3.64385 9.70987 3.58019 9.62691C3.37838 9.3639 3.28931 9.03149 3.33258 8.7028C3.34348 8.62001 3.37656 8.50375 3.4827 8.28707C3.59181 8.06431 3.75125 7.78734 3.98935 7.37493C4.22746 6.96253 4.3876 6.68596 4.52596 6.48009C4.66055 6.27983 4.74468 6.19305 4.81093 6.14222C5.07395 5.9404 5.40636 5.85133 5.73504 5.8946C5.83873 5.90825 5.98576 5.95483 6.30173 6.12184C7.00273 6.49235 7.86791 6.51962 8.59394 6.10045C9.31998 5.68128 9.72896 4.91837 9.75859 4.12602C9.77195 3.76889 9.80512 3.61827 9.84514 3.52165C9.97201 3.21536 10.2154 2.97202 10.5216 2.84515Z"\r\n        fill="currentColor" />\r\n</svg>';
   const name = "fanqie-assistant";
   const version = "0.0.7";
-  const _hoisted_1$9 = {
+  const _hoisted_1$a = {
     class: "fqa-set-dialog",
     role: "dialog",
     "aria-modal": "true",
     "aria-label": "助手设置"
   };
-  const _hoisted_2$9 = { class: "fqa-set-side" };
-  const _hoisted_3$9 = ["onClick", "onKeydown"];
-  const _hoisted_4$8 = { class: "fqa-set-main" };
-  const _hoisted_5$8 = { class: "fqa-set-row" };
-  const _hoisted_6$8 = { class: "fqa-set-row" };
-  const _hoisted_7$6 = { class: "fqa-set-row" };
-  const _hoisted_8$6 = { class: "fqa-set-row" };
-  const _hoisted_9$6 = { class: "fqa-set-row" };
-  const _hoisted_10$6 = { class: "fqa-set-row fqa-set-row-col" };
-  const _hoisted_11$5 = { class: "fqa-set-row" };
-  const _hoisted_12$5 = { class: "fqa-set-row fqa-set-row-col" };
-  const _hoisted_13$4 = ["disabled"];
-  const _hoisted_14$4 = { class: "fqa-set-row fqa-set-row-col" };
-  const _hoisted_15$2 = { class: "fqa-set-radios" };
-  const _hoisted_16$1 = { class: "fqa-set-radio" };
-  const _hoisted_17$1 = { class: "fqa-set-radio" };
-  const _hoisted_18$1 = { class: "fqa-set-row" };
-  const _hoisted_19$1 = { class: "fqa-set-row fqa-set-row-col" };
-  const _hoisted_20 = {
+  const _hoisted_2$a = { class: "fqa-set-side" };
+  const _hoisted_3$a = ["onClick", "onKeydown"];
+  const _hoisted_4$9 = { class: "fqa-set-main" };
+  const _hoisted_5$9 = { class: "fqa-set-row" };
+  const _hoisted_6$9 = { class: "fqa-set-row" };
+  const _hoisted_7$7 = { class: "fqa-set-row" };
+  const _hoisted_8$7 = { class: "fqa-set-row" };
+  const _hoisted_9$7 = { class: "fqa-set-row" };
+  const _hoisted_10$7 = { class: "fqa-set-row fqa-set-row-col" };
+  const _hoisted_11$6 = { class: "fqa-set-row" };
+  const _hoisted_12$6 = { class: "fqa-set-row fqa-set-row-col" };
+  const _hoisted_13$5 = ["disabled"];
+  const _hoisted_14$5 = { class: "fqa-set-row fqa-set-row-col" };
+  const _hoisted_15$3 = { class: "fqa-set-radios" };
+  const _hoisted_16$3 = { class: "fqa-set-radio" };
+  const _hoisted_17$3 = { class: "fqa-set-radio" };
+  const _hoisted_18$3 = { class: "fqa-set-row" };
+  const _hoisted_19$3 = { class: "fqa-set-row fqa-set-row-col" };
+  const _hoisted_20$2 = {
     class: "fqa-set-row",
     style: { "padding-top": "0", "border-bottom": "none" }
   };
-  const _hoisted_21 = { class: "fqa-set-row" };
-  const _hoisted_22 = { class: "fqa-set-row fqa-set-row-col" };
-  const _hoisted_23 = { class: "fqa-set-radios" };
-  const _hoisted_24 = { class: "fqa-set-radio" };
-  const _hoisted_25 = { class: "fqa-set-radio" };
-  const _hoisted_26 = { class: "fqa-set-row fqa-set-row-col" };
-  const _hoisted_27 = { class: "fqa-set-radios" };
-  const _hoisted_28 = { class: "fqa-set-radio" };
-  const _hoisted_29 = { class: "fqa-set-radio" };
-  const _hoisted_30 = { class: "fqa-set-row fqa-set-row-col" };
-  const _hoisted_31 = {
+  const _hoisted_21$2 = { class: "fqa-set-row" };
+  const _hoisted_22$2 = { class: "fqa-set-row fqa-set-row-col" };
+  const _hoisted_23$2 = { class: "fqa-set-radios" };
+  const _hoisted_24$2 = { class: "fqa-set-radio" };
+  const _hoisted_25$1 = { class: "fqa-set-radio" };
+  const _hoisted_26$1 = { class: "fqa-set-row fqa-set-row-col" };
+  const _hoisted_27$1 = { class: "fqa-set-radios" };
+  const _hoisted_28$1 = { class: "fqa-set-radio" };
+  const _hoisted_29$1 = { class: "fqa-set-radio" };
+  const _hoisted_30$1 = { class: "fqa-set-row fqa-set-row-col" };
+  const _hoisted_31$1 = {
     class: "fqa-set-row",
     style: { "padding-top": "0", "border-bottom": "none" }
   };
-  const _hoisted_32 = {
+  const _hoisted_32$1 = {
     class: "fqa-set-row",
     style: { "padding-top": "0", "border-bottom": "none" }
   };
-  const _hoisted_33 = {
+  const _hoisted_33$1 = {
     class: "fqa-set-row",
     style: { "padding-top": "0", "border-bottom": "none" }
   };
-  const _hoisted_34 = { class: "fqa-set-row fqa-set-row-col" };
-  const _hoisted_35 = { class: "fqa-set-field" };
-  const _hoisted_36 = { class: "fqa-set-field" };
-  const _hoisted_37 = { class: "fqa-set-field" };
-  const _hoisted_38 = { class: "fqa-set-row fqa-set-row-col" };
-  const _hoisted_39 = { class: "fqa-set-radios" };
-  const _hoisted_40 = { class: "fqa-set-radio" };
-  const _hoisted_41 = { class: "fqa-set-radio" };
-  const _hoisted_42 = { class: "fqa-set-row" };
-  const _hoisted_43 = { class: "fqa-set-row fqa-set-row-col" };
-  const _hoisted_44 = { class: "fqa-set-radios" };
-  const _hoisted_45 = { class: "fqa-set-radio" };
-  const _hoisted_46 = { class: "fqa-set-radio" };
-  const _hoisted_47 = { class: "fqa-set-row fqa-set-row-col" };
-  const _hoisted_48 = { class: "fqa-set-field" };
-  const _hoisted_49 = ["placeholder"];
-  const _hoisted_50 = { class: "fqa-set-field" };
-  const _hoisted_51 = ["placeholder"];
-  const _hoisted_52 = { class: "fqa-set-field" };
-  const _hoisted_53 = ["placeholder"];
-  const _hoisted_54 = { class: "fqa-set-actions" };
-  const _hoisted_55 = ["disabled"];
-  const _hoisted_56 = {
+  const _hoisted_34$1 = { class: "fqa-set-row fqa-set-row-col" };
+  const _hoisted_35$1 = { class: "fqa-set-field" };
+  const _hoisted_36$1 = { class: "fqa-set-field" };
+  const _hoisted_37$1 = { class: "fqa-set-field" };
+  const _hoisted_38$1 = { class: "fqa-set-row fqa-set-row-col" };
+  const _hoisted_39$1 = { class: "fqa-set-radios" };
+  const _hoisted_40$1 = { class: "fqa-set-radio" };
+  const _hoisted_41$1 = { class: "fqa-set-radio" };
+  const _hoisted_42$1 = { class: "fqa-set-row" };
+  const _hoisted_43$1 = { class: "fqa-set-row fqa-set-row-col" };
+  const _hoisted_44$1 = { class: "fqa-set-radios" };
+  const _hoisted_45$1 = { class: "fqa-set-radio" };
+  const _hoisted_46$1 = { class: "fqa-set-radio" };
+  const _hoisted_47$1 = { class: "fqa-set-row fqa-set-row-col" };
+  const _hoisted_48$1 = { class: "fqa-set-field" };
+  const _hoisted_49$1 = ["placeholder"];
+  const _hoisted_50$1 = { class: "fqa-set-field" };
+  const _hoisted_51$1 = ["placeholder"];
+  const _hoisted_52$1 = { class: "fqa-set-field" };
+  const _hoisted_53$1 = ["placeholder"];
+  const _hoisted_54$1 = { class: "fqa-set-actions" };
+  const _hoisted_55$1 = ["disabled"];
+  const _hoisted_56$1 = {
     key: 0,
     class: "fqa-set-note"
   };
-  const _hoisted_57 = { class: "fqa-set-note" };
-  const _hoisted_58 = { class: "fqa-set-links" };
-  const _hoisted_59 = { class: "fqa-set-link-row" };
-  const _hoisted_60 = ["href"];
+  const _hoisted_57$1 = { class: "fqa-set-note" };
+  const _hoisted_58$1 = { class: "fqa-set-links" };
+  const _hoisted_59$1 = { class: "fqa-set-link-row" };
+  const _hoisted_60$1 = ["href"];
   const GREASYFORK = "https://greasyfork.org/zh-CN/scripts/589115-%E7%95%AA%E8%8C%84%E5%B0%8F%E8%AF%B4%E5%8A%A9%E6%89%8B";
   const GITHUB = "https://github.com/naiyQAQ/fanqie-assistant";
-  const _sfc_main$9 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$a = /* @__PURE__ */ vue.defineComponent({
     __name: "SettingsView",
     emits: ["close"],
     setup(__props, { emit: __emit }) {
@@ -7080,24 +8907,24 @@
         flushSettings();
         emit("close");
       }
-      function onKey(e) {
+      function onKey2(e) {
         if (e.key === "Escape") close2();
       }
-      vue.onMounted(() => document.addEventListener("keydown", onKey));
-      vue.onBeforeUnmount(() => document.removeEventListener("keydown", onKey));
+      vue.onMounted(() => document.addEventListener("keydown", onKey2));
+      vue.onBeforeUnmount(() => document.removeEventListener("keydown", onKey2));
       const FEEDBACK = `${GREASYFORK}/feedback`;
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createElementBlock("div", {
           class: "fqa-set-mask",
           onClick: vue.withModifiers(close2, ["self"])
         }, [
-          vue.createElementVNode("div", _hoisted_1$9, [
+          vue.createElementVNode("div", _hoisted_1$a, [
             vue.createElementVNode("button", {
               class: "fqa-set-close",
               "aria-label": "关闭",
               onClick: close2
             }, "✕"),
-            vue.createElementVNode("nav", _hoisted_2$9, [
+            vue.createElementVNode("nav", _hoisted_2$a, [
               _cache[31] || (_cache[31] = vue.createElementVNode("div", { class: "fqa-set-side-title" }, "助手设置", -1)),
               (vue.openBlock(), vue.createElementBlock(vue.Fragment, null, vue.renderList(SECTIONS, (s) => {
                 return vue.createElementVNode("div", {
@@ -7107,13 +8934,13 @@
                   tabindex: "0",
                   onClick: ($event) => active.value = s.key,
                   onKeydown: vue.withKeys(vue.withModifiers(($event) => active.value = s.key, ["prevent"]), ["enter"])
-                }, vue.toDisplayString(s.label), 43, _hoisted_3$9);
+                }, vue.toDisplayString(s.label), 43, _hoisted_3$a);
               }), 64))
             ]),
-            vue.createElementVNode("section", _hoisted_4$8, [
+            vue.createElementVNode("section", _hoisted_4$9, [
               active.value === "general" ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 0 }, [
                 _cache[37] || (_cache[37] = vue.createElementVNode("h3", { class: "fqa-set-h" }, "常规", -1)),
-                vue.createElementVNode("label", _hoisted_5$8, [
+                vue.createElementVNode("label", _hoisted_5$9, [
                   _cache[32] || (_cache[32] = vue.createElementVNode("span", { class: "fqa-set-label" }, "解密网页端混淆字体", -1)),
                   vue.withDirectives(vue.createElementVNode("input", {
                     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => vue.unref(settings$1).decryptFont = $event),
@@ -7123,7 +8950,7 @@
                     [vue.vModelCheckbox, vue.unref(settings$1).decryptFont]
                   ])
                 ]),
-                vue.createElementVNode("label", _hoisted_6$8, [
+                vue.createElementVNode("label", _hoisted_6$9, [
                   _cache[33] || (_cache[33] = vue.createElementVNode("span", { class: "fqa-set-label" }, "拦截网页事件上报", -1)),
                   vue.withDirectives(vue.createElementVNode("input", {
                     "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => vue.unref(settings$1).blockReport = $event),
@@ -7133,7 +8960,7 @@
                     [vue.vModelCheckbox, vue.unref(settings$1).blockReport]
                   ])
                 ]),
-                vue.createElementVNode("label", _hoisted_7$6, [
+                vue.createElementVNode("label", _hoisted_7$7, [
                   _cache[34] || (_cache[34] = vue.createElementVNode("span", { class: "fqa-set-label" }, "允许阅读器复制文本", -1)),
                   vue.withDirectives(vue.createElementVNode("input", {
                     "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => vue.unref(settings$1).allowCopy = $event),
@@ -7143,7 +8970,7 @@
                     [vue.vModelCheckbox, vue.unref(settings$1).allowCopy]
                   ])
                 ]),
-                vue.createElementVNode("label", _hoisted_8$6, [
+                vue.createElementVNode("label", _hoisted_8$7, [
                   _cache[35] || (_cache[35] = vue.createElementVNode("span", { class: "fqa-set-label" }, "移出书架时二次确认", -1)),
                   vue.withDirectives(vue.createElementVNode("input", {
                     "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => vue.unref(settings$1).shelfRemoveConfirm = $event),
@@ -7153,7 +8980,7 @@
                     [vue.vModelCheckbox, vue.unref(settings$1).shelfRemoveConfirm]
                   ])
                 ]),
-                vue.createElementVNode("label", _hoisted_9$6, [
+                vue.createElementVNode("label", _hoisted_9$7, [
                   _cache[36] || (_cache[36] = vue.createElementVNode("span", { class: "fqa-set-label" }, "退出登录时二次确认", -1)),
                   vue.withDirectives(vue.createElementVNode("input", {
                     "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => vue.unref(settings$1).logoutConfirm = $event),
@@ -7165,7 +8992,7 @@
                 ])
               ], 64)) : active.value === "ui" ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 1 }, [
                 _cache[46] || (_cache[46] = vue.createElementVNode("h3", { class: "fqa-set-h" }, "界面", -1)),
-                vue.createElementVNode("div", _hoisted_10$6, [
+                vue.createElementVNode("div", _hoisted_10$7, [
                   _cache[38] || (_cache[38] = vue.createElementVNode("span", { class: "fqa-set-label" }, "阅读器字体", -1)),
                   vue.withDirectives(vue.createElementVNode("input", {
                     "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => vue.unref(settings$1).readerFont = $event),
@@ -7177,7 +9004,7 @@
                   ]),
                   _cache[39] || (_cache[39] = vue.createElementVNode("p", { class: "fqa-set-note" }, "填写字体名称，例如「思源宋体」。留空则跟随网页默认。", -1))
                 ]),
-                vue.createElementVNode("div", _hoisted_11$5, [
+                vue.createElementVNode("div", _hoisted_11$6, [
                   _cache[40] || (_cache[40] = vue.createElementVNode("span", { class: "fqa-set-label" }, "自定义 CSS", -1)),
                   vue.withDirectives(vue.createElementVNode("input", {
                     "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => vue.unref(settings$1).customCssEnabled = $event),
@@ -7187,22 +9014,22 @@
                     [vue.vModelCheckbox, vue.unref(settings$1).customCssEnabled]
                   ])
                 ]),
-                vue.createElementVNode("div", _hoisted_12$5, [
+                vue.createElementVNode("div", _hoisted_12$6, [
                   vue.withDirectives(vue.createElementVNode("textarea", {
                     "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => vue.unref(settings$1).customCss = $event),
                     class: "fqa-set-textarea",
                     disabled: !vue.unref(settings$1).customCssEnabled,
                     spellcheck: "false",
                     placeholder: "/* 自定义 CSS */"
-                  }, null, 8, _hoisted_13$4), [
+                  }, null, 8, _hoisted_13$5), [
                     [vue.vModelText, vue.unref(settings$1).customCss]
                   ]),
                   _cache[41] || (_cache[41] = vue.createElementVNode("p", { class: "fqa-set-note" }, "关闭开关后内容会保留，只是不再应用。", -1))
                 ]),
-                vue.createElementVNode("div", _hoisted_14$4, [
+                vue.createElementVNode("div", _hoisted_14$5, [
                   _cache[44] || (_cache[44] = vue.createElementVNode("span", { class: "fqa-set-label" }, "书架单击书本", -1)),
-                  vue.createElementVNode("div", _hoisted_15$2, [
-                    vue.createElementVNode("label", _hoisted_16$1, [
+                  vue.createElementVNode("div", _hoisted_15$3, [
+                    vue.createElementVNode("label", _hoisted_16$3, [
                       vue.withDirectives(vue.createElementVNode("input", {
                         "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => vue.unref(settings$1).bookshelfClickAction = $event),
                         type: "radio",
@@ -7212,7 +9039,7 @@
                       ]),
                       _cache[42] || (_cache[42] = vue.createElementVNode("span", null, "继续阅读", -1))
                     ]),
-                    vue.createElementVNode("label", _hoisted_17$1, [
+                    vue.createElementVNode("label", _hoisted_17$3, [
                       vue.withDirectives(vue.createElementVNode("input", {
                         "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => vue.unref(settings$1).bookshelfClickAction = $event),
                         type: "radio",
@@ -7227,7 +9054,7 @@
                 ])
               ], 64)) : active.value === "search" ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 2 }, [
                 _cache[50] || (_cache[50] = vue.createElementVNode("h3", { class: "fqa-set-h" }, "搜索", -1)),
-                vue.createElementVNode("label", _hoisted_18$1, [
+                vue.createElementVNode("label", _hoisted_18$3, [
                   _cache[47] || (_cache[47] = vue.createElementVNode("span", { class: "fqa-set-label" }, "接管搜索界面", -1)),
                   vue.withDirectives(vue.createElementVNode("input", {
                     "onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => vue.unref(settings$1).enhanceSearch = $event),
@@ -7237,8 +9064,8 @@
                     [vue.vModelCheckbox, vue.unref(settings$1).enhanceSearch]
                   ])
                 ]),
-                vue.createElementVNode("div", _hoisted_19$1, [
-                  vue.createElementVNode("label", _hoisted_20, [
+                vue.createElementVNode("div", _hoisted_19$3, [
+                  vue.createElementVNode("label", _hoisted_20$2, [
                     _cache[48] || (_cache[48] = vue.createElementVNode("span", { class: "fqa-set-label" }, "个人化推荐", -1)),
                     vue.withDirectives(vue.createElementVNode("input", {
                       "onUpdate:modelValue": _cache[11] || (_cache[11] = ($event) => vue.unref(settings$1).searchPersonalized = $event),
@@ -7252,7 +9079,7 @@
                 ])
               ], 64)) : active.value === "download" ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 3 }, [
                 _cache[71] || (_cache[71] = vue.createElementVNode("h3", { class: "fqa-set-h" }, "下载", -1)),
-                vue.createElementVNode("label", _hoisted_21, [
+                vue.createElementVNode("label", _hoisted_21$2, [
                   _cache[51] || (_cache[51] = vue.createElementVNode("span", { class: "fqa-set-label" }, "显示下载入口", -1)),
                   vue.withDirectives(vue.createElementVNode("input", {
                     "onUpdate:modelValue": _cache[12] || (_cache[12] = ($event) => vue.unref(settings$1).enableDownload = $event),
@@ -7262,10 +9089,10 @@
                     [vue.vModelCheckbox, vue.unref(settings$1).enableDownload]
                   ])
                 ]),
-                vue.createElementVNode("div", _hoisted_22, [
+                vue.createElementVNode("div", _hoisted_22$2, [
                   _cache[54] || (_cache[54] = vue.createElementVNode("span", { class: "fqa-set-label" }, "默认格式", -1)),
-                  vue.createElementVNode("div", _hoisted_23, [
-                    vue.createElementVNode("label", _hoisted_24, [
+                  vue.createElementVNode("div", _hoisted_23$2, [
+                    vue.createElementVNode("label", _hoisted_24$2, [
                       vue.withDirectives(vue.createElementVNode("input", {
                         "onUpdate:modelValue": _cache[13] || (_cache[13] = ($event) => vue.unref(settings$1).downloadFormat = $event),
                         type: "radio",
@@ -7275,7 +9102,7 @@
                       ]),
                       _cache[52] || (_cache[52] = vue.createElementVNode("span", null, "EPUB", -1))
                     ]),
-                    vue.createElementVNode("label", _hoisted_25, [
+                    vue.createElementVNode("label", _hoisted_25$1, [
                       vue.withDirectives(vue.createElementVNode("input", {
                         "onUpdate:modelValue": _cache[14] || (_cache[14] = ($event) => vue.unref(settings$1).downloadFormat = $event),
                         type: "radio",
@@ -7288,10 +9115,10 @@
                   ]),
                   _cache[55] || (_cache[55] = vue.createElementVNode("p", { class: "fqa-set-note" }, " EPUB 保留原始排版、插图与分卷目录；TXT 是纯文本。右键菜单里可以单次指定格式。 ", -1))
                 ]),
-                vue.createElementVNode("div", _hoisted_26, [
+                vue.createElementVNode("div", _hoisted_26$1, [
                   _cache[58] || (_cache[58] = vue.createElementVNode("span", { class: "fqa-set-label" }, "TXT 编码", -1)),
-                  vue.createElementVNode("div", _hoisted_27, [
-                    vue.createElementVNode("label", _hoisted_28, [
+                  vue.createElementVNode("div", _hoisted_27$1, [
+                    vue.createElementVNode("label", _hoisted_28$1, [
                       vue.withDirectives(vue.createElementVNode("input", {
                         "onUpdate:modelValue": _cache[15] || (_cache[15] = ($event) => vue.unref(settings$1).downloadCharset = $event),
                         type: "radio",
@@ -7301,7 +9128,7 @@
                       ]),
                       _cache[56] || (_cache[56] = vue.createElementVNode("span", null, "UTF-8", -1))
                     ]),
-                    vue.createElementVNode("label", _hoisted_29, [
+                    vue.createElementVNode("label", _hoisted_29$1, [
                       vue.withDirectives(vue.createElementVNode("input", {
                         "onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => vue.unref(settings$1).downloadCharset = $event),
                         type: "radio",
@@ -7314,9 +9141,9 @@
                   ]),
                   _cache[59] || (_cache[59] = vue.createElementVNode("p", { class: "fqa-set-note" }, "EPUB 固定使用 UTF-8。老设备或部分阅读器可能需要 GBK。", -1))
                 ]),
-                vue.createElementVNode("div", _hoisted_30, [
+                vue.createElementVNode("div", _hoisted_30$1, [
                   _cache[63] || (_cache[63] = vue.createElementVNode("span", { class: "fqa-set-label" }, "EPUB 选项", -1)),
-                  vue.createElementVNode("label", _hoisted_31, [
+                  vue.createElementVNode("label", _hoisted_31$1, [
                     _cache[60] || (_cache[60] = vue.createElementVNode("span", { class: "fqa-set-label" }, "下载正文插图", -1)),
                     vue.withDirectives(vue.createElementVNode("input", {
                       "onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => vue.unref(settings$1).downloadImages = $event),
@@ -7326,7 +9153,7 @@
                       [vue.vModelCheckbox, vue.unref(settings$1).downloadImages]
                     ])
                   ]),
-                  vue.createElementVNode("label", _hoisted_32, [
+                  vue.createElementVNode("label", _hoisted_32$1, [
                     _cache[61] || (_cache[61] = vue.createElementVNode("span", { class: "fqa-set-label" }, "保留书籍排版样式", -1)),
                     vue.withDirectives(vue.createElementVNode("input", {
                       "onUpdate:modelValue": _cache[18] || (_cache[18] = ($event) => vue.unref(settings$1).downloadBookCss = $event),
@@ -7336,7 +9163,7 @@
                       [vue.vModelCheckbox, vue.unref(settings$1).downloadBookCss]
                     ])
                   ]),
-                  vue.createElementVNode("label", _hoisted_33, [
+                  vue.createElementVNode("label", _hoisted_33$1, [
                     _cache[62] || (_cache[62] = vue.createElementVNode("span", { class: "fqa-set-label" }, "为每卷生成卷页", -1)),
                     vue.withDirectives(vue.createElementVNode("input", {
                       "onUpdate:modelValue": _cache[19] || (_cache[19] = ($event) => vue.unref(settings$1).downloadVolumePage = $event),
@@ -7348,10 +9175,10 @@
                   ]),
                   _cache[64] || (_cache[64] = vue.createElementVNode("p", { class: "fqa-set-note" }, " 插图逐张下载，图多的书会明显变慢、文件也更大；关闭后正文里仍保留图片地址，联网可看。 ", -1))
                 ]),
-                vue.createElementVNode("div", _hoisted_34, [
+                vue.createElementVNode("div", _hoisted_34$1, [
                   _cache[68] || (_cache[68] = vue.createElementVNode("span", { class: "fqa-set-label" }, "请求节奏", -1)),
                   _cache[69] || (_cache[69] = vue.createElementVNode("p", { class: "fqa-set-warn" }, " 接口对批量正文有限制，调得太激进会导致大量章节抓不到甚至触发风控。不清楚就别改。 ", -1)),
-                  vue.createElementVNode("label", _hoisted_35, [
+                  vue.createElementVNode("label", _hoisted_35$1, [
                     _cache[65] || (_cache[65] = vue.createElementVNode("span", null, "每批章节数（1-30）", -1)),
                     vue.withDirectives(vue.createElementVNode("input", {
                       "onUpdate:modelValue": _cache[20] || (_cache[20] = ($event) => vue.unref(settings$1).downloadBatchSize = $event),
@@ -7368,7 +9195,7 @@
                       ]
                     ])
                   ]),
-                  vue.createElementVNode("label", _hoisted_36, [
+                  vue.createElementVNode("label", _hoisted_36$1, [
                     _cache[66] || (_cache[66] = vue.createElementVNode("span", null, "批次间隔 (ms)", -1)),
                     vue.withDirectives(vue.createElementVNode("input", {
                       "onUpdate:modelValue": _cache[21] || (_cache[21] = ($event) => vue.unref(settings$1).downloadInterval = $event),
@@ -7386,7 +9213,7 @@
                       ]
                     ])
                   ]),
-                  vue.createElementVNode("label", _hoisted_37, [
+                  vue.createElementVNode("label", _hoisted_37$1, [
                     _cache[67] || (_cache[67] = vue.createElementVNode("span", null, "重试轮数", -1)),
                     vue.withDirectives(vue.createElementVNode("input", {
                       "onUpdate:modelValue": _cache[22] || (_cache[22] = ($event) => vue.unref(settings$1).downloadRetries = $event),
@@ -7413,10 +9240,10 @@
                 ])
               ], 64)) : active.value === "audiobook" ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 4 }, [
                 _cache[77] || (_cache[77] = vue.createElementVNode("h3", { class: "fqa-set-h" }, "听书", -1)),
-                vue.createElementVNode("div", _hoisted_38, [
+                vue.createElementVNode("div", _hoisted_38$1, [
                   _cache[74] || (_cache[74] = vue.createElementVNode("span", { class: "fqa-set-label" }, "读完一章后", -1)),
-                  vue.createElementVNode("div", _hoisted_39, [
-                    vue.createElementVNode("label", _hoisted_40, [
+                  vue.createElementVNode("div", _hoisted_39$1, [
+                    vue.createElementVNode("label", _hoisted_40$1, [
                       vue.withDirectives(vue.createElementVNode("input", {
                         "onUpdate:modelValue": _cache[23] || (_cache[23] = ($event) => vue.unref(settings$1).audiobookChapterEnd = $event),
                         type: "radio",
@@ -7426,7 +9253,7 @@
                       ]),
                       _cache[72] || (_cache[72] = vue.createElementVNode("span", null, "自动下一章", -1))
                     ]),
-                    vue.createElementVNode("label", _hoisted_41, [
+                    vue.createElementVNode("label", _hoisted_41$1, [
                       vue.withDirectives(vue.createElementVNode("input", {
                         "onUpdate:modelValue": _cache[24] || (_cache[24] = ($event) => vue.unref(settings$1).audiobookChapterEnd = $event),
                         type: "radio",
@@ -7439,7 +9266,7 @@
                   ]),
                   _cache[75] || (_cache[75] = vue.createElementVNode("p", { class: "fqa-set-note" }, " 自动下一章会点击页面上的「下一章」，读到全书最后一章时自动停下。 ", -1))
                 ]),
-                vue.createElementVNode("label", _hoisted_42, [
+                vue.createElementVNode("label", _hoisted_42$1, [
                   _cache[76] || (_cache[76] = vue.createElementVNode("span", { class: "fqa-set-label" }, "高亮并跟随朗读段落", -1)),
                   vue.withDirectives(vue.createElementVNode("input", {
                     "onUpdate:modelValue": _cache[25] || (_cache[25] = ($event) => vue.unref(settings$1).audiobookFollow = $event),
@@ -7452,10 +9279,10 @@
                 _cache[78] || (_cache[78] = vue.createElementVNode("p", { class: "fqa-set-note" }, " 关闭后仍会高亮当前段落，但不再自动滚动页面。点击任意段落可跳到该处朗读。 ", -1))
               ], 64)) : active.value === "protocol" ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 5 }, [
                 _cache[88] || (_cache[88] = vue.createElementVNode("h3", { class: "fqa-set-h" }, "协议", -1)),
-                vue.createElementVNode("div", _hoisted_43, [
+                vue.createElementVNode("div", _hoisted_43$1, [
                   _cache[81] || (_cache[81] = vue.createElementVNode("span", { class: "fqa-set-label" }, "API 偏好", -1)),
-                  vue.createElementVNode("div", _hoisted_44, [
-                    vue.createElementVNode("label", _hoisted_45, [
+                  vue.createElementVNode("div", _hoisted_44$1, [
+                    vue.createElementVNode("label", _hoisted_45$1, [
                       vue.withDirectives(vue.createElementVNode("input", {
                         "onUpdate:modelValue": _cache[26] || (_cache[26] = ($event) => vue.unref(settings$1).apiPreference = $event),
                         type: "radio",
@@ -7465,7 +9292,7 @@
                       ]),
                       _cache[79] || (_cache[79] = vue.createElementVNode("span", null, "番茄 APP", -1))
                     ]),
-                    vue.createElementVNode("label", _hoisted_46, [
+                    vue.createElementVNode("label", _hoisted_46$1, [
                       vue.withDirectives(vue.createElementVNode("input", {
                         "onUpdate:modelValue": _cache[27] || (_cache[27] = ($event) => vue.unref(settings$1).apiPreference = $event),
                         type: "radio",
@@ -7478,55 +9305,55 @@
                   ]),
                   _cache[82] || (_cache[82] = vue.createElementVNode("p", { class: "fqa-set-note" }, "如果某协议数据不全，脚本可能会选择其他接口作为补充。", -1))
                 ]),
-                vue.createElementVNode("div", _hoisted_47, [
+                vue.createElementVNode("div", _hoisted_47$1, [
                   _cache[86] || (_cache[86] = vue.createElementVNode("span", { class: "fqa-set-label" }, "设备信息", -1)),
                   _cache[87] || (_cache[87] = vue.createElementVNode("p", { class: "fqa-set-warn" }, " 如果不知道这是什么，请保持默认。乱填可能导致脚本功能异常。 ", -1)),
-                  vue.createElementVNode("label", _hoisted_48, [
+                  vue.createElementVNode("label", _hoisted_48$1, [
                     _cache[83] || (_cache[83] = vue.createElementVNode("span", null, "device_id", -1)),
                     vue.withDirectives(vue.createElementVNode("input", {
                       "onUpdate:modelValue": _cache[28] || (_cache[28] = ($event) => vue.unref(settings$1).deviceId = $event),
                       class: "fqa-set-input",
                       type: "text",
                       placeholder: currentDevice.value.device_id || "自动注册"
-                    }, null, 8, _hoisted_49), [
+                    }, null, 8, _hoisted_49$1), [
                       [vue.vModelText, vue.unref(settings$1).deviceId]
                     ])
                   ]),
-                  vue.createElementVNode("label", _hoisted_50, [
+                  vue.createElementVNode("label", _hoisted_50$1, [
                     _cache[84] || (_cache[84] = vue.createElementVNode("span", null, "install_id (iid)", -1)),
                     vue.withDirectives(vue.createElementVNode("input", {
                       "onUpdate:modelValue": _cache[29] || (_cache[29] = ($event) => vue.unref(settings$1).installId = $event),
                       class: "fqa-set-input",
                       type: "text",
                       placeholder: currentDevice.value.install_id || "自动注册"
-                    }, null, 8, _hoisted_51), [
+                    }, null, 8, _hoisted_51$1), [
                       [vue.vModelText, vue.unref(settings$1).installId]
                     ])
                   ]),
-                  vue.createElementVNode("label", _hoisted_52, [
+                  vue.createElementVNode("label", _hoisted_52$1, [
                     _cache[85] || (_cache[85] = vue.createElementVNode("span", null, "device_type", -1)),
                     vue.withDirectives(vue.createElementVNode("input", {
                       "onUpdate:modelValue": _cache[30] || (_cache[30] = ($event) => vue.unref(settings$1).deviceType = $event),
                       class: "fqa-set-input",
                       type: "text",
                       placeholder: currentDevice.value.device_type || "自动注册"
-                    }, null, 8, _hoisted_53), [
+                    }, null, 8, _hoisted_53$1), [
                       [vue.vModelText, vue.unref(settings$1).deviceType]
                     ])
                   ]),
-                  vue.createElementVNode("div", _hoisted_54, [
+                  vue.createElementVNode("div", _hoisted_54$1, [
                     vue.createElementVNode("button", {
                       class: "fqa-set-btn",
                       disabled: registering.value,
                       onClick: reRegister
-                    }, vue.toDisplayString(registering.value ? "注册中…" : "重新注册"), 9, _hoisted_55),
-                    registerMsg.value ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_56, vue.toDisplayString(registerMsg.value), 1)) : vue.createCommentVNode("", true)
+                    }, vue.toDisplayString(registering.value ? "注册中…" : "重新注册"), 9, _hoisted_55$1),
+                    registerMsg.value ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_56$1, vue.toDisplayString(registerMsg.value), 1)) : vue.createCommentVNode("", true)
                   ])
                 ])
               ], 64)) : (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 6 }, [
                 _cache[93] || (_cache[93] = vue.createElementVNode("h3", { class: "fqa-set-h" }, "关于", -1)),
-                vue.createElementVNode("p", _hoisted_57, "番茄小说助手 v" + vue.toDisplayString(vue.unref(version)), 1),
-                vue.createElementVNode("div", _hoisted_58, [
+                vue.createElementVNode("p", _hoisted_57$1, "番茄小说助手 v" + vue.toDisplayString(vue.unref(version)), 1),
+                vue.createElementVNode("div", _hoisted_58$1, [
                   vue.createElementVNode("div", { class: "fqa-set-link-row" }, [
                     _cache[89] || (_cache[89] = vue.createElementVNode("span", null, "GreasyFork 地址：", -1)),
                     vue.createElementVNode("a", {
@@ -7543,7 +9370,7 @@
                       rel: "noreferrer noopener"
                     }, "跳转")
                   ]),
-                  vue.createElementVNode("div", _hoisted_59, [
+                  vue.createElementVNode("div", _hoisted_59$1, [
                     _cache[92] || (_cache[92] = vue.createElementVNode("span", null, "问题反馈：", -1)),
                     vue.createElementVNode("a", {
                       href: FEEDBACK,
@@ -7556,7 +9383,7 @@
                         href: `${GITHUB}/issues`,
                         target: "_blank",
                         rel: "noreferrer noopener"
-                      }, " GitHub Issues ", 8, _hoisted_60)
+                      }, " GitHub Issues ", 8, _hoisted_60$1)
                     ])
                   ])
                 ]),
@@ -7571,15 +9398,15 @@
       };
     }
   });
-  const settingscss = "/* 助手设置面板 */\r\n\r\n.fqa-set-mask {\r\n    position: fixed;\r\n    inset: 0;\r\n    z-index: 2147483200;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    background: rgba(0, 0, 0, 0.45);\r\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\r\n        sans-serif;\r\n    font-size: 14px;\r\n    line-height: 1.6;\r\n    color: var(--fqa-set-text, #1f2329);\r\n}\r\n\r\n.fqa-set-dialog {\r\n    --fqa-set-bg: #fff;\r\n    --fqa-set-side-bg: #f7f8fa;\r\n    --fqa-set-text: #1f2329;\r\n    --fqa-set-sub: #8f959e;\r\n    --fqa-set-border: rgba(31, 35, 41, 0.1);\r\n    --fqa-set-accent: #ff6f3d;\r\n    --fqa-set-hover: rgba(31, 35, 41, 0.05);\r\n\r\n    position: relative;\r\n    display: flex;\r\n    width: min(760px, 92vw);\r\n    height: min(520px, 84vh);\r\n    background: var(--fqa-set-bg);\r\n    color: var(--fqa-set-text);\r\n    border-radius: 12px;\r\n    overflow: hidden;\r\n    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.24);\r\n}\r\n\r\n.fqa-set-close {\r\n    position: absolute;\r\n    top: 10px;\r\n    right: 12px;\r\n    width: 28px;\r\n    height: 28px;\r\n    padding: 0;\r\n    border: none;\r\n    border-radius: 6px;\r\n    background: transparent;\r\n    color: var(--fqa-set-sub);\r\n    font-size: 15px;\r\n    line-height: 1;\r\n    cursor: pointer;\r\n}\r\n\r\n.fqa-set-close:hover {\r\n    background: var(--fqa-set-hover);\r\n    color: var(--fqa-set-text);\r\n}\r\n\r\n/* 左侧栏 */\r\n.fqa-set-side {\r\n    flex: 0 0 148px;\r\n    padding: 16px 8px;\r\n    box-sizing: border-box;\r\n    background: var(--fqa-set-side-bg);\r\n    border-right: 1px solid var(--fqa-set-border);\r\n    overflow-y: auto;\r\n}\r\n\r\n.fqa-set-side-title {\r\n    padding: 0 10px 12px;\r\n    font-size: 15px;\r\n    font-weight: 600;\r\n}\r\n\r\n.fqa-set-nav {\r\n    padding: 8px 10px;\r\n    margin-bottom: 2px;\r\n    border-radius: 6px;\r\n    cursor: pointer;\r\n    user-select: none;\r\n}\r\n\r\n.fqa-set-nav:hover {\r\n    background: var(--fqa-set-hover);\r\n}\r\n\r\n.fqa-set-nav-active {\r\n    background: var(--fqa-set-hover);\r\n    color: var(--fqa-set-accent);\r\n    font-weight: 600;\r\n}\r\n\r\n/* 右侧内容 */\r\n.fqa-set-main {\r\n    flex: 1 1 auto;\r\n    padding: 20px 24px;\r\n    box-sizing: border-box;\r\n    overflow-y: auto;\r\n}\r\n\r\n.fqa-set-h {\r\n    margin: 0 0 14px;\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n}\r\n\r\n.fqa-set-row {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    gap: 16px;\r\n    padding: 10px 0;\r\n    border-bottom: 1px solid var(--fqa-set-border);\r\n}\r\n\r\n.fqa-set-row:last-child {\r\n    border-bottom: none;\r\n}\r\n\r\n.fqa-set-row-col {\r\n    display: block;\r\n}\r\n\r\n.fqa-set-label {\r\n    font-size: 14px;\r\n}\r\n\r\n.fqa-set-note {\r\n    margin: 6px 0 0;\r\n    font-size: 12px;\r\n    color: var(--fqa-set-sub);\r\n}\r\n\r\n.fqa-set-warn {\r\n    margin: 6px 0 10px;\r\n    padding: 8px 10px;\r\n    font-size: 12px;\r\n    color: #a8371f;\r\n    background: rgba(255, 111, 61, 0.1);\r\n    border-left: 3px solid var(--fqa-set-accent);\r\n    border-radius: 0 4px 4px 0;\r\n}\r\n\r\n/* 开关：用原生 checkbox 改造，避免额外依赖 */\r\n.fqa-set-switch {\r\n    appearance: none;\r\n    flex: 0 0 auto;\r\n    position: relative;\r\n    width: 38px;\r\n    height: 22px;\r\n    margin: 0;\r\n    border-radius: 11px;\r\n    background: rgba(31, 35, 41, 0.18);\r\n    cursor: pointer;\r\n    transition: background 0.18s ease;\r\n}\r\n\r\n.fqa-set-switch::after {\r\n    content: '';\r\n    position: absolute;\r\n    top: 2px;\r\n    left: 2px;\r\n    width: 18px;\r\n    height: 18px;\r\n    border-radius: 50%;\r\n    background: #fff;\r\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);\r\n    transition: transform 0.18s ease;\r\n}\r\n\r\n.fqa-set-switch:checked {\r\n    background: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-switch:checked::after {\r\n    transform: translateX(16px);\r\n}\r\n\r\n.fqa-set-input {\r\n    width: 100%;\r\n    margin-top: 8px;\r\n    padding: 7px 10px;\r\n    box-sizing: border-box;\r\n    border: 1px solid var(--fqa-set-border);\r\n    border-radius: 6px;\r\n    background: var(--fqa-set-bg);\r\n    color: var(--fqa-set-text);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n}\r\n\r\n.fqa-set-input:focus {\r\n    outline: none;\r\n    border-color: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-textarea {\r\n    width: 100%;\r\n    min-height: 150px;\r\n    margin-top: 10px;\r\n    padding: 10px;\r\n    box-sizing: border-box;\r\n    border: 1px solid var(--fqa-set-border);\r\n    border-radius: 6px;\r\n    background: var(--fqa-set-bg);\r\n    color: var(--fqa-set-text);\r\n    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;\r\n    font-size: 12px;\r\n    line-height: 1.6;\r\n    resize: vertical;\r\n}\r\n\r\n.fqa-set-textarea:disabled {\r\n    background: var(--fqa-set-side-bg);\r\n    color: var(--fqa-set-sub);\r\n    cursor: not-allowed;\r\n}\r\n\r\n.fqa-set-textarea:focus {\r\n    outline: none;\r\n    border-color: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-radios {\r\n    display: flex;\r\n    gap: 20px;\r\n    margin-top: 8px;\r\n}\r\n\r\n.fqa-set-radio {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    cursor: pointer;\r\n}\r\n\r\n.fqa-set-radio input {\r\n    accent-color: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-field {\r\n    display: block;\r\n    margin-top: 10px;\r\n    font-size: 12px;\r\n    color: var(--fqa-set-sub);\r\n}\r\n\r\n.fqa-set-actions {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 12px;\r\n    margin-top: 14px;\r\n}\r\n\r\n.fqa-set-btn {\r\n    padding: 7px 16px;\r\n    border: 1px solid var(--fqa-set-border);\r\n    border-radius: 6px;\r\n    background: var(--fqa-set-bg);\r\n    color: var(--fqa-set-text);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n    cursor: pointer;\r\n}\r\n\r\n.fqa-set-btn:hover:not(:disabled) {\r\n    border-color: var(--fqa-set-accent);\r\n    color: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-btn:disabled {\r\n    color: var(--fqa-set-sub);\r\n    cursor: not-allowed;\r\n}\r\n\r\n/* 关于 */\r\n.fqa-set-links {\r\n    margin-top: 12px;\r\n}\r\n\r\n.fqa-set-link-row {\r\n    margin-bottom: 10px;\r\n    font-size: 13px;\r\n    word-break: break-all;\r\n}\r\n\r\n.fqa-set-link-row a {\r\n    color: var(--fqa-set-accent);\r\n    text-decoration: none;\r\n}\r\n\r\n.fqa-set-link-row a:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\n.fqa-set-license {\r\n    margin-top: 20px;\r\n    padding-top: 14px;\r\n    border-top: 1px solid var(--fqa-set-border);\r\n    font-size: 12px;\r\n    color: var(--fqa-set-sub);\r\n}\r\n\r\n.fqa-set-license p {\r\n    margin: 0 0 6px;\r\n}\r\n\r\n/* 深色 */\r\n@media (prefers-color-scheme: dark) {\r\n    .fqa-set-dialog {\r\n        --fqa-set-bg: #23272e;\r\n        --fqa-set-side-bg: #1c2026;\r\n        --fqa-set-text: #e5e6eb;\r\n        --fqa-set-sub: #8f959e;\r\n        --fqa-set-border: rgba(255, 255, 255, 0.12);\r\n        --fqa-set-hover: rgba(255, 255, 255, 0.08);\r\n    }\r\n\r\n    .fqa-set-switch {\r\n        background: rgba(255, 255, 255, 0.2);\r\n    }\r\n\r\n    .fqa-set-warn {\r\n        color: #ffb59b;\r\n    }\r\n}\r\n";
+  const settingscss = "/* 助手设置面板 */\r\n\r\n.fqa-set-mask {\r\n    position: fixed;\r\n    inset: 0;\r\n    /* 设置是全局模态框，必须盖住页面上所有常驻层：听书悬浮栏 2147483650、\r\n       阅读器工具栏 2147483602、段评抽屉 2147483601、下载进度 2147483300。\r\n       设置打开时听书栏被遮罩压住是正确行为（用户点遮罩即可关闭设置回到听书）。 */\r\n    z-index: 2147483660;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    background: rgba(0, 0, 0, 0.45);\r\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\r\n        sans-serif;\r\n    font-size: 14px;\r\n    line-height: 1.6;\r\n    color: var(--fqa-set-text, #1f2329);\r\n}\r\n\r\n.fqa-set-dialog {\r\n    --fqa-set-bg: #fff;\r\n    --fqa-set-side-bg: #f7f8fa;\r\n    --fqa-set-text: #1f2329;\r\n    --fqa-set-sub: #8f959e;\r\n    --fqa-set-border: rgba(31, 35, 41, 0.1);\r\n    --fqa-set-accent: #ff6f3d;\r\n    --fqa-set-hover: rgba(31, 35, 41, 0.05);\r\n\r\n    position: relative;\r\n    display: flex;\r\n    width: min(760px, 92vw);\r\n    height: min(520px, 84vh);\r\n    background: var(--fqa-set-bg);\r\n    color: var(--fqa-set-text);\r\n    border-radius: 12px;\r\n    overflow: hidden;\r\n    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.24);\r\n}\r\n\r\n.fqa-set-close {\r\n    position: absolute;\r\n    top: 10px;\r\n    right: 12px;\r\n    width: 28px;\r\n    height: 28px;\r\n    padding: 0;\r\n    border: none;\r\n    border-radius: 6px;\r\n    background: transparent;\r\n    color: var(--fqa-set-sub);\r\n    font-size: 15px;\r\n    line-height: 1;\r\n    cursor: pointer;\r\n}\r\n\r\n.fqa-set-close:hover {\r\n    background: var(--fqa-set-hover);\r\n    color: var(--fqa-set-text);\r\n}\r\n\r\n/* 左侧栏 */\r\n.fqa-set-side {\r\n    flex: 0 0 148px;\r\n    padding: 16px 8px;\r\n    box-sizing: border-box;\r\n    background: var(--fqa-set-side-bg);\r\n    border-right: 1px solid var(--fqa-set-border);\r\n    overflow-y: auto;\r\n}\r\n\r\n.fqa-set-side-title {\r\n    padding: 0 10px 12px;\r\n    font-size: 15px;\r\n    font-weight: 600;\r\n}\r\n\r\n.fqa-set-nav {\r\n    padding: 8px 10px;\r\n    margin-bottom: 2px;\r\n    border-radius: 6px;\r\n    cursor: pointer;\r\n    user-select: none;\r\n}\r\n\r\n.fqa-set-nav:hover {\r\n    background: var(--fqa-set-hover);\r\n}\r\n\r\n.fqa-set-nav-active {\r\n    background: var(--fqa-set-hover);\r\n    color: var(--fqa-set-accent);\r\n    font-weight: 600;\r\n}\r\n\r\n/* 右侧内容 */\r\n.fqa-set-main {\r\n    flex: 1 1 auto;\r\n    padding: 20px 24px;\r\n    box-sizing: border-box;\r\n    overflow-y: auto;\r\n}\r\n\r\n.fqa-set-h {\r\n    margin: 0 0 14px;\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n}\r\n\r\n.fqa-set-row {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    gap: 16px;\r\n    padding: 10px 0;\r\n    border-bottom: 1px solid var(--fqa-set-border);\r\n}\r\n\r\n.fqa-set-row:last-child {\r\n    border-bottom: none;\r\n}\r\n\r\n.fqa-set-row-col {\r\n    display: block;\r\n}\r\n\r\n.fqa-set-label {\r\n    font-size: 14px;\r\n}\r\n\r\n.fqa-set-note {\r\n    margin: 6px 0 0;\r\n    font-size: 12px;\r\n    color: var(--fqa-set-sub);\r\n}\r\n\r\n.fqa-set-warn {\r\n    margin: 6px 0 10px;\r\n    padding: 8px 10px;\r\n    font-size: 12px;\r\n    color: #a8371f;\r\n    background: rgba(255, 111, 61, 0.1);\r\n    border-left: 3px solid var(--fqa-set-accent);\r\n    border-radius: 0 4px 4px 0;\r\n}\r\n\r\n/* 开关：用原生 checkbox 改造，避免额外依赖 */\r\n.fqa-set-switch {\r\n    appearance: none;\r\n    flex: 0 0 auto;\r\n    position: relative;\r\n    width: 38px;\r\n    height: 22px;\r\n    margin: 0;\r\n    border-radius: 11px;\r\n    background: rgba(31, 35, 41, 0.18);\r\n    cursor: pointer;\r\n    transition: background 0.18s ease;\r\n}\r\n\r\n.fqa-set-switch::after {\r\n    content: '';\r\n    position: absolute;\r\n    top: 2px;\r\n    left: 2px;\r\n    width: 18px;\r\n    height: 18px;\r\n    border-radius: 50%;\r\n    background: #fff;\r\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);\r\n    transition: transform 0.18s ease;\r\n}\r\n\r\n.fqa-set-switch:checked {\r\n    background: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-switch:checked::after {\r\n    transform: translateX(16px);\r\n}\r\n\r\n.fqa-set-input {\r\n    width: 100%;\r\n    margin-top: 8px;\r\n    padding: 7px 10px;\r\n    box-sizing: border-box;\r\n    border: 1px solid var(--fqa-set-border);\r\n    border-radius: 6px;\r\n    background: var(--fqa-set-bg);\r\n    color: var(--fqa-set-text);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n}\r\n\r\n.fqa-set-input:focus {\r\n    outline: none;\r\n    border-color: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-textarea {\r\n    width: 100%;\r\n    min-height: 150px;\r\n    margin-top: 10px;\r\n    padding: 10px;\r\n    box-sizing: border-box;\r\n    border: 1px solid var(--fqa-set-border);\r\n    border-radius: 6px;\r\n    background: var(--fqa-set-bg);\r\n    color: var(--fqa-set-text);\r\n    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;\r\n    font-size: 12px;\r\n    line-height: 1.6;\r\n    resize: vertical;\r\n}\r\n\r\n.fqa-set-textarea:disabled {\r\n    background: var(--fqa-set-side-bg);\r\n    color: var(--fqa-set-sub);\r\n    cursor: not-allowed;\r\n}\r\n\r\n.fqa-set-textarea:focus {\r\n    outline: none;\r\n    border-color: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-radios {\r\n    display: flex;\r\n    gap: 20px;\r\n    margin-top: 8px;\r\n}\r\n\r\n.fqa-set-radio {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    cursor: pointer;\r\n}\r\n\r\n.fqa-set-radio input {\r\n    accent-color: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-field {\r\n    display: block;\r\n    margin-top: 10px;\r\n    font-size: 12px;\r\n    color: var(--fqa-set-sub);\r\n}\r\n\r\n.fqa-set-actions {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 12px;\r\n    margin-top: 14px;\r\n}\r\n\r\n.fqa-set-btn {\r\n    padding: 7px 16px;\r\n    border: 1px solid var(--fqa-set-border);\r\n    border-radius: 6px;\r\n    background: var(--fqa-set-bg);\r\n    color: var(--fqa-set-text);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n    cursor: pointer;\r\n}\r\n\r\n.fqa-set-btn:hover:not(:disabled) {\r\n    border-color: var(--fqa-set-accent);\r\n    color: var(--fqa-set-accent);\r\n}\r\n\r\n.fqa-set-btn:disabled {\r\n    color: var(--fqa-set-sub);\r\n    cursor: not-allowed;\r\n}\r\n\r\n/* 关于 */\r\n.fqa-set-links {\r\n    margin-top: 12px;\r\n}\r\n\r\n.fqa-set-link-row {\r\n    margin-bottom: 10px;\r\n    font-size: 13px;\r\n    word-break: break-all;\r\n}\r\n\r\n.fqa-set-link-row a {\r\n    color: var(--fqa-set-accent);\r\n    text-decoration: none;\r\n}\r\n\r\n.fqa-set-link-row a:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\n.fqa-set-license {\r\n    margin-top: 20px;\r\n    padding-top: 14px;\r\n    border-top: 1px solid var(--fqa-set-border);\r\n    font-size: 12px;\r\n    color: var(--fqa-set-sub);\r\n}\r\n\r\n.fqa-set-license p {\r\n    margin: 0 0 6px;\r\n}\r\n\r\n/* 深色 */\r\n@media (prefers-color-scheme: dark) {\r\n    .fqa-set-dialog {\r\n        --fqa-set-bg: #23272e;\r\n        --fqa-set-side-bg: #1c2026;\r\n        --fqa-set-text: #e5e6eb;\r\n        --fqa-set-sub: #8f959e;\r\n        --fqa-set-border: rgba(255, 255, 255, 0.12);\r\n        --fqa-set-hover: rgba(255, 255, 255, 0.08);\r\n    }\r\n\r\n    .fqa-set-switch {\r\n        background: rgba(255, 255, 255, 0.2);\r\n    }\r\n\r\n    .fqa-set-warn {\r\n        color: #ffb59b;\r\n    }\r\n}\r\n";
   const CONTAINER_ID$3 = "fqa-settings-root";
-  const STYLE_ID$4 = "fqa-settings-style";
+  const STYLE_ID$6 = "fqa-settings-style";
   let app$3 = null;
   let container$3 = null;
-  function injectStyle$4() {
-    if (document.getElementById(STYLE_ID$4)) return;
+  function injectStyle$5() {
+    if (document.getElementById(STYLE_ID$6)) return;
     const style = document.createElement("style");
-    style.id = STYLE_ID$4;
+    style.id = STYLE_ID$6;
     style.textContent = settingscss;
     document.head.appendChild(style);
   }
@@ -7591,12 +9418,12 @@
   }
   function openSettings() {
     if (app$3) return;
-    injectStyle$4();
+    injectStyle$5();
     container$3 = document.createElement("div");
     container$3.id = CONTAINER_ID$3;
     document.body.appendChild(container$3);
     app$3 = vue.createApp({
-      render: () => vue.h(_sfc_main$9, { onClose: closeSettings })
+      render: () => vue.h(_sfc_main$a, { onClose: closeSettings })
     });
     app$3.config.errorHandler = (err, _instance, info) => {
       console.error(`[fqa:settings] Vue error (${info}):`, err);
@@ -7714,10 +9541,10 @@
       registerBtn.insertAdjacentElement("afterend", entry);
     };
     const scan = (root) => {
-      root.querySelectorAll(".slogin-user-avatar__buttons__item").forEach((el) => {
+      root.querySelectorAll(".slogin-user-avatar__buttons__item").forEach((el2) => {
         var _a;
-        if (el.classList.contains("fqa-settings-entry")) return;
-        if (((_a = el.textContent) == null ? void 0 : _a.trim()) === "注册") inject2(el);
+        if (el2.classList.contains("fqa-settings-entry")) return;
+        if (((_a = el2.textContent) == null ? void 0 : _a.trim()) === "注册") inject2(el2);
       });
     };
     const observer2 = new MutationObserver((mutations) => {
@@ -7736,7 +9563,7 @@
   function guestFilter(path, _query, _hash) {
     return !userState.isLogin && !path.startsWith("/writer") && !path.startsWith("/welfare");
   }
-  const _exports$3 = [
+  const _exports$4 = [
     {
       id: "userHook",
       event: "load",
@@ -7775,16 +9602,16 @@
       console.warn("[fqa:nav] 新标签页被拦截，请检查浏览器的弹窗设置:", url);
     }
   }
-  const _hoisted_1$8 = ["aria-label", "onKeydown"];
-  const _hoisted_2$8 = { class: "fqa-cover" };
-  const _hoisted_3$8 = ["src", "alt"];
-  const _hoisted_4$7 = {
+  const _hoisted_1$9 = ["aria-label", "onKeydown"];
+  const _hoisted_2$9 = { class: "fqa-cover" };
+  const _hoisted_3$9 = ["src", "alt"];
+  const _hoisted_4$8 = {
     key: 1,
     class: "fqa-cover-progress"
   };
-  const _hoisted_5$7 = ["title"];
-  const _hoisted_6$7 = ["title"];
-  const _sfc_main$8 = /* @__PURE__ */ vue.defineComponent({
+  const _hoisted_5$8 = ["title"];
+  const _hoisted_6$8 = ["title"];
+  const _sfc_main$9 = /* @__PURE__ */ vue.defineComponent({
     __name: "BookCard",
     props: {
       entry: {}
@@ -7807,18 +9634,26 @@
         if (d.status === "1") return { text: "连载", cls: "fqa-cover-tag-gray" };
         return null;
       });
+      const chapterOrder = vue.computed(() => {
+        var _a;
+        const fromDetail = ((_a = detail.value) == null ? void 0 : _a.current_chapter_order) || 0;
+        if (fromDetail) return fromDetail;
+        return props.entry.historyChapterOrder || 0;
+      });
+      const historyRate = vue.computed(() => props.entry.historyProgressRate ?? 0);
       const progressText = vue.computed(() => {
         const d = detail.value;
-        if (!d) return "";
-        const total = d.total_chapter_count || 0;
-        const order = Math.max(0, Math.min(d.current_chapter_order || 0, total));
+        const total = (d == null ? void 0 : d.total_chapter_count) || 0;
+        if (!d && !chapterOrder.value) return "";
+        const order = Math.max(0, Math.min(chapterOrder.value, total || chapterOrder.value));
         if (!order) return total ? `未读 · 共${total}章` : "未读";
-        return `${order}章/${total}章`;
+        return total ? `${order}章/${total}章` : `第${order}章`;
       });
       const progressPercent = vue.computed(() => {
-        const d = detail.value;
-        if (!d || !d.total_chapter_count) return 0;
-        const ratio = (d.current_chapter_order || 0) / d.total_chapter_count;
+        var _a;
+        const total = ((_a = detail.value) == null ? void 0 : _a.total_chapter_count) || 0;
+        if (!total) return historyRate.value * 100;
+        const ratio = (Math.max(0, chapterOrder.value - 1) + historyRate.value) / total;
         return Math.max(0, Math.min(1, ratio)) * 100;
       });
       function onEnter2(event) {
@@ -7900,7 +9735,7 @@
               style: { "width": "55%" }
             }, null, -1))
           ], 64)) : (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 1 }, [
-            vue.createElementVNode("div", _hoisted_2$8, [
+            vue.createElementVNode("div", _hoisted_2$9, [
               vue.createElementVNode("img", {
                 class: vue.normalizeClass(["fqa-cover-img", { "fqa-cover-img-loading": !imgLoaded.value }]),
                 crossorigin: "anonymous",
@@ -7910,12 +9745,12 @@
                 alt: title.value,
                 onLoad: _cache[0] || (_cache[0] = ($event) => imgLoaded.value = true),
                 onError: _cache[1] || (_cache[1] = ($event) => imgLoaded.value = true)
-              }, null, 42, _hoisted_3$8),
+              }, null, 42, _hoisted_3$9),
               tag.value ? (vue.openBlock(), vue.createElementBlock("span", {
                 key: 0,
                 class: vue.normalizeClass(["fqa-cover-tag", tag.value.cls])
               }, vue.toDisplayString(tag.value.text), 3)) : vue.createCommentVNode("", true),
-              progressPercent.value > 0 ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_4$7, [
+              progressPercent.value > 0 ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_4$8, [
                 vue.createElementVNode("span", {
                   class: "fqa-cover-progress-bar",
                   style: vue.normalizeStyle({ width: progressPercent.value + "%" })
@@ -7925,23 +9760,23 @@
             vue.createElementVNode("div", {
               class: "fqa-card-title",
               title: title.value
-            }, vue.toDisplayString(title.value), 9, _hoisted_5$7),
+            }, vue.toDisplayString(title.value), 9, _hoisted_5$8),
             vue.createElementVNode("div", {
               class: "fqa-card-sub",
               title: detail.value.current_chapter_title
-            }, vue.toDisplayString(progressText.value), 9, _hoisted_6$7)
+            }, vue.toDisplayString(progressText.value), 9, _hoisted_6$8)
           ], 64))
-        ], 40, _hoisted_1$8);
+        ], 40, _hoisted_1$9);
       };
     }
   });
-  const _hoisted_1$7 = ["aria-label"];
-  const _hoisted_2$7 = { class: "fqa-group-cover" };
-  const _hoisted_3$7 = { class: "fqa-group-grid" };
-  const _hoisted_4$6 = ["src", "alt"];
-  const _hoisted_5$6 = ["title"];
-  const _hoisted_6$6 = { class: "fqa-card-sub" };
-  const _sfc_main$7 = /* @__PURE__ */ vue.defineComponent({
+  const _hoisted_1$8 = ["aria-label"];
+  const _hoisted_2$8 = { class: "fqa-group-cover" };
+  const _hoisted_3$8 = { class: "fqa-group-grid" };
+  const _hoisted_4$7 = ["src", "alt"];
+  const _hoisted_5$7 = ["title"];
+  const _hoisted_6$7 = { class: "fqa-card-sub" };
+  const _sfc_main$8 = /* @__PURE__ */ vue.defineComponent({
     __name: "BookGroupCard",
     props: {
       group: {}
@@ -7991,8 +9826,8 @@
             _cache[2] || (_cache[2] = vue.withKeys(vue.withModifiers(($event) => emit("open", __props.group), ["prevent"]), ["space"]))
           ]
         }, [
-          vue.createElementVNode("div", _hoisted_2$7, [
-            vue.createElementVNode("div", _hoisted_3$7, [
+          vue.createElementVNode("div", _hoisted_2$8, [
+            vue.createElementVNode("div", _hoisted_3$8, [
               (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(covers.value, (detail) => {
                 return vue.openBlock(), vue.createElementBlock("div", {
                   key: detail.book_id,
@@ -8004,7 +9839,7 @@
                     referrerpolicy: "no-referrer",
                     src: detail.cover_url,
                     alt: detail.title
-                  }, null, 8, _hoisted_4$6)
+                  }, null, 8, _hoisted_4$7)
                 ]);
               }), 128))
             ])
@@ -8012,59 +9847,31 @@
           vue.createElementVNode("div", {
             class: "fqa-card-title",
             title: __props.group.name
-          }, vue.toDisplayString(__props.group.name), 9, _hoisted_5$6),
-          vue.createElementVNode("div", _hoisted_6$6, "共" + vue.toDisplayString(__props.group.books.length) + "本书", 1)
-        ], 40, _hoisted_1$7);
+          }, vue.toDisplayString(__props.group.name), 9, _hoisted_5$7),
+          vue.createElementVNode("div", _hoisted_6$7, "共" + vue.toDisplayString(__props.group.books.length) + "本书", 1)
+        ], 40, _hoisted_1$8);
       };
     }
   });
-  const SECOND = 1e3;
-  const MINUTE = 60 * SECOND;
-  const HOUR = 60 * MINUTE;
-  const DAY = 24 * HOUR;
-  const MONTH = 30 * DAY;
-  const YEAR = 365 * DAY;
-  function normalizeTimestamp(ts) {
-    if (!ts || ts <= 0) return 0;
-    return ts < 1e12 ? ts * 1e3 : ts;
-  }
-  function fromNow(ts) {
-    const time = normalizeTimestamp(ts);
-    if (!time) return "从未";
-    const diff = Date.now() - time;
-    if (diff < MINUTE) return "刚刚";
-    if (diff < HOUR) return `${Math.floor(diff / MINUTE)}分钟前`;
-    if (diff < DAY) return `${Math.floor(diff / HOUR)}小时前`;
-    if (diff < MONTH) return `${Math.floor(diff / DAY)}天前`;
-    if (diff < YEAR) return `${Math.floor(diff / MONTH)}个月前`;
-    return `${Math.floor(diff / YEAR)}年前`;
-  }
-  function formatDateTime(ts) {
-    const time = normalizeTimestamp(ts);
-    if (!time) return "未知";
-    const d = new Date(time);
-    const pad = (n) => String(n).padStart(2, "0");
-    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
-  }
-  const _hoisted_1$6 = ["title"];
-  const _hoisted_2$6 = {
+  const _hoisted_1$7 = ["title"];
+  const _hoisted_2$7 = {
     key: 0,
     class: "fqa-hover-author"
   };
-  const _hoisted_3$6 = { class: "fqa-hover-stats" };
-  const _hoisted_4$5 = ["title"];
-  const _hoisted_5$5 = { class: "fqa-hover-stat-k" };
-  const _hoisted_6$5 = { class: "fqa-hover-stat" };
-  const _hoisted_7$5 = { class: "fqa-hover-stat-v" };
-  const _hoisted_8$5 = { class: "fqa-hover-stat" };
-  const _hoisted_9$5 = { class: "fqa-hover-stat-v" };
-  const _hoisted_10$5 = { class: "fqa-hover-seg" };
-  const _hoisted_11$4 = { class: "fqa-hover-abstract" };
-  const _hoisted_12$4 = {
+  const _hoisted_3$7 = { class: "fqa-hover-stats" };
+  const _hoisted_4$6 = ["title"];
+  const _hoisted_5$6 = { class: "fqa-hover-stat-k" };
+  const _hoisted_6$6 = { class: "fqa-hover-stat" };
+  const _hoisted_7$6 = { class: "fqa-hover-stat-v" };
+  const _hoisted_8$6 = { class: "fqa-hover-stat" };
+  const _hoisted_9$6 = { class: "fqa-hover-stat-v" };
+  const _hoisted_10$6 = { class: "fqa-hover-seg" };
+  const _hoisted_11$5 = { class: "fqa-hover-abstract" };
+  const _hoisted_12$5 = {
     key: 0,
     class: "fqa-hover-chapter"
   };
-  const _sfc_main$6 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$7 = /* @__PURE__ */ vue.defineComponent({
     __name: "BookHoverCard",
     props: {
       entry: {},
@@ -8139,11 +9946,11 @@
       vue.watch(
         () => props.visible && !!detail.value,
         (show) => {
-          const el = root.value;
-          if (!el || !supportsPopover) return;
+          const el2 = root.value;
+          if (!el2 || !supportsPopover) return;
           try {
-            if (show) el.showPopover();
-            else el.hidePopover();
+            if (show) el2.showPopover();
+            else el2.hidePopover();
           } catch {
           }
         }
@@ -8167,9 +9974,9 @@
             vue.createElementVNode("div", {
               class: "fqa-hover-title",
               title: detail.value.title
-            }, vue.toDisplayString(detail.value.title), 9, _hoisted_1$6),
-            detail.value.author ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_2$6, vue.toDisplayString(detail.value.author), 1)) : vue.createCommentVNode("", true),
-            vue.createElementVNode("div", _hoisted_3$6, [
+            }, vue.toDisplayString(detail.value.title), 9, _hoisted_1$7),
+            detail.value.author ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_2$7, vue.toDisplayString(detail.value.author), 1)) : vue.createCommentVNode("", true),
+            vue.createElementVNode("div", _hoisted_3$7, [
               vue.createElementVNode("div", {
                 class: "fqa-hover-stat",
                 onMouseenter: _cache[0] || (_cache[0] = ($event) => showUpdateTime.value = true),
@@ -8178,19 +9985,19 @@
                 vue.createElementVNode("div", {
                   class: "fqa-hover-stat-v",
                   title: updatedAtFull.value
-                }, vue.toDisplayString(showUpdateTime.value ? updatedAt.value : latestChapter.value), 9, _hoisted_4$5),
-                vue.createElementVNode("div", _hoisted_5$5, vue.toDisplayString(showUpdateTime.value ? "更新于" : "最新章"), 1)
+                }, vue.toDisplayString(showUpdateTime.value ? updatedAt.value : latestChapter.value), 9, _hoisted_4$6),
+                vue.createElementVNode("div", _hoisted_5$6, vue.toDisplayString(showUpdateTime.value ? "更新于" : "最新章"), 1)
               ], 32),
-              vue.createElementVNode("div", _hoisted_6$5, [
-                vue.createElementVNode("div", _hoisted_7$5, vue.toDisplayString(readAt.value), 1),
+              vue.createElementVNode("div", _hoisted_6$6, [
+                vue.createElementVNode("div", _hoisted_7$6, vue.toDisplayString(readAt.value), 1),
                 _cache[6] || (_cache[6] = vue.createElementVNode("div", { class: "fqa-hover-stat-k" }, "阅读过", -1))
               ]),
-              vue.createElementVNode("div", _hoisted_8$5, [
-                vue.createElementVNode("div", _hoisted_9$5, vue.toDisplayString(addedAt.value), 1),
+              vue.createElementVNode("div", _hoisted_8$6, [
+                vue.createElementVNode("div", _hoisted_9$6, vue.toDisplayString(addedAt.value), 1),
                 _cache[7] || (_cache[7] = vue.createElementVNode("div", { class: "fqa-hover-stat-k" }, "已加入书架", -1))
               ])
             ]),
-            vue.createElementVNode("div", _hoisted_10$5, [
+            vue.createElementVNode("div", _hoisted_10$6, [
               vue.createElementVNode("button", {
                 class: vue.normalizeClass(["fqa-hover-seg-btn", { "fqa-hover-seg-active": activeTab.value === "chapter" }]),
                 onClick: _cache[2] || (_cache[2] = ($event) => pickedTab.value = "chapter")
@@ -8200,8 +10007,8 @@
                 onClick: _cache[3] || (_cache[3] = ($event) => pickedTab.value = "book")
               }, " 全书简介 ", 2)
             ]),
-            vue.createElementVNode("div", _hoisted_11$4, [
-              activeTab.value === "chapter" && detail.value.current_chapter_title ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_12$4, vue.toDisplayString(detail.value.current_chapter_title), 1)) : vue.createCommentVNode("", true),
+            vue.createElementVNode("div", _hoisted_11$5, [
+              activeTab.value === "chapter" && detail.value.current_chapter_title ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_12$5, vue.toDisplayString(detail.value.current_chapter_title), 1)) : vue.createCommentVNode("", true),
               vue.createTextVNode(" " + vue.toDisplayString(abstractText.value), 1)
             ])
           ], 4)) : vue.createCommentVNode("", true)
@@ -8209,14 +10016,14 @@
       };
     }
   });
-  const _hoisted_1$5 = ["aria-disabled", "onMouseenter", "onClick"];
-  const _hoisted_2$5 = {
+  const _hoisted_1$6 = ["aria-disabled", "onMouseenter", "onClick"];
+  const _hoisted_2$6 = {
     key: 0,
     class: "fqa-menu-arrow"
   };
-  const _hoisted_3$5 = ["onClick"];
+  const _hoisted_3$6 = ["onClick"];
   const MARGIN = 8;
-  const _sfc_main$5 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$6 = /* @__PURE__ */ vue.defineComponent({
     __name: "ContextMenu",
     props: {
       visible: { type: Boolean },
@@ -8236,9 +10043,9 @@
       async function place() {
         pos.value = { x: props.x, y: props.y };
         await vue.nextTick();
-        const el = rootRef.value;
-        if (!el) return;
-        const { width, height } = el.getBoundingClientRect();
+        const el2 = rootRef.value;
+        if (!el2) return;
+        const { width, height } = el2.getBoundingClientRect();
         let x = props.x;
         let y = props.y;
         if (x + width > window.innerWidth - MARGIN) x = props.x - width;
@@ -8266,9 +10073,9 @@
         const rect = row.getBoundingClientRect();
         subPos.value = { x: rect.right - 2, y: rect.top };
         await vue.nextTick();
-        const el = subRef.value;
-        if (!el) return;
-        const { width, height } = el.getBoundingClientRect();
+        const el2 = subRef.value;
+        if (!el2) return;
+        const { width, height } = el2.getBoundingClientRect();
         let x = rect.right - 2;
         let y = rect.top;
         if (x + width > window.innerWidth - MARGIN) x = rect.left - width + 2;
@@ -8287,17 +10094,17 @@
         if (((_a = rootRef.value) == null ? void 0 : _a.contains(t)) || ((_b = subRef.value) == null ? void 0 : _b.contains(t))) return;
         emit("close");
       }
-      function onKey(e) {
+      function onKey2(e) {
         if (e.key === "Escape") emit("close");
       }
       vue.onMounted(() => {
         document.addEventListener("pointerdown", onDocPointer, true);
-        document.addEventListener("keydown", onKey);
+        document.addEventListener("keydown", onKey2);
         window.addEventListener("scroll", () => emit("close"), true);
       });
       vue.onBeforeUnmount(() => {
         document.removeEventListener("pointerdown", onDocPointer, true);
-        document.removeEventListener("keydown", onKey);
+        document.removeEventListener("keydown", onKey2);
       });
       const style = vue.computed(() => ({ left: `${pos.value.x}px`, top: `${pos.value.y}px` }));
       const subStyle = vue.computed(() => ({ left: `${subPos.value.x}px`, top: `${subPos.value.y}px` }));
@@ -8332,8 +10139,8 @@
                 onClick: ($event) => choose(item)
               }, [
                 vue.createElementVNode("span", null, vue.toDisplayString(item.label), 1),
-                ((_a = item.children) == null ? void 0 : _a.length) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_2$5, "›")) : vue.createCommentVNode("", true)
-              ], 42, _hoisted_1$5);
+                ((_a = item.children) == null ? void 0 : _a.length) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_2$6, "›")) : vue.createCommentVNode("", true)
+              ], 42, _hoisted_1$6);
             }), 128))
           ], 4)) : vue.createCommentVNode("", true),
           __props.visible && activeChildren.value.length ? (vue.openBlock(), vue.createElementBlock("div", {
@@ -8352,14 +10159,14 @@
                 onClick: ($event) => choose(child)
               }, [
                 vue.createElementVNode("span", null, vue.toDisplayString(child.label), 1)
-              ], 10, _hoisted_3$5);
+              ], 10, _hoisted_3$6);
             }), 128))
           ], 4)) : vue.createCommentVNode("", true)
         ], 64);
       };
     }
   });
-  const DETAIL_BATCH_SIZE = 20;
+  const DETAIL_BATCH_SIZE$1 = 20;
   const PAGE_SIZE = 24;
   const TABS = [
     { key: "all", label: "全部" },
@@ -8391,7 +10198,7 @@
       pending.forEach((item) => inflight.add(item.book_id));
       detailLoading.value = true;
       try {
-        for (const batch of chunk(pending, DETAIL_BATCH_SIZE)) {
+        for (const batch of chunk$1(pending, DETAIL_BATCH_SIZE$1)) {
           if (token !== loadToken) return;
           try {
             const details = await multidetail(batch);
@@ -8494,6 +10301,360 @@
       PAGE_SIZE
     };
   }
+  const COOKIE_PERMISSION_HINT = "读不到登录态（sessionid）。若确认已登录，请在 Tampermonkey 里放开 Cookie 访问：设置 → 通用 → 配置模式 改为「高级」，再到 设置 → 高级 → 安全 →「允许脚本访问 Cookie」改为 All。";
+  const LIST_TIMEOUT = 5e3;
+  function hasGMCookie() {
+    return typeof GM_cookie !== "undefined" && typeof (GM_cookie == null ? void 0 : GM_cookie.list) === "function";
+  }
+  function listCookies(details) {
+    return new Promise((resolve, reject) => {
+      let settled = false;
+      const finish = (fn) => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        fn();
+      };
+      const timer = setTimeout(
+        () => finish(() => reject(new Error("GM_cookie.list 无响应"))),
+        LIST_TIMEOUT
+      );
+      try {
+        GM_cookie.list(details, (cookies, error) => {
+          finish(() => error ? reject(new Error(error)) : resolve(cookies ?? []));
+        });
+      } catch (err) {
+        finish(() => reject(err instanceof Error ? err : new Error(String(err))));
+      }
+    });
+  }
+  function readFromDocument(name2) {
+    for (const part of document.cookie.split(";")) {
+      const raw = part.trim();
+      if (raw.startsWith(name2 + "=")) return raw.slice(name2.length + 1);
+    }
+    return null;
+  }
+  async function readCookie(name2, url) {
+    if (hasGMCookie()) {
+      try {
+        const cookies = await listCookies(url ? { url, name: name2 } : { name: name2 });
+        const hit = cookies.find((c) => c.name === name2 && c.value);
+        if (hit) return { value: hit.value };
+      } catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        console.warn("[fqa:cookie] GM_cookie.list 失败，退到 document.cookie:", message);
+        const fallback3 = readFromDocument(name2);
+        if (fallback3) return { value: fallback3 };
+        return { value: null, reason: "api-error", error: message };
+      }
+      const fallback2 = readFromDocument(name2);
+      return fallback2 ? { value: fallback2 } : { value: null, reason: "not-found" };
+    }
+    const fallback = readFromDocument(name2);
+    return fallback ? { value: fallback } : { value: null, reason: "no-api" };
+  }
+  const SESSION_COOKIE = "sessionid";
+  let cached = null;
+  async function getSessionId() {
+    if (cached) return { value: cached };
+    const found = await readCookie(SESSION_COOKIE);
+    if (found.value) cached = found.value;
+    return found;
+  }
+  function normalizeTimestamp(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n) || n <= 0) return 0;
+    return n < 1e12 ? n * 1e3 : n;
+  }
+  function str$1(v) {
+    return v == null ? "" : String(v);
+  }
+  function num$1(v) {
+    const n = Number(v);
+    return Number.isFinite(n) ? n : 0;
+  }
+  async function appAuthHeaders() {
+    const sid = await getSessionId();
+    if (!sid.value) {
+      console.warn("[fqa:history] 读不到 sessionid，走网页兜底。原因:", sid.reason);
+      return null;
+    }
+    return { Cookie: `sessionid=${sid.value}` };
+  }
+  function appData(res, path) {
+    if (!res) return null;
+    let body = res;
+    if (typeof res.json === "function") {
+      try {
+        body = res.json();
+      } catch (err) {
+        console.warn(`[fqa:history] ${path} 响应不是合法 JSON:`, err);
+        return null;
+      }
+    }
+    if (!body) return null;
+    if (body.code !== void 0 && body.code !== 0) {
+      console.warn(`[fqa:history] ${path} 返回错误码:`, body.code, body.message);
+      return null;
+    }
+    const data = body.data ?? null;
+    if (data === null) console.warn(`[fqa:history] ${path} 没有 data 字段`);
+    return data;
+  }
+  async function fetchAppHistoryPage(offset, bookType = 0) {
+    const headers = await appAuthHeaders();
+    if (!headers) return null;
+    try {
+      const res = await appGet(
+        "/bookapi/read_history/list/v",
+        {
+          book_type: String(bookType),
+          offset: String(offset),
+          limit: "0",
+          query_soft_deleted: "false",
+          is_first_load: "false",
+          last_min_read_timestamp_ms: "0",
+          full_field: "false"
+        },
+        headers
+      );
+      const data = appData(res, "read_history/list");
+      if (!data) return null;
+      const rows = Array.isArray(data.data_list) ? data.data_list : [];
+      const next = num$1(data.next_offset);
+      return {
+        rows,
+        // has_more 为假时不再给游标，调用方据此停止翻页
+        nextOffset: data.has_more ? next : null
+      };
+    } catch (err) {
+      console.warn("[fqa:history] APP 历史接口失败，回落到网页通道:", err);
+      return null;
+    }
+  }
+  async function fetchAppProgress() {
+    const out = /* @__PURE__ */ new Map();
+    const headers = await appAuthHeaders();
+    if (!headers) return out;
+    try {
+      const res = await appGet(
+        "/bookapi/read_progress/list/v",
+        { book_types: "0,1", limit: "0" },
+        headers
+      );
+      const data = appData(res, "read_progress/list");
+      const rows = Array.isArray(data) ? data : [];
+      for (const row of rows) {
+        const id = str$1(row == null ? void 0 : row.book_id);
+        if (id) out.set(id, row);
+      }
+    } catch (err) {
+      console.warn("[fqa:history] APP 最近阅读接口失败（不影响列表）:", err);
+    }
+    return out;
+  }
+  function mergeAppRows(history, progress) {
+    const byBook = /* @__PURE__ */ new Map();
+    for (const row of history) {
+      const bookId2 = str$1(row.book_id_str) || str$1(row.book_id);
+      if (!bookId2) continue;
+      if (row.is_delete) continue;
+      const p = progress.get(bookId2);
+      const entry = {
+        bookId: bookId2,
+        itemId: str$1(p == null ? void 0 : p.item_id),
+        readAt: normalizeTimestamp(row.read_timestamp_ms ?? row.read_timestamp),
+        chapterTitle: (p == null ? void 0 : p.title) || void 0,
+        chapterOrder: p ? num$1(p.real_chapter_order) || void 0 : void 0,
+        progressRate: p ? num$1(p.progress_rate) || void 0 : void 0,
+        readSource: row.read_source || void 0,
+        source: "app"
+      };
+      const prev = byBook.get(bookId2);
+      if (!prev || entry.readAt > prev.readAt) byBook.set(bookId2, entry);
+    }
+    return [...byBook.values()].sort((a, b) => b.readAt - a.readAt);
+  }
+  async function fetchWebHistory() {
+    const res = await fetch$1("https://fanqienovel.com/api/reader/book/progress", {
+      credentials: "include"
+    });
+    if (!res.ok) throw new Error(`阅读历史请求失败(HTTP ${res.status})`);
+    const json = await res.json().catch(() => null);
+    const list = Array.isArray(json == null ? void 0 : json.data) ? json.data : [];
+    const byBook = /* @__PURE__ */ new Map();
+    for (const row of list) {
+      const bookId2 = str$1(row == null ? void 0 : row.book_id);
+      const itemId2 = str$1(row == null ? void 0 : row.item_id);
+      if (!bookId2 || !itemId2 || itemId2 === "0") continue;
+      const entry = {
+        bookId: bookId2,
+        itemId: itemId2,
+        readAt: normalizeTimestamp((row == null ? void 0 : row.read_timestamp_ms) ?? (row == null ? void 0 : row.read_timestamp)),
+        source: "web"
+      };
+      const prev = byBook.get(bookId2);
+      if (!prev || entry.readAt > prev.readAt) byBook.set(bookId2, entry);
+    }
+    return [...byBook.values()].sort((a, b) => b.readAt - a.readAt);
+  }
+  async function getReadHistory() {
+    const page2 = await fetchAppHistoryPage(0);
+    if (page2 && page2.rows.length) {
+      const progress = await fetchAppProgress();
+      return {
+        entries: mergeAppRows(page2.rows, progress),
+        fromApp: true,
+        nextOffset: page2.nextOffset
+      };
+    }
+    const entries = await fetchWebHistory();
+    return { entries, fromApp: false, nextOffset: null };
+  }
+  async function getMoreReadHistory(offset) {
+    const page2 = await fetchAppHistoryPage(offset);
+    if (!page2) return { entries: [], fromApp: false, nextOffset: null };
+    const progress = await fetchAppProgress();
+    return {
+      entries: mergeAppRows(page2.rows, progress),
+      fromApp: true,
+      nextOffset: page2.nextOffset
+    };
+  }
+  function toShelfItem(h2) {
+    return {
+      book_id: h2.bookId,
+      // 历史没有「加入书架时间」，用阅读时间占位
+      last_operate_time: h2.readAt,
+      add_shelf_time: 0,
+      last_read_timestamp: h2.readAt,
+      last_read_chapter_id: h2.itemId,
+      is_publish: false
+    };
+  }
+  function historyToShelfEntry(h2, detail = null) {
+    return {
+      item: toShelfItem(h2),
+      detail,
+      // 带上历史自带的章节信息：卡片不必等详情回来就能显示进度
+      historyChapterOrder: h2.chapterOrder,
+      historyProgressRate: h2.progressRate,
+      historyChapterTitle: h2.chapterTitle
+    };
+  }
+  const DETAIL_BATCH_SIZE = 100;
+  function useHistory() {
+    const history = vue.ref([]);
+    const entries = vue.ref([]);
+    const loading = vue.ref(false);
+    const loadingMore = vue.ref(false);
+    const detailLoading = vue.ref(false);
+    const error = vue.ref(null);
+    const loaded = vue.ref(false);
+    const fromApp = vue.ref(false);
+    const nextOffset = vue.ref(null);
+    let loadToken = 0;
+    let detailCache = /* @__PURE__ */ new Map();
+    const inflight = /* @__PURE__ */ new Set();
+    const isEmpty = vue.computed(() => loaded.value && !entries.value.length);
+    const hasMore = vue.computed(() => nextOffset.value !== null);
+    function applyDetails(details) {
+      if (!details.length) return;
+      const byId = new Map(details.map((d) => [d.book_id, d]));
+      entries.value = entries.value.map((entry) => {
+        const detail = byId.get(entry.item.book_id);
+        return detail ? { ...entry, detail } : entry;
+      });
+    }
+    async function ensureDetails(targets = entries.value) {
+      const token = loadToken;
+      const pending = targets.filter((e) => !detailCache.has(e.item.book_id) && !inflight.has(e.item.book_id)).map((e) => e.item);
+      if (!pending.length) return;
+      detailLoading.value = true;
+      try {
+        for (const batch of chunk$1(pending, DETAIL_BATCH_SIZE)) {
+          const ids = batch.map((b) => b.book_id);
+          ids.forEach((id) => inflight.add(id));
+          try {
+            const details = await multidetail(batch);
+            if (token !== loadToken) return;
+            details.forEach((d) => detailCache.set(d.book_id, d));
+            applyDetails(details);
+          } catch (err) {
+            console.warn("[fqa:history] 补全书籍详情失败:", err);
+          } finally {
+            ids.forEach((id) => inflight.delete(id));
+          }
+        }
+      } finally {
+        if (token === loadToken) detailLoading.value = false;
+      }
+    }
+    function mergeEntries(incoming) {
+      const byId = new Map(history.value.map((h2) => [h2.bookId, h2]));
+      for (const h2 of incoming) {
+        const prev = byId.get(h2.bookId);
+        if (!prev || h2.readAt > prev.readAt) byId.set(h2.bookId, h2);
+      }
+      history.value = [...byId.values()].sort((a, b) => b.readAt - a.readAt);
+      entries.value = history.value.map(
+        (h2) => historyToShelfEntry(h2, detailCache.get(h2.bookId) ?? null)
+      );
+    }
+    async function load2(force = false) {
+      const token = ++loadToken;
+      loading.value = true;
+      error.value = null;
+      if (force) detailCache = /* @__PURE__ */ new Map();
+      try {
+        const result = await getReadHistory();
+        if (token !== loadToken) return;
+        history.value = [];
+        mergeEntries(result.entries);
+        fromApp.value = result.fromApp;
+        nextOffset.value = result.nextOffset;
+        loaded.value = true;
+      } catch (err) {
+        if (token !== loadToken) return;
+        error.value = err instanceof Error ? err.message : "阅读历史加载失败";
+        console.warn("[fqa:history] 取阅读历史失败:", err);
+      } finally {
+        if (token === loadToken) loading.value = false;
+      }
+    }
+    async function loadMore() {
+      const offset = nextOffset.value;
+      if (offset === null || loadingMore.value || loading.value) return;
+      const token = loadToken;
+      loadingMore.value = true;
+      try {
+        const result = await getMoreReadHistory(offset);
+        if (token !== loadToken) return;
+        nextOffset.value = result.nextOffset;
+        mergeEntries(result.entries);
+      } catch (err) {
+        console.warn("[fqa:history] 翻页失败:", err);
+      } finally {
+        if (token === loadToken) loadingMore.value = false;
+      }
+    }
+    return {
+      history,
+      entries,
+      loading,
+      loadingMore,
+      detailLoading,
+      error,
+      loaded,
+      isEmpty,
+      hasMore,
+      fromApp,
+      load: load2,
+      loadMore,
+      ensureDetails
+    };
+  }
   class CancelledError extends Error {
     constructor() {
       super("已取消");
@@ -8594,7 +10755,7 @@
         await sleep(Math.max(interval, 1e3));
       }
       const missed = [];
-      const batches = chunk(pending, batchSize);
+      const batches = chunk$1(pending, batchSize);
       for (let i2 = 0; i2 < batches.length; i2++) {
         task.throwIfCancelled();
         const batch = batches[i2];
@@ -9490,11 +11651,11 @@ ${bodyContent}
   }
   function takeStyles(doc) {
     const styles = [];
-    doc.querySelectorAll("style").forEach((el) => {
+    doc.querySelectorAll("style").forEach((el2) => {
       var _a;
-      const text = (_a = el.textContent) == null ? void 0 : _a.trim();
+      const text = (_a = el2.textContent) == null ? void 0 : _a.trim();
       if (text) styles.push(text);
-      el.remove();
+      el2.remove();
     });
     return styles;
   }
@@ -9506,7 +11667,7 @@ ${bodyContent}
     const doc = parseChapterDoc(raw);
     if (!doc) return { html: raw, styles: [] };
     const styles = takeStyles(doc);
-    doc.querySelectorAll("link").forEach((el) => el.remove());
+    doc.querySelectorAll("link").forEach((el2) => el2.remove());
     const root = contentRoot(doc);
     const html = (_a = root == null ? void 0 : root.innerHTML) == null ? void 0 : _a.trim();
     return { html: html || "<p>正文内容为空</p>", styles };
@@ -9527,7 +11688,7 @@ ${bodyContent}
     const doc = parseChapterDoc(raw);
     if (!doc) return [];
     takeStyles(doc);
-    doc.querySelectorAll("script, link").forEach((el) => el.remove());
+    doc.querySelectorAll("script, link").forEach((el2) => el2.remove());
     const root = contentRoot(doc);
     if (!root) return [];
     if (title) removeLeadingTitle(root, title);
@@ -9916,30 +12077,52 @@ ${body}
       running = false;
     }
   }
-  const _hoisted_1$4 = { id: "fqa-bookshelf" };
-  const _hoisted_2$4 = { class: "fqa-bs-header" };
-  const _hoisted_3$4 = { class: "fqa-bs-actions" };
-  const _hoisted_4$4 = { key: 0 };
-  const _hoisted_5$4 = ["disabled"];
-  const _hoisted_6$4 = ["aria-selected", "onClick", "onKeydown"];
-  const _hoisted_7$4 = { class: "fqa-tab-count" };
-  const _hoisted_8$4 = {
-    key: 0,
-    class: "fqa-groupbar"
+  const _hoisted_1$5 = { id: "fqa-bookshelf" };
+  const _hoisted_2$5 = { class: "fqa-bs-header" };
+  const _hoisted_3$5 = {
+    class: "fqa-bs-views",
+    role: "tablist"
   };
-  const _hoisted_9$4 = { class: "fqa-groupbar-name" };
-  const _hoisted_10$4 = { class: "fqa-groupbar-count" };
-  const _hoisted_11$3 = {
+  const _hoisted_4$5 = ["aria-selected"];
+  const _hoisted_5$5 = ["aria-selected"];
+  const _hoisted_6$5 = { class: "fqa-bs-actions" };
+  const _hoisted_7$5 = { key: 0 };
+  const _hoisted_8$5 = ["disabled"];
+  const _hoisted_9$5 = { key: 0 };
+  const _hoisted_10$5 = {
+    key: 1,
+    class: "fqa-bs-hint",
+    title: "读不到登录态（sessionid），只能退回网页接口，历史可能不完整。在 Tampermonkey 放开 Cookie 访问可拿到完整历史。"
+  };
+  const _hoisted_11$4 = ["disabled"];
+  const _hoisted_12$4 = {
+    key: 0,
+    class: "fqa-status"
+  };
+  const _hoisted_13$4 = {
     key: 1,
     class: "fqa-status"
   };
-  const _hoisted_12$3 = {
+  const _hoisted_14$4 = { class: "fqa-grid" };
+  const _hoisted_15$2 = ["aria-selected", "onClick", "onKeydown"];
+  const _hoisted_16$2 = { class: "fqa-tab-count" };
+  const _hoisted_17$2 = {
     key: 2,
+    class: "fqa-groupbar"
+  };
+  const _hoisted_18$2 = { class: "fqa-groupbar-name" };
+  const _hoisted_19$2 = { class: "fqa-groupbar-count" };
+  const _hoisted_20$1 = {
+    key: 3,
     class: "fqa-status"
   };
-  const _hoisted_13$3 = { class: "fqa-status-title" };
-  const _hoisted_14$3 = { class: "fqa-grid" };
-  const _hoisted_15$1 = {
+  const _hoisted_21$1 = {
+    key: 4,
+    class: "fqa-status"
+  };
+  const _hoisted_22$1 = { class: "fqa-status-title" };
+  const _hoisted_23$1 = { class: "fqa-grid" };
+  const _hoisted_24$1 = {
     key: 0,
     class: "fqa-toast"
   };
@@ -9950,10 +12133,25 @@ ${body}
   const VIEWPORT_MARGIN = 8;
   const MOVE_PREFIX = "move:";
   const DOWNLOAD_PREFIX$1 = "download:";
-  const _sfc_main$4 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$5 = /* @__PURE__ */ vue.defineComponent({
     __name: "BookshelfView",
     setup(__props) {
       const { loading, detailLoading, error, counts, groups, load: load2, ensureDetails, cellsOf, findGroup, PAGE_SIZE: PAGE_SIZE2 } = useBookshelf();
+      const mainView = vue.ref("shelf");
+      const {
+        entries: historyEntries,
+        loading: historyLoading,
+        loadingMore: historyLoadingMore,
+        detailLoading: historyDetailLoading,
+        error: historyError,
+        loaded: historyLoaded,
+        isEmpty: historyEmpty,
+        hasMore: historyHasMore,
+        fromApp: historyFromApp,
+        load: loadHistory,
+        loadMore: loadMoreHistory,
+        ensureDetails: ensureHistoryDetails
+      } = useHistory();
       const activeTab = vue.ref("all");
       const openedGroupName = vue.ref(null);
       const tabsRef = vue.ref(null);
@@ -10000,26 +12198,52 @@ ${body}
         if (activeTab.value === "publish") return "书架里还没有出版物";
         return "书架空空如也，去首页找几本书看看吧";
       });
+      const historyVisible = vue.ref(PAGE_SIZE2);
+      const historyCells = vue.computed(() => historyEntries.value.slice(0, historyVisible.value));
+      function selectMainView(view) {
+        if (mainView.value === view) return;
+        mainView.value = view;
+        hideHover(true);
+        if (view === "history") {
+          if (!historyLoaded.value && !historyLoading.value) void loadHistory();
+          void vue.nextTick(() => ensureHistoryDetails(historyCells.value));
+        }
+      }
+      function openHistory({ entry }) {
+        var _a;
+        hideHover(true);
+        const itemId2 = entry.item.last_read_chapter_id || ((_a = entry.detail) == null ? void 0 : _a.current_chapter_id) || "";
+        if (itemId2 && itemId2 !== "0") {
+          openUrl(readerUrl(itemId2), true);
+          return;
+        }
+        openUrl(bookPageUrl(entry.item.book_id), true);
+      }
+      async function refreshHistory() {
+        historyVisible.value = PAGE_SIZE2;
+        await loadHistory(true);
+        void ensureHistoryDetails(historyCells.value);
+      }
       function updateInk() {
         const wrap = tabsRef.value;
         if (!wrap) return;
         const index = TABS.findIndex((tab) => tab.key === activeTab.value);
-        const el = wrap.querySelectorAll(".fqa-tab")[index];
-        if (!el) return;
+        const el2 = wrap.querySelectorAll(".fqa-tab")[index];
+        if (!el2) return;
         inkStyle.value = {
-          left: `${el.offsetLeft}px`,
-          width: `${el.offsetWidth}px`
+          left: `${el2.offsetLeft}px`,
+          width: `${el2.offsetWidth}px`
         };
       }
-      function selectTab(key) {
+      function selectTab2(key) {
         openedGroupName.value = null;
         activeTab.value = key;
         hideHover(true);
       }
       vue.watch(activeTab, () => vue.nextTick(updateInk));
       vue.watch(counts, () => vue.nextTick(updateInk), { deep: true });
-      function computePosition(el) {
-        const cover = el.querySelector(".fqa-cover") ?? el;
+      function computePosition(el2) {
+        const cover = el2.querySelector(".fqa-cover") ?? el2;
         const rect = cover.getBoundingClientRect();
         let x = rect.right + HOVER_GAP;
         if (x + HOVER_WIDTH > window.innerWidth - VIEWPORT_MARGIN) {
@@ -10033,22 +12257,22 @@ ${body}
         hoverHeight.value = height;
         hoverPos.value = { x, y };
       }
-      function onCardHover({ entry, el }) {
+      function onCardHover({ entry, el: el2 }) {
         if (hoverTimer) clearTimeout(hoverTimer);
         if (hideTimer) {
           clearTimeout(hideTimer);
           hideTimer = void 0;
         }
         if (!entry.detail) return;
-        hoverAnchor = el;
+        hoverAnchor = el2;
         if (hoverVisible.value && hoverEntry.value !== entry) {
-          computePosition(el);
+          computePosition(el2);
           hoverEntry.value = entry;
           return;
         }
         hoverTimer = setTimeout(() => {
           hoverTimer = void 0;
-          computePosition(el);
+          computePosition(el2);
           hoverEntry.value = entry;
           hoverVisible.value = true;
         }, HOVER_DELAY);
@@ -10109,6 +12333,21 @@ ${body}
       function onGroupVisible(entries) {
         queueDetails(entries);
       }
+      const historySentinel = vue.ref(null);
+      let historyObserver = null;
+      let historyPending = [];
+      let historyFlushTimer;
+      function onHistoryCardVisible(entry) {
+        if (entry.detail) return;
+        historyPending.push(entry);
+        if (historyFlushTimer) return;
+        historyFlushTimer = setTimeout(() => {
+          historyFlushTimer = void 0;
+          const batch = historyPending;
+          historyPending = [];
+          void ensureHistoryDetails(batch);
+        }, 50);
+      }
       function continueReadingUrl(entry) {
         var _a;
         const chapterId = ((_a = entry.detail) == null ? void 0 : _a.current_chapter_id) || entry.item.last_read_chapter_id;
@@ -10118,7 +12357,7 @@ ${body}
         hideHover(true);
         const wantRead = settings$1.bookshelfClickAction === "read" !== mods.flip;
         const url = wantRead && continueReadingUrl(entry) || bookPageUrl(entry.item.book_id);
-        openUrl(url, mods.newTab);
+        openUrl(url, true);
       }
       function openGroup(group) {
         hideHover(true);
@@ -10141,6 +12380,23 @@ ${body}
       const menuItems = vue.computed(() => {
         const entry = menuEntry.value;
         if (!entry) return [];
+        if (mainView.value === "history") {
+          const histItems = [
+            { key: "read", label: "继续阅读" },
+            { key: "detail", label: "查看详情" }
+          ];
+          if (settings$1.enableDownload) {
+            histItems.push({
+              key: "download",
+              label: "下载",
+              children: [
+                { key: `${DOWNLOAD_PREFIX$1}epub`, label: "EPUB" },
+                { key: `${DOWNLOAD_PREFIX$1}txt`, label: "TXT" }
+              ]
+            });
+          }
+          return histItems;
+        }
         const current = entry.item.group_name ?? "";
         const targets = groups.value.filter((g2) => g2.name !== current).map((g2) => ({ key: `${MOVE_PREFIX}${g2.name}`, label: g2.name }));
         if (current) targets.push({ key: NO_GROUP_KEY, label: "无分组" });
@@ -10167,6 +12423,12 @@ ${body}
         items.push({ key: "remove", label: "从书架删除", danger: true });
         return items;
       });
+      function onHistoryCardContextMenu({ entry, x, y }) {
+        hideHover(true);
+        menuEntry.value = entry;
+        menuPos.value = { x, y };
+        menuVisible.value = true;
+      }
       function onCardContextMenu({ entry, x, y }) {
         hideHover(true);
         menuEntry.value = entry;
@@ -10179,11 +12441,11 @@ ${body}
         if (!entry) return;
         const bookId2 = entry.item.book_id;
         if (key === "read") {
-          openUrl(continueReadingUrl(entry) ?? bookPageUrl(bookId2));
+          openUrl(continueReadingUrl(entry) ?? bookPageUrl(bookId2), true);
           return;
         }
         if (key === "detail") {
-          openUrl(bookPageUrl(bookId2));
+          openUrl(bookPageUrl(bookId2), true);
           return;
         }
         if (key.startsWith(DOWNLOAD_PREFIX$1)) {
@@ -10246,9 +12508,29 @@ ${body}
           );
           vue.watch(
             sentinel,
-            (el) => {
+            (el2) => {
               pageObserver == null ? void 0 : pageObserver.disconnect();
-              if (el) pageObserver == null ? void 0 : pageObserver.observe(el);
+              if (el2) pageObserver == null ? void 0 : pageObserver.observe(el2);
+            },
+            { immediate: true }
+          );
+          historyObserver = new IntersectionObserver(
+            (list) => {
+              if (!list.some((e) => e.isIntersecting)) return;
+              if (historyVisible.value < historyEntries.value.length) {
+                historyVisible.value += PAGE_SIZE2;
+                void vue.nextTick(() => ensureHistoryDetails(historyCells.value));
+                return;
+              }
+              if (historyHasMore.value) void loadMoreHistory();
+            },
+            { rootMargin: "400px" }
+          );
+          vue.watch(
+            historySentinel,
+            (el2) => {
+              historyObserver == null ? void 0 : historyObserver.disconnect();
+              if (el2) historyObserver == null ? void 0 : historyObserver.observe(el2);
             },
             { immediate: true }
           );
@@ -10260,23 +12542,98 @@ ${body}
         if (flushTimer) clearTimeout(flushTimer);
         pageObserver == null ? void 0 : pageObserver.disconnect();
         pageObserver = null;
+        historyObserver == null ? void 0 : historyObserver.disconnect();
+        historyObserver = null;
+        if (historyFlushTimer) clearTimeout(historyFlushTimer);
         window.removeEventListener("scroll", onScrollOrResize, true);
         window.removeEventListener("resize", onScrollOrResize);
       });
       return (_ctx, _cache) => {
-        return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$4, [
-          vue.createElementVNode("div", _hoisted_2$4, [
-            _cache[1] || (_cache[1] = vue.createElementVNode("div", { class: "fqa-bs-title" }, "我的书架", -1)),
-            vue.createElementVNode("div", _hoisted_3$4, [
-              vue.unref(detailLoading) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_4$4, "正在补全详情…")) : vue.createCommentVNode("", true),
+        return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$5, [
+          vue.createElementVNode("div", _hoisted_2$5, [
+            vue.createElementVNode("div", _hoisted_3$5, [
               vue.createElementVNode("button", {
-                class: "fqa-btn",
-                disabled: vue.unref(loading),
-                onClick: refresh
-              }, vue.toDisplayString(vue.unref(loading) ? "刷新中…" : "刷新"), 9, _hoisted_5$4)
+                type: "button",
+                class: vue.normalizeClass(["fqa-bs-view", { "fqa-bs-view-active": mainView.value === "shelf" }]),
+                role: "tab",
+                "aria-selected": mainView.value === "shelf",
+                onClick: _cache[0] || (_cache[0] = ($event) => selectMainView("shelf"))
+              }, "我的书架", 10, _hoisted_4$5),
+              vue.createElementVNode("button", {
+                type: "button",
+                class: vue.normalizeClass(["fqa-bs-view", { "fqa-bs-view-active": mainView.value === "history" }]),
+                role: "tab",
+                "aria-selected": mainView.value === "history",
+                onClick: _cache[1] || (_cache[1] = ($event) => selectMainView("history"))
+              }, "阅读历史", 10, _hoisted_5$5)
+            ]),
+            vue.createElementVNode("div", _hoisted_6$5, [
+              mainView.value === "shelf" ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 0 }, [
+                vue.unref(detailLoading) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_7$5, "正在补全详情…")) : vue.createCommentVNode("", true),
+                vue.createElementVNode("button", {
+                  class: "fqa-btn",
+                  disabled: vue.unref(loading),
+                  onClick: refresh
+                }, vue.toDisplayString(vue.unref(loading) ? "刷新中…" : "刷新"), 9, _hoisted_8$5)
+              ], 64)) : (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 1 }, [
+                vue.unref(historyDetailLoading) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_9$5, "正在补全详情…")) : vue.unref(historyLoaded) && !vue.unref(historyFromApp) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_10$5, "历史可能不完整")) : vue.createCommentVNode("", true),
+                vue.createElementVNode("button", {
+                  class: "fqa-btn",
+                  disabled: vue.unref(historyLoading),
+                  onClick: refreshHistory
+                }, vue.toDisplayString(vue.unref(historyLoading) ? "刷新中…" : "刷新"), 9, _hoisted_11$4)
+              ], 64))
             ])
           ]),
-          vue.createElementVNode("div", {
+          mainView.value === "history" ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 0 }, [
+            vue.unref(historyError) ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_12$4, [
+              _cache[3] || (_cache[3] = vue.createElementVNode("div", { class: "fqa-status-title" }, "阅读历史加载失败", -1)),
+              vue.createElementVNode("div", null, vue.toDisplayString(vue.unref(historyError)), 1),
+              vue.createElementVNode("button", {
+                class: "fqa-btn",
+                onClick: refreshHistory
+              }, "重试")
+            ])) : vue.unref(historyEmpty) ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_13$4, [..._cache[4] || (_cache[4] = [
+              vue.createElementVNode("div", { class: "fqa-status-title" }, "还没有阅读记录", -1)
+            ])])) : (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 2 }, [
+              vue.createElementVNode("div", _hoisted_14$4, [
+                vue.unref(historyLoading) && !historyCells.value.length ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 0 }, vue.renderList(8, (n) => {
+                  return vue.createElementVNode("div", {
+                    key: `hsk-${n}`,
+                    class: "fqa-card"
+                  }, [..._cache[5] || (_cache[5] = [
+                    vue.createElementVNode("div", { class: "fqa-sk-cover fqa-sk-anim" }, null, -1),
+                    vue.createElementVNode("div", {
+                      class: "fqa-sk-line fqa-sk-anim",
+                      style: { "width": "90%" }
+                    }, null, -1),
+                    vue.createElementVNode("div", {
+                      class: "fqa-sk-line fqa-sk-anim",
+                      style: { "width": "55%" }
+                    }, null, -1)
+                  ])]);
+                }), 64)) : (vue.openBlock(true), vue.createElementBlock(vue.Fragment, { key: 1 }, vue.renderList(historyCells.value, (entry) => {
+                  return vue.openBlock(), vue.createBlock(_sfc_main$9, {
+                    key: `h-${entry.item.book_id}`,
+                    entry,
+                    onHover: onCardHover,
+                    onLeave: scheduleHide,
+                    onOpen: openHistory,
+                    onVisible: onHistoryCardVisible,
+                    onContextmenu: onHistoryCardContextMenu
+                  }, null, 8, ["entry"]);
+                }), 128))
+              ]),
+              historyCells.value.length < vue.unref(historyEntries).length || vue.unref(historyHasMore) ? (vue.openBlock(), vue.createElementBlock("div", {
+                key: 0,
+                ref_key: "historySentinel",
+                ref: historySentinel,
+                class: "fqa-loadmore"
+              }, vue.toDisplayString(vue.unref(historyLoadingMore) ? "加载中…" : ""), 513)) : vue.createCommentVNode("", true)
+            ], 64))
+          ], 64)) : vue.createCommentVNode("", true),
+          mainView.value === "shelf" ? (vue.openBlock(), vue.createElementBlock("div", {
+            key: 1,
             ref_key: "tabsRef",
             ref: tabsRef,
             class: "fqa-tabs",
@@ -10289,42 +12646,42 @@ ${body}
                 role: "tab",
                 tabindex: "0",
                 "aria-selected": activeTab.value === tab.key,
-                onClick: ($event) => selectTab(tab.key),
-                onKeydown: vue.withKeys(vue.withModifiers(($event) => selectTab(tab.key), ["prevent"]), ["enter"])
+                onClick: ($event) => selectTab2(tab.key),
+                onKeydown: vue.withKeys(vue.withModifiers(($event) => selectTab2(tab.key), ["prevent"]), ["enter"])
               }, [
                 vue.createTextVNode(vue.toDisplayString(tab.label), 1),
-                vue.createElementVNode("span", _hoisted_7$4, vue.toDisplayString(vue.unref(counts)[tab.key]), 1)
-              ], 42, _hoisted_6$4);
+                vue.createElementVNode("span", _hoisted_16$2, vue.toDisplayString(vue.unref(counts)[tab.key]), 1)
+              ], 42, _hoisted_15$2);
             }), 128)),
             vue.createElementVNode("span", {
               class: "fqa-tab-ink",
               style: vue.normalizeStyle(inkStyle.value)
             }, null, 4)
-          ], 512),
-          openedGroup.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_8$4, [
+          ], 512)) : vue.createCommentVNode("", true),
+          mainView.value === "shelf" && openedGroup.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_17$2, [
             vue.createElementVNode("button", {
               class: "fqa-btn",
               onClick: backToList
             }, "← 返回"),
-            vue.createElementVNode("span", _hoisted_9$4, vue.toDisplayString(openedGroup.value.name), 1),
-            vue.createElementVNode("span", _hoisted_10$4, "共" + vue.toDisplayString(openedGroup.value.books.length) + "本书", 1)
+            vue.createElementVNode("span", _hoisted_18$2, vue.toDisplayString(openedGroup.value.name), 1),
+            vue.createElementVNode("span", _hoisted_19$2, "共" + vue.toDisplayString(openedGroup.value.books.length) + "本书", 1)
           ])) : vue.createCommentVNode("", true),
-          vue.unref(error) ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_11$3, [
-            _cache[2] || (_cache[2] = vue.createElementVNode("div", { class: "fqa-status-title" }, "书架加载失败", -1)),
+          mainView.value === "shelf" && vue.unref(error) ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_20$1, [
+            _cache[6] || (_cache[6] = vue.createElementVNode("div", { class: "fqa-status-title" }, "书架加载失败", -1)),
             vue.createElementVNode("div", null, vue.toDisplayString(vue.unref(error)), 1),
             vue.createElementVNode("button", {
               class: "fqa-btn",
               onClick: refresh
             }, "重试")
-          ])) : isEmpty.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_12$3, [
-            vue.createElementVNode("div", _hoisted_13$3, vue.toDisplayString(emptyText.value), 1)
-          ])) : (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 3 }, [
-            vue.createElementVNode("div", _hoisted_14$3, [
+          ])) : mainView.value === "shelf" && isEmpty.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_21$1, [
+            vue.createElementVNode("div", _hoisted_22$1, vue.toDisplayString(emptyText.value), 1)
+          ])) : mainView.value === "shelf" ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 5 }, [
+            vue.createElementVNode("div", _hoisted_23$1, [
               vue.unref(loading) ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 0 }, vue.renderList(8, (n) => {
                 return vue.createElementVNode("div", {
                   key: `sk-${n}`,
                   class: "fqa-card"
-                }, [..._cache[3] || (_cache[3] = [
+                }, [..._cache[7] || (_cache[7] = [
                   vue.createElementVNode("div", { class: "fqa-sk-cover fqa-sk-anim" }, null, -1),
                   vue.createElementVNode("div", {
                     class: "fqa-sk-line fqa-sk-anim",
@@ -10339,7 +12696,7 @@ ${body}
                 return vue.openBlock(), vue.createElementBlock(vue.Fragment, {
                   key: cell.key
                 }, [
-                  cell.kind === "book" ? (vue.openBlock(), vue.createBlock(_sfc_main$8, {
+                  cell.kind === "book" ? (vue.openBlock(), vue.createBlock(_sfc_main$9, {
                     key: 0,
                     entry: cell.entry,
                     onHover: onCardHover,
@@ -10347,7 +12704,7 @@ ${body}
                     onOpen: openBook,
                     onVisible: onCardVisible,
                     onContextmenu: onCardContextMenu
-                  }, null, 8, ["entry"])) : (vue.openBlock(), vue.createBlock(_sfc_main$7, {
+                  }, null, 8, ["entry"])) : (vue.openBlock(), vue.createBlock(_sfc_main$8, {
                     key: 1,
                     group: cell.group,
                     onOpen: openGroup,
@@ -10362,9 +12719,9 @@ ${body}
               ref: sentinel,
               class: "fqa-loadmore"
             }, "加载中…", 512)) : vue.createCommentVNode("", true)
-          ], 64)),
+          ], 64)) : vue.createCommentVNode("", true),
           (vue.openBlock(), vue.createBlock(vue.Teleport, { to: "body" }, [
-            vue.createVNode(_sfc_main$6, {
+            vue.createVNode(_sfc_main$7, {
               entry: hoverEntry.value,
               x: hoverPos.value.x,
               y: hoverPos.value.y,
@@ -10373,38 +12730,38 @@ ${body}
               onPanelEnter,
               onPanelLeave
             }, null, 8, ["entry", "x", "y", "height", "visible"]),
-            vue.createVNode(_sfc_main$5, {
+            vue.createVNode(_sfc_main$6, {
               visible: menuVisible.value,
               x: menuPos.value.x,
               y: menuPos.value.y,
               items: menuItems.value,
               onSelect: onMenuSelect,
-              onClose: _cache[0] || (_cache[0] = ($event) => menuVisible.value = false)
+              onClose: _cache[2] || (_cache[2] = ($event) => menuVisible.value = false)
             }, null, 8, ["visible", "x", "y", "items"]),
-            toast.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_15$1, vue.toDisplayString(toast.value), 1)) : vue.createCommentVNode("", true)
+            toast.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_24$1, vue.toDisplayString(toast.value), 1)) : vue.createCommentVNode("", true)
           ]))
         ]);
       };
     }
   });
-  const bookshelfcss = "#fqa-bookshelf {\r\n    --fqa-text: #1f2329;\r\n    --fqa-text-sub: #646a73;\r\n    --fqa-text-weak: #8f959e;\r\n    --fqa-border: rgba(31, 35, 41, 0.08);\r\n    --fqa-hover: rgba(31, 35, 41, 0.04);\r\n    --fqa-accent: #ff6f3d;\r\n    --fqa-skeleton: rgba(31, 35, 41, 0.06);\r\n    --fqa-skeleton-hl: rgba(31, 35, 41, 0.12);\r\n    --fqa-shadow: 0 4px 16px rgba(31, 35, 41, 0.08);\r\n\r\n    display: block;\r\n    box-sizing: border-box;\r\n    width: 100%;\r\n    max-width: 1100px;\r\n    margin: 0 auto;\r\n    /* 顶部留出原站 fixed 顶栏（80px）的高度，否则标题和 tab 会被压在下面 */\r\n    padding: calc(80px + 24px) 16px 64px;\r\n    color: var(--fqa-text);\r\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\r\n        sans-serif;\r\n}\r\n\r\n#fqa-bookshelf *,\r\n#fqa-bookshelf *::before,\r\n#fqa-bookshelf *::after {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#fqa-bookshelf div,\r\n#fqa-bookshelf span,\r\n#fqa-bookshelf h1,\r\n#fqa-bookshelf ul,\r\n#fqa-bookshelf li {\r\n    margin: 0;\r\n    padding: 0;\r\n    border: 0;\r\n    list-style: none;\r\n    float: none;\r\n    position: static;\r\n}\r\n\r\n/* ------------------------------ 顶部 / Tabs ------------------------------ */\r\n\r\n#fqa-bookshelf .fqa-bs-header {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    gap: 16px;\r\n    margin-bottom: 8px;\r\n}\r\n\r\n#fqa-bookshelf .fqa-bs-title {\r\n    font-size: 24px;\r\n    font-weight: 600;\r\n    line-height: 1.4;\r\n}\r\n\r\n#fqa-bookshelf .fqa-bs-actions {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 12px;\r\n    font-size: 13px;\r\n    color: var(--fqa-text-weak);\r\n}\r\n\r\n#fqa-bookshelf .fqa-btn {\r\n    display: inline-flex;\r\n    align-items: center;\r\n    gap: 4px;\r\n    padding: 6px 14px;\r\n    border: 1px solid var(--fqa-border);\r\n    border-radius: 999px;\r\n    background: transparent;\r\n    color: var(--fqa-text-sub);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n    line-height: 1.4;\r\n    cursor: pointer;\r\n    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;\r\n}\r\n\r\n#fqa-bookshelf .fqa-btn:hover:not(:disabled) {\r\n    border-color: var(--fqa-accent);\r\n    color: var(--fqa-accent);\r\n    background: rgba(255, 111, 61, 0.06);\r\n}\r\n\r\n#fqa-bookshelf .fqa-btn:disabled {\r\n    opacity: 0.5;\r\n    cursor: default;\r\n}\r\n\r\n#fqa-bookshelf .fqa-tabs {\r\n    position: relative;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 4px;\r\n    margin-bottom: 24px;\r\n    border-bottom: 1px solid var(--fqa-border);\r\n}\r\n\r\n#fqa-bookshelf .fqa-tab {\r\n    padding: 10px 16px;\r\n    color: var(--fqa-text-sub);\r\n    font-size: 15px;\r\n    line-height: 22px;\r\n    cursor: pointer;\r\n    user-select: none;\r\n    transition: color 0.15s ease;\r\n}\r\n\r\n#fqa-bookshelf .fqa-tab:hover {\r\n    color: var(--fqa-text);\r\n}\r\n\r\n#fqa-bookshelf .fqa-tab-active {\r\n    color: var(--fqa-accent);\r\n    font-weight: 600;\r\n}\r\n\r\n#fqa-bookshelf .fqa-tab-count {\r\n    margin-left: 4px;\r\n    font-size: 12px;\r\n    font-weight: 400;\r\n    color: var(--fqa-text-weak);\r\n}\r\n\r\n#fqa-bookshelf .fqa-tab-ink {\r\n    position: absolute;\r\n    bottom: -1px;\r\n    left: 0;\r\n    width: 0;\r\n    height: 2px;\r\n    border-radius: 2px;\r\n    background: var(--fqa-accent);\r\n    transition: left 0.25s ease, width 0.25s ease;\r\n}\r\n\r\n/* ------------------------------- 书架网格 ------------------------------- */\r\n\r\n/* 原站一排最多 4 本；窄屏逐级降到 3 / 2 */\r\n#fqa-bookshelf .fqa-grid {\r\n    display: grid;\r\n    grid-template-columns: repeat(4, minmax(0, 1fr));\r\n    gap: 28px 24px;\r\n    align-items: start;\r\n}\r\n\r\n@media (max-width: 900px) {\r\n    #fqa-bookshelf .fqa-grid {\r\n        grid-template-columns: repeat(3, minmax(0, 1fr));\r\n    }\r\n}\r\n\r\n@media (max-width: 600px) {\r\n    #fqa-bookshelf .fqa-grid {\r\n        grid-template-columns: repeat(2, minmax(0, 1fr));\r\n    }\r\n}\r\n\r\n#fqa-bookshelf .fqa-card {\r\n    display: block;\r\n    border-radius: 8px;\r\n    cursor: pointer;\r\n    outline: none;\r\n}\r\n\r\n#fqa-bookshelf .fqa-card:focus-visible {\r\n    box-shadow: 0 0 0 2px var(--fqa-accent);\r\n}\r\n\r\n/* 封面：3:4，靠 aspect-ratio 定高，内部元素绝对定位 */\r\n#fqa-bookshelf .fqa-cover {\r\n    position: relative;\r\n    display: block;\r\n    width: 100%;\r\n    aspect-ratio: 3 / 4;\r\n    border-radius: 6px;\r\n    overflow: hidden;\r\n    background: var(--fqa-skeleton);\r\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\r\n}\r\n\r\n#fqa-bookshelf .fqa-card:hover .fqa-cover {\r\n    transform: translateY(-4px);\r\n    box-shadow: var(--fqa-shadow);\r\n}\r\n\r\n#fqa-bookshelf .fqa-cover-img {\r\n    position: absolute;\r\n    inset: 0;\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n    transition: opacity 0.25s ease;\r\n}\r\n\r\n#fqa-bookshelf .fqa-cover-img-loading {\r\n    opacity: 0;\r\n}\r\n\r\n#fqa-bookshelf .fqa-cover-tag {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    z-index: 2;\r\n    padding: 2px 6px;\r\n    border-radius: 0 6px 0 6px;\r\n    background: var(--fqa-accent);\r\n    color: #fff;\r\n    font-size: 11px;\r\n    line-height: 16px;\r\n    font-weight: 500;\r\n    white-space: nowrap;\r\n}\r\n\r\n/* 连载 / 完结 / 断更共用：灰底，弱化于“更新”角标 */\r\n#fqa-bookshelf .fqa-cover-tag-gray {\r\n    background: rgba(31, 35, 41, 0.55);\r\n}\r\n\r\n@media (prefers-color-scheme: dark) {\r\n    #fqa-bookshelf .fqa-cover-tag-gray {\r\n        background: rgba(0, 0, 0, 0.6);\r\n    }\r\n}\r\n\r\n#fqa-bookshelf .fqa-cover-progress {\r\n    position: absolute;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    z-index: 2;\r\n    height: 3px;\r\n    background: rgba(255, 255, 255, 0.35);\r\n}\r\n\r\n#fqa-bookshelf .fqa-cover-progress-bar {\r\n    display: block;\r\n    height: 100%;\r\n    background: var(--fqa-accent);\r\n    transition: width 0.3s ease;\r\n}\r\n\r\n/* 文字区：与封面同为普通流元素，不会重叠 */\r\n#fqa-bookshelf .fqa-card-title {\r\n    display: -webkit-box;\r\n    margin-top: 8px;\r\n    color: var(--fqa-text);\r\n    font-size: 14px;\r\n    line-height: 20px;\r\n    font-weight: 500;\r\n    -webkit-line-clamp: 2;\r\n    line-clamp: 2;\r\n    -webkit-box-orient: vertical;\r\n    overflow: hidden;\r\n    word-break: break-all;\r\n}\r\n\r\n#fqa-bookshelf .fqa-card-sub {\r\n    margin-top: 4px;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n/* ------------------------------- 分组卡片 ------------------------------- */\r\n\r\n#fqa-bookshelf .fqa-group-cover {\r\n    position: relative;\r\n    display: block;\r\n    width: 100%;\r\n    aspect-ratio: 3 / 4;\r\n    border-radius: 6px;\r\n    overflow: hidden;\r\n    background: linear-gradient(135deg, rgba(255, 111, 61, 0.12), rgba(78, 131, 253, 0.12));\r\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\r\n}\r\n\r\n#fqa-bookshelf .fqa-card:hover .fqa-group-cover {\r\n    transform: translateY(-4px);\r\n    box-shadow: var(--fqa-shadow);\r\n}\r\n\r\n#fqa-bookshelf .fqa-group-grid {\r\n    position: absolute;\r\n    inset: 0;\r\n    display: grid;\r\n    grid-template-columns: 1fr 1fr;\r\n    grid-template-rows: 1fr 1fr;\r\n    gap: 4px;\r\n    padding: 6px;\r\n}\r\n\r\n#fqa-bookshelf .fqa-group-cell {\r\n    position: relative;\r\n    border-radius: 3px;\r\n    overflow: hidden;\r\n    background: rgba(31, 35, 41, 0.06);\r\n}\r\n\r\n#fqa-bookshelf .fqa-group-cell img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n/* 分组详情返回条 */\r\n\r\n#fqa-bookshelf .fqa-groupbar {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 10px;\r\n    margin-bottom: 16px;\r\n}\r\n\r\n#fqa-bookshelf .fqa-groupbar-name {\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n}\r\n\r\n#fqa-bookshelf .fqa-groupbar-count {\r\n    color: var(--fqa-text-weak);\r\n    font-size: 13px;\r\n}\r\n\r\n/* --------------------------- hover 详情浮层 --------------------------- */\r\n\r\n/*\r\n * 用 popover 进入浏览器顶层，不参与页面 z-index 竞争，\r\n * 因此不会被相邻卡片或原站的层叠上下文盖住。z-index 仅作降级保险。\r\n */\r\n#fqa-bookshelf-hover {\r\n    position: fixed;\r\n    z-index: 2147483000;\r\n    /* 容器本身透传，只有内部卡片接收事件，避免空白区挡住下层 */\r\n    pointer-events: none;\r\n    opacity: 0;\r\n    transform: translateY(4px);\r\n    /* allow-discrete：顶层元素从 display:none 切入时也能播放淡入 */\r\n    transition: opacity 0.16s ease, transform 0.16s ease, display 0.16s allow-discrete;\r\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\r\n        sans-serif;\r\n}\r\n\r\n/* popover 默认带边框/内边距/居中定位，全部清掉，改由 left/top 控制 */\r\n#fqa-bookshelf-hover:popover-open,\r\n#fqa-bookshelf-hover[popover] {\r\n    margin: 0;\r\n    padding: 0;\r\n    border: 0;\r\n    background: transparent;\r\n    overflow: visible;\r\n    inset: auto;\r\n    width: auto;\r\n    height: auto;\r\n    max-width: none;\r\n    max-height: none;\r\n    color: inherit;\r\n}\r\n\r\n#fqa-bookshelf-hover::backdrop {\r\n    background: transparent;\r\n}\r\n\r\n#fqa-bookshelf-hover.fqa-visible {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n}\r\n\r\n@starting-style {\r\n    #fqa-bookshelf-hover.fqa-visible {\r\n        opacity: 0;\r\n        transform: translateY(4px);\r\n    }\r\n}\r\n\r\n/* 高度由 JS 按封面尺寸设定；纵向 flex 让简介吃掉剩余空间 */\r\n#fqa-bookshelf-hover .fqa-hover-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    box-sizing: border-box;\r\n    width: 280px;\r\n    padding: 12px 14px;\r\n    border-radius: 10px;\r\n    background: #fff;\r\n    box-shadow: 0 8px 32px rgba(31, 35, 41, 0.16);\r\n    color: #1f2329;\r\n    overflow: hidden;\r\n    /* 卡片可交互：鼠标可以移进来而不触发收起 */\r\n    pointer-events: auto;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-title {\r\n    flex: none;\r\n    margin: 0;\r\n    font-size: 14px;\r\n    line-height: 20px;\r\n    font-weight: 600;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-author {\r\n    flex: none;\r\n    margin-top: 2px;\r\n    color: #8f959e;\r\n    font-size: 12px;\r\n    line-height: 17px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stats {\r\n    display: flex;\r\n    flex: none;\r\n    margin-top: 10px;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat {\r\n    flex: 1 1 0;\r\n    min-width: 0;\r\n    padding: 0 6px;\r\n    text-align: center;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat:first-child {\r\n    padding-left: 0;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat:last-child {\r\n    padding-right: 0;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat + .fqa-hover-stat {\r\n    border-left: 1px solid rgba(31, 35, 41, 0.08);\r\n}\r\n\r\n/* 第一栏可悬停切换为更新时间，给个可交互提示 */\r\n#fqa-bookshelf-hover .fqa-hover-stat:first-child {\r\n    border-radius: 4px;\r\n    cursor: default;\r\n    transition: background 0.15s ease;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat:first-child:hover {\r\n    background: rgba(31, 35, 41, 0.05);\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat-v {\r\n    font-size: 13px;\r\n    line-height: 18px;\r\n    font-weight: 600;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-stat-k {\r\n    margin-top: 1px;\r\n    color: #8f959e;\r\n    font-size: 11px;\r\n    line-height: 16px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n/* 梗概 / 简介 双栏切换 */\r\n#fqa-bookshelf-hover .fqa-hover-seg {\r\n    display: flex;\r\n    flex: none;\r\n    gap: 4px;\r\n    margin-top: 10px;\r\n    padding-top: 10px;\r\n    border-top: 1px solid rgba(31, 35, 41, 0.08);\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-seg-btn {\r\n    flex: 1 1 0;\r\n    padding: 4px 0;\r\n    border: 0;\r\n    border-radius: 5px;\r\n    background: rgba(31, 35, 41, 0.05);\r\n    color: #646a73;\r\n    font-family: inherit;\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n    cursor: pointer;\r\n    transition: background 0.15s ease, color 0.15s ease;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-seg-btn:hover {\r\n    color: #1f2329;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-seg-active {\r\n    background: rgba(255, 111, 61, 0.12);\r\n    color: #ff6f3d;\r\n    font-weight: 500;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-seg-active:hover {\r\n    color: #ff6f3d;\r\n}\r\n\r\n/*\r\n * 撑满剩余高度。行数不再写死，由容器高度自然裁切；\r\n * min-height:0 让 flex 子项允许被压缩，否则 overflow 不生效。\r\n */\r\n#fqa-bookshelf-hover .fqa-hover-abstract {\r\n    flex: 1 1 auto;\r\n    min-height: 0;\r\n    margin-top: 8px;\r\n    color: #646a73;\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n    overflow-y: auto;\r\n    overscroll-behavior: contain;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-abstract::-webkit-scrollbar {\r\n    width: 4px;\r\n}\r\n\r\n#fqa-bookshelf-hover .fqa-hover-abstract::-webkit-scrollbar-thumb {\r\n    border-radius: 2px;\r\n    background: rgba(31, 35, 41, 0.18);\r\n}\r\n\r\n\r\n#fqa-bookshelf-hover .fqa-hover-chapter {\r\n    display: block;\r\n    margin-bottom: 1px;\r\n    color: #1f2329;\r\n    font-weight: 500;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n/* ------------------------------- 骨架屏 ------------------------------- */\r\n\r\n#fqa-bookshelf .fqa-sk-cover {\r\n    display: block;\r\n    width: 100%;\r\n    aspect-ratio: 3 / 4;\r\n    border-radius: 6px;\r\n    background: var(--fqa-skeleton);\r\n}\r\n\r\n#fqa-bookshelf .fqa-sk-line {\r\n    height: 12px;\r\n    margin-top: 8px;\r\n    border-radius: 4px;\r\n    background: var(--fqa-skeleton);\r\n}\r\n\r\n#fqa-bookshelf .fqa-sk-anim {\r\n    position: relative;\r\n    overflow: hidden;\r\n}\r\n\r\n/* keyframes fqa-shimmer 在 script.css 里全局声明 */\r\n#fqa-bookshelf .fqa-sk-anim::after {\r\n    content: '';\r\n    position: absolute;\r\n    inset: 0;\r\n    transform: translateX(-100%);\r\n    background: linear-gradient(90deg, transparent, var(--fqa-skeleton-hl), transparent);\r\n    animation: fqa-shimmer 1.4s infinite;\r\n}\r\n\r\n/* --------------------------- 空态 / 错误态 --------------------------- */\r\n\r\n#fqa-bookshelf .fqa-loadmore {\r\n    padding: 24px 0;\r\n    text-align: center;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 13px;\r\n}\r\n\r\n#fqa-bookshelf .fqa-status {\r\n    padding: 80px 16px;\r\n    text-align: center;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 14px;\r\n    line-height: 22px;\r\n}\r\n\r\n#fqa-bookshelf .fqa-status-title {\r\n    margin-bottom: 8px;\r\n    color: var(--fqa-text);\r\n    font-size: 16px;\r\n    font-weight: 500;\r\n}\r\n\r\n#fqa-bookshelf .fqa-status .fqa-btn {\r\n    margin-top: 16px;\r\n}\r\n\r\n/* ------------------------------- 深色模式 ------------------------------- */\r\n\r\n@media (prefers-color-scheme: dark) {\r\n    #fqa-bookshelf {\r\n        --fqa-text: #e6e6e6;\r\n        --fqa-text-sub: #a6a6a6;\r\n        --fqa-text-weak: #7a7a7a;\r\n        --fqa-border: rgba(255, 255, 255, 0.1);\r\n        --fqa-hover: rgba(255, 255, 255, 0.06);\r\n        --fqa-skeleton: rgba(255, 255, 255, 0.08);\r\n        --fqa-skeleton-hl: rgba(255, 255, 255, 0.14);\r\n        --fqa-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);\r\n    }\r\n\r\n    #fqa-bookshelf-hover .fqa-hover-inner {\r\n        background: #212125;\r\n        color: #e6e6e6;\r\n        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);\r\n    }\r\n\r\n    #fqa-bookshelf-hover .fqa-hover-chapter {\r\n        color: #e6e6e6;\r\n    }\r\n\r\n    #fqa-bookshelf-hover .fqa-hover-abstract {\r\n        color: #a6a6a6;\r\n        border-top-color: rgba(255, 255, 255, 0.1);\r\n    }\r\n\r\n    #fqa-bookshelf-hover .fqa-hover-stat + .fqa-hover-stat {\r\n        border-left-color: rgba(255, 255, 255, 0.1);\r\n    }\r\n}\r\n\r\n/* 右键菜单与 toast 样式已移到 script.css，书架和搜索共用 */\r\n";
+  const bookshelfcss = "#fqa-bookshelf {\n    --fqa-text: #1f2329;\n    --fqa-text-sub: #646a73;\n    --fqa-text-weak: #8f959e;\n    --fqa-border: rgba(31, 35, 41, 0.08);\n    --fqa-hover: rgba(31, 35, 41, 0.04);\n    --fqa-accent: #ff6f3d;\n    --fqa-skeleton: rgba(31, 35, 41, 0.06);\n    --fqa-skeleton-hl: rgba(31, 35, 41, 0.12);\n    --fqa-shadow: 0 4px 16px rgba(31, 35, 41, 0.08);\n\n    display: block;\n    box-sizing: border-box;\n    width: 100%;\n    max-width: 1100px;\n    margin: 0 auto;\n    /* 顶部留出原站 fixed 顶栏（80px）的高度，否则标题和 tab 会被压在下面 */\n    padding: calc(80px + 24px) 16px 64px;\n    color: var(--fqa-text);\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\n        sans-serif;\n}\n\n#fqa-bookshelf *,\n#fqa-bookshelf *::before,\n#fqa-bookshelf *::after {\n    box-sizing: border-box;\n}\n\n#fqa-bookshelf div,\n#fqa-bookshelf span,\n#fqa-bookshelf h1,\n#fqa-bookshelf ul,\n#fqa-bookshelf li {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    list-style: none;\n    float: none;\n    position: static;\n}\n\n/* ------------------------------ 顶部 / Tabs ------------------------------ */\n\n#fqa-bookshelf .fqa-bs-header {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 16px;\n    margin-bottom: 8px;\n}\n\n#fqa-bookshelf .fqa-bs-title {\n    font-size: 24px;\n    font-weight: 600;\n    line-height: 1.4;\n}\n\n/* 一级切换：我的书架 / 阅读历史（与下方 tab 区分开，字号同原大标题） */\n#fqa-bookshelf .fqa-bs-views {\n    display: flex;\n    align-items: baseline;\n    gap: 20px;\n    min-width: 0;\n}\n\n#fqa-bookshelf .fqa-bs-view {\n    padding: 0;\n    border: none;\n    background: transparent;\n    color: var(--fqa-text-weak, #8f959e);\n    font-size: 24px;\n    font-weight: 600;\n    line-height: 1.4;\n    cursor: pointer;\n    transition: color 0.15s ease;\n}\n\n#fqa-bookshelf .fqa-bs-view:hover {\n    color: var(--fqa-text, #1f2329);\n}\n\n#fqa-bookshelf .fqa-bs-view-active {\n    color: var(--fqa-text, #1f2329);\n}\n\n#fqa-bookshelf .fqa-bs-actions {\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    font-size: 13px;\n    color: var(--fqa-text-weak);\n}\n\n#fqa-bookshelf .fqa-bs-hint {\n    color: #e8a33d;\n    cursor: help;\n}\n\n#fqa-bookshelf .fqa-btn {\n    display: inline-flex;\n    align-items: center;\n    gap: 4px;\n    padding: 6px 14px;\n    border: 1px solid var(--fqa-border);\n    border-radius: 999px;\n    background: transparent;\n    color: var(--fqa-text-sub);\n    font-size: 13px;\n    font-family: inherit;\n    line-height: 1.4;\n    cursor: pointer;\n    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;\n}\n\n#fqa-bookshelf .fqa-btn:hover:not(:disabled) {\n    border-color: var(--fqa-accent);\n    color: var(--fqa-accent);\n    background: rgba(255, 111, 61, 0.06);\n}\n\n#fqa-bookshelf .fqa-btn:disabled {\n    opacity: 0.5;\n    cursor: default;\n}\n\n#fqa-bookshelf .fqa-tabs {\n    position: relative;\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    margin-bottom: 24px;\n    border-bottom: 1px solid var(--fqa-border);\n}\n\n#fqa-bookshelf .fqa-tab {\n    padding: 10px 16px;\n    color: var(--fqa-text-sub);\n    font-size: 15px;\n    line-height: 22px;\n    cursor: pointer;\n    user-select: none;\n    transition: color 0.15s ease;\n}\n\n#fqa-bookshelf .fqa-tab:hover {\n    color: var(--fqa-text);\n}\n\n#fqa-bookshelf .fqa-tab-active {\n    color: var(--fqa-accent);\n    font-weight: 600;\n}\n\n#fqa-bookshelf .fqa-tab-count {\n    margin-left: 4px;\n    font-size: 12px;\n    font-weight: 400;\n    color: var(--fqa-text-weak);\n}\n\n#fqa-bookshelf .fqa-tab-ink {\n    position: absolute;\n    bottom: -1px;\n    left: 0;\n    width: 0;\n    height: 2px;\n    border-radius: 2px;\n    background: var(--fqa-accent);\n    transition: left 0.25s ease, width 0.25s ease;\n}\n\n/* ------------------------------- 书架网格 ------------------------------- */\n\n/* 原站一排最多 4 本；窄屏逐级降到 3 / 2 */\n#fqa-bookshelf .fqa-grid {\n    display: grid;\n    grid-template-columns: repeat(4, minmax(0, 1fr));\n    gap: 28px 24px;\n    align-items: start;\n}\n\n@media (max-width: 900px) {\n    #fqa-bookshelf .fqa-grid {\n        grid-template-columns: repeat(3, minmax(0, 1fr));\n    }\n}\n\n@media (max-width: 600px) {\n    #fqa-bookshelf .fqa-grid {\n        grid-template-columns: repeat(2, minmax(0, 1fr));\n    }\n}\n\n#fqa-bookshelf .fqa-card {\n    display: block;\n    border-radius: 8px;\n    cursor: pointer;\n    outline: none;\n}\n\n#fqa-bookshelf .fqa-card:focus-visible {\n    box-shadow: 0 0 0 2px var(--fqa-accent);\n}\n\n/* 封面：3:4，靠 aspect-ratio 定高，内部元素绝对定位 */\n#fqa-bookshelf .fqa-cover {\n    position: relative;\n    display: block;\n    width: 100%;\n    aspect-ratio: 3 / 4;\n    border-radius: 6px;\n    overflow: hidden;\n    background: var(--fqa-skeleton);\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n#fqa-bookshelf .fqa-card:hover .fqa-cover {\n    transform: translateY(-4px);\n    box-shadow: var(--fqa-shadow);\n}\n\n#fqa-bookshelf .fqa-cover-img {\n    position: absolute;\n    inset: 0;\n    display: block;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    transition: opacity 0.25s ease;\n}\n\n#fqa-bookshelf .fqa-cover-img-loading {\n    opacity: 0;\n}\n\n#fqa-bookshelf .fqa-cover-tag {\n    position: absolute;\n    top: 0;\n    right: 0;\n    z-index: 2;\n    padding: 2px 6px;\n    border-radius: 0 6px 0 6px;\n    background: var(--fqa-accent);\n    color: #fff;\n    font-size: 11px;\n    line-height: 16px;\n    font-weight: 500;\n    white-space: nowrap;\n}\n\n/* 连载 / 完结 / 断更共用：灰底，弱化于“更新”角标 */\n#fqa-bookshelf .fqa-cover-tag-gray {\n    background: rgba(31, 35, 41, 0.55);\n}\n\n@media (prefers-color-scheme: dark) {\n    #fqa-bookshelf .fqa-cover-tag-gray {\n        background: rgba(0, 0, 0, 0.6);\n    }\n}\n\n#fqa-bookshelf .fqa-cover-progress {\n    position: absolute;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    z-index: 2;\n    height: 3px;\n    background: rgba(255, 255, 255, 0.35);\n}\n\n#fqa-bookshelf .fqa-cover-progress-bar {\n    display: block;\n    height: 100%;\n    background: var(--fqa-accent);\n    transition: width 0.3s ease;\n}\n\n/* 文字区：与封面同为普通流元素，不会重叠 */\n#fqa-bookshelf .fqa-card-title {\n    display: -webkit-box;\n    margin-top: 8px;\n    color: var(--fqa-text);\n    font-size: 14px;\n    line-height: 20px;\n    font-weight: 500;\n    -webkit-line-clamp: 2;\n    line-clamp: 2;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n    word-break: break-all;\n}\n\n#fqa-bookshelf .fqa-card-sub {\n    margin-top: 4px;\n    color: var(--fqa-text-weak);\n    font-size: 12px;\n    line-height: 18px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n/* ------------------------------- 分组卡片 ------------------------------- */\n\n#fqa-bookshelf .fqa-group-cover {\n    position: relative;\n    display: block;\n    width: 100%;\n    aspect-ratio: 3 / 4;\n    border-radius: 6px;\n    overflow: hidden;\n    background: linear-gradient(135deg, rgba(255, 111, 61, 0.12), rgba(78, 131, 253, 0.12));\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n#fqa-bookshelf .fqa-card:hover .fqa-group-cover {\n    transform: translateY(-4px);\n    box-shadow: var(--fqa-shadow);\n}\n\n#fqa-bookshelf .fqa-group-grid {\n    position: absolute;\n    inset: 0;\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    grid-template-rows: 1fr 1fr;\n    gap: 4px;\n    padding: 6px;\n}\n\n#fqa-bookshelf .fqa-group-cell {\n    position: relative;\n    border-radius: 3px;\n    overflow: hidden;\n    background: rgba(31, 35, 41, 0.06);\n}\n\n#fqa-bookshelf .fqa-group-cell img {\n    display: block;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n}\n\n/* 分组详情返回条 */\n\n#fqa-bookshelf .fqa-groupbar {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    margin-bottom: 16px;\n}\n\n#fqa-bookshelf .fqa-groupbar-name {\n    font-size: 16px;\n    font-weight: 600;\n}\n\n#fqa-bookshelf .fqa-groupbar-count {\n    color: var(--fqa-text-weak);\n    font-size: 13px;\n}\n\n/* --------------------------- hover 详情浮层 --------------------------- */\n\n/*\n * 用 popover 进入浏览器顶层，不参与页面 z-index 竞争，\n * 因此不会被相邻卡片或原站的层叠上下文盖住。z-index 仅作降级保险。\n */\n#fqa-bookshelf-hover {\n    position: fixed;\n    z-index: 2147483000;\n    /* 容器本身透传，只有内部卡片接收事件，避免空白区挡住下层 */\n    pointer-events: none;\n    opacity: 0;\n    transform: translateY(4px);\n    /* allow-discrete：顶层元素从 display:none 切入时也能播放淡入 */\n    transition: opacity 0.16s ease, transform 0.16s ease, display 0.16s allow-discrete;\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\n        sans-serif;\n}\n\n/* popover 默认带边框/内边距/居中定位，全部清掉，改由 left/top 控制 */\n#fqa-bookshelf-hover:popover-open,\n#fqa-bookshelf-hover[popover] {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    background: transparent;\n    overflow: visible;\n    inset: auto;\n    width: auto;\n    height: auto;\n    max-width: none;\n    max-height: none;\n    color: inherit;\n}\n\n#fqa-bookshelf-hover::backdrop {\n    background: transparent;\n}\n\n#fqa-bookshelf-hover.fqa-visible {\n    opacity: 1;\n    transform: translateY(0);\n}\n\n@starting-style {\n    #fqa-bookshelf-hover.fqa-visible {\n        opacity: 0;\n        transform: translateY(4px);\n    }\n}\n\n/* 高度由 JS 按封面尺寸设定；纵向 flex 让简介吃掉剩余空间 */\n#fqa-bookshelf-hover .fqa-hover-inner {\n    display: flex;\n    flex-direction: column;\n    box-sizing: border-box;\n    width: 280px;\n    padding: 12px 14px;\n    border-radius: 10px;\n    background: #fff;\n    box-shadow: 0 8px 32px rgba(31, 35, 41, 0.16);\n    color: #1f2329;\n    overflow: hidden;\n    /* 卡片可交互：鼠标可以移进来而不触发收起 */\n    pointer-events: auto;\n}\n\n#fqa-bookshelf-hover .fqa-hover-title {\n    flex: none;\n    margin: 0;\n    font-size: 14px;\n    line-height: 20px;\n    font-weight: 600;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n#fqa-bookshelf-hover .fqa-hover-author {\n    flex: none;\n    margin-top: 2px;\n    color: #8f959e;\n    font-size: 12px;\n    line-height: 17px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stats {\n    display: flex;\n    flex: none;\n    margin-top: 10px;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat {\n    flex: 1 1 0;\n    min-width: 0;\n    padding: 0 6px;\n    text-align: center;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat:first-child {\n    padding-left: 0;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat:last-child {\n    padding-right: 0;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat + .fqa-hover-stat {\n    border-left: 1px solid rgba(31, 35, 41, 0.08);\n}\n\n/* 第一栏可悬停切换为更新时间，给个可交互提示 */\n#fqa-bookshelf-hover .fqa-hover-stat:first-child {\n    border-radius: 4px;\n    cursor: default;\n    transition: background 0.15s ease;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat:first-child:hover {\n    background: rgba(31, 35, 41, 0.05);\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat-v {\n    font-size: 13px;\n    line-height: 18px;\n    font-weight: 600;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n#fqa-bookshelf-hover .fqa-hover-stat-k {\n    margin-top: 1px;\n    color: #8f959e;\n    font-size: 11px;\n    line-height: 16px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n/* 梗概 / 简介 双栏切换 */\n#fqa-bookshelf-hover .fqa-hover-seg {\n    display: flex;\n    flex: none;\n    gap: 4px;\n    margin-top: 10px;\n    padding-top: 10px;\n    border-top: 1px solid rgba(31, 35, 41, 0.08);\n}\n\n#fqa-bookshelf-hover .fqa-hover-seg-btn {\n    flex: 1 1 0;\n    padding: 4px 0;\n    border: 0;\n    border-radius: 5px;\n    background: rgba(31, 35, 41, 0.05);\n    color: #646a73;\n    font-family: inherit;\n    font-size: 12px;\n    line-height: 18px;\n    cursor: pointer;\n    transition: background 0.15s ease, color 0.15s ease;\n}\n\n#fqa-bookshelf-hover .fqa-hover-seg-btn:hover {\n    color: #1f2329;\n}\n\n#fqa-bookshelf-hover .fqa-hover-seg-active {\n    background: rgba(255, 111, 61, 0.12);\n    color: #ff6f3d;\n    font-weight: 500;\n}\n\n#fqa-bookshelf-hover .fqa-hover-seg-active:hover {\n    color: #ff6f3d;\n}\n\n/*\n * 撑满剩余高度。行数不再写死，由容器高度自然裁切；\n * min-height:0 让 flex 子项允许被压缩，否则 overflow 不生效。\n */\n#fqa-bookshelf-hover .fqa-hover-abstract {\n    flex: 1 1 auto;\n    min-height: 0;\n    margin-top: 8px;\n    color: #646a73;\n    font-size: 12px;\n    line-height: 18px;\n    overflow-y: auto;\n    overscroll-behavior: contain;\n}\n\n#fqa-bookshelf-hover .fqa-hover-abstract::-webkit-scrollbar {\n    width: 4px;\n}\n\n#fqa-bookshelf-hover .fqa-hover-abstract::-webkit-scrollbar-thumb {\n    border-radius: 2px;\n    background: rgba(31, 35, 41, 0.18);\n}\n\n\n#fqa-bookshelf-hover .fqa-hover-chapter {\n    display: block;\n    margin-bottom: 1px;\n    color: #1f2329;\n    font-weight: 500;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n/* ------------------------------- 骨架屏 ------------------------------- */\n\n#fqa-bookshelf .fqa-sk-cover {\n    display: block;\n    width: 100%;\n    aspect-ratio: 3 / 4;\n    border-radius: 6px;\n    background: var(--fqa-skeleton);\n}\n\n#fqa-bookshelf .fqa-sk-line {\n    height: 12px;\n    margin-top: 8px;\n    border-radius: 4px;\n    background: var(--fqa-skeleton);\n}\n\n#fqa-bookshelf .fqa-sk-anim {\n    position: relative;\n    overflow: hidden;\n}\n\n/* keyframes fqa-shimmer 在 script.css 里全局声明 */\n#fqa-bookshelf .fqa-sk-anim::after {\n    content: '';\n    position: absolute;\n    inset: 0;\n    transform: translateX(-100%);\n    background: linear-gradient(90deg, transparent, var(--fqa-skeleton-hl), transparent);\n    animation: fqa-shimmer 1.4s infinite;\n}\n\n/* --------------------------- 空态 / 错误态 --------------------------- */\n\n#fqa-bookshelf .fqa-loadmore {\n    padding: 24px 0;\n    text-align: center;\n    color: var(--fqa-text-weak);\n    font-size: 13px;\n}\n\n#fqa-bookshelf .fqa-status {\n    padding: 80px 16px;\n    text-align: center;\n    color: var(--fqa-text-weak);\n    font-size: 14px;\n    line-height: 22px;\n}\n\n#fqa-bookshelf .fqa-status-title {\n    margin-bottom: 8px;\n    color: var(--fqa-text);\n    font-size: 16px;\n    font-weight: 500;\n}\n\n#fqa-bookshelf .fqa-status .fqa-btn {\n    margin-top: 16px;\n}\n\n/* ------------------------------- 深色模式 ------------------------------- */\n\n@media (prefers-color-scheme: dark) {\n    #fqa-bookshelf {\n        --fqa-text: #e6e6e6;\n        --fqa-text-sub: #a6a6a6;\n        --fqa-text-weak: #7a7a7a;\n        --fqa-border: rgba(255, 255, 255, 0.1);\n        --fqa-hover: rgba(255, 255, 255, 0.06);\n        --fqa-skeleton: rgba(255, 255, 255, 0.08);\n        --fqa-skeleton-hl: rgba(255, 255, 255, 0.14);\n        --fqa-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);\n    }\n\n    #fqa-bookshelf-hover .fqa-hover-inner {\n        background: #212125;\n        color: #e6e6e6;\n        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);\n    }\n\n    #fqa-bookshelf-hover .fqa-hover-chapter {\n        color: #e6e6e6;\n    }\n\n    #fqa-bookshelf-hover .fqa-hover-abstract {\n        color: #a6a6a6;\n        border-top-color: rgba(255, 255, 255, 0.1);\n    }\n\n    #fqa-bookshelf-hover .fqa-hover-stat + .fqa-hover-stat {\n        border-left-color: rgba(255, 255, 255, 0.1);\n    }\n}\n\n/* 右键菜单与 toast 样式已移到 script.css，书架和搜索共用 */\n";
   const CONTAINER_ID$2 = "fqa-bookshelf-root";
-  const STYLE_ID$3 = "fqa-bookshelf-style";
+  const STYLE_ID$5 = "fqa-bookshelf-style";
   const ORIGIN_SELECTOR$1 = ".muye-bookshelf, .muye-bookshelf-home-page, .bookshelf-tabs";
   let app$2 = null;
   let container$2 = null;
-  let observer$2 = null;
-  function injectStyle$3() {
-    if (document.getElementById(STYLE_ID$3)) return;
+  let observer$3 = null;
+  function injectStyle$4() {
+    if (document.getElementById(STYLE_ID$5)) return;
     const style = document.createElement("style");
-    style.id = STYLE_ID$3;
+    style.id = STYLE_ID$5;
     style.textContent = bookshelfcss;
     document.head.appendChild(style);
   }
   function hideOrigin$1(root = document) {
-    root.querySelectorAll(ORIGIN_SELECTOR$1).forEach((el) => {
-      if (el.id === CONTAINER_ID$2 || el.closest(`#${CONTAINER_ID$2}`)) return;
-      el.classList.add("fqa-hide");
+    root.querySelectorAll(ORIGIN_SELECTOR$1).forEach((el2) => {
+      if (el2.id === CONTAINER_ID$2 || el2.closest(`#${CONTAINER_ID$2}`)) return;
+      el2.classList.add("fqa-hide");
     });
   }
   function isBookshelfPath(path) {
@@ -10412,15 +12769,15 @@ ${body}
   }
   function unmount$1() {
     var _a;
-    observer$2 == null ? void 0 : observer$2.disconnect();
-    observer$2 = null;
+    observer$3 == null ? void 0 : observer$3.disconnect();
+    observer$3 = null;
     app$2 == null ? void 0 : app$2.unmount();
     app$2 = null;
     container$2 == null ? void 0 : container$2.remove();
     container$2 = null;
     (_a = document.getElementById("fqa-bookshelf-hover")) == null ? void 0 : _a.remove();
-    document.querySelectorAll(ORIGIN_SELECTOR$1).forEach((el) => {
-      el.classList.remove("fqa-hide");
+    document.querySelectorAll(ORIGIN_SELECTOR$1).forEach((el2) => {
+      el2.classList.remove("fqa-hide");
     });
   }
   async function mainHook$2(_previous) {
@@ -10432,7 +12789,7 @@ ${body}
       hideOrigin$1();
       return;
     }
-    injectStyle$3();
+    injectStyle$4();
     const origin = await waitForElement(ORIGIN_SELECTOR$1);
     if (!isBookshelfPath(window.location.pathname)) return;
     if (app$2) return;
@@ -10445,14 +12802,14 @@ ${body}
     } else {
       anchor.appendChild(container$2);
     }
-    app$2 = vue.createApp(_sfc_main$4);
+    app$2 = vue.createApp(_sfc_main$5);
     app$2.config.errorHandler = (err, _instance, info) => {
       console.error(`[fqa:bookshelf] Vue error (${info}):`, err);
     };
     app$2.mount(container$2);
     console.log("[fqa:bookshelf] 书架视图已挂载");
     document.title = "我的书架 - 番茄小说";
-    observer$2 = new MutationObserver((mutations) => {
+    observer$3 = new MutationObserver((mutations) => {
       var _a;
       for (const mutation of mutations) {
         for (const node of mutation.addedNodes) {
@@ -10466,12 +12823,12 @@ ${body}
         }
       }
     });
-    observer$2.observe(document.body, { childList: true, subtree: true });
+    observer$3.observe(document.body, { childList: true, subtree: true });
   }
   function filter$2(path, _query, _hash) {
     return (isBookshelfPath(path) || !!app$2) && userState.isLogin;
   }
-  const _exports$2 = [
+  const _exports$3 = [
     {
       id: "bookshelfHook_onload",
       event: "load",
@@ -10485,42 +12842,42 @@ ${body}
       handler: mainHook$2
     }
   ];
-  const _hoisted_1$3 = ["aria-label"];
-  const _hoisted_2$3 = { class: "fqa-sr-cover" };
-  const _hoisted_3$3 = ["src", "alt"];
-  const _hoisted_4$3 = {
+  const _hoisted_1$4 = ["aria-label"];
+  const _hoisted_2$4 = { class: "fqa-sr-cover" };
+  const _hoisted_3$4 = ["src", "alt"];
+  const _hoisted_4$4 = {
     key: 0,
     class: "fqa-sr-badge"
   };
-  const _hoisted_5$3 = { class: "fqa-sr-body" };
-  const _hoisted_6$3 = ["innerHTML"];
-  const _hoisted_7$3 = {
+  const _hoisted_5$4 = { class: "fqa-sr-body" };
+  const _hoisted_6$4 = ["innerHTML"];
+  const _hoisted_7$4 = {
     key: 1,
     class: "fqa-sr-title"
   };
-  const _hoisted_8$3 = { class: "fqa-sr-author" };
-  const _hoisted_9$3 = {
+  const _hoisted_8$4 = { class: "fqa-sr-author" };
+  const _hoisted_9$4 = {
     key: 2,
     class: "fqa-sr-summary"
   };
-  const _hoisted_10$3 = { class: "fqa-sr-meta" };
-  const _hoisted_11$2 = {
+  const _hoisted_10$4 = { class: "fqa-sr-meta" };
+  const _hoisted_11$3 = {
     key: 0,
     class: "fqa-sr-read"
   };
-  const _hoisted_12$2 = {
+  const _hoisted_12$3 = {
     key: 3,
     class: "fqa-sr-update"
   };
-  const _hoisted_13$2 = {
+  const _hoisted_13$3 = {
     key: 0,
     class: "fqa-sr-chapter"
   };
-  const _hoisted_14$2 = {
+  const _hoisted_14$3 = {
     key: 1,
     class: "fqa-sr-time"
   };
-  const _sfc_main$3 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$4 = /* @__PURE__ */ vue.defineComponent({
     __name: "SearchBookCard",
     props: {
       book: {}
@@ -10571,7 +12928,7 @@ ${body}
           onKeydown: _cache[3] || (_cache[3] = vue.withKeys(vue.withModifiers(($event) => emit("open", __props.book), ["prevent"]), ["enter"])),
           onContextmenu: onContextMenu
         }, [
-          vue.createElementVNode("div", _hoisted_2$3, [
+          vue.createElementVNode("div", _hoisted_2$4, [
             vue.createElementVNode("img", {
               class: vue.normalizeClass(["fqa-sr-cover-img", { "fqa-sr-cover-loading": !imgLoaded.value }]),
               crossorigin: "anonymous",
@@ -10581,37 +12938,37 @@ ${body}
               alt: __props.book.title,
               onLoad: _cache[0] || (_cache[0] = ($event) => imgLoaded.value = true),
               onError: _cache[1] || (_cache[1] = ($event) => imgLoaded.value = true)
-            }, null, 42, _hoisted_3$3),
-            __props.book.in_bookshelf ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_4$3, "在书架")) : vue.createCommentVNode("", true)
+            }, null, 42, _hoisted_3$4),
+            __props.book.in_bookshelf ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_4$4, "在书架")) : vue.createCommentVNode("", true)
           ]),
-          vue.createElementVNode("div", _hoisted_5$3, [
+          vue.createElementVNode("div", _hoisted_5$4, [
             titleHtml.value ? (vue.openBlock(), vue.createElementBlock("h3", {
               key: 0,
               class: "fqa-sr-title",
               innerHTML: titleHtml.value
-            }, null, 8, _hoisted_6$3)) : (vue.openBlock(), vue.createElementBlock("h3", _hoisted_7$3, vue.toDisplayString(__props.book.title), 1)),
-            vue.createElementVNode("div", _hoisted_8$3, [
+            }, null, 8, _hoisted_6$4)) : (vue.openBlock(), vue.createElementBlock("h3", _hoisted_7$4, vue.toDisplayString(__props.book.title), 1)),
+            vue.createElementVNode("div", _hoisted_8$4, [
               vue.createElementVNode("span", null, vue.toDisplayString(__props.book.author), 1),
               vue.createElementVNode("span", {
                 class: vue.normalizeClass(["fqa-sr-score", { "fqa-sr-score-none": !__props.book.score }])
               }, vue.toDisplayString(__props.book.score ? `${__props.book.score}分` : "暂无评分"), 3)
             ]),
-            __props.book.summary ? (vue.openBlock(), vue.createElementBlock("p", _hoisted_9$3, vue.toDisplayString(__props.book.summary), 1)) : vue.createCommentVNode("", true),
-            vue.createElementVNode("div", _hoisted_10$3, [
+            __props.book.summary ? (vue.openBlock(), vue.createElementBlock("p", _hoisted_9$4, vue.toDisplayString(__props.book.summary), 1)) : vue.createCommentVNode("", true),
+            vue.createElementVNode("div", _hoisted_10$4, [
               (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(metaParts.value, (part) => {
                 return vue.openBlock(), vue.createElementBlock("span", {
                   key: part,
                   class: "fqa-sr-tag"
                 }, vue.toDisplayString(part), 1);
               }), 128)),
-              readText.value ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_11$2, vue.toDisplayString(readText.value), 1)) : vue.createCommentVNode("", true)
+              readText.value ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_11$3, vue.toDisplayString(readText.value), 1)) : vue.createCommentVNode("", true)
             ]),
-            updateText.value || __props.book.last_chapter_title ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_12$2, [
-              __props.book.last_chapter_title ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_13$2, vue.toDisplayString(__props.book.last_chapter_title), 1)) : vue.createCommentVNode("", true),
-              updateText.value ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_14$2, vue.toDisplayString(updateText.value), 1)) : vue.createCommentVNode("", true)
+            updateText.value || __props.book.last_chapter_title ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_12$3, [
+              __props.book.last_chapter_title ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_13$3, vue.toDisplayString(__props.book.last_chapter_title), 1)) : vue.createCommentVNode("", true),
+              updateText.value ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_14$3, vue.toDisplayString(updateText.value), 1)) : vue.createCommentVNode("", true)
             ])) : vue.createCommentVNode("", true)
           ])
-        ], 40, _hoisted_1$3);
+        ], 40, _hoisted_1$4);
       };
     }
   });
@@ -10810,45 +13167,45 @@ ${body}
     }
     return sections;
   }
-  const _hoisted_1$2 = { class: "fqa-s-landing" };
-  const _hoisted_2$2 = {
+  const _hoisted_1$3 = { class: "fqa-s-landing" };
+  const _hoisted_2$3 = {
     key: 0,
     class: "fqa-s-landing-sk"
   };
-  const _hoisted_3$2 = {
+  const _hoisted_3$3 = {
     key: 1,
     class: "fqa-s-status"
   };
-  const _hoisted_4$2 = {
+  const _hoisted_4$3 = {
     key: 2,
     class: "fqa-s-status"
   };
-  const _hoisted_5$2 = { class: "fqa-s-sec-title" };
-  const _hoisted_6$2 = {
+  const _hoisted_5$3 = { class: "fqa-s-sec-title" };
+  const _hoisted_6$3 = {
     key: 0,
     class: "fqa-s-words"
   };
-  const _hoisted_7$2 = ["onClick"];
-  const _hoisted_8$2 = {
+  const _hoisted_7$3 = ["onClick"];
+  const _hoisted_8$3 = {
     key: 0,
     class: "fqa-s-word-label"
   };
-  const _hoisted_9$2 = {
+  const _hoisted_9$3 = {
     key: 1,
     class: "fqa-s-word-tag"
   };
-  const _hoisted_10$2 = {
+  const _hoisted_10$3 = {
     key: 1,
     class: "fqa-s-sugs"
   };
-  const _hoisted_11$1 = ["onClick", "onKeydown"];
-  const _hoisted_12$1 = ["src", "alt"];
-  const _hoisted_13$1 = ["title"];
-  const _hoisted_14$1 = {
+  const _hoisted_11$2 = ["onClick", "onKeydown"];
+  const _hoisted_12$2 = ["src", "alt"];
+  const _hoisted_13$2 = ["title"];
+  const _hoisted_14$2 = {
     key: 0,
     class: "fqa-s-sug-sub"
   };
-  const _sfc_main$2 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$3 = /* @__PURE__ */ vue.defineComponent({
     __name: "SearchLanding",
     emits: ["word"],
     setup(__props, { emit: __emit }) {
@@ -10873,43 +13230,43 @@ ${body}
       }
       vue.onMounted(load2);
       return (_ctx, _cache) => {
-        return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$2, [
-          loading.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_2$2, [
+        return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$3, [
+          loading.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_2$3, [
             (vue.openBlock(), vue.createElementBlock(vue.Fragment, null, vue.renderList(12, (n) => {
               return vue.createElementVNode("div", {
                 key: n,
                 class: "fqa-sk-chip fqa-sk-anim"
               });
             }), 64))
-          ])) : error.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_3$2, [
+          ])) : error.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_3$3, [
             _cache[0] || (_cache[0] = vue.createElementVNode("div", { class: "fqa-s-status-title" }, "推荐内容加载失败", -1)),
             _cache[1] || (_cache[1] = vue.createElementVNode("div", null, "直接在上方输入关键词也可以搜索", -1)),
             vue.createElementVNode("button", {
               class: "fqa-s-submit",
               onClick: load2
             }, "重试")
-          ])) : !sections.value.length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_4$2, [..._cache[2] || (_cache[2] = [
+          ])) : !sections.value.length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_4$3, [..._cache[2] || (_cache[2] = [
             vue.createElementVNode("div", { class: "fqa-s-status-title" }, "输入关键词开始搜索", -1)
           ])])) : (vue.openBlock(true), vue.createElementBlock(vue.Fragment, { key: 3 }, vue.renderList(sections.value, (section, i2) => {
             return vue.openBlock(), vue.createElementBlock("section", {
               key: `${section.title}-${i2}`,
               class: "fqa-s-sec"
             }, [
-              vue.createElementVNode("h3", _hoisted_5$2, vue.toDisplayString(section.title), 1),
-              section.words.length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_6$2, [
+              vue.createElementVNode("h3", _hoisted_5$3, vue.toDisplayString(section.title), 1),
+              section.words.length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_6$3, [
                 (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(section.words, (w, wi) => {
                   return vue.openBlock(), vue.createElementBlock("button", {
                     key: `${w.word}-${wi}`,
                     class: "fqa-s-word",
                     onClick: ($event) => emit("word", w.word)
                   }, [
-                    w.label ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_8$2, vue.toDisplayString(w.label), 1)) : vue.createCommentVNode("", true),
+                    w.label ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_8$3, vue.toDisplayString(w.label), 1)) : vue.createCommentVNode("", true),
                     vue.createTextVNode(" " + vue.toDisplayString(w.word) + " ", 1),
-                    w.tag ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_9$2, vue.toDisplayString(w.tag), 1)) : vue.createCommentVNode("", true)
-                  ], 8, _hoisted_7$2);
+                    w.tag ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_9$3, vue.toDisplayString(w.tag), 1)) : vue.createCommentVNode("", true)
+                  ], 8, _hoisted_7$3);
                 }), 128))
               ])) : vue.createCommentVNode("", true),
-              section.books.length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_10$2, [
+              section.books.length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_10$3, [
                 (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(section.books, (b) => {
                   return vue.openBlock(), vue.createElementBlock("div", {
                     key: b.book_id,
@@ -10926,13 +13283,13 @@ ${body}
                       referrerpolicy: "no-referrer",
                       src: b.cover_url,
                       alt: b.title
-                    }, null, 8, _hoisted_12$1),
+                    }, null, 8, _hoisted_12$2),
                     vue.createElementVNode("div", {
                       class: "fqa-s-sug-title",
                       title: b.title
-                    }, vue.toDisplayString(b.title), 9, _hoisted_13$1),
-                    b.desc || b.author ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_14$1, vue.toDisplayString(b.desc || b.author), 1)) : vue.createCommentVNode("", true)
-                  ], 40, _hoisted_11$1);
+                    }, vue.toDisplayString(b.title), 9, _hoisted_13$2),
+                    b.desc || b.author ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_14$2, vue.toDisplayString(b.desc || b.author), 1)) : vue.createCommentVNode("", true)
+                  ], 40, _hoisted_11$2);
                 }), 128))
               ])) : vue.createCommentVNode("", true)
             ]);
@@ -11027,7 +13384,7 @@ ${body}
       if (!hasMore.value || loading.value || loadingMore.value) return;
       await run(false);
     }
-    function selectTab(next) {
+    function selectTab2(next) {
       if (tabType.value === next) return;
       tabType.value = next;
       if (next !== BOOK_TAB_TYPE) selected.value = {};
@@ -11070,7 +13427,7 @@ ${body}
       submit,
       reset,
       loadMore,
-      selectTab,
+      selectTab: selectTab2,
       toggleFilter,
       clearFilters
     };
@@ -11095,54 +13452,54 @@ ${body}
     if (unsafeWindow.location.pathname === next) return;
     unsafeWindow.history.pushState(null, "", next);
   }
-  const _hoisted_1$1 = { id: "fqa-search" };
-  const _hoisted_2$1 = { class: "fqa-s-bar" };
-  const _hoisted_3$1 = { class: "fqa-s-inputwrap" };
-  const _hoisted_4$1 = ["disabled"];
-  const _hoisted_5$1 = ["aria-selected", "onClick", "onKeydown"];
-  const _hoisted_6$1 = {
+  const _hoisted_1$2 = { id: "fqa-search" };
+  const _hoisted_2$2 = { class: "fqa-s-bar" };
+  const _hoisted_3$2 = { class: "fqa-s-inputwrap" };
+  const _hoisted_4$2 = ["disabled"];
+  const _hoisted_5$2 = ["aria-selected", "onClick", "onKeydown"];
+  const _hoisted_6$2 = {
     key: 0,
     class: "fqa-s-filterbar"
   };
-  const _hoisted_7$1 = {
+  const _hoisted_7$2 = {
     key: 0,
     class: "fqa-s-fcount"
   };
-  const _hoisted_8$1 = { class: "fqa-s-hint" };
-  const _hoisted_9$1 = {
+  const _hoisted_8$2 = { class: "fqa-s-hint" };
+  const _hoisted_9$2 = {
     key: 1,
     class: "fqa-s-filters"
   };
-  const _hoisted_10$1 = { class: "fqa-s-frow-name" };
-  const _hoisted_11 = { class: "fqa-s-fitems" };
-  const _hoisted_12 = ["onClick"];
-  const _hoisted_13 = {
+  const _hoisted_10$2 = { class: "fqa-s-frow-name" };
+  const _hoisted_11$1 = { class: "fqa-s-fitems" };
+  const _hoisted_12$1 = ["onClick"];
+  const _hoisted_13$1 = {
     key: 2,
     class: "fqa-s-status"
   };
-  const _hoisted_14 = {
+  const _hoisted_14$1 = {
     key: 3,
     class: "fqa-s-status"
   };
-  const _hoisted_15 = { class: "fqa-s-list" };
-  const _hoisted_16 = {
+  const _hoisted_15$1 = { class: "fqa-s-list" };
+  const _hoisted_16$1 = {
     key: 1,
     class: "fqa-s-loadmore"
   };
-  const _hoisted_17 = {
+  const _hoisted_17$1 = {
     key: 2,
     class: "fqa-s-inline-error"
   };
-  const _hoisted_18 = {
+  const _hoisted_18$1 = {
     key: 2,
     class: "fqa-s-privacy"
   };
-  const _hoisted_19 = {
+  const _hoisted_19$1 = {
     key: 0,
     class: "fqa-toast"
   };
   const DOWNLOAD_PREFIX = "download:";
-  const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$2 = /* @__PURE__ */ vue.defineComponent({
     __name: "SearchView",
     setup(__props) {
       const {
@@ -11162,7 +13519,7 @@ ${body}
         submit,
         reset,
         loadMore,
-        selectTab,
+        selectTab: selectTab2,
         toggleFilter,
         clearFilters
       } = useSearch();
@@ -11193,9 +13550,9 @@ ${body}
           );
           vue.watch(
             sentinel,
-            (el) => {
+            (el2) => {
               io == null ? void 0 : io.disconnect();
-              if (el) io == null ? void 0 : io.observe(el);
+              if (el2) io == null ? void 0 : io.observe(el2);
             },
             { immediate: true, flush: "post" }
           );
@@ -11295,9 +13652,9 @@ ${body}
         const wrap = tabsRef.value;
         if (!wrap) return;
         const index = availableTabs.value.findIndex((t) => t.tab_type === tabType.value);
-        const el = wrap.querySelectorAll(".fqa-s-tab")[index];
-        if (!el) return;
-        inkStyle.value = { left: `${el.offsetLeft}px`, width: `${el.offsetWidth}px` };
+        const el2 = wrap.querySelectorAll(".fqa-s-tab")[index];
+        if (!el2) return;
+        inkStyle.value = { left: `${el2.offsetLeft}px`, width: `${el2.offsetWidth}px` };
       }
       vue.watch([tabType, availableTabs], () => vue.nextTick(updateInk), { deep: true });
       vue.watch(showLanding, () => vue.nextTick(updateInk));
@@ -11314,9 +13671,9 @@ ${body}
         return "";
       });
       return (_ctx, _cache) => {
-        return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$1, [
-          vue.createElementVNode("div", _hoisted_2$1, [
-            vue.createElementVNode("div", _hoisted_3$1, [
+        return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$2, [
+          vue.createElementVNode("div", _hoisted_2$2, [
+            vue.createElementVNode("div", _hoisted_3$2, [
               vue.withDirectives(vue.createElementVNode("input", {
                 "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => input.value = $event),
                 class: "fqa-s-input",
@@ -11338,9 +13695,9 @@ ${body}
               class: "fqa-s-submit",
               disabled: !input.value.trim() || vue.unref(loading),
               onClick: _cache[3] || (_cache[3] = ($event) => doSearch())
-            }, " 搜索 ", 8, _hoisted_4$1)
+            }, " 搜索 ", 8, _hoisted_4$2)
           ]),
-          showLanding.value ? (vue.openBlock(), vue.createBlock(_sfc_main$2, {
+          showLanding.value ? (vue.openBlock(), vue.createBlock(_sfc_main$3, {
             key: 0,
             onWord
           })) : (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 1 }, [
@@ -11357,22 +13714,22 @@ ${body}
                   role: "tab",
                   tabindex: "0",
                   "aria-selected": vue.unref(tabType) === tab.tab_type,
-                  onClick: ($event) => vue.unref(selectTab)(tab.tab_type),
-                  onKeydown: vue.withKeys(vue.withModifiers(($event) => vue.unref(selectTab)(tab.tab_type), ["prevent"]), ["enter"])
-                }, vue.toDisplayString(tab.tab_name), 43, _hoisted_5$1);
+                  onClick: ($event) => vue.unref(selectTab2)(tab.tab_type),
+                  onKeydown: vue.withKeys(vue.withModifiers(($event) => vue.unref(selectTab2)(tab.tab_type), ["prevent"]), ["enter"])
+                }, vue.toDisplayString(tab.tab_name), 43, _hoisted_5$2);
               }), 128)),
               vue.createElementVNode("span", {
                 class: "fqa-s-tab-ink",
                 style: vue.normalizeStyle(inkStyle.value)
               }, null, 4)
             ], 512),
-            vue.unref(canFilter) ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_6$1, [
+            vue.unref(canFilter) ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_6$2, [
               vue.createElementVNode("button", {
                 class: vue.normalizeClass(["fqa-s-fbtn", { "fqa-s-fbtn-on": filterOpen.value || vue.unref(filterCount) > 0 }]),
                 onClick: _cache[4] || (_cache[4] = ($event) => filterOpen.value = !filterOpen.value)
               }, [
                 _cache[8] || (_cache[8] = vue.createTextVNode(" 筛选", -1)),
-                vue.unref(filterCount) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_7$1, vue.toDisplayString(vue.unref(filterCount)), 1)) : vue.createCommentVNode("", true)
+                vue.unref(filterCount) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_7$2, vue.toDisplayString(vue.unref(filterCount)), 1)) : vue.createCommentVNode("", true)
               ], 2),
               vue.unref(filterCount) ? (vue.openBlock(), vue.createElementBlock("button", {
                 key: 0,
@@ -11380,39 +13737,39 @@ ${body}
                 onClick: _cache[5] || (_cache[5] = //@ts-ignore
                 (...args) => vue.unref(clearFilters) && vue.unref(clearFilters)(...args))
               }, "清除")) : vue.createCommentVNode("", true),
-              vue.createElementVNode("span", _hoisted_8$1, vue.toDisplayString(resultHint.value), 1)
+              vue.createElementVNode("span", _hoisted_8$2, vue.toDisplayString(resultHint.value), 1)
             ])) : vue.createCommentVNode("", true),
-            vue.unref(canFilter) && filterOpen.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_9$1, [
+            vue.unref(canFilter) && filterOpen.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_9$2, [
               (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(vue.unref(selectorRows), (row) => {
                 return vue.openBlock(), vue.createElementBlock("div", {
                   key: row.name,
                   class: "fqa-s-frow"
                 }, [
-                  vue.createElementVNode("span", _hoisted_10$1, vue.toDisplayString(row.name), 1),
-                  vue.createElementVNode("div", _hoisted_11, [
+                  vue.createElementVNode("span", _hoisted_10$2, vue.toDisplayString(row.name), 1),
+                  vue.createElementVNode("div", _hoisted_11$1, [
                     (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(row.items, (item) => {
                       return vue.openBlock(), vue.createElementBlock("button", {
                         key: item.id,
                         class: vue.normalizeClass(["fqa-s-fitem", { "fqa-s-fitem-on": vue.unref(selected)[row.name] === item.id }]),
                         onClick: ($event) => vue.unref(toggleFilter)(row.name, item.id)
-                      }, vue.toDisplayString(item.name), 11, _hoisted_12);
+                      }, vue.toDisplayString(item.name), 11, _hoisted_12$1);
                     }), 128))
                   ])
                 ]);
               }), 128))
             ])) : vue.createCommentVNode("", true),
-            vue.unref(error) && !vue.unref(books).length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_13, [
+            vue.unref(error) && !vue.unref(books).length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_13$1, [
               _cache[9] || (_cache[9] = vue.createElementVNode("div", { class: "fqa-s-status-title" }, "搜索失败", -1)),
               vue.createElementVNode("div", null, vue.toDisplayString(vue.unref(error)), 1),
               vue.createElementVNode("button", {
                 class: "fqa-s-submit",
                 onClick: _cache[6] || (_cache[6] = ($event) => doSearch())
               }, "重试")
-            ])) : vue.unref(isEmpty) ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_14, [..._cache[10] || (_cache[10] = [
+            ])) : vue.unref(isEmpty) ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_14$1, [..._cache[10] || (_cache[10] = [
               vue.createElementVNode("div", { class: "fqa-s-status-title" }, "没有找到相关内容", -1),
               vue.createElementVNode("div", null, "换个关键词或者放宽筛选条件试试", -1)
             ])])) : (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 4 }, [
-              vue.createElementVNode("div", _hoisted_15, [
+              vue.createElementVNode("div", _hoisted_15$1, [
                 vue.unref(loading) ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 0 }, vue.renderList(5, (n) => {
                   return vue.createElementVNode("div", {
                     key: `sk-${n}`,
@@ -11421,7 +13778,7 @@ ${body}
                     vue.createStaticVNode('<div class="fqa-sk-cover fqa-sk-anim"></div><div class="fqa-sr-body"><div class="fqa-sk-line fqa-sk-anim" style="width:40%;"></div><div class="fqa-sk-line fqa-sk-anim" style="width:24%;"></div><div class="fqa-sk-line fqa-sk-anim" style="width:92%;"></div><div class="fqa-sk-line fqa-sk-anim" style="width:76%;"></div></div>', 2)
                   ])]);
                 }), 64)) : (vue.openBlock(true), vue.createElementBlock(vue.Fragment, { key: 1 }, vue.renderList(vue.unref(books), (book) => {
-                  return vue.openBlock(), vue.createBlock(_sfc_main$3, {
+                  return vue.openBlock(), vue.createBlock(_sfc_main$4, {
                     key: book.book_id,
                     book,
                     onOpen: openBook,
@@ -11434,13 +13791,13 @@ ${body}
                 ref_key: "sentinel",
                 ref: sentinel,
                 class: "fqa-s-loadmore"
-              }, vue.toDisplayString(vue.unref(loadingMore) ? "加载中…" : "滚动加载更多"), 513)) : !vue.unref(loading) && vue.unref(books).length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_16, "没有更多了")) : vue.createCommentVNode("", true),
-              vue.unref(error) && vue.unref(books).length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_17, vue.toDisplayString(vue.unref(error)), 1)) : vue.createCommentVNode("", true)
+              }, vue.toDisplayString(vue.unref(loadingMore) ? "加载中…" : "滚动加载更多"), 513)) : !vue.unref(loading) && vue.unref(books).length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_16$1, "没有更多了")) : vue.createCommentVNode("", true),
+              vue.unref(error) && vue.unref(books).length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_17$1, vue.toDisplayString(vue.unref(error)), 1)) : vue.createCommentVNode("", true)
             ], 64))
           ], 64)),
-          !vue.unref(settings$1).searchPersonalized ? (vue.openBlock(), vue.createElementBlock("p", _hoisted_18, " 当前使用匿名搜索。如需按你的阅读偏好排序，可在助手设置里开启个人化推荐。 ")) : vue.createCommentVNode("", true),
+          !vue.unref(settings$1).searchPersonalized ? (vue.openBlock(), vue.createElementBlock("p", _hoisted_18$1, " 当前使用匿名搜索。如需按你的阅读偏好排序，可在助手设置里开启个人化推荐。 ")) : vue.createCommentVNode("", true),
           (vue.openBlock(), vue.createBlock(vue.Teleport, { to: "body" }, [
-            vue.createVNode(_sfc_main$5, {
+            vue.createVNode(_sfc_main$6, {
               visible: menuVisible.value,
               x: menuPos.value.x,
               y: menuPos.value.y,
@@ -11448,7 +13805,7 @@ ${body}
               onSelect: onMenuSelect,
               onClose: _cache[7] || (_cache[7] = ($event) => menuVisible.value = false)
             }, null, 8, ["visible", "x", "y", "items"]),
-            toast.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_19, vue.toDisplayString(toast.value), 1)) : vue.createCommentVNode("", true)
+            toast.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_19$1, vue.toDisplayString(toast.value), 1)) : vue.createCommentVNode("", true)
           ]))
         ]);
       };
@@ -11456,18 +13813,18 @@ ${body}
   });
   const searchcss = "#fqa-search {\r\n    --fqa-text: #1f2329;\r\n    --fqa-text-sub: #646a73;\r\n    --fqa-text-weak: #8f959e;\r\n    --fqa-border: rgba(31, 35, 41, 0.08);\r\n    --fqa-hover: rgba(31, 35, 41, 0.04);\r\n    --fqa-accent: #ff6f3d;\r\n    --fqa-skeleton: rgba(31, 35, 41, 0.06);\r\n    --fqa-skeleton-hl: rgba(31, 35, 41, 0.12);\r\n    --fqa-shadow: 0 4px 16px rgba(31, 35, 41, 0.08);\r\n    --fqa-card-bg: #fff;\r\n\r\n    display: block;\r\n    box-sizing: border-box;\r\n    width: 100%;\r\n    max-width: 1000px;\r\n    margin: 0 auto;\r\n    /* 顶部让开原站 fixed 顶栏 */\r\n    padding: calc(80px + 24px) 16px 64px;\r\n    color: var(--fqa-text);\r\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\r\n        sans-serif;\r\n}\r\n\r\n#fqa-search *,\r\n#fqa-search *::before,\r\n#fqa-search *::after {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#fqa-search div,\r\n#fqa-search span,\r\n#fqa-search h3,\r\n#fqa-search p {\r\n    margin: 0;\r\n    padding: 0;\r\n    border: 0;\r\n    float: none;\r\n    position: static;\r\n}\r\n\r\n/* -------------------------------- 搜索栏 -------------------------------- */\r\n\r\n#fqa-search .fqa-s-bar {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 10px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n#fqa-search .fqa-s-inputwrap {\r\n    position: relative;\r\n    flex: 1 1 auto;\r\n    min-width: 0;\r\n}\r\n\r\n#fqa-search .fqa-s-input {\r\n    width: 100%;\r\n    padding: 11px 36px 11px 16px;\r\n    box-sizing: border-box;\r\n    border: 1px solid var(--fqa-border);\r\n    border-radius: 999px;\r\n    background: var(--fqa-card-bg);\r\n    color: var(--fqa-text);\r\n    font-size: 15px;\r\n    font-family: inherit;\r\n    line-height: 22px;\r\n    transition: border-color 0.15s ease, box-shadow 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-input::placeholder {\r\n    color: var(--fqa-text-weak);\r\n}\r\n\r\n#fqa-search .fqa-s-input:focus {\r\n    outline: none;\r\n    border-color: var(--fqa-accent);\r\n    box-shadow: 0 0 0 3px rgba(255, 111, 61, 0.12);\r\n}\r\n\r\n/* 隐藏浏览器自带的 search 清除按钮，用自己的 */\r\n#fqa-search .fqa-s-input::-webkit-search-cancel-button {\r\n    appearance: none;\r\n}\r\n\r\n#fqa-search .fqa-s-clear {\r\n    position: absolute;\r\n    top: 50%;\r\n    right: 10px;\r\n    transform: translateY(-50%);\r\n    width: 22px;\r\n    height: 22px;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 50%;\r\n    background: var(--fqa-hover);\r\n    color: var(--fqa-text-weak);\r\n    font-size: 11px;\r\n    line-height: 1;\r\n    cursor: pointer;\r\n}\r\n\r\n#fqa-search .fqa-s-clear:hover {\r\n    color: var(--fqa-text);\r\n}\r\n\r\n#fqa-search .fqa-s-submit {\r\n    flex: 0 0 auto;\r\n    padding: 11px 24px;\r\n    border: 0;\r\n    border-radius: 999px;\r\n    background: var(--fqa-accent);\r\n    color: #fff;\r\n    font-size: 15px;\r\n    font-family: inherit;\r\n    line-height: 22px;\r\n    cursor: pointer;\r\n    transition: opacity 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-submit:hover:not(:disabled) {\r\n    opacity: 0.88;\r\n}\r\n\r\n#fqa-search .fqa-s-submit:disabled {\r\n    opacity: 0.45;\r\n    cursor: default;\r\n}\r\n\r\n/* --------------------------------- tab --------------------------------- */\r\n\r\n#fqa-search .fqa-s-tabs {\r\n    position: relative;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 4px;\r\n    margin-bottom: 16px;\r\n    border-bottom: 1px solid var(--fqa-border);\r\n    overflow-x: auto;\r\n    scrollbar-width: none;\r\n}\r\n\r\n#fqa-search .fqa-s-tabs::-webkit-scrollbar {\r\n    display: none;\r\n}\r\n\r\n#fqa-search .fqa-s-tab {\r\n    flex: 0 0 auto;\r\n    padding: 10px 16px;\r\n    color: var(--fqa-text-sub);\r\n    font-size: 15px;\r\n    line-height: 22px;\r\n    white-space: nowrap;\r\n    cursor: pointer;\r\n    user-select: none;\r\n    transition: color 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-tab:hover {\r\n    color: var(--fqa-text);\r\n}\r\n\r\n#fqa-search .fqa-s-tab-active {\r\n    color: var(--fqa-accent);\r\n    font-weight: 600;\r\n}\r\n\r\n#fqa-search .fqa-s-tab-ink {\r\n    position: absolute;\r\n    bottom: -1px;\r\n    left: 0;\r\n    width: 0;\r\n    height: 2px;\r\n    border-radius: 2px;\r\n    background: var(--fqa-accent);\r\n    transition: left 0.25s ease, width 0.25s ease;\r\n}\r\n\r\n/* -------------------------------- 筛选器 -------------------------------- */\r\n\r\n#fqa-search .fqa-s-filterbar {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 10px;\r\n    margin-bottom: 12px;\r\n}\r\n\r\n#fqa-search .fqa-s-fbtn,\r\n#fqa-search .fqa-s-fclear {\r\n    padding: 5px 14px;\r\n    border: 1px solid var(--fqa-border);\r\n    border-radius: 999px;\r\n    background: transparent;\r\n    color: var(--fqa-text-sub);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n    line-height: 20px;\r\n    cursor: pointer;\r\n    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-fbtn:hover,\r\n#fqa-search .fqa-s-fclear:hover {\r\n    border-color: var(--fqa-accent);\r\n    color: var(--fqa-accent);\r\n}\r\n\r\n#fqa-search .fqa-s-fbtn-on {\r\n    border-color: var(--fqa-accent);\r\n    color: var(--fqa-accent);\r\n    background: rgba(255, 111, 61, 0.08);\r\n}\r\n\r\n#fqa-search .fqa-s-fcount {\r\n    display: inline-block;\r\n    min-width: 16px;\r\n    margin-left: 5px;\r\n    padding: 0 4px;\r\n    border-radius: 8px;\r\n    background: var(--fqa-accent);\r\n    color: #fff;\r\n    font-size: 11px;\r\n    line-height: 16px;\r\n    text-align: center;\r\n}\r\n\r\n#fqa-search .fqa-s-hint {\r\n    margin-left: auto;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 13px;\r\n}\r\n\r\n#fqa-search .fqa-s-filters {\r\n    margin-bottom: 16px;\r\n    padding: 14px 16px;\r\n    border: 1px solid var(--fqa-border);\r\n    border-radius: 10px;\r\n    background: var(--fqa-card-bg);\r\n}\r\n\r\n#fqa-search .fqa-s-frow {\r\n    display: flex;\r\n    align-items: flex-start;\r\n    gap: 12px;\r\n    padding: 7px 0;\r\n}\r\n\r\n#fqa-search .fqa-s-frow-name {\r\n    flex: 0 0 58px;\r\n    padding-top: 5px;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 13px;\r\n    line-height: 20px;\r\n}\r\n\r\n#fqa-search .fqa-s-fitems {\r\n    display: flex;\r\n    flex: 1 1 auto;\r\n    flex-wrap: wrap;\r\n    gap: 8px;\r\n    min-width: 0;\r\n}\r\n\r\n#fqa-search .fqa-s-fitem {\r\n    padding: 4px 12px;\r\n    border: 1px solid transparent;\r\n    border-radius: 6px;\r\n    background: var(--fqa-hover);\r\n    color: var(--fqa-text-sub);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n    line-height: 20px;\r\n    cursor: pointer;\r\n    transition: background 0.15s ease, color 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-fitem:hover {\r\n    color: var(--fqa-text);\r\n}\r\n\r\n#fqa-search .fqa-s-fitem-on {\r\n    background: rgba(255, 111, 61, 0.12);\r\n    border-color: rgba(255, 111, 61, 0.4);\r\n    color: var(--fqa-accent);\r\n    font-weight: 500;\r\n}\r\n\r\n/* ------------------------------- 结果列表 ------------------------------- */\r\n\r\n#fqa-search .fqa-s-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 4px;\r\n}\r\n\r\n#fqa-search .fqa-sr-card {\r\n    display: flex;\r\n    gap: 16px;\r\n    padding: 16px 12px;\r\n    border-radius: 10px;\r\n    cursor: pointer;\r\n    outline: none;\r\n    transition: background 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-sr-card:hover {\r\n    background: var(--fqa-hover);\r\n}\r\n\r\n#fqa-search .fqa-sr-card:focus-visible {\r\n    box-shadow: 0 0 0 2px var(--fqa-accent);\r\n}\r\n\r\n#fqa-search .fqa-sr-skeleton {\r\n    cursor: default;\r\n}\r\n\r\n#fqa-search .fqa-sr-skeleton:hover {\r\n    background: transparent;\r\n}\r\n\r\n#fqa-search .fqa-sr-cover {\r\n    position: relative;\r\n    flex: 0 0 96px;\r\n    width: 96px;\r\n    aspect-ratio: 3 / 4;\r\n    border-radius: 6px;\r\n    overflow: hidden;\r\n    background: var(--fqa-skeleton);\r\n}\r\n\r\n#fqa-search .fqa-sr-cover-img {\r\n    position: absolute;\r\n    inset: 0;\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n    transition: opacity 0.25s ease;\r\n}\r\n\r\n#fqa-search .fqa-sr-cover-loading {\r\n    opacity: 0;\r\n}\r\n\r\n#fqa-search .fqa-sr-badge {\r\n    position: absolute;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    padding: 2px 4px;\r\n    background: rgba(31, 35, 41, 0.7);\r\n    color: #fff;\r\n    font-size: 10px;\r\n    line-height: 14px;\r\n    text-align: center;\r\n}\r\n\r\n#fqa-search .fqa-sr-body {\r\n    display: flex;\r\n    flex: 1 1 auto;\r\n    flex-direction: column;\r\n    min-width: 0;\r\n}\r\n\r\n#fqa-search .fqa-sr-title {\r\n    color: var(--fqa-text);\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n    line-height: 24px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n/* 接口下发的高亮片段 */\r\n#fqa-search .fqa-sr-title em {\r\n    color: var(--fqa-accent);\r\n    font-style: normal;\r\n}\r\n\r\n#fqa-search .fqa-sr-author {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 8px;\r\n    margin-top: 3px;\r\n    color: var(--fqa-text-sub);\r\n    font-size: 13px;\r\n    line-height: 20px;\r\n}\r\n\r\n#fqa-search .fqa-sr-author > span:first-child {\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-search .fqa-sr-score {\r\n    flex: 0 0 auto;\r\n    color: var(--fqa-accent);\r\n    font-weight: 500;\r\n}\r\n\r\n/* 无评分时弱化，不跟真实分数抢注意力 */\r\n#fqa-search .fqa-sr-score-none {\r\n    color: var(--fqa-text-weak);\r\n    font-weight: 400;\r\n}\r\n\r\n#fqa-search .fqa-sr-summary {\r\n    display: -webkit-box;\r\n    margin-top: 6px;\r\n    color: var(--fqa-text-sub);\r\n    font-size: 13px;\r\n    line-height: 20px;\r\n    -webkit-line-clamp: 2;\r\n    line-clamp: 2;\r\n    -webkit-box-orient: vertical;\r\n    overflow: hidden;\r\n}\r\n\r\n#fqa-search .fqa-sr-meta {\r\n    display: flex;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n    gap: 6px;\r\n    margin-top: 8px;\r\n}\r\n\r\n#fqa-search .fqa-sr-tag {\r\n    padding: 1px 7px;\r\n    border-radius: 4px;\r\n    background: var(--fqa-hover);\r\n    color: var(--fqa-text-weak);\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n}\r\n\r\n#fqa-search .fqa-sr-read {\r\n    color: var(--fqa-text-weak);\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n}\r\n\r\n#fqa-search .fqa-sr-update {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 8px;\r\n    margin-top: 6px;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n}\r\n\r\n#fqa-search .fqa-sr-chapter {\r\n    min-width: 0;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-search .fqa-sr-time {\r\n    flex: 0 0 auto;\r\n}\r\n\r\n@media (max-width: 600px) {\r\n    #fqa-search .fqa-sr-cover {\r\n        flex-basis: 72px;\r\n        width: 72px;\r\n    }\r\n\r\n    #fqa-search .fqa-sr-summary {\r\n        -webkit-line-clamp: 3;\r\n        line-clamp: 3;\r\n    }\r\n}\r\n\r\n/* -------------------------------- 落地页 -------------------------------- */\r\n\r\n#fqa-search .fqa-s-sec {\r\n    margin-bottom: 28px;\r\n}\r\n\r\n#fqa-search .fqa-s-sec-title {\r\n    margin-bottom: 12px;\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n    line-height: 24px;\r\n}\r\n\r\n#fqa-search .fqa-s-words {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    gap: 8px;\r\n}\r\n\r\n#fqa-search .fqa-s-word {\r\n    display: inline-flex;\r\n    align-items: center;\r\n    gap: 5px;\r\n    padding: 6px 14px;\r\n    border: 0;\r\n    border-radius: 999px;\r\n    background: var(--fqa-hover);\r\n    color: var(--fqa-text-sub);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n    line-height: 20px;\r\n    cursor: pointer;\r\n    transition: background 0.15s ease, color 0.15s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-word:hover {\r\n    background: rgba(255, 111, 61, 0.1);\r\n    color: var(--fqa-accent);\r\n}\r\n\r\n#fqa-search .fqa-s-word-tag {\r\n    color: var(--fqa-text-weak);\r\n    font-size: 11px;\r\n}\r\n\r\n/* 「荐」「热」这类角标 */\r\n#fqa-search .fqa-s-word-label {\r\n    padding: 0 4px;\r\n    border-radius: 3px;\r\n    background: var(--fqa-accent);\r\n    color: #fff;\r\n    font-size: 10px;\r\n    line-height: 15px;\r\n}\r\n\r\n#fqa-search .fqa-s-sugs {\r\n    display: grid;\r\n    grid-template-columns: repeat(6, minmax(0, 1fr));\r\n    gap: 20px 16px;\r\n}\r\n\r\n@media (max-width: 900px) {\r\n    #fqa-search .fqa-s-sugs {\r\n        grid-template-columns: repeat(4, minmax(0, 1fr));\r\n    }\r\n}\r\n\r\n@media (max-width: 600px) {\r\n    #fqa-search .fqa-s-sugs {\r\n        grid-template-columns: repeat(3, minmax(0, 1fr));\r\n    }\r\n}\r\n\r\n#fqa-search .fqa-s-sug {\r\n    cursor: pointer;\r\n    outline: none;\r\n}\r\n\r\n#fqa-search .fqa-s-sug-cover {\r\n    display: block;\r\n    width: 100%;\r\n    aspect-ratio: 3 / 4;\r\n    border-radius: 6px;\r\n    object-fit: cover;\r\n    background: var(--fqa-skeleton);\r\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\r\n}\r\n\r\n#fqa-search .fqa-s-sug:hover .fqa-s-sug-cover {\r\n    transform: translateY(-4px);\r\n    box-shadow: var(--fqa-shadow);\r\n}\r\n\r\n#fqa-search .fqa-s-sug-title {\r\n    margin-top: 7px;\r\n    font-size: 13px;\r\n    line-height: 19px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-search .fqa-s-sug-sub {\r\n    margin-top: 2px;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n#fqa-search .fqa-s-landing-sk {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    gap: 8px;\r\n}\r\n\r\n#fqa-search .fqa-sk-chip {\r\n    width: 84px;\r\n    height: 32px;\r\n    border-radius: 999px;\r\n    background: var(--fqa-skeleton);\r\n}\r\n\r\n/* ------------------------------ 骨架 / 状态 ------------------------------ */\r\n\r\n#fqa-search .fqa-sk-cover {\r\n    flex: 0 0 96px;\r\n    width: 96px;\r\n    aspect-ratio: 3 / 4;\r\n    border-radius: 6px;\r\n    background: var(--fqa-skeleton);\r\n}\r\n\r\n#fqa-search .fqa-sk-line {\r\n    height: 12px;\r\n    margin-bottom: 9px;\r\n    border-radius: 4px;\r\n    background: var(--fqa-skeleton);\r\n}\r\n\r\n#fqa-search .fqa-sk-anim {\r\n    position: relative;\r\n    overflow: hidden;\r\n}\r\n\r\n#fqa-search .fqa-sk-anim::after {\r\n    content: '';\r\n    position: absolute;\r\n    inset: 0;\r\n    transform: translateX(-100%);\r\n    background: linear-gradient(90deg, transparent, var(--fqa-skeleton-hl), transparent);\r\n    animation: fqa-shimmer 1.4s infinite;\r\n}\r\n\r\n#fqa-search .fqa-s-status {\r\n    padding: 72px 16px;\r\n    text-align: center;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 14px;\r\n    line-height: 22px;\r\n}\r\n\r\n#fqa-search .fqa-s-status-title {\r\n    margin-bottom: 8px;\r\n    color: var(--fqa-text);\r\n    font-size: 16px;\r\n    font-weight: 500;\r\n}\r\n\r\n#fqa-search .fqa-s-status .fqa-s-submit {\r\n    margin-top: 16px;\r\n}\r\n\r\n#fqa-search .fqa-s-loadmore {\r\n    padding: 24px 0;\r\n    text-align: center;\r\n    color: var(--fqa-text-weak);\r\n    font-size: 13px;\r\n}\r\n\r\n#fqa-search .fqa-s-inline-error {\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    color: #f5222d;\r\n    font-size: 13px;\r\n}\r\n\r\n#fqa-search .fqa-s-privacy {\r\n    margin-top: 24px;\r\n    padding-top: 16px;\r\n    border-top: 1px solid var(--fqa-border);\r\n    color: var(--fqa-text-weak);\r\n    font-size: 12px;\r\n    line-height: 18px;\r\n    text-align: center;\r\n}\r\n\r\n/* ------------------------------- 深色模式 ------------------------------- */\r\n\r\n@media (prefers-color-scheme: dark) {\r\n    #fqa-search {\r\n        --fqa-text: #e6e6e6;\r\n        --fqa-text-sub: #a6a6a6;\r\n        --fqa-text-weak: #7a7a7a;\r\n        --fqa-border: rgba(255, 255, 255, 0.1);\r\n        --fqa-hover: rgba(255, 255, 255, 0.06);\r\n        --fqa-skeleton: rgba(255, 255, 255, 0.08);\r\n        --fqa-skeleton-hl: rgba(255, 255, 255, 0.14);\r\n        --fqa-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);\r\n        --fqa-card-bg: #212125;\r\n    }\r\n}\r\n";
   const CONTAINER_ID$1 = "fqa-search-root";
-  const STYLE_ID$2 = "fqa-search-style";
+  const STYLE_ID$4 = "fqa-search-style";
   const RESULT_SELECTOR = ".muye-search";
   const NOTFOUND_SELECTOR = ".muye-undefined";
   const ORIGIN_SELECTOR = `${RESULT_SELECTOR}, ${NOTFOUND_SELECTOR}`;
   let app$1 = null;
   let container$1 = null;
-  let observer$1 = null;
+  let observer$2 = null;
   let stopTitleWatch = null;
-  function injectStyle$2() {
-    if (document.getElementById(STYLE_ID$2)) return;
+  function injectStyle$3() {
+    if (document.getElementById(STYLE_ID$4)) return;
     const style = document.createElement("style");
-    style.id = STYLE_ID$2;
+    style.id = STYLE_ID$4;
     style.textContent = searchcss;
     document.head.appendChild(style);
   }
@@ -11475,22 +13832,22 @@ ${body}
     return path === "/search" || path === "/search/" || path.startsWith("/search/");
   }
   function hideOrigin(root = document) {
-    root.querySelectorAll(ORIGIN_SELECTOR).forEach((el) => {
-      if (el.id === CONTAINER_ID$1 || el.closest(`#${CONTAINER_ID$1}`)) return;
-      el.classList.add("fqa-hide");
+    root.querySelectorAll(ORIGIN_SELECTOR).forEach((el2) => {
+      if (el2.id === CONTAINER_ID$1 || el2.closest(`#${CONTAINER_ID$1}`)) return;
+      el2.classList.add("fqa-hide");
     });
   }
   function unmount() {
-    observer$1 == null ? void 0 : observer$1.disconnect();
-    observer$1 = null;
+    observer$2 == null ? void 0 : observer$2.disconnect();
+    observer$2 = null;
     stopTitleWatch == null ? void 0 : stopTitleWatch();
     stopTitleWatch = null;
     app$1 == null ? void 0 : app$1.unmount();
     app$1 = null;
     container$1 == null ? void 0 : container$1.remove();
     container$1 = null;
-    document.querySelectorAll(ORIGIN_SELECTOR).forEach((el) => {
-      el.classList.remove("fqa-hide");
+    document.querySelectorAll(ORIGIN_SELECTOR).forEach((el2) => {
+      el2.classList.remove("fqa-hide");
     });
   }
   async function mainHook$1(_previous) {
@@ -11504,13 +13861,13 @@ ${body}
       hideOrigin();
       return;
     }
-    injectStyle$2();
+    injectStyle$3();
     const origin = await waitForElement(ORIGIN_SELECTOR, 8e3);
     if (!isSearchPath(window.location.pathname)) return;
     if (app$1) return;
     hideOrigin();
-    mount(origin);
-    observer$1 = new MutationObserver((mutations) => {
+    mount$1(origin);
+    observer$2 = new MutationObserver((mutations) => {
       var _a;
       for (const mutation of mutations) {
         for (const node of mutation.addedNodes) {
@@ -11524,9 +13881,9 @@ ${body}
         }
       }
     });
-    observer$1.observe(document.body, { childList: true, subtree: true });
+    observer$2.observe(document.body, { childList: true, subtree: true });
   }
-  function mount(origin) {
+  function mount$1(origin) {
     container$1 = document.createElement("div");
     container$1.id = CONTAINER_ID$1;
     if (origin == null ? void 0 : origin.parentElement) {
@@ -11535,7 +13892,7 @@ ${body}
       const anchor = document.querySelector("#root") ?? document.body;
       anchor.appendChild(container$1);
     }
-    app$1 = vue.createApp(_sfc_main$1);
+    app$1 = vue.createApp(_sfc_main$2);
     app$1.config.errorHandler = (err, _instance, info) => {
       console.error(`[fqa:search] Vue error (${info}):`, err);
     };
@@ -11556,7 +13913,7 @@ ${body}
     const searchKey = routeQuery.value || "搜索";
     document.title = `${searchKey} - 番茄小说`;
   }
-  const _exports$1 = [
+  const _exports$2 = [
     {
       id: "searchHook_onload",
       event: "load",
@@ -11576,47 +13933,20 @@ ${body}
       handler: overloadTitle
     }
   ];
-  const downloadcss = "/* 下载进度弹窗 */\r\n\r\n.fqa-dl-mask {\r\n    position: fixed;\r\n    inset: 0;\r\n    z-index: 2147483300;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    background: rgba(0, 0, 0, 0.45);\r\n    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,\r\n        sans-serif;\r\n    font-size: 14px;\r\n    line-height: 1.6;\r\n}\r\n\r\n.fqa-dl-box {\r\n    --fqa-dl-bg: #fff;\r\n    --fqa-dl-text: #1f2329;\r\n    --fqa-dl-sub: #8f959e;\r\n    --fqa-dl-border: rgba(31, 35, 41, 0.1);\r\n    --fqa-dl-accent: #ff6f3d;\r\n    --fqa-dl-track: rgba(31, 35, 41, 0.08);\r\n    --fqa-dl-danger: #f53f3f;\r\n\r\n    box-sizing: border-box;\r\n    width: min(420px, 90vw);\r\n    padding: 22px 24px 18px;\r\n    background: var(--fqa-dl-bg);\r\n    color: var(--fqa-dl-text);\r\n    border-radius: 12px;\r\n    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.24);\r\n}\r\n\r\n.fqa-dl-title {\r\n    margin: 0 0 4px;\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n}\r\n\r\n/* 正在处理的章节名，长标题截断 */\r\n.fqa-dl-sub {\r\n    margin: 0 0 14px;\r\n    min-height: 20px;\r\n    color: var(--fqa-dl-sub);\r\n    font-size: 12px;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n.fqa-dl-bar {\r\n    height: 8px;\r\n    border-radius: 4px;\r\n    background: var(--fqa-dl-track);\r\n    overflow: hidden;\r\n}\r\n\r\n.fqa-dl-fill {\r\n    height: 100%;\r\n    border-radius: 4px;\r\n    background: var(--fqa-dl-accent);\r\n    transition: width 0.2s ease;\r\n}\r\n\r\n/* 总量未知时的循环动画 */\r\n.fqa-dl-fill-indeterminate {\r\n    width: 35% !important;\r\n    animation: fqa-dl-slide 1.1s ease-in-out infinite;\r\n}\r\n\r\n@keyframes fqa-dl-slide {\r\n    0% {\r\n        margin-left: -35%;\r\n    }\r\n    100% {\r\n        margin-left: 100%;\r\n    }\r\n}\r\n\r\n.fqa-dl-meta {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    margin-top: 8px;\r\n    color: var(--fqa-dl-sub);\r\n    font-size: 12px;\r\n    font-variant-numeric: tabular-nums;\r\n}\r\n\r\n.fqa-dl-error {\r\n    margin: 12px 0 0;\r\n    padding: 8px 10px;\r\n    border-radius: 6px;\r\n    background: rgba(245, 63, 63, 0.1);\r\n    color: var(--fqa-dl-danger);\r\n    font-size: 12px;\r\n    word-break: break-all;\r\n}\r\n\r\n.fqa-dl-actions {\r\n    display: flex;\r\n    justify-content: flex-end;\r\n    gap: 8px;\r\n    margin-top: 18px;\r\n}\r\n\r\n.fqa-dl-btn {\r\n    padding: 7px 18px;\r\n    border: 1px solid var(--fqa-dl-border);\r\n    border-radius: 6px;\r\n    background: var(--fqa-dl-bg);\r\n    color: var(--fqa-dl-text);\r\n    font-size: 13px;\r\n    font-family: inherit;\r\n    cursor: pointer;\r\n}\r\n\r\n.fqa-dl-btn:hover {\r\n    border-color: var(--fqa-dl-accent);\r\n    color: var(--fqa-dl-accent);\r\n}\r\n\r\n.fqa-dl-btn:disabled {\r\n    color: var(--fqa-dl-sub);\r\n    border-color: var(--fqa-dl-border);\r\n    cursor: not-allowed;\r\n}\r\n\r\n.fqa-dl-btn-primary {\r\n    border-color: var(--fqa-dl-accent);\r\n    background: var(--fqa-dl-accent);\r\n    color: #fff;\r\n}\r\n\r\n.fqa-dl-btn-primary:hover {\r\n    background: #ff8a5f;\r\n    border-color: #ff8a5f;\r\n    color: #fff;\r\n}\r\n\r\n/**\r\n * 详情页注入的下载按钮。\r\n *\r\n * 原站 .info-btn / .add-bookshelf-btn 自带 `position:absolute; bottom:0` 和固定\r\n * 尺寸，但这两个 class 同时带页面行为（会被站点脚本当成自己的按钮），所以不能照抄。\r\n * 这里复刻它们的尺寸，水平位置由脚本按前面按钮的实际宽度算出来。\r\n */\r\n.fqa-dl-entry {\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 150px;\r\n    height: 40px;\r\n    line-height: 40px;\r\n    padding: 0;\r\n    border-radius: 4px;\r\n    font-size: 16px;\r\n    text-align: center;\r\n}\r\n\r\n@media (prefers-color-scheme: dark) {\r\n    .fqa-dl-box {\r\n        --fqa-dl-bg: #23272e;\r\n        --fqa-dl-text: #e5e6eb;\r\n        --fqa-dl-border: rgba(255, 255, 255, 0.12);\r\n        --fqa-dl-track: rgba(255, 255, 255, 0.12);\r\n    }\r\n}\r\n";
-  const STYLE_ID$1 = "fqa-download-style";
-  const ENTRY_CLASS = "fqa-dl-entry";
-  const ANCHOR_SELECTOR = `.add-bookshelf-btn:not(.${ENTRY_CLASS}), .info-btn:not(.${ENTRY_CLASS})`;
-  let observer = null;
-  function injectStyle$1() {
-    if (document.getElementById(STYLE_ID$1)) return;
-    const style = document.createElement("style");
-    style.id = STYLE_ID$1;
-    style.textContent = downloadcss;
-    document.head.appendChild(style);
-  }
-  function parseBookId(path) {
-    var _a;
-    return ((_a = path.match(/^\/page\/(\d+)/)) == null ? void 0 : _a[1]) ?? "";
-  }
-  function isPagePath(path) {
-    return /^\/page\/\d+/.test(path);
-  }
-  const FUNCTIONAL_CLASSES = ["add-bookshelf-btn", "info-btn"];
   const BUTTON_GAP = 10;
-  function createButton(anchor, bookId2) {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    const classes = Array.from(anchor.classList).filter((c) => !FUNCTIONAL_CLASSES.includes(c));
-    btn.className = [...classes, ENTRY_CLASS].join(" ");
-    const span = document.createElement("span");
-    span.textContent = "下载";
-    btn.appendChild(span);
-    btn.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      void startDownload(bookId2, { format: settings$1.downloadFormat });
-    });
-    return btn;
+  const SITE_BUTTON_WIDTH = 150;
+  function resolvedLeft(el2) {
+    const fromStyle = Number.parseFloat(el2.style.left);
+    return Number.isFinite(fromStyle) ? fromStyle : el2.offsetLeft;
+  }
+  function resolvedWidth(el2) {
+    return el2.offsetWidth || SITE_BUTTON_WIDTH;
   }
   function placeButton(btn, siblings) {
     let right = 0;
-    for (const el of siblings) {
-      if (el === btn) continue;
-      right = Math.max(right, el.offsetLeft + el.offsetWidth);
+    for (const el2 of siblings) {
+      if (el2 === btn) continue;
+      right = Math.max(right, resolvedLeft(el2) + resolvedWidth(el2));
     }
     const left = `${right + BUTTON_GAP}px`;
     if (btn.style.left === left) return;
@@ -11624,48 +13954,916 @@ ${body}
     btn.style.bottom = "0";
     btn.style.left = left;
   }
+  const MIN_THRESHOLD = 300;
+  const NO_FLOAT_BAR_ATTR = "data-fqa-no-float-bar";
+  let el$1 = null;
+  let styleInjected = false;
+  function onDetailPage() {
+    return /^\/page\/\d+/.test(window.location.pathname);
+  }
+  let onScroll = null;
+  let threshold = 0;
+  function scrollTop() {
+    return window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  }
+  function toTop() {
+    window.scrollTo(0, 0);
+  }
+  function sync() {
+    if (!el$1) return;
+    el$1.style.display = scrollTop() >= threshold ? "" : "none";
+  }
+  function bindScroll() {
+    if (onScroll) return;
+    let ticking = false;
+    onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        sync();
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+  }
+  function mountBackTop(shell, before = null) {
+    threshold = Math.max(MIN_THRESHOLD, window.innerHeight);
+    if (el$1 == null ? void 0 : el$1.isConnected) {
+      sync();
+      return;
+    }
+    const btn = document.createElement("div");
+    btn.className = "backtop";
+    btn.setAttribute("role", "button");
+    btn.setAttribute("tabindex", "0");
+    btn.title = "回到顶部";
+    const bg = document.createElement("div");
+    bg.className = "backtop-bg";
+    btn.appendChild(bg);
+    btn.addEventListener("click", toTop);
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toTop();
+      }
+    });
+    shell.insertBefore(btn, before);
+    el$1 = btn;
+    bindScroll();
+    sync();
+  }
+  function installFloatBarHiding() {
+    if (!styleInjected) {
+      styleInjected = true;
+      GM_addStyle(
+        `html[${NO_FLOAT_BAR_ATTR}] .float-wrapper{display:none!important}`
+      );
+    }
+    syncFloatBarPath();
+  }
+  function syncFloatBarPath() {
+    const root = document.documentElement;
+    if (!root) return;
+    if (onDetailPage()) {
+      if (!root.hasAttribute(NO_FLOAT_BAR_ATTR)) root.setAttribute(NO_FLOAT_BAR_ATTR, "");
+    } else if (root.hasAttribute(NO_FLOAT_BAR_ATTR)) {
+      root.removeAttribute(NO_FLOAT_BAR_ATTR);
+    }
+  }
+  const downloadcss = `/* 下载进度弹窗 */
+
+.fqa-dl-mask {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45);
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,
+        sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.fqa-dl-box {
+    --fqa-dl-bg: #fff;
+    --fqa-dl-text: #1f2329;
+    --fqa-dl-sub: #8f959e;
+    --fqa-dl-border: rgba(31, 35, 41, 0.1);
+    --fqa-dl-accent: #ff6f3d;
+    --fqa-dl-track: rgba(31, 35, 41, 0.08);
+    --fqa-dl-danger: #f53f3f;
+
+    box-sizing: border-box;
+    width: min(420px, 90vw);
+    padding: 22px 24px 18px;
+    background: var(--fqa-dl-bg);
+    color: var(--fqa-dl-text);
+    border-radius: 12px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.24);
+}
+
+.fqa-dl-title {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* 正在处理的章节名，长标题截断 */
+.fqa-dl-sub {
+    margin: 0 0 14px;
+    min-height: 20px;
+    color: var(--fqa-dl-sub);
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fqa-dl-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: var(--fqa-dl-track);
+    overflow: hidden;
+}
+
+.fqa-dl-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: var(--fqa-dl-accent);
+    transition: width 0.2s ease;
+}
+
+/* 总量未知时的循环动画 */
+.fqa-dl-fill-indeterminate {
+    width: 35% !important;
+    animation: fqa-dl-slide 1.1s ease-in-out infinite;
+}
+
+@keyframes fqa-dl-slide {
+    0% {
+        margin-left: -35%;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+.fqa-dl-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    color: var(--fqa-dl-sub);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+}
+
+.fqa-dl-error {
+    margin: 12px 0 0;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: rgba(245, 63, 63, 0.1);
+    color: var(--fqa-dl-danger);
+    font-size: 12px;
+    word-break: break-all;
+}
+
+.fqa-dl-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.fqa-dl-btn {
+    padding: 7px 18px;
+    border: 1px solid var(--fqa-dl-border);
+    border-radius: 6px;
+    background: var(--fqa-dl-bg);
+    color: var(--fqa-dl-text);
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.fqa-dl-btn:hover {
+    border-color: var(--fqa-dl-accent);
+    color: var(--fqa-dl-accent);
+}
+
+.fqa-dl-btn:disabled {
+    color: var(--fqa-dl-sub);
+    border-color: var(--fqa-dl-border);
+    cursor: not-allowed;
+}
+
+.fqa-dl-btn-primary {
+    border-color: var(--fqa-dl-accent);
+    background: var(--fqa-dl-accent);
+    color: #fff;
+}
+
+.fqa-dl-btn-primary:hover {
+    background: #ff8a5f;
+    border-color: #ff8a5f;
+    color: #fff;
+}
+
+/**
+ * 详情页注入的下载按钮。
+ *
+ * 原站 .info-btn / .add-bookshelf-btn 自带 \`position:absolute; bottom:0\` 和固定
+ * 尺寸，但这两个 class 同时带页面行为（会被站点脚本当成自己的按钮），所以不能照抄。
+ * 这里复刻它们的尺寸，水平位置由脚本按前面按钮的实际宽度算出来。
+ */
+.fqa-dl-entry {
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/**
+ * 「检查插图」按钮：跟下载按钮同一套外观，窄一点（4 个字放得下），
+ * 水平位置同样由脚本排在前一个按钮右侧。
+ */
+.fqa-img-entry {
+    position: absolute;
+    bottom: 0;
+    width: 118px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.fqa-img-entry[data-busy='1'] {
+    opacity: 0.6;
+    cursor: progress;
+}
+
+@media (prefers-color-scheme: dark) {
+    .fqa-dl-box {
+        --fqa-dl-bg: #23272e;
+        --fqa-dl-text: #e5e6eb;
+        --fqa-dl-border: rgba(255, 255, 255, 0.12);
+        --fqa-dl-track: rgba(255, 255, 255, 0.12);
+    }
+}
+
+/* ------------------------- 详情页的「回到顶部」 ------------------------- */
+
+/*
+ * 正常详情页用站点自己的 .backtop；兜底页由 backTop.ts 照抄同样的结构补一个：
+ *   <div class="backtop"><div class="backtop-bg"></div></div>
+ * 站点的 .backtop 规则是 position:fixed; bottom:120px; left:50%;
+ * transform:translateX(625px)，已经能把按钮定位到正文右缘外侧，
+ * 所以这里不加任何布局样式，只补站点没有的两件事：
+ *   1. 键盘可达时的焦点提示（站点只有鼠标点击）；
+ *   2. 夜间主题下的底色（站点方块是写死白底）。
+ */
+.backtop:focus-visible {
+    outline: 2px solid var(--web-brand_normal, #fa6725);
+    outline-offset: 2px;
+}
+
+html[muye-data-theme='dark'] .backtop,
+html[muye-data-theme='dark'] .backtop-bg {
+    background-color: #23272e;
+}
+
+/**
+ * 目录里「本章含插图」的标记。
+ *
+ * 详情页目录是 .page-directory-content .chapter-item > a.chapter-item-title 三层结构。
+ *
+ * 标记必须挂在**容器**上并绝对定位到右侧，不能跟在标题文字后面：
+ * 标题是单行截断（overflow:hidden / text-overflow:ellipsis），
+ * 挂在标题后面的 ::after 会跟文字一起被裁掉，章节名一长就看不见标记了。
+ * 所以给容器 position:relative，标记贴右边；标题右侧留出固定宽度的 padding，
+ * 保证文字被省略号截断时也不会压到标记底下。
+ */
+.page-directory-content .chapter-item {
+    position: relative;
+}
+
+.page-directory-content .chapter-item.fqa-has-image .chapter-item-title {
+    /* 给右侧标记让位：宽度 = 标记宽 + 左右间距，够放宽一点的「插图」两个字 */
+    box-sizing: border-box;
+    width: 100%;
+    padding-right: 46px;
+}
+
+.page-directory-content .chapter-item.fqa-has-image::after {
+    content: '插图';
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    padding: 0 5px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+    color: #fa6725;
+    background: linear-gradient(180deg, rgba(250, 103, 37, 0.14), rgba(250, 103, 37, 0.08));
+    box-shadow: inset 0 0 0 1px rgba(250, 103, 37, 0.22);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* 夜间（跟随系统）：底色调深一点，避免浅橙背景在深色目录上发白 */
+@media (prefers-color-scheme: dark) {
+    .page-directory-content .chapter-item.fqa-has-image::after {
+        color: #ff8a4c;
+        background: linear-gradient(180deg, rgba(255, 138, 76, 0.22), rgba(255, 138, 76, 0.14));
+        box-shadow: inset 0 0 0 1px rgba(255, 138, 76, 0.32);
+    }
+}
+
+
+`;
+  const ROOT_ID = "fqa-book-fallback";
+  const STYLE_ID$3 = "fqa-book-fallback-style";
+  const DL_STYLE_ID = "fqa-download-style";
+  function ensureStyle() {
+    if (!document.getElementById(DL_STYLE_ID)) {
+      const dl = document.createElement("style");
+      dl.id = DL_STYLE_ID;
+      dl.textContent = downloadcss;
+      document.head.appendChild(dl);
+    }
+    if (document.getElementById(STYLE_ID$3)) return;
+    const style = document.createElement("style");
+    style.id = STYLE_ID$3;
+    style.textContent = `
+/* 站点按钮禁用态 */
+.muye-button[disabled]{opacity:.6;cursor:default}
+
+/* 简介 / 目录那张白卡要有灰色衬底。
+   站点底色来自 body 的 #f6f6f6，但 .muye 自带白底会把它盖住，
+   而兜底页的根节点正好是 .muye。所以显式铺两层灰：
+   - .page       负责卡片上下留白（.page-body-wrap 的 28/30px 外边距区域）
+   - .page-body-wrap 负责卡片左右两侧的 20px 内边距区域
+   页头 .page-wrap 与卡片 .page-body 仍是站点自己的白色，灰底只从它们背后透出来。
+   .page 上的 overflow:hidden 是为了把 .page-body-wrap 的下外边距算进高度，
+   灰底才能一直延到卡片下方。 */
+#fqa-book-fallback .page {
+    background-color: #f6f6f6;
+    overflow: hidden;
+}
+#fqa-book-fallback .page-body-wrap {
+    background-color: #f6f6f6;
+}
+
+/* 作者头像占位：没有头像时用作者名首字。
+   尺寸/圆角/描边照抄站点 .page-header-info .author-img（70x70、1px 描边），
+   并且必须是 inline-block——站点那个 <img> 就是 inline 元素，
+   改成 flex/block 会改变基线对齐，整块会相对作者名上下偏移。 */
+#fqa-book-fallback .author-img.fqa-author-avatar-fallback {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    box-sizing: border-box;
+    border: 1px solid #f1f1f1;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffe3d3, #ffcfb3);
+    color: #fa6725;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 68px; /* 减掉上下各 1px 描边，字才真正居中 */
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    #fqa-book-fallback .author-img.fqa-author-avatar-fallback {
+        background: linear-gradient(135deg, #4a3a32, #3a2d27);
+        color: #ff8a4c;
+    }
+}
+
+`;
+    document.head.appendChild(style);
+  }
+  function pageLooksEmpty() {
+    if (document.querySelector(".page-directory-content .chapter-item")) return false;
+    if (document.querySelector('a[href^="/reader/"]')) return false;
+    return true;
+  }
+  function el(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== void 0) node.textContent = text;
+    return node;
+  }
+  function siteButton(primary, extra = "") {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = `byte-btn ${primary ? "byte-btn-primary" : "byte-btn-default"} byte-btn-size-large byte-btn-shape-square muye-button` + (extra ? ` ${extra}` : "");
+    return btn;
+  }
+  function authorPageUrl(book) {
+    var _a;
+    const authorId = (_a = book.author_id) == null ? void 0 : _a.trim();
+    if (!authorId) return null;
+    const uid = (book.author_uid ?? "").trim() || authorId;
+    return `/author-page/${uid}-${authorId}`;
+  }
+  function buildAuthor(book) {
+    var _a;
+    const author = el("div", "author");
+    author.appendChild(el("div", "author-divider"));
+    const info = el("div", "author-info");
+    const authorName = book.author || "佚名";
+    if (book.author_avatar) {
+      const img = el("img", "author-img");
+      img.src = book.author_avatar;
+      img.alt = `${book.title ?? ""}作者${authorName}`;
+      img.loading = "lazy";
+      img.addEventListener(
+        "error",
+        () => img.replaceWith(buildAvatarFallback(authorName)),
+        { once: true }
+      );
+      info.appendChild(img);
+    } else {
+      info.appendChild(buildAvatarFallback(authorName));
+    }
+    const link = el("a");
+    link.addEventListener("click", (event) => event.preventDefault());
+    const nameBox = el("div", "author-name");
+    nameBox.appendChild(el("span", "author-name-logo"));
+    nameBox.appendChild(el("span", "author-name-text", authorName));
+    link.appendChild(nameBox);
+    info.appendChild(link);
+    const desc = (_a = book.author_desc) == null ? void 0 : _a.trim();
+    if (desc) info.appendChild(el("div", "author-desc", desc));
+    const url = authorPageUrl(book);
+    if (url) {
+      info.style.cursor = "pointer";
+      info.title = `查看${authorName}的主页`;
+      info.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.open(url, "_blank", "noopener");
+      });
+    }
+    author.appendChild(info);
+    return author;
+  }
+  function buildAvatarFallback(authorName) {
+    const avatar = el("div", "author-img fqa-author-avatar-fallback", authorName.slice(0, 1));
+    avatar.setAttribute("role", "img");
+    avatar.setAttribute("aria-label", `作者${authorName}`);
+    return avatar;
+  }
+  function buildHeader(book, buttons = []) {
+    const header = el("div", "page-header");
+    const crumb = el("div", "route-trackers book-route-trackers");
+    const home = el("a", void 0, "首页");
+    home.href = "/";
+    const current = el("a", void 0, book.title || "未知书名");
+    crumb.append(home, current);
+    header.appendChild(crumb);
+    const headerInfo = el("div", "page-header-info");
+    const coverWrap = el("div", "muye-book-cover img is-book");
+    const bookCover = el("div", "book-cover");
+    bookCover.style.borderRadius = "4px";
+    if (book.cover_url) {
+      const img = el("img", "book-cover-img loaded");
+      img.src = book.cover_url;
+      img.alt = book.title ?? "";
+      bookCover.appendChild(img);
+    }
+    bookCover.appendChild(el("div", "book-effect book-animate-effect"));
+    coverWrap.appendChild(bookCover);
+    headerInfo.appendChild(coverWrap);
+    const box = el("div", "info");
+    const nameBox = el("div", "info-name");
+    nameBox.appendChild(el("h1", void 0, book.title || "未知书名"));
+    box.appendChild(nameBox);
+    const labelBox = el("div", "info-label");
+    if (book.status) {
+      labelBox.appendChild(el("span", "info-label-yellow", book.status === "连载" ? "连载中" : book.status));
+    }
+    for (const tag of (book.category ?? "").split(",").map((t) => t.trim()).filter(Boolean)) {
+      labelBox.appendChild(el("span", "info-label-grey", tag));
+    }
+    box.appendChild(labelBox);
+    const words = (book.chapter_list ?? []).reduce((n, c) => n + (c.char_count || 0), 0);
+    if (words > 0) {
+      const count = el("div", "info-count");
+      const word = el("div", "info-count-word");
+      word.appendChild(el("span", "detail", (words / 1e4).toFixed(1)));
+      word.appendChild(el("span", "text", "万字"));
+      count.appendChild(word);
+      box.appendChild(count);
+    }
+    const lastChapter = (book.chapter_list ?? []).slice(-1)[0];
+    if (lastChapter) {
+      const last = el("div", "info-last");
+      const a = el("a", "chapter-item-title");
+      a.href = `/reader/${lastChapter.item_id}`;
+      a.target = "_blank";
+      a.appendChild(el("span", "info-last-title", `最近更新：${lastChapter.title}`));
+      last.appendChild(a);
+      if (book.update_time) last.appendChild(el("span", "info-last-time", book.update_time));
+      box.appendChild(last);
+    }
+    if (buttons.length) box.append(...buttons);
+    headerInfo.appendChild(box);
+    headerInfo.appendChild(buildAuthor(book));
+    header.appendChild(headerInfo);
+    return header;
+  }
+  function cleanVolumeTitle(title) {
+    return (title ?? "").replace(/[：:]\s*默认$/, "").trim();
+  }
+  function buildBody(book) {
+    var _a;
+    const wrap = el("div", "page-body-wrap");
+    const body = el("div", "page-body");
+    if (book.summary) {
+      const header = el("div", "page-abstract-header");
+      header.appendChild(el("h2", void 0, "作品简介"));
+      body.appendChild(header);
+      const content = el("div", "page-abstract-content");
+      content.appendChild(el("p", void 0, book.summary));
+      body.appendChild(content);
+    }
+    const chapters = book.chapter_list ?? [];
+    const dirHeader = el("div", "page-directory-header");
+    const h3 = el("h3");
+    h3.appendChild(el("span", void 0, "目录"));
+    h3.appendChild(el("span", "directory-dot"));
+    h3.appendChild(document.createTextNode(`${chapters.length}章`));
+    dirHeader.appendChild(h3);
+    body.appendChild(dirHeader);
+    const dir = el("div", "page-directory-content");
+    const inner = el("div");
+    const volumes = ((_a = book.volume_list) == null ? void 0 : _a.length) ? book.volume_list : [{ title: "", chapter_list: chapters }];
+    volumes.forEach((vol, idx) => {
+      const volTitle = cleanVolumeTitle(vol.title);
+      if (volTitle) {
+        const vh = el("div", idx === 0 ? "volume volume_first" : "volume");
+        vh.appendChild(document.createTextNode(volTitle));
+        vh.appendChild(el("span", "volume-dot"));
+        vh.appendChild(document.createTextNode(`共${vol.chapter_list.length}章`));
+        inner.appendChild(vh);
+      }
+      const chapterBox = el("div", "chapter");
+      for (const ch of vol.chapter_list) {
+        const item = el("div", "chapter-item");
+        const a = el("a", "chapter-item-title", ch.title);
+        a.href = `/reader/${ch.item_id}`;
+        a.target = "_blank";
+        item.appendChild(a);
+        chapterBox.appendChild(item);
+      }
+      inner.appendChild(chapterBox);
+    });
+    dir.appendChild(inner);
+    body.appendChild(dir);
+    wrap.appendChild(body);
+    return wrap;
+  }
+  function mount(root) {
+    const header = document.querySelector(".muye-header");
+    const shell = (header == null ? void 0 : header.parentElement) ?? document.querySelector("#app > div") ?? document.body;
+    let footerRoot = null;
+    const probe = document.querySelector('[class*="zone-footer"]');
+    for (let n = probe; n; n = n.parentElement) {
+      if (n.parentElement === shell) {
+        footerRoot = n;
+        break;
+      }
+    }
+    shell.insertBefore(root, footerRoot);
+    mountBackTop(shell, footerRoot);
+  }
+  function describeScan(r) {
+    const lines = [`共 ${r.total} 章，已检查 ${r.scanned} 章。`];
+    lines.push(r.hits.length ? `其中 ${r.hits.length} 章含插图。` : "未发现含插图的章节。");
+    if (r.skipped.length) lines.push(`${r.skipped.length} 章为付费/锁定章，未检查。`);
+    if (r.failed.length) lines.push(`${r.failed.length} 章获取失败，结论可能不完整。`);
+    return lines.join("\n");
+  }
+  let renderedFor = "";
+  async function ensureBookFallback(bookId2) {
+    var _a, _b, _c;
+    if (!bookId2 || renderedFor === bookId2) return;
+    await sleep(700);
+    if (window.location.pathname !== `/page/${bookId2}`) return;
+    if (!pageLooksEmpty()) return;
+    let book;
+    try {
+      book = await getBookInfoAndCatalog(bookId2);
+    } catch (err) {
+      console.warn("[fqa:fallback] 取书籍信息失败:", err);
+      return;
+    }
+    if (!((_a = book == null ? void 0 : book.chapter_list) == null ? void 0 : _a.length)) {
+      console.warn("[fqa:fallback] 接口也没有这本书的数据");
+      return;
+    }
+    try {
+      if (book.author_id) {
+        const bio = await getAuthorBioFromHomepage(book.author_uid ?? "", book.author_id);
+        if (bio) book.author_desc = bio;
+        else if (isDefaultAuthorDesc(book.author_desc)) book.author_desc = "";
+      }
+    } catch (err) {
+      console.warn("[fqa:fallback] 取作者简介失败:", err);
+    }
+    ensureStyle();
+    (_b = document.getElementById(ROOT_ID)) == null ? void 0 : _b.remove();
+    const first = (_c = book.chapter_list[0]) == null ? void 0 : _c.item_id;
+    const readBtn = siteButton(true, "info-btn");
+    if (first) {
+      const link = el("a", void 0, "开始阅读");
+      link.href = `/reader/${first}`;
+      readBtn.appendChild(link);
+    } else {
+      readBtn.textContent = "开始阅读";
+      readBtn.disabled = true;
+    }
+    const shelfBtn = siteButton(false, "add-bookshelf-btn");
+    const shelfText = el("span", void 0, "加入书架");
+    shelfBtn.appendChild(shelfText);
+    shelfBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (shelfBtn.dataset.busy === "1" || shelfBtn.dataset.done === "1") return;
+      shelfBtn.dataset.busy = "1";
+      void addToBookshelf(book.book_id).then(() => {
+        shelfBtn.dataset.done = "1";
+        shelfText.textContent = "已加书架";
+      }).catch((err) => {
+        console.warn("[fqa:fallback] 加入书架失败:", err);
+        shelfText.textContent = "加入失败";
+        window.setTimeout(() => {
+          shelfText.textContent = "加入书架";
+        }, 1500);
+      }).finally(() => {
+        shelfBtn.dataset.busy = "0";
+      });
+    });
+    const dlBtn = siteButton(true, "fqa-dl-entry");
+    dlBtn.textContent = "下载";
+    dlBtn.disabled = !settings$1.enableDownload;
+    dlBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (!settings$1.enableDownload) return;
+      void startDownload(book.book_id, { format: settings$1.downloadFormat });
+    });
+    const scanBtn = siteButton(true, "fqa-img-entry");
+    scanBtn.textContent = "检查插图";
+    scanBtn.title = "左键检查插图 · 右键清除本书缓存";
+    scanBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (scanBtn.dataset.busy === "1") return;
+      const cached2 = getCachedImageScan(bookId2);
+      if (cached2) {
+        markCatalogImages(bookId2);
+        scanBtn.textContent = cached2.hits.length ? `插图 ${cached2.hits.length} 章` : "无插图";
+        scanBtn.title = describeScan(cached2);
+        return;
+      }
+      scanBtn.dataset.busy = "1";
+      scanBtn.textContent = "检查中 0%";
+      void scanBookImages(bookId2, (p) => {
+        if (p.phase === "retry") {
+          scanBtn.textContent = `重试 ${p.retryDone ?? 0}/${p.retryTotal ?? 0}`;
+          return;
+        }
+        const pct = p.total ? Math.round(p.done / p.total * 100) : 0;
+        scanBtn.textContent = `检查中 ${pct}%`;
+      }).then((result) => {
+        markCatalogImages(bookId2, result.hits);
+        scanBtn.textContent = result.hits.length ? `插图 ${result.hits.length} 章` : "无插图";
+        scanBtn.title = describeScan(result);
+      }).catch((err) => {
+        scanBtn.textContent = "检查失败";
+        console.warn("[fqa:fallback] 检查插图失败:", err);
+      }).finally(() => {
+        scanBtn.dataset.busy = "0";
+      });
+    });
+    scanBtn.addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (scanBtn.dataset.busy === "1") return;
+      const cleared = clearImageScanCache(bookId2);
+      markCatalogImages(bookId2);
+      scanBtn.textContent = cleared ? "已清除" : "无缓存";
+      window.setTimeout(() => {
+        scanBtn.textContent = "检查插图";
+      }, 1500);
+    });
+    const page2 = el("div", "page");
+    const pageWrap = el("div", "page-wrap");
+    pageWrap.appendChild(buildHeader(book, [readBtn, shelfBtn, dlBtn, scanBtn]));
+    page2.appendChild(pageWrap);
+    page2.appendChild(buildBody(book));
+    const root = el("div", "muye muye-page");
+    root.id = ROOT_ID;
+    root.appendChild(page2);
+    mount(root);
+    if (book.title) {
+      document.title = `${book.title}完整版在线免费阅读_${book.title}小说_番茄小说官网`;
+    }
+    placeButton(dlBtn, [readBtn, shelfBtn]);
+    placeButton(scanBtn, [readBtn, shelfBtn, dlBtn]);
+    renderedFor = bookId2;
+  }
+  const STYLE_ID$2 = "fqa-download-style";
+  const ENTRY_CLASS = "fqa-dl-entry";
+  const IMAGE_ENTRY_CLASS = "fqa-img-entry";
+  const ANCHOR_SELECTOR = `.add-bookshelf-btn:not(.${ENTRY_CLASS}), .info-btn:not(.${ENTRY_CLASS})`;
+  let observer$1 = null;
+  function injectStyle$2() {
+    if (document.getElementById(STYLE_ID$2)) return;
+    const style = document.createElement("style");
+    style.id = STYLE_ID$2;
+    style.textContent = downloadcss;
+    document.head.appendChild(style);
+  }
+  function parseBookId$1(path) {
+    var _a;
+    return ((_a = path.match(/^\/page\/(\d+)/)) == null ? void 0 : _a[1]) ?? "";
+  }
+  function isPagePath$1(path) {
+    return /^\/page\/\d+/.test(path);
+  }
+  const FUNCTIONAL_CLASSES = ["add-bookshelf-btn", "info-btn"];
+  function createButton(anchor, label, extraClass, onClick) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    const classes = Array.from(anchor.classList).filter((c) => !FUNCTIONAL_CLASSES.includes(c));
+    btn.className = [...classes, extraClass].join(" ");
+    btn.textContent = label;
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      onClick(btn);
+    });
+    return btn;
+  }
+  function createDownloadButton(anchor, bookId2) {
+    return createButton(anchor, "下载", ENTRY_CLASS, () => {
+      void startDownload(bookId2, { format: settings$1.downloadFormat });
+    });
+  }
+  function createImageScanButton(anchor, bookId2) {
+    const btn = createButton(anchor, "检查插图", IMAGE_ENTRY_CLASS, (self) => {
+      if (self.dataset.busy === "1") return;
+      const start = () => {
+        self.dataset.busy = "1";
+        self.textContent = "检查中 0%";
+        void scanBookImages(bookId2, (p) => {
+          if (p.phase === "retry") {
+            self.textContent = `重试 ${p.retryDone ?? 0}/${p.retryTotal ?? 0}`;
+            return;
+          }
+          const pct = p.total ? Math.round(p.done / p.total * 100) : 0;
+          self.textContent = `检查中 ${pct}%`;
+        }).then((result) => {
+          markCatalogImages(bookId2, result.hits);
+          self.textContent = result.hits.length ? `插图 ${result.hits.length} 章` : "无插图";
+          self.title = summary(result);
+          unsafeWindow.alert(summary(result));
+        }).catch((err) => {
+          self.textContent = "检查失败";
+          console.warn("[fqa:images] 检查失败:", err);
+        }).finally(() => {
+          self.dataset.busy = "0";
+        });
+      };
+      const cached2 = getCachedImageScan(bookId2);
+      if (cached2) {
+        const again = unsafeWindow.confirm(
+          `${summary(cached2)}
+
+点「确定」= 清除缓存并重新检查（会重新下载所有章节）
+点「取消」= 只看结果`
+        );
+        markCatalogImages(bookId2);
+        if (!again) {
+          self.title = summary(cached2);
+          self.textContent = cached2.hits.length ? `插图 ${cached2.hits.length} 章` : "无插图";
+          return;
+        }
+        clearImageScanCache(bookId2);
+        self.textContent = "检查插图";
+      }
+      start();
+    });
+    btn.title = "左键检查插图 · 右键清除本书缓存";
+    btn.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (btn.dataset.busy === "1") return;
+      const cleared = clearImageScanCache(bookId2);
+      markCatalogImages(bookId2);
+      btn.textContent = cleared ? "已清除" : "无缓存";
+      window.setTimeout(() => {
+        btn.textContent = "检查插图";
+      }, 1500);
+    });
+    return btn;
+  }
+  function summary(r) {
+    const lines = [`共 ${r.total} 章，已检查 ${r.scanned} 章。`];
+    lines.push(r.hits.length ? `其中 ${r.hits.length} 章含插图。` : "未发现含插图的章节。");
+    if (r.skipped.length) lines.push(`${r.skipped.length} 章为付费/锁定章，未检查。`);
+    if (r.failed.length) {
+      lines.push(`${r.failed.length} 章获取失败，结论可能不完整：`);
+      for (const [reason, count] of Object.entries(r.reasons).slice(0, 4)) {
+        lines.push(`  · ${reason} × ${count}`);
+      }
+    }
+    return lines.join("\n");
+  }
   function inject(bookId2) {
+    markCatalogImages(bookId2);
     const anchors = Array.from(document.querySelectorAll(ANCHOR_SELECTOR));
     if (anchors.length === 0) return;
     const existing = document.querySelector(`.${ENTRY_CLASS}`);
+    const existingScan = document.querySelector(`.${IMAGE_ENTRY_CLASS}`);
     if (existing) {
       placeButton(existing, anchors);
+      if (existingScan) placeButton(existingScan, [...anchors, existing]);
       return;
     }
     const anchor = anchors[anchors.length - 1];
     if (!anchor.parentElement) return;
-    const btn = createButton(anchor, bookId2);
+    const btn = createDownloadButton(anchor, bookId2);
     anchor.insertAdjacentElement("afterend", btn);
+    const scanBtn = createImageScanButton(anchor, bookId2);
+    btn.insertAdjacentElement("afterend", scanBtn);
     placeButton(btn, anchors);
+    placeButton(scanBtn, [...anchors, btn]);
   }
-  function teardown() {
-    observer == null ? void 0 : observer.disconnect();
-    observer = null;
-    document.querySelectorAll(`.${ENTRY_CLASS}`).forEach((el) => el.remove());
+  function teardown$1() {
+    observer$1 == null ? void 0 : observer$1.disconnect();
+    observer$1 = null;
+    document.querySelectorAll(`.${ENTRY_CLASS}`).forEach((el2) => el2.remove());
   }
   async function mainHook(_previous) {
     const path = window.location.pathname;
-    if (!isPagePath(path) || !settings$1.enableDownload) {
-      teardown();
+    if (/^\/page\/undefined\/?$/.test(path)) {
+      const last = getLastBook();
+      if (last == null ? void 0 : last.bookId) {
+        console.info("[fqa] 详情页缺少书号，回退到最近阅读:", last.bookId);
+        unsafeWindow.location.replace(`/page/${last.bookId}`);
+      }
       return;
     }
-    const bookId2 = parseBookId(path);
+    if (!isPagePath$1(path)) {
+      teardown$1();
+      syncFloatBarPath();
+      return;
+    }
+    syncFloatBarPath();
+    const bookId2 = parseBookId$1(path);
+    if (bookId2) watchCatalogMarks(bookId2);
+    void ensureBookFallback(bookId2);
+    if (!settings$1.enableDownload) {
+      teardown$1();
+      return;
+    }
     if (!bookId2) return;
-    injectStyle$1();
-    teardown();
+    injectStyle$2();
+    teardown$1();
     await waitForElement(ANCHOR_SELECTOR, 8e3);
     if (window.location.pathname !== path) return;
     inject(bookId2);
-    observer = new MutationObserver(() => {
+    observer$1 = new MutationObserver(() => {
       if (window.location.pathname !== path) return;
       inject(bookId2);
     });
-    observer.observe(document.body, { childList: true, subtree: true });
+    observer$1.observe(document.body, { childList: true, subtree: true });
   }
   function filter(path, _query, _hash) {
-    return isPagePath(path) || Boolean(observer);
+    return isPagePath$1(path) || /^\/page\/undefined\/?$/.test(path) || Boolean(observer$1);
   }
-  const _exports = [
+  const _exports$1 = [
     {
       id: "downloadHook_onload",
       event: "load",
@@ -11679,9 +14877,1120 @@ ${body}
       handler: mainHook
     }
   ];
+  const COMMENT_TYPE = 2;
+  const ADD_COMMENT_TYPE = 0;
+  const GROUP_TYPE = 1;
+  const SOURCE_BOOK = 1;
+  const SOURCE_COMMENT_REPLY = 501;
+  const SOURCE_REPLY_REPLY = 1002;
+  const MAX_COMMENT_COUNT = 100;
+  const CommentAction = {
+    Like: 8,
+    Unlike: 9,
+    Dislike: 10,
+    Undislike: 11
+  };
+  class NotLoggedInError extends Error {
+    constructor(message = COOKIE_PERMISSION_HINT) {
+      super(message);
+      this.name = "NotLoggedInError";
+    }
+  }
+  function str(v) {
+    return typeof v === "string" ? v : v == null ? "" : String(v);
+  }
+  function int(v) {
+    const n = Number(v);
+    return Number.isFinite(n) ? Math.trunc(n) : 0;
+  }
+  function titleName(raw) {
+    if (typeof (raw == null ? void 0 : raw.intro) === "string" && raw.intro) {
+      try {
+        const parsed = JSON.parse(raw.intro);
+        const name2 = str(parsed == null ? void 0 : parsed.title_name);
+        if (name2) return name2;
+      } catch {
+      }
+    }
+    return str((raw == null ? void 0 : raw.zh_title) || (raw == null ? void 0 : raw.en_title));
+  }
+  function parseUser(raw) {
+    const base = (raw == null ? void 0 : raw.base_info) ?? {};
+    const tag = (raw == null ? void 0 : raw.user_tag) ?? {};
+    return {
+      user_id: str(base.user_id || (raw == null ? void 0 : raw.user_id)),
+      name: str(base.user_name),
+      avatar: str(base.user_avatar),
+      description: str(base.description),
+      is_author: Boolean(tag.is_author),
+      // 蓝 V 也算会员标记，展示上不区分
+      is_vip: Boolean(tag.is_vip || tag.is_blue_vip),
+      titles: Array.isArray(tag.user_title_info) ? tag.user_title_info.map(titleName).filter(Boolean) : []
+    };
+  }
+  function parseExts(raw) {
+    if (!Array.isArray(raw)) return [];
+    const out = [];
+    for (const e of raw) {
+      const text = str(e == null ? void 0 : e.text);
+      if (!text) continue;
+      out.push({
+        start: int(e == null ? void 0 : e.s),
+        end: int(e == null ? void 0 : e.e),
+        text,
+        type: int(e == null ? void 0 : e.tp),
+        uri: str(e == null ? void 0 : e.uri) || void 0
+      });
+    }
+    return out.sort((a, b) => a.start - b.start);
+  }
+  function parseBase(raw, id) {
+    const common = (raw == null ? void 0 : raw.common) ?? (raw == null ? void 0 : raw.Common) ?? {};
+    const content = common.content ?? {};
+    const stat = (raw == null ? void 0 : raw.stat) ?? {};
+    const action = (raw == null ? void 0 : raw.user_action) ?? {};
+    return {
+      id,
+      text: str(content.text),
+      exts: parseExts(content.text_exts),
+      create_time: int(common.create_timestamp),
+      user: parseUser(common.user_info),
+      digg_count: int(stat.digg_count),
+      reply_count: int(stat.reply_count),
+      user_digg: Boolean(action.user_digg),
+      user_disagree: Boolean(action.user_disagree)
+    };
+  }
+  function parseComment(raw) {
+    const id = str(raw == null ? void 0 : raw.comment_id);
+    if (!id) return null;
+    const expand = (raw == null ? void 0 : raw.expand) ?? {};
+    const action = (raw == null ? void 0 : raw.user_action) ?? {};
+    const addition = raw == null ? void 0 : raw.addition_comment;
+    const additionId = str(addition == null ? void 0 : addition.comment_id);
+    return {
+      ...parseBase(raw, id),
+      score: int(expand.score),
+      score_text: str(expand.score_suffix_text),
+      author_stick: Boolean(action.is_author_stick),
+      addition: additionId ? parseBase(addition, additionId) : void 0,
+      preview_reply_count: int(expand.reply_show_count)
+    };
+  }
+  function parseReply(raw) {
+    const id = str(raw == null ? void 0 : raw.reply_id);
+    if (!id) return null;
+    return {
+      ...parseBase(raw, id),
+      to_comment_id: str(raw == null ? void 0 : raw.reply_to_comment_id),
+      to_reply_id: str(raw == null ? void 0 : raw.reply_to_reply_id),
+      sub: Array.isArray(raw == null ? void 0 : raw.sub_reply) ? raw.sub_reply.map(parseReply).filter((r) => !!r) : []
+    };
+  }
+  function parseTags(raw) {
+    if (!Array.isArray(raw)) return [];
+    return raw.map((t) => ({
+      tag_id: str(t == null ? void 0 : t.tag_id),
+      tag_name: str(t == null ? void 0 : t.tag_name),
+      count: int(t == null ? void 0 : t.count)
+    })).filter((t) => t.tag_id && t.tag_name);
+  }
+  async function commentPost(path, body, requireLogin = false) {
+    const headers = {};
+    const session = await getSessionId();
+    if (session.value) {
+      headers["Cookie"] = `sessionid=${session.value}`;
+    } else if (requireLogin) {
+      throw new NotLoggedInError();
+    }
+    const res = await appRootPost(path, JSON.stringify(body), void 0, headers);
+    let j;
+    try {
+      j = res.json();
+    } catch {
+      throw new Error(`书评接口返回了非 JSON（HTTP ${res.status}）`);
+    }
+    if ((j == null ? void 0 : j.code) === 103006) throw new NotLoggedInError();
+    if ((j == null ? void 0 : j.code) !== 0) {
+      throw new Error(`书评接口失败(code=${j == null ? void 0 : j.code}): ${(j == null ? void 0 : j.message) ?? "未知错误"}`);
+    }
+    return j.data;
+  }
+  async function getComments(bookId2, { sort = 1, count = 20, cursor, tagId } = {}) {
+    const data = await commentPost(`/novel/commentapi/comment/list/${bookId2}/v1`, {
+      business_param: {
+        book_id: bookId2,
+        need_count: true,
+        // fold_type 必填，且只有 1 有效（0 会报参数错误）
+        fold_type: 1,
+        ...tagId ? { tag_id: tagId } : {}
+      },
+      comment_source: SOURCE_BOOK,
+      comment_type: COMMENT_TYPE,
+      count: Math.min(count, MAX_COMMENT_COUNT),
+      group_id: bookId2,
+      group_type: GROUP_TYPE,
+      server_channel: 5,
+      sort,
+      ...cursor ? { cursor } : {}
+    });
+    const info = (data == null ? void 0 : data.common_list_info) ?? {};
+    const list = Array.isArray(data == null ? void 0 : data.data_list) ? data.data_list : [];
+    const extra = (data == null ? void 0 : data.extra) ?? {};
+    return {
+      comments: list.map((cell) => parseComment(cell == null ? void 0 : cell.comment)).filter((c) => !!c),
+      cursor: str(info.cursor),
+      has_more: Boolean(info.has_more),
+      total: int(info.total),
+      tags: parseTags(extra.filter_tag),
+      score_text: str(extra.score_text),
+      score_count: int(extra.score_cnt),
+      // 登录后自己那条被单独放在 extra.user_comment，形状和列表项里的 comment 一致
+      user_comment: parseComment(extra.user_comment)
+    };
+  }
+  const REVIEW_SCORE_STEP = 2;
+  const MIN_REVIEW_STARS = 1;
+  const MAX_REVIEW_STARS = 5;
+  function starToScore(stars) {
+    const s = Math.round(stars);
+    const clamped = Math.min(MAX_REVIEW_STARS, Math.max(MIN_REVIEW_STARS, s));
+    return clamped * REVIEW_SCORE_STEP;
+  }
+  function scoreToStars(score) {
+    return Math.round(int(score) / REVIEW_SCORE_STEP);
+  }
+  async function submitReview(bookId2, { score = 0, text = "" } = {}) {
+    const data = await commentPost(
+      `/novel/commentapi/comment/add/v1/`,
+      {
+        business_param: {
+          book_id: bookId2,
+          score,
+          has_aigc_content: false,
+          // 下面这些是 APP 的催更 / 二次确认开关，网页端一律走默认
+          from_famous_comment_id: 0,
+          ignore_urge_rule: false,
+          is_confirm_request: false,
+          offset: 0,
+          read_item_cnt: 0,
+          video_is_muted: 0
+        },
+        comment_type: ADD_COMMENT_TYPE,
+        // 抓包固定值：网页提交场景
+        commit_source: 1,
+        data_type: 2,
+        group_id: bookId2,
+        group_type: GROUP_TYPE,
+        // 富文本（@、书名号引用等）网页端暂不支持，只发纯文本
+        rich_text: [],
+        text
+      },
+      true
+    );
+    return parseComment(data == null ? void 0 : data.comment_info);
+  }
+  async function getReplies(bookId2, commentId, { count = 20, cursor } = {}) {
+    const data = await commentPost(`/novel/commentapi/reply/list/${commentId}/v1`, {
+      business_param: { book_id: bookId2, need_count: true },
+      comment_id: commentId,
+      comment_source: SOURCE_COMMENT_REPLY,
+      comment_type: COMMENT_TYPE,
+      count,
+      group_id: bookId2,
+      group_type: GROUP_TYPE,
+      // cursor 必须是字符串，传数字直接 HTTP 400
+      ...cursor ? { cursor: String(cursor) } : {}
+    });
+    return toReplyResult(data);
+  }
+  async function getSubReplies(bookId2, replyId, refReplyId, { count = 20, cursor } = {}) {
+    const data = await commentPost(`/novel/commentapi/reply/list/${replyId}/v1`, {
+      business_param: { book_id: bookId2, need_count: true, ref_reply_id: refReplyId },
+      comment_id: replyId,
+      comment_source: SOURCE_REPLY_REPLY,
+      comment_type: COMMENT_TYPE,
+      count,
+      group_id: bookId2,
+      group_type: GROUP_TYPE,
+      ...cursor ? { cursor: String(cursor) } : {}
+    });
+    return toReplyResult(data);
+  }
+  function toReplyResult(data) {
+    const info = (data == null ? void 0 : data.comment_list_info) ?? {};
+    const list = Array.isArray(data == null ? void 0 : data.reply_list) ? data.reply_list : [];
+    return {
+      replies: list.map(parseReply).filter((r) => !!r),
+      cursor: str(info.cursor),
+      has_more: Boolean(info.has_more),
+      total: int(info.total)
+    };
+  }
+  async function doCommentAction(objectId, action) {
+    await commentPost(
+      "/novel/commentapi/comment/do_action/v1/",
+      {
+        action_type: action,
+        // 抓包里塞了一堆埋点字段（shark_param 等），实测可以整个留空
+        business_param: {},
+        comment_type: COMMENT_TYPE,
+        object_id: objectId,
+        object_type: 2
+      },
+      true
+    );
+  }
+  async function toggleLike(objectId, liked) {
+    await doCommentAction(objectId, liked ? CommentAction.Unlike : CommentAction.Like);
+    return !liked;
+  }
+  async function toggleDislike(objectId, disliked) {
+    await doCommentAction(objectId, disliked ? CommentAction.Undislike : CommentAction.Dislike);
+    return !disliked;
+  }
+  function emptyReplyState() {
+    return { loaded: false, loading: false, error: null, replies: [], cursor: "", hasMore: false, total: 0 };
+  }
+  function describeError(err) {
+    if (err instanceof NotLoggedInError) return "需要登录后才能操作（未登录或未授权读取 Cookie）";
+    if (err instanceof Error && err.message) return err.message;
+    return "操作失败，请稍后重试";
+  }
+  function useBookReviews(bookId2) {
+    const comments = vue.ref([]);
+    const tags = vue.ref([]);
+    const scoreText = vue.ref("");
+    const scoreCount = vue.ref(0);
+    const total = vue.ref(0);
+    const cursor = vue.ref("");
+    const hasMore = vue.ref(false);
+    const sort = vue.ref(1);
+    const tagId = vue.ref("");
+    const loading = vue.ref(false);
+    const loadingMore = vue.ref(false);
+    const error = vue.ref(null);
+    const loaded = vue.ref(false);
+    const userComment = vue.ref(null);
+    let token = 0;
+    const stars = vue.computed(() => {
+      var _a;
+      return scoreToStars(((_a = userComment.value) == null ? void 0 : _a.score) ?? 0);
+    });
+    async function load2(reset = true) {
+      const my = ++token;
+      if (reset) {
+        loading.value = true;
+        error.value = null;
+      } else {
+        loadingMore.value = true;
+      }
+      try {
+        const r = await getComments(bookId2, {
+          sort: sort.value,
+          cursor: reset ? void 0 : cursor.value,
+          tagId: tagId.value || void 0
+        });
+        if (my !== token) return;
+        comments.value = reset ? r.comments : [...comments.value, ...r.comments];
+        tags.value = r.tags.length ? r.tags : tags.value;
+        scoreText.value = r.score_text || scoreText.value;
+        scoreCount.value = r.score_count || scoreCount.value;
+        total.value = r.total;
+        cursor.value = r.cursor;
+        hasMore.value = r.has_more;
+        userComment.value = r.user_comment;
+        loaded.value = true;
+      } catch (err) {
+        if (my !== token) return;
+        error.value = describeError(err);
+        console.warn("[fqa:review] 取书评失败:", err);
+      } finally {
+        if (my === token) {
+          loading.value = false;
+          loadingMore.value = false;
+        }
+      }
+    }
+    function setSort(next) {
+      if (sort.value === next) return;
+      sort.value = next;
+      void load2(true);
+    }
+    function setTag(next) {
+      if (tagId.value === next) return;
+      tagId.value = next;
+      void load2(true);
+    }
+    const replyStates = vue.ref({});
+    function stateOf(commentId) {
+      if (!replyStates.value[commentId]) replyStates.value[commentId] = emptyReplyState();
+      return replyStates.value[commentId];
+    }
+    async function toggleReplies(commentId) {
+      const st = stateOf(commentId);
+      if (st.loaded) {
+        st.loaded = false;
+        return;
+      }
+      st.loading = true;
+      st.error = null;
+      try {
+        const r = await getReplies(bookId2, commentId);
+        st.replies = r.replies;
+        st.cursor = r.cursor;
+        st.hasMore = r.has_more;
+        st.total = r.total;
+        st.loaded = true;
+      } catch (err) {
+        st.error = describeError(err);
+      } finally {
+        st.loading = false;
+      }
+    }
+    async function loadMoreReplies(commentId) {
+      const st = stateOf(commentId);
+      if (!st.hasMore || st.loading) return;
+      st.loading = true;
+      try {
+        const r = await getReplies(bookId2, commentId, { cursor: st.cursor });
+        st.replies = [...st.replies, ...r.replies];
+        st.cursor = r.cursor;
+        st.hasMore = r.has_more;
+      } catch (err) {
+        st.error = describeError(err);
+      } finally {
+        st.loading = false;
+      }
+    }
+    async function expandSubReplies(reply) {
+      var _a;
+      if (reply.sub.length) {
+        reply.sub = [];
+        return;
+      }
+      const refId = ((_a = reply.sub[0]) == null ? void 0 : _a.id) ?? reply.to_reply_id ?? "";
+      try {
+        const r = refId ? await getSubReplies(bookId2, reply.id, refId) : await getReplies(bookId2, reply.id);
+        reply.sub = r.replies;
+      } catch (err) {
+        console.warn("[fqa:review] 取二级回复失败:", err);
+      }
+    }
+    async function like(comment) {
+      const before = comment.digg_count;
+      const wasLiked = comment.user_digg;
+      comment.user_digg = !wasLiked;
+      comment.digg_count = before + (wasLiked ? -1 : 1);
+      try {
+        await toggleLike(comment.id, wasLiked);
+      } catch (err) {
+        comment.user_digg = wasLiked;
+        comment.digg_count = before;
+        actionError.value = describeError(err);
+      }
+    }
+    async function dislike(comment) {
+      const was = comment.user_disagree;
+      comment.user_disagree = !was;
+      try {
+        await toggleDislike(comment.id, was);
+      } catch (err) {
+        comment.user_disagree = was;
+        actionError.value = describeError(err);
+      }
+    }
+    const actionError = vue.ref(null);
+    const submitting = vue.ref(false);
+    const submitOk = vue.ref(false);
+    async function submit(inputStars, text) {
+      const clamped = Math.max(MIN_REVIEW_STARS, Math.min(MAX_REVIEW_STARS, inputStars));
+      submitting.value = true;
+      actionError.value = null;
+      submitOk.value = false;
+      try {
+        const saved = await submitReview(bookId2, {
+          score: starToScore(clamped),
+          text: text.trim()
+        });
+        if (saved) userComment.value = saved;
+        submitOk.value = true;
+        void load2(true);
+        return true;
+      } catch (err) {
+        actionError.value = describeError(err);
+        return false;
+      } finally {
+        submitting.value = false;
+      }
+    }
+    return {
+      // 列表
+      comments,
+      tags,
+      scoreText,
+      scoreCount,
+      total,
+      hasMore,
+      sort,
+      tagId,
+      loading,
+      loadingMore,
+      error,
+      loaded,
+      load: load2,
+      loadMore: () => load2(false),
+      setSort,
+      setTag,
+      // 我的
+      userComment,
+      stars,
+      // 回复
+      replyStates,
+      stateOf,
+      toggleReplies,
+      loadMoreReplies,
+      expandSubReplies,
+      // 互动
+      like,
+      dislike,
+      actionError,
+      submitting,
+      submitOk,
+      submit
+    };
+  }
+  const _hoisted_1$1 = { class: "fqa-rv" };
+  const _hoisted_2$1 = { class: "fqa-rv-bar" };
+  const _hoisted_3$1 = { class: "fqa-rv-summary" };
+  const _hoisted_4$1 = {
+    key: 0,
+    class: "fqa-rv-score"
+  };
+  const _hoisted_5$1 = {
+    key: 1,
+    class: "fqa-rv-score"
+  };
+  const _hoisted_6$1 = { class: "fqa-rv-total" };
+  const _hoisted_7$1 = { class: "fqa-rv-actions" };
+  const _hoisted_8$1 = { class: "fqa-rv-sort" };
+  const _hoisted_9$1 = {
+    key: 0,
+    class: "fqa-rv-form"
+  };
+  const _hoisted_10$1 = {
+    class: "fqa-rv-stars",
+    role: "radiogroup",
+    "aria-label": "评分"
+  };
+  const _hoisted_11 = ["aria-label", "onClick"];
+  const _hoisted_12 = { class: "fqa-rv-star-tip" };
+  const _hoisted_13 = { class: "fqa-rv-form-foot" };
+  const _hoisted_14 = {
+    key: 0,
+    class: "fqa-rv-err"
+  };
+  const _hoisted_15 = {
+    key: 1,
+    class: "fqa-rv-ok"
+  };
+  const _hoisted_16 = ["disabled"];
+  const _hoisted_17 = {
+    key: 1,
+    class: "fqa-rv-mine"
+  };
+  const _hoisted_18 = { class: "fqa-rv-mine-hd" };
+  const _hoisted_19 = { class: "fqa-rv-mine-stars" };
+  const _hoisted_20 = {
+    key: 0,
+    class: "fqa-rv-text"
+  };
+  const _hoisted_21 = {
+    key: 2,
+    class: "fqa-rv-tags"
+  };
+  const _hoisted_22 = ["onClick"];
+  const _hoisted_23 = { key: 0 };
+  const _hoisted_24 = {
+    key: 3,
+    class: "fqa-rv-state"
+  };
+  const _hoisted_25 = {
+    key: 4,
+    class: "fqa-rv-state fqa-rv-state-err"
+  };
+  const _hoisted_26 = {
+    key: 5,
+    class: "fqa-rv-state"
+  };
+  const _hoisted_27 = {
+    key: 6,
+    class: "fqa-rv-list"
+  };
+  const _hoisted_28 = ["src", "alt"];
+  const _hoisted_29 = {
+    key: 1,
+    class: "fqa-rv-avatar fqa-rv-avatar-ph"
+  };
+  const _hoisted_30 = { class: "fqa-rv-body" };
+  const _hoisted_31 = { class: "fqa-rv-meta" };
+  const _hoisted_32 = { class: "fqa-rv-name" };
+  const _hoisted_33 = {
+    key: 0,
+    class: "fqa-rv-badge"
+  };
+  const _hoisted_34 = {
+    key: 1,
+    class: "fqa-rv-item-stars"
+  };
+  const _hoisted_35 = {
+    key: 2,
+    class: "fqa-rv-badge"
+  };
+  const _hoisted_36 = { class: "fqa-rv-time" };
+  const _hoisted_37 = { class: "fqa-rv-text" };
+  const _hoisted_38 = {
+    key: 0,
+    class: "fqa-rv-addition"
+  };
+  const _hoisted_39 = { class: "fqa-rv-text" };
+  const _hoisted_40 = { class: "fqa-rv-foot" };
+  const _hoisted_41 = ["onClick"];
+  const _hoisted_42 = ["onClick"];
+  const _hoisted_43 = ["onClick"];
+  const _hoisted_44 = {
+    key: 1,
+    class: "fqa-rv-replies"
+  };
+  const _hoisted_45 = {
+    key: 0,
+    class: "fqa-rv-state fqa-rv-state-sm"
+  };
+  const _hoisted_46 = {
+    key: 1,
+    class: "fqa-rv-state fqa-rv-state-sm"
+  };
+  const _hoisted_47 = ["src", "alt"];
+  const _hoisted_48 = {
+    key: 1,
+    class: "fqa-rv-avatar fqa-rv-avatar-sm fqa-rv-avatar-ph"
+  };
+  const _hoisted_49 = { class: "fqa-rv-body" };
+  const _hoisted_50 = { class: "fqa-rv-meta" };
+  const _hoisted_51 = { class: "fqa-rv-name" };
+  const _hoisted_52 = {
+    key: 0,
+    class: "fqa-rv-badge"
+  };
+  const _hoisted_53 = { class: "fqa-rv-time" };
+  const _hoisted_54 = { class: "fqa-rv-text" };
+  const _hoisted_55 = { class: "fqa-rv-foot" };
+  const _hoisted_56 = ["onClick"];
+  const _hoisted_57 = {
+    key: 0,
+    class: "fqa-rv-subreplies"
+  };
+  const _hoisted_58 = { class: "fqa-rv-name" };
+  const _hoisted_59 = {
+    key: 0,
+    class: "fqa-rv-to"
+  };
+  const _hoisted_60 = { class: "fqa-rv-text-inline" };
+  const _hoisted_61 = ["disabled", "onClick"];
+  const _hoisted_62 = {
+    key: 7,
+    class: "fqa-rv-more"
+  };
+  const _hoisted_63 = ["disabled"];
+  const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
+    __name: "BookReviews",
+    props: {
+      bookId: {}
+    },
+    setup(__props, { expose: __expose }) {
+      const props = __props;
+      const started = vue.ref(false);
+      const {
+        comments,
+        tags,
+        scoreText,
+        scoreCount,
+        total,
+        hasMore,
+        sort,
+        tagId,
+        loading,
+        loadingMore,
+        error,
+        loaded,
+        load: load2,
+        loadMore,
+        setSort,
+        setTag,
+        userComment,
+        replyStates,
+        stateOf,
+        toggleReplies,
+        loadMoreReplies,
+        expandSubReplies,
+        like,
+        dislike,
+        actionError,
+        submitting,
+        submitOk,
+        submit
+      } = useBookReviews(props.bookId);
+      const draftStars = vue.ref(0);
+      const draftText = vue.ref("");
+      const formOpen = vue.ref(false);
+      const hasTags = vue.computed(() => tags.value.length > 0);
+      function start() {
+        if (started.value) return;
+        started.value = true;
+        void load2(true);
+      }
+      __expose({ start });
+      vue.onMounted(() => {
+        if (started.value) void load2(true);
+      });
+      function openForm() {
+        formOpen.value = !formOpen.value;
+        if (formOpen.value && !draftStars.value) {
+          draftStars.value = userComment.value ? Math.round(userComment.value.score / 2) : 5;
+        }
+      }
+      async function doSubmit() {
+        if (submitting.value) return;
+        const ok = await submit(draftStars.value || 5, draftText.value);
+        if (ok) {
+          draftText.value = "";
+          formOpen.value = false;
+        }
+      }
+      function replyState(comment) {
+        return stateOf(comment.id);
+      }
+      function repliesOf(comment) {
+        var _a;
+        return ((_a = replyStates.value[comment.id]) == null ? void 0 : _a.replies) ?? [];
+      }
+      return (_ctx, _cache) => {
+        return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$1, [
+          vue.createElementVNode("div", _hoisted_2$1, [
+            vue.createElementVNode("div", _hoisted_3$1, [
+              vue.unref(scoreText) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_4$1, vue.toDisplayString(vue.unref(scoreText)), 1)) : vue.unref(scoreCount) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_5$1, vue.toDisplayString(vue.unref(scoreCount)) + " 人点评", 1)) : vue.createCommentVNode("", true),
+              vue.createElementVNode("span", _hoisted_6$1, "共 " + vue.toDisplayString(vue.unref(total)) + " 条书评", 1)
+            ]),
+            vue.createElementVNode("div", _hoisted_7$1, [
+              vue.createElementVNode("div", _hoisted_8$1, [
+                vue.createElementVNode("button", {
+                  type: "button",
+                  class: vue.normalizeClass(["fqa-rv-sort-btn", { on: vue.unref(sort) === 1 }]),
+                  onClick: _cache[0] || (_cache[0] = ($event) => vue.unref(setSort)(1))
+                }, "最热", 2),
+                vue.createElementVNode("button", {
+                  type: "button",
+                  class: vue.normalizeClass(["fqa-rv-sort-btn", { on: vue.unref(sort) === 3 }]),
+                  onClick: _cache[1] || (_cache[1] = ($event) => vue.unref(setSort)(3))
+                }, "最新", 2)
+              ]),
+              vue.createElementVNode("button", {
+                type: "button",
+                class: "fqa-rv-write",
+                onClick: openForm
+              }, vue.toDisplayString(vue.unref(userComment) ? "修改我的书评" : "写书评"), 1)
+            ])
+          ]),
+          formOpen.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_9$1, [
+            vue.createElementVNode("div", _hoisted_10$1, [
+              (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(vue.unref(MAX_REVIEW_STARS), (n) => {
+                return vue.openBlock(), vue.createElementBlock("button", {
+                  key: n,
+                  type: "button",
+                  class: vue.normalizeClass(["fqa-rv-star", { on: n <= draftStars.value }]),
+                  "aria-label": `${n} 星`,
+                  onClick: ($event) => draftStars.value = n
+                }, "★", 10, _hoisted_11);
+              }), 128)),
+              vue.createElementVNode("span", _hoisted_12, vue.toDisplayString(draftStars.value) + " 星", 1)
+            ]),
+            vue.withDirectives(vue.createElementVNode("textarea", {
+              "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => draftText.value = $event),
+              class: "fqa-rv-input",
+              rows: "4",
+              maxlength: "1000",
+              placeholder: "说说这本书哪里好看（留空则只打分）"
+            }, null, 512), [
+              [vue.vModelText, draftText.value]
+            ]),
+            vue.createElementVNode("div", _hoisted_13, [
+              vue.unref(actionError) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_14, vue.toDisplayString(vue.unref(actionError)), 1)) : vue.unref(submitOk) ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_15, "已提交")) : vue.createCommentVNode("", true),
+              vue.createElementVNode("button", {
+                type: "button",
+                class: "fqa-rv-submit",
+                disabled: vue.unref(submitting),
+                onClick: doSubmit
+              }, vue.toDisplayString(vue.unref(submitting) ? "提交中…" : "提交"), 9, _hoisted_16)
+            ])
+          ])) : vue.createCommentVNode("", true),
+          vue.unref(userComment) ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_17, [
+            vue.createElementVNode("div", _hoisted_18, [
+              _cache[6] || (_cache[6] = vue.createElementVNode("span", { class: "fqa-rv-mine-label" }, "我的书评", -1)),
+              vue.createElementVNode("span", _hoisted_19, vue.toDisplayString("★".repeat(Math.round(vue.unref(userComment).score / 2))), 1)
+            ]),
+            vue.unref(userComment).text ? (vue.openBlock(), vue.createElementBlock("p", _hoisted_20, vue.toDisplayString(vue.unref(replaceEmojiTokens)(vue.unref(userComment).text)), 1)) : vue.createCommentVNode("", true)
+          ])) : vue.createCommentVNode("", true),
+          hasTags.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_21, [
+            vue.createElementVNode("button", {
+              type: "button",
+              class: vue.normalizeClass(["fqa-rv-tag", { on: !vue.unref(tagId) }]),
+              onClick: _cache[3] || (_cache[3] = ($event) => vue.unref(setTag)(""))
+            }, "全部", 2),
+            (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(vue.unref(tags), (t) => {
+              return vue.openBlock(), vue.createElementBlock("button", {
+                key: t.tag_id,
+                type: "button",
+                class: vue.normalizeClass(["fqa-rv-tag", { on: vue.unref(tagId) === t.tag_id }]),
+                onClick: ($event) => vue.unref(setTag)(t.tag_id)
+              }, [
+                vue.createTextVNode(vue.toDisplayString(t.tag_name), 1),
+                t.count ? (vue.openBlock(), vue.createElementBlock("em", _hoisted_23, vue.toDisplayString(t.count), 1)) : vue.createCommentVNode("", true)
+              ], 10, _hoisted_22);
+            }), 128))
+          ])) : vue.createCommentVNode("", true),
+          vue.unref(loading) && !vue.unref(comments).length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_24, "加载中…")) : vue.unref(error) ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_25, [
+            vue.createTextVNode(vue.toDisplayString(vue.unref(error)) + " ", 1),
+            vue.createElementVNode("button", {
+              type: "button",
+              class: "fqa-rv-retry",
+              onClick: _cache[4] || (_cache[4] = ($event) => vue.unref(load2)(true))
+            }, "重试")
+          ])) : vue.unref(loaded) && !vue.unref(comments).length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_26, " 还没有书评，来写第一条吧 ")) : vue.createCommentVNode("", true),
+          vue.unref(comments).length ? (vue.openBlock(), vue.createElementBlock("ul", _hoisted_27, [
+            (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(vue.unref(comments), (c) => {
+              return vue.openBlock(), vue.createElementBlock("li", {
+                key: c.id,
+                class: "fqa-rv-item"
+              }, [
+                c.user.avatar ? (vue.openBlock(), vue.createElementBlock("img", {
+                  key: 0,
+                  class: "fqa-rv-avatar",
+                  src: c.user.avatar,
+                  alt: c.user.name,
+                  loading: "lazy"
+                }, null, 8, _hoisted_28)) : (vue.openBlock(), vue.createElementBlock("div", _hoisted_29, vue.toDisplayString((c.user.name || "?").slice(0, 1)), 1)),
+                vue.createElementVNode("div", _hoisted_30, [
+                  vue.createElementVNode("div", _hoisted_31, [
+                    vue.createElementVNode("span", _hoisted_32, vue.toDisplayString(c.user.name), 1),
+                    c.user.is_author ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_33, "作者")) : vue.createCommentVNode("", true),
+                    (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(c.user.titles, (t) => {
+                      return vue.openBlock(), vue.createElementBlock("span", {
+                        key: t,
+                        class: "fqa-rv-badge fqa-rv-badge-soft"
+                      }, vue.toDisplayString(t), 1);
+                    }), 128)),
+                    c.score > 0 ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_34, vue.toDisplayString("★".repeat(Math.round(c.score / 2))), 1)) : vue.createCommentVNode("", true),
+                    c.author_stick ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_35, "置顶")) : vue.createCommentVNode("", true),
+                    vue.createElementVNode("span", _hoisted_36, vue.toDisplayString(vue.unref(fromNow)(c.create_time * 1e3)), 1)
+                  ]),
+                  vue.createElementVNode("p", _hoisted_37, vue.toDisplayString(vue.unref(replaceEmojiTokens)(c.text)), 1),
+                  c.addition ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_38, [
+                    _cache[7] || (_cache[7] = vue.createElementVNode("span", { class: "fqa-rv-addition-label" }, "追评", -1)),
+                    vue.createElementVNode("p", _hoisted_39, vue.toDisplayString(vue.unref(replaceEmojiTokens)(c.addition.text)), 1)
+                  ])) : vue.createCommentVNode("", true),
+                  vue.createElementVNode("div", _hoisted_40, [
+                    vue.createElementVNode("button", {
+                      type: "button",
+                      class: vue.normalizeClass(["fqa-rv-act", { on: c.user_digg }]),
+                      onClick: ($event) => vue.unref(like)(c)
+                    }, "👍 " + vue.toDisplayString(c.digg_count || ""), 11, _hoisted_41),
+                    vue.createElementVNode("button", {
+                      type: "button",
+                      class: vue.normalizeClass(["fqa-rv-act", { on: c.user_disagree }]),
+                      onClick: ($event) => vue.unref(dislike)(c)
+                    }, "👎", 10, _hoisted_42),
+                    c.reply_count ? (vue.openBlock(), vue.createElementBlock("button", {
+                      key: 0,
+                      type: "button",
+                      class: "fqa-rv-act",
+                      onClick: ($event) => vue.unref(toggleReplies)(c.id)
+                    }, vue.toDisplayString(replyState(c).loaded ? "收起回复" : `展开 ${c.reply_count} 条回复`), 9, _hoisted_43)) : vue.createCommentVNode("", true)
+                  ]),
+                  replyState(c).loaded || replyState(c).loading ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_44, [
+                    replyState(c).loading ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_45, "加载回复…")) : replyState(c).error ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_46, vue.toDisplayString(replyState(c).error), 1)) : (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 2 }, [
+                      (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(repliesOf(c), (r) => {
+                        return vue.openBlock(), vue.createElementBlock("div", {
+                          key: r.id,
+                          class: "fqa-rv-reply"
+                        }, [
+                          r.user.avatar ? (vue.openBlock(), vue.createElementBlock("img", {
+                            key: 0,
+                            class: "fqa-rv-avatar fqa-rv-avatar-sm",
+                            src: r.user.avatar,
+                            alt: r.user.name,
+                            loading: "lazy"
+                          }, null, 8, _hoisted_47)) : (vue.openBlock(), vue.createElementBlock("div", _hoisted_48, vue.toDisplayString((r.user.name || "?").slice(0, 1)), 1)),
+                          vue.createElementVNode("div", _hoisted_49, [
+                            vue.createElementVNode("div", _hoisted_50, [
+                              vue.createElementVNode("span", _hoisted_51, vue.toDisplayString(r.user.name), 1),
+                              r.user.is_author ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_52, "作者")) : vue.createCommentVNode("", true),
+                              vue.createElementVNode("span", _hoisted_53, vue.toDisplayString(vue.unref(fromNow)(r.create_time * 1e3)), 1)
+                            ]),
+                            vue.createElementVNode("p", _hoisted_54, vue.toDisplayString(vue.unref(replaceEmojiTokens)(r.text)), 1),
+                            vue.createElementVNode("div", _hoisted_55, [
+                              r.sub.length || r.reply_count ? (vue.openBlock(), vue.createElementBlock("button", {
+                                key: 0,
+                                type: "button",
+                                class: "fqa-rv-act",
+                                onClick: ($event) => vue.unref(expandSubReplies)(r)
+                              }, vue.toDisplayString(r.sub.length ? "收起楼中楼" : `楼中楼 ${r.reply_count}`), 9, _hoisted_56)) : vue.createCommentVNode("", true)
+                            ]),
+                            r.sub.length ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_57, [
+                              (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(r.sub, (s) => {
+                                return vue.openBlock(), vue.createElementBlock("div", {
+                                  key: s.id,
+                                  class: "fqa-rv-subreply"
+                                }, [
+                                  vue.createElementVNode("span", _hoisted_58, vue.toDisplayString(s.user.name), 1),
+                                  s.to_reply_id ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_59, "回复")) : vue.createCommentVNode("", true),
+                                  vue.createElementVNode("span", _hoisted_60, "：" + vue.toDisplayString(vue.unref(replaceEmojiTokens)(s.text)), 1)
+                                ]);
+                              }), 128))
+                            ])) : vue.createCommentVNode("", true)
+                          ])
+                        ]);
+                      }), 128)),
+                      replyState(c).hasMore ? (vue.openBlock(), vue.createElementBlock("button", {
+                        key: 0,
+                        type: "button",
+                        class: "fqa-rv-more-link",
+                        disabled: replyState(c).loading,
+                        onClick: ($event) => vue.unref(loadMoreReplies)(c.id)
+                      }, "查看更多回复", 8, _hoisted_61)) : vue.createCommentVNode("", true)
+                    ], 64))
+                  ])) : vue.createCommentVNode("", true)
+                ])
+              ]);
+            }), 128))
+          ])) : vue.createCommentVNode("", true),
+          vue.unref(hasMore) ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_62, [
+            vue.createElementVNode("button", {
+              type: "button",
+              class: "fqa-rv-more-btn",
+              disabled: vue.unref(loadingMore),
+              onClick: _cache[5] || (_cache[5] = //@ts-ignore
+              (...args) => vue.unref(loadMore) && vue.unref(loadMore)(...args))
+            }, vue.toDisplayString(vue.unref(loadingMore) ? "加载中…" : "加载更多"), 9, _hoisted_63)
+          ])) : vue.createCommentVNode("", true)
+        ]);
+      };
+    }
+  });
+  const reviewscss = "/* ------------------------ 详情页「目录 / 书评」切换条 ------------------------ */\n\n/* 站点自己的「目录・N章」标题：注入 tab 后隐藏，避免和下面的 tab 重复 */\n.fqa-dt-site-header-hide {\n    display: none !important;\n}\n\n/* 与站点「目录・N章」标题原位置的留白保持一致，切换 tab 时整块不跳 */\n.fqa-dt-tabs {\n    display: flex;\n    align-items: center;\n    gap: 28px;\n    margin-top: 28px;\n    border-bottom: 1px solid rgba(31, 35, 41, 0.08);\n}\n\n.fqa-dt-tab {\n    position: relative;\n    padding: 0 0 12px;\n    border: none;\n    background: transparent;\n    color: var(--web-gray_40, #666);\n    font-size: 18px;\n    line-height: 1.5;\n    cursor: pointer;\n    transition: color 0.15s ease;\n}\n\n.fqa-dt-tab:hover {\n    color: var(--web-brand_normal, #fa6725);\n}\n\n.fqa-dt-tab.on {\n    color: var(--web-text, #1f2329);\n    font-weight: 600;\n}\n\n/* 选中态的下划线压在分隔线上 */\n.fqa-dt-tab.on::after {\n    content: '';\n    position: absolute;\n    left: 50%;\n    bottom: -1px;\n    width: 28px;\n    height: 3px;\n    margin-left: -14px;\n    border-radius: 2px;\n    background: var(--web-brand_normal, #fa6725);\n}\n\nhtml[muye-data-theme='dark'] .fqa-dt-tabs {\n    border-color: rgba(255, 255, 255, 0.12);\n}\n\n/* 详情页「书评」tab 的内容样式。\n *\n * 与目录区块共用详情页的白色卡片，所以这里不铺底色，只负责排版与配色。\n * 颜色走站点变量（--web-*），拿不到时给一版接近的兜底，日夜主题自动跟随。\n */\n\n/* 与目录区块内容区同样的上下留白，切 tab 时高度节奏一致 */\n.fqa-rv {\n    padding: 16px 0 8px;\n    font-size: 14px;\n    line-height: 1.7;\n    color: var(--web-text, #1f2329);\n}\n\n/* ------------------------------ 顶部操作条 ------------------------------ */\n\n.fqa-rv-bar {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 12px;\n    flex-wrap: wrap;\n    padding: 0 0 12px;\n    border-bottom: 1px solid rgba(31, 35, 41, 0.07);\n}\n\n.fqa-rv-summary {\n    display: flex;\n    align-items: baseline;\n    gap: 10px;\n    min-width: 0;\n}\n\n.fqa-rv-score {\n    font-size: 16px;\n    font-weight: 600;\n    color: var(--web-text, #1f2329);\n}\n\n.fqa-rv-total {\n    color: var(--web-gray_40, #8f959e);\n    font-size: 13px;\n}\n\n.fqa-rv-actions {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n}\n\n.fqa-rv-sort {\n    display: inline-flex;\n    padding: 3px;\n    border-radius: 8px;\n    background: rgba(31, 35, 41, 0.05);\n}\n\n.fqa-rv-sort-btn {\n    padding: 4px 14px;\n    border: none;\n    border-radius: 6px;\n    background: transparent;\n    color: var(--web-gray_40, #666);\n    font-size: 13px;\n    line-height: 1.5;\n    cursor: pointer;\n    transition: background 0.15s ease, color 0.15s ease;\n}\n\n.fqa-rv-sort-btn.on {\n    background: #fff;\n    color: var(--web-brand_normal, #fa6725);\n    font-weight: 600;\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);\n}\n\n.fqa-rv-write {\n    padding: 6px 16px;\n    border: 1px solid transparent;\n    border-radius: 6px;\n    background: var(--web-brand_normal, #fa6725);\n    color: #fff;\n    font-size: 13px;\n    line-height: 1.5;\n    cursor: pointer;\n    transition: opacity 0.15s ease;\n}\n\n.fqa-rv-write:hover {\n    opacity: 0.88;\n}\n\n/* ------------------------------ 评分表单 ------------------------------ */\n\n.fqa-rv-form {\n    margin-top: 14px;\n    padding: 14px 16px;\n    border: 1px solid rgba(31, 35, 41, 0.07);\n    border-radius: 10px;\n    background: rgba(31, 35, 41, 0.02);\n}\n\n.fqa-rv-stars {\n    display: flex;\n    align-items: center;\n    gap: 2px;\n    margin-bottom: 8px;\n}\n\n.fqa-rv-star {\n    padding: 0 2px;\n    border: none;\n    background: transparent;\n    color: rgba(31, 35, 41, 0.16);\n    font-size: 22px;\n    line-height: 1;\n    cursor: pointer;\n    transition: transform 0.12s ease, color 0.12s ease;\n}\n\n.fqa-rv-star:hover {\n    transform: scale(1.12);\n}\n\n.fqa-rv-star.on {\n    color: #ffb400;\n}\n\n.fqa-rv-star-tip {\n    margin-left: 8px;\n    color: var(--web-gray_40, #8f959e);\n    font-size: 12px;\n}\n\n.fqa-rv-input {\n    width: 100%;\n    padding: 10px 12px;\n    box-sizing: border-box;\n    border: 1px solid rgba(31, 35, 41, 0.12);\n    border-radius: 6px;\n    background: #fff;\n    color: inherit;\n    font: inherit;\n    font-size: 13px;\n    line-height: 1.7;\n    resize: vertical;\n}\n\n.fqa-rv-input:focus {\n    outline: none;\n    border-color: var(--web-brand_normal, #fa6725);\n}\n\n.fqa-rv-form-foot {\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n    gap: 10px;\n    margin-top: 8px;\n}\n\n.fqa-rv-err {\n    color: #e5484d;\n    font-size: 12px;\n}\n\n.fqa-rv-ok {\n    color: #18a058;\n    font-size: 12px;\n}\n\n.fqa-rv-submit {\n    padding: 5px 18px;\n    border: none;\n    border-radius: 6px;\n    background: var(--web-brand_normal, #fa6725);\n    color: #fff;\n    font-size: 13px;\n    cursor: pointer;\n}\n\n.fqa-rv-submit:disabled {\n    opacity: 0.6;\n    cursor: default;\n}\n\n/* ------------------------------ 我的书评 ------------------------------ */\n\n.fqa-rv-mine {\n    margin-top: 14px;\n    padding: 12px 14px;\n    border: 1px solid rgba(250, 103, 37, 0.18);\n    border-radius: 10px;\n    background: rgba(250, 103, 37, 0.05);\n}\n\n.fqa-rv-mine-hd {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    margin-bottom: 4px;\n}\n\n.fqa-rv-mine-label {\n    font-size: 13px;\n    font-weight: 600;\n}\n\n.fqa-rv-mine-stars {\n    color: #ffb400;\n    font-size: 13px;\n}\n\n/* ------------------------------ 标签筛选 ------------------------------ */\n\n.fqa-rv-tags {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 8px;\n    margin: 14px 0 4px;\n}\n\n.fqa-rv-tag {\n    padding: 3px 12px;\n    border: 1px solid rgba(31, 35, 41, 0.1);\n    border-radius: 999px;\n    background: transparent;\n    color: var(--web-gray_40, #666);\n    font-size: 12px;\n    line-height: 1.7;\n    cursor: pointer;\n    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;\n}\n\n.fqa-rv-tag:hover {\n    border-color: var(--web-brand_normal, #fa6725);\n    color: var(--web-brand_normal, #fa6725);\n}\n\n.fqa-rv-tag em {\n    margin-left: 4px;\n    color: var(--web-gray_40, #9a9a9a);\n    font-style: normal;\n}\n\n.fqa-rv-tag.on {\n    border-color: var(--web-brand_normal, #fa6725);\n    background: rgba(250, 103, 37, 0.08);\n    color: var(--web-brand_normal, #fa6725);\n}\n\n/* ------------------------------ 列表 ------------------------------ */\n\n.fqa-rv-list {\n    margin: 0;\n    padding: 0;\n    list-style: none;\n}\n\n.fqa-rv-item {\n    display: flex;\n    gap: 14px;\n    padding: 20px 0;\n    border-bottom: 1px solid rgba(31, 35, 41, 0.06);\n}\n\n.fqa-rv-item:last-child {\n    border-bottom: none;\n}\n\n.fqa-rv-avatar {\n    flex: 0 0 auto;\n    width: 40px;\n    height: 40px;\n    border-radius: 50%;\n    object-fit: cover;\n    background: rgba(31, 35, 41, 0.06);\n}\n\n.fqa-rv-avatar-sm {\n    width: 28px;\n    height: 28px;\n}\n\n.fqa-rv-avatar-ph {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: var(--web-gray_40, #8f959e);\n    font-size: 14px;\n    user-select: none;\n}\n\n.fqa-rv-body {\n    flex: 1 1 auto;\n    min-width: 0;\n}\n\n.fqa-rv-meta {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n    gap: 6px;\n    margin-bottom: 4px;\n}\n\n.fqa-rv-name {\n    font-size: 14px;\n    font-weight: 600;\n}\n\n.fqa-rv-badge {\n    padding: 0 5px;\n    border-radius: 3px;\n    background: rgba(250, 103, 37, 0.12);\n    color: var(--web-brand_normal, #fa6725);\n    font-size: 11px;\n    line-height: 16px;\n}\n\n.fqa-rv-badge-soft {\n    background: rgba(31, 35, 41, 0.06);\n    color: var(--web-gray_40, #666);\n}\n\n.fqa-rv-item-stars {\n    color: #ffb400;\n    font-size: 12px;\n    letter-spacing: 1px;\n}\n\n.fqa-rv-time {\n    margin-left: auto;\n    color: var(--web-gray_40, #9a9a9a);\n    font-size: 12px;\n}\n\n.fqa-rv-text {\n    margin: 2px 0 0;\n    font-size: 14px;\n    line-height: 1.8;\n    white-space: pre-wrap;\n    word-break: break-word;\n}\n\n.fqa-rv-text-inline {\n    font-size: 13px;\n}\n\n.fqa-rv-addition {\n    margin-top: 8px;\n    padding: 8px 10px;\n    border-radius: 6px;\n    background: rgba(31, 35, 41, 0.03);\n}\n\n.fqa-rv-addition-label {\n    display: inline-block;\n    margin-bottom: 2px;\n    color: var(--web-gray_40, #8f959e);\n    font-size: 12px;\n}\n\n.fqa-rv-foot {\n    display: flex;\n    align-items: center;\n    gap: 14px;\n    margin-top: 8px;\n}\n\n.fqa-rv-act {\n    padding: 0;\n    border: none;\n    background: transparent;\n    color: var(--web-gray_40, #8f959e);\n    font-size: 12px;\n    cursor: pointer;\n}\n\n.fqa-rv-act:hover,\n.fqa-rv-act.on {\n    color: var(--web-brand_normal, #fa6725);\n}\n\n/* ------------------------------ 回复 ------------------------------ */\n\n.fqa-rv-replies {\n    margin-top: 12px;\n    padding: 12px 14px;\n    border-radius: 10px;\n    background: rgba(31, 35, 41, 0.025);\n}\n\n.fqa-rv-reply {\n    display: flex;\n    gap: 8px;\n    padding: 6px 0;\n}\n\n.fqa-rv-reply + .fqa-rv-reply {\n    border-top: 1px solid rgba(31, 35, 41, 0.05);\n}\n\n.fqa-rv-subreplies {\n    margin-top: 6px;\n    padding-left: 8px;\n    border-left: 2px solid rgba(31, 35, 41, 0.08);\n}\n\n.fqa-rv-subreply {\n    padding: 3px 0;\n    font-size: 13px;\n    line-height: 1.65;\n}\n\n.fqa-rv-to {\n    margin: 0 2px;\n    color: var(--web-gray_40, #8f959e);\n    font-size: 12px;\n}\n\n.fqa-rv-more-link {\n    margin-top: 6px;\n    padding: 0;\n    border: none;\n    background: transparent;\n    color: var(--web-brand_normal, #fa6725);\n    font-size: 12px;\n    cursor: pointer;\n}\n\n/* ------------------------------ 状态 / 翻页 ------------------------------ */\n\n.fqa-rv-state {\n    padding: 32px 0;\n    text-align: center;\n    color: var(--web-gray_40, #8f959e);\n    font-size: 13px;\n}\n\n.fqa-rv-state-sm {\n    padding: 10px 0;\n}\n\n.fqa-rv-state-err {\n    color: #e5484d;\n}\n\n.fqa-rv-retry {\n    margin-left: 8px;\n    padding: 2px 10px;\n    border: 1px solid currentColor;\n    border-radius: 4px;\n    background: transparent;\n    color: inherit;\n    font-size: 12px;\n    cursor: pointer;\n}\n\n.fqa-rv-more {\n    padding: 16px 0 4px;\n    text-align: center;\n}\n\n.fqa-rv-more-btn {\n    min-width: 120px;\n    padding: 6px 18px;\n    border: 1px solid rgba(31, 35, 41, 0.12);\n    border-radius: 6px;\n    background: transparent;\n    color: inherit;\n    font-size: 13px;\n    cursor: pointer;\n}\n\n.fqa-rv-more-btn:hover {\n    border-color: var(--web-brand_normal, #fa6725);\n    color: var(--web-brand_normal, #fa6725);\n}\n\n.fqa-rv-more-btn:disabled {\n    opacity: 0.6;\n    cursor: default;\n}\n\n/* ------------------------------ 夜间 ------------------------------ */\n\nhtml[muye-data-theme='dark'] .fqa-rv-input {\n    background: rgba(255, 255, 255, 0.06);\n    border-color: rgba(255, 255, 255, 0.14);\n}\n\nhtml[muye-data-theme='dark'] .fqa-rv-sort {\n    background: rgba(255, 255, 255, 0.08);\n}\n\nhtml[muye-data-theme='dark'] .fqa-rv-sort-btn.on {\n    background: rgba(255, 255, 255, 0.14);\n    box-shadow: none;\n}\n\nhtml[muye-data-theme='dark'] .fqa-rv-form,\nhtml[muye-data-theme='dark'] .fqa-rv-replies,\nhtml[muye-data-theme='dark'] .fqa-rv-addition {\n    background: rgba(255, 255, 255, 0.05);\n}\n\nhtml[muye-data-theme='dark'] .fqa-rv-bar,\nhtml[muye-data-theme='dark'] .fqa-rv-item {\n    border-color: rgba(255, 255, 255, 0.1);\n}\n\nhtml[muye-data-theme='dark'] .fqa-rv-star {\n    color: rgba(255, 255, 255, 0.22);\n}\n\nhtml[muye-data-theme='dark'] .fqa-rv-star.on,\nhtml[muye-data-theme='dark'] .fqa-rv-item-stars,\nhtml[muye-data-theme='dark'] .fqa-rv-mine-stars {\n    color: #ffc93c;\n}\n";
+  const STYLE_ID$1 = "fqa-reviews-style";
+  const TABS_ID = "fqa-dt-tabs";
+  const PANE_ID = "fqa-dt-reviews";
+  const SITE_HEADER_CLASS = "fqa-dt-site-header-hide";
+  let mounted = null;
+  let observer = null;
+  function injectStyle$1() {
+    if (document.getElementById(STYLE_ID$1)) return;
+    const style = document.createElement("style");
+    style.id = STYLE_ID$1;
+    style.textContent = reviewscss;
+    document.head.appendChild(style);
+  }
+  function pageBody() {
+    return document.querySelector(".page-body");
+  }
+  function directoryContent() {
+    return document.querySelector(".page-directory-content");
+  }
+  function directoryHeader() {
+    return document.querySelector(".page-directory-header");
+  }
+  function applyTab(m) {
+    const dir = directoryContent();
+    if (dir) dir.style.display = m.active === "directory" ? "" : "none";
+    m.container.style.display = m.active === "reviews" ? "" : "none";
+    for (const btn of Array.from(m.tabBar.querySelectorAll("[data-tab]"))) {
+      btn.classList.toggle("on", btn.dataset.tab === m.active);
+    }
+  }
+  function selectTab(m, tab) {
+    m.active = tab;
+    applyTab(m);
+    if (tab === "reviews") m.start();
+  }
+  function buildTabs(m) {
+    const bar = document.createElement("div");
+    bar.id = TABS_ID;
+    bar.className = "fqa-dt-tabs";
+    const make = (tab, label) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "fqa-dt-tab";
+      btn.dataset.tab = tab;
+      btn.appendChild(document.createTextNode(label));
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        selectTab(m, tab);
+      });
+      return btn;
+    };
+    bar.appendChild(make("directory", "目录"));
+    bar.appendChild(make("reviews", "书评"));
+    return bar;
+  }
+  function mountDetailTabs(bookId2) {
+    if (!bookId2) return;
+    const body = pageBody();
+    const dir = directoryContent();
+    if (!body || !dir) return;
+    if (mounted && mounted.bookId === bookId2) {
+      if (!document.contains(mounted.tabBar)) {
+        const header2 = directoryHeader();
+        header2 ? body.insertBefore(mounted.tabBar, header2) : body.insertBefore(mounted.tabBar, dir);
+      }
+      if (!document.contains(mounted.container)) {
+        dir.insertAdjacentElement("afterend", mounted.container);
+      }
+      hideSiteHeader();
+      applyTab(mounted);
+      return;
+    }
+    teardown();
+    injectStyle$1();
+    const container2 = document.createElement("div");
+    container2.id = PANE_ID;
+    container2.className = "fqa-dt-pane";
+    container2.style.display = "none";
+    const reviewsRef = vue.ref(null);
+    const app2 = vue.createApp({
+      render: () => vue.h(_sfc_main$1, { bookId: bookId2, ref: reviewsRef })
+    });
+    app2.config.errorHandler = (err, _inst, info) => {
+      console.error(`[fqa:review] Vue error (${info}):`, err);
+    };
+    app2.mount(container2);
+    const record = {
+      bookId: bookId2,
+      app: app2,
+      container: container2,
+      tabBar: document.createElement("div"),
+      active: "directory",
+      start: () => {
+        var _a, _b;
+        return (_b = (_a = reviewsRef.value) == null ? void 0 : _a.start) == null ? void 0 : _b.call(_a);
+      }
+    };
+    record.tabBar = buildTabs(record);
+    const header = directoryHeader();
+    if (header) body.insertBefore(record.tabBar, header);
+    else body.insertBefore(record.tabBar, dir);
+    dir.insertAdjacentElement("afterend", container2);
+    hideSiteHeader();
+    applyTab(record);
+    mounted = record;
+    if (!observer) {
+      observer = new MutationObserver(() => {
+        if (!mounted) return;
+        if (!document.contains(mounted.tabBar) || !document.contains(mounted.container)) {
+          const b = pageBody();
+          const d = directoryContent();
+          if (!b || !d) return;
+          if (!document.contains(mounted.tabBar)) {
+            const hd = directoryHeader();
+            hd ? b.insertBefore(mounted.tabBar, hd) : b.insertBefore(mounted.tabBar, d);
+          }
+          if (!document.contains(mounted.container)) d.insertAdjacentElement("afterend", mounted.container);
+          hideSiteHeader();
+          applyTab(mounted);
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  }
+  function hideSiteHeader() {
+    const header = directoryHeader();
+    if (header && !header.classList.contains(SITE_HEADER_CLASS)) {
+      header.classList.add(SITE_HEADER_CLASS);
+    }
+  }
+  function teardown() {
+    observer == null ? void 0 : observer.disconnect();
+    observer = null;
+    if (mounted) {
+      mounted.app.unmount();
+      mounted.container.remove();
+      mounted.tabBar.remove();
+      mounted = null;
+    }
+    document.querySelectorAll(`.${SITE_HEADER_CLASS}`).forEach((el2) => {
+      el2.classList.remove(SITE_HEADER_CLASS);
+    });
+    const dir = directoryContent();
+    if (dir) dir.style.display = "";
+  }
+  async function ensureDetailTabs(bookId2) {
+    for (let i2 = 0; i2 < 25; i2++) {
+      if (!window.location.pathname.startsWith(`/page/${bookId2}`)) return;
+      if (pageBody() && directoryContent()) {
+        mountDetailTabs(bookId2);
+        return;
+      }
+      await sleep(200);
+    }
+    if (!window.location.pathname.startsWith(`/page/${bookId2}`)) return;
+    const waitObserver = new MutationObserver(() => {
+      if (!window.location.pathname.startsWith(`/page/${bookId2}`)) {
+        waitObserver.disconnect();
+        return;
+      }
+      if (pageBody() && directoryContent()) {
+        waitObserver.disconnect();
+        mountDetailTabs(bookId2);
+      }
+    });
+    waitObserver.observe(document.body, { childList: true, subtree: true });
+  }
+  function parseBookId(path) {
+    var _a;
+    return ((_a = path.match(/^\/page\/(\d+)/)) == null ? void 0 : _a[1]) ?? "";
+  }
+  function isPagePath(path) {
+    return /^\/page\/\d+/.test(path);
+  }
+  async function main(_previous) {
+    const path = window.location.pathname;
+    if (!isPagePath(path)) {
+      teardown();
+      return;
+    }
+    const bookId2 = parseBookId(path);
+    if (!bookId2) return;
+    await ensureDetailTabs(bookId2);
+  }
+  const _exports = [
+    {
+      id: "reviewHook_load",
+      event: "load",
+      filter: (path) => isPagePath(path),
+      handler: main
+    },
+    {
+      id: "reviewHook_urlChange",
+      event: "onUrlChange",
+      // 已挂载时也要进来看一眼，否则离开详情页没机会拆
+      filter: (path) => isPagePath(path) || document.getElementById("fqa-dt-tabs") !== null,
+      handler: main
+    }
+  ];
   const hooks = [
-    ..._exports$4,
     ..._exports$5,
+    ..._exports$6,
+    ..._exports$4,
     ..._exports$3,
     ..._exports$2,
     ..._exports$1,
@@ -11849,12 +16158,14 @@ ${body}
       win.history[method] = function(...args) {
         const result = original.apply(this, args);
         console.debug(`history.${method} called with args:`, args);
+        syncFloatBarPath();
         void onUrlChange(previousUrl);
         previousUrl = win.location.href;
         return result;
       };
     }
     win.addEventListener("popstate", () => {
+      syncFloatBarPath();
       void onUrlChange(previousUrl);
       previousUrl = win.location.href;
     });
@@ -11864,10 +16175,12 @@ ${body}
     });
   }
   async function mainInit() {
+    applyReaderPreferences();
     console.log(`================================================`);
     console.log(`==          ${name} - ${version}         ==`);
     console.log(`================================================`);
     installNavigationHooks();
+    installFloatBarHiding();
     void onEnter();
     initFontDecrypt();
     await inject$1();

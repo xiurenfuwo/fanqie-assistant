@@ -157,6 +157,28 @@
     text-align: center;
 }
 
+/**
+ * 「检查插图」按钮：跟下载按钮同一套外观，窄一点（4 个字放得下），
+ * 水平位置同样由脚本排在前一个按钮右侧。
+ */
+.fqa-img-entry {
+    position: absolute;
+    bottom: 0;
+    width: 118px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.fqa-img-entry[data-busy='1'] {
+    opacity: 0.6;
+    cursor: progress;
+}
+
 @media (prefers-color-scheme: dark) {
     .fqa-dl-box {
         --fqa-dl-bg: #23272e;
@@ -165,3 +187,77 @@
         --fqa-dl-track: rgba(255, 255, 255, 0.12);
     }
 }
+
+/* ------------------------- 详情页的「回到顶部」 ------------------------- */
+
+/*
+ * 正常详情页用站点自己的 .backtop；兜底页由 backTop.ts 照抄同样的结构补一个：
+ *   <div class="backtop"><div class="backtop-bg"></div></div>
+ * 站点的 .backtop 规则是 position:fixed; bottom:120px; left:50%;
+ * transform:translateX(625px)，已经能把按钮定位到正文右缘外侧，
+ * 所以这里不加任何布局样式，只补站点没有的两件事：
+ *   1. 键盘可达时的焦点提示（站点只有鼠标点击）；
+ *   2. 夜间主题下的底色（站点方块是写死白底）。
+ */
+.backtop:focus-visible {
+    outline: 2px solid var(--web-brand_normal, #fa6725);
+    outline-offset: 2px;
+}
+
+html[muye-data-theme='dark'] .backtop,
+html[muye-data-theme='dark'] .backtop-bg {
+    background-color: #23272e;
+}
+
+/**
+ * 目录里「本章含插图」的标记。
+ *
+ * 详情页目录是 .page-directory-content .chapter-item > a.chapter-item-title 三层结构。
+ *
+ * 标记必须挂在**容器**上并绝对定位到右侧，不能跟在标题文字后面：
+ * 标题是单行截断（overflow:hidden / text-overflow:ellipsis），
+ * 挂在标题后面的 ::after 会跟文字一起被裁掉，章节名一长就看不见标记了。
+ * 所以给容器 position:relative，标记贴右边；标题右侧留出固定宽度的 padding，
+ * 保证文字被省略号截断时也不会压到标记底下。
+ */
+.page-directory-content .chapter-item {
+    position: relative;
+}
+
+.page-directory-content .chapter-item.fqa-has-image .chapter-item-title {
+    /* 给右侧标记让位：宽度 = 标记宽 + 左右间距，够放宽一点的「插图」两个字 */
+    box-sizing: border-box;
+    width: 100%;
+    padding-right: 46px;
+}
+
+.page-directory-content .chapter-item.fqa-has-image::after {
+    content: '插图';
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    padding: 0 5px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+    color: #fa6725;
+    background: linear-gradient(180deg, rgba(250, 103, 37, 0.14), rgba(250, 103, 37, 0.08));
+    box-shadow: inset 0 0 0 1px rgba(250, 103, 37, 0.22);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* 夜间（跟随系统）：底色调深一点，避免浅橙背景在深色目录上发白 */
+@media (prefers-color-scheme: dark) {
+    .page-directory-content .chapter-item.fqa-has-image::after {
+        color: #ff8a4c;
+        background: linear-gradient(180deg, rgba(255, 138, 76, 0.22), rgba(255, 138, 76, 0.14));
+        box-shadow: inset 0 0 0 1px rgba(255, 138, 76, 0.32);
+    }
+}
+
+

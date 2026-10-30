@@ -5,6 +5,7 @@ import BookGroupCard from './BookGroupCard.vue'
 import BookHoverCard from './BookHoverCard.vue'
 import ContextMenu from './ContextMenu.vue'
 import { TABS, useBookshelf } from './useBookshelf'
+import { useHistory } from './useHistory'
 import { moveToGroup, removeFromBookshelf } from '../api/bookshelf'
 import { startDownload } from '../download'
 import { settings } from '../settings'
@@ -21,6 +22,25 @@ const VIEWPORT_MARGIN = 8
 
 const { loading, detailLoading, error, counts, groups, load, ensureDetails, cellsOf, findGroup, PAGE_SIZE } =
     useBookshelf()
+
+/** 一级切换：书架 / 阅读历史 */
+type MainView = 'shelf' | 'history'
+const mainView = ref<MainView>('shelf')
+
+const {
+    entries: historyEntries,
+    loading: historyLoading,
+    loadingMore: historyLoadingMore,
+    detailLoading: historyDetailLoading,
+    error: historyError,
+    loaded: historyLoaded,
+    isEmpty: historyEmpty,
+    hasMore: historyHasMore,
+    fromApp: historyFromApp,
+    load: loadHistory,
+    loadMore: loadMoreHistory,
+    ensureDetails: ensureHistoryDetails,
+} = useHistory()
 
 const activeTab = ref<BookShelfTabKey>('all')
 /** 非空时展示该分组内部，返回后恢复列表 */
@@ -85,6 +105,48 @@ const emptyText = computed(() => {
     if (activeTab.value === 'publish') return '书架里还没有出版物'
     return '书架空空如也，去首页找几本书看看吧'
 })
+
+/* ---------------------------- 一级：阅读历史 ---------------------------- */
+
+/** 历史首屏渲染数，其余滚到底部再追加 */
+const historyVisible = ref(PAGE_SIZE)
+const historyCells = computed(() => historyEntries.value.slice(0, historyVisible.value))
+
+/** 切到历史：首次进入才拉数据，之后复用 */
+function selectMainView(view: MainView) {
+    if (mainView.value === view) return
+    mainView.value = view
+    hideHover(true)
+    if (view === 'history') {
+        if (!historyLoaded.value && !historyLoading.value) void loadHistory()
+        // 详情按可见卡片增量补，和列表加载并行
+        void nextTick(() => ensureHistoryDetails(historyCells.value))
+    }
+}
+
+/** 历史里点书：直接打开最后读到的那一章 */
+/**
+ * 历史卡片点击：直接打开最后读到的那一章。
+ *
+ * 注意 BookCard 的 open 事件传的是 `{ entry, mods }`（和书架共用同一个组件），
+ * 这里必须按同样的形状解构，不能直接当 entry 用。
+ */
+function openHistory({ entry }: { entry: BookShelfEntry; mods: OpenModifiers }) {
+    hideHover(true)
+    // APP 通道的历史不带 item_id（章节 id 在 read_progress 里，缺了就用详情页兜底）
+    const itemId = entry.item.last_read_chapter_id || entry.detail?.current_chapter_id || ''
+    if (itemId && itemId !== '0') {
+        openUrl(readerUrl(itemId), true)
+        return
+    }
+    openUrl(bookPageUrl(entry.item.book_id), true)
+}
+
+async function refreshHistory() {
+    historyVisible.value = PAGE_SIZE
+    await loadHistory(true)
+    void ensureHistoryDetails(historyCells.value)
+}
 
 /* ------------------------------ tab 指示条 ------------------------------ */
 
@@ -231,6 +293,27 @@ function onGroupVisible(entries: BookShelfEntry[]) {
     queueDetails(entries)
 }
 
+/* ------------------------------ 历史的可见性 ------------------------------ */
+
+const historySentinel = ref<HTMLElement | null>(null)
+let historyObserver: IntersectionObserver | null = null
+/** 历史卡片进入视口时累计的待补详情，攒一帧统一发 */
+let historyPending: BookShelfEntry[] = []
+let historyFlushTimer: ReturnType<typeof setTimeout> | undefined
+
+/** 历史卡片进入视口：批量补详情（和书架一样攒 50ms 合并） */
+function onHistoryCardVisible(entry: BookShelfEntry) {
+    if (entry.detail) return
+    historyPending.push(entry)
+    if (historyFlushTimer) return
+    historyFlushTimer = setTimeout(() => {
+        historyFlushTimer = undefined
+        const batch = historyPending
+        historyPending = []
+        void ensureHistoryDetails(batch)
+    }, 50)
+}
+
 /* -------------------------------- 交互 -------------------------------- */
 
 /** 继续阅读的地址；没有阅读记录时返回 null，调用方退回详情页 */
@@ -240,14 +323,17 @@ function continueReadingUrl(entry: BookShelfEntry): string | null {
 }
 
 /**
- * 单击书本。去向由设置决定，Ctrl（Mac 上还有 Cmd）取反，中键开新标签页。
- * 选了「继续阅读」但这本书还没读过时，退回详情页。
+ * 单击书本。
+ *
+ * 书架是「入口页」，从这里进详情页 / 阅读页一律开新标签页，不动当前书架页面 ——
+ * 读完关掉标签就回到书架，不会把书架挤掉。
+ * 去向由设置决定，Ctrl（Mac 上还有 Cmd）取反；选了「继续阅读」但没读过时退回详情页。
  */
 function openBook({ entry, mods }: { entry: BookShelfEntry; mods: OpenModifiers }) {
     hideHover(true)
     const wantRead = (settings.bookshelfClickAction === 'read') !== mods.flip
     const url = (wantRead && continueReadingUrl(entry)) || bookPageUrl(entry.item.book_id)
-    openUrl(url, mods.newTab)
+    openUrl(url, true)
 }
 
 function openGroup(group: BookShelfGroup) {
@@ -280,6 +366,26 @@ const DOWNLOAD_PREFIX = 'download:'
 const menuItems = computed<MenuItem[]>(() => {
     const entry = menuEntry.value
     if (!entry) return []
+
+    // 阅读历史：分组 / 移出书架这些只对书架有意义，这里不出现
+    if (mainView.value === 'history') {
+        const histItems: MenuItem[] = [
+            { key: 'read', label: '继续阅读' },
+            { key: 'detail', label: '查看详情' },
+        ]
+        if (settings.enableDownload) {
+            histItems.push({
+                key: 'download',
+                label: '下载',
+                children: [
+                    { key: `${DOWNLOAD_PREFIX}epub`, label: 'EPUB' },
+                    { key: `${DOWNLOAD_PREFIX}txt`, label: 'TXT' }
+                ]
+            })
+        }
+        return histItems
+    }
+
     const current = entry.item.group_name ?? ''
 
     // 目标分组：所有分组去掉当前所在的那个
@@ -313,6 +419,14 @@ const menuItems = computed<MenuItem[]>(() => {
     return items
 })
 
+/** 历史卡片的右键：和书架共用菜单组件，但只给「继续阅读 / 查看详情 / 下载」 */
+function onHistoryCardContextMenu({ entry, x, y }: { entry: BookShelfEntry; x: number; y: number }) {
+    hideHover(true)
+    menuEntry.value = entry
+    menuPos.value = { x, y }
+    menuVisible.value = true
+}
+
 function onCardContextMenu({ entry, x, y }: { entry: BookShelfEntry; x: number; y: number }) {
     hideHover(true)
     menuEntry.value = entry
@@ -326,12 +440,12 @@ async function onMenuSelect(key: string) {
     const bookId = entry.item.book_id
 
     if (key === 'read') {
-        // 没读过就退回详情，和单击的行为一致
-        openUrl(continueReadingUrl(entry) ?? bookPageUrl(bookId))
+        // 没读过就退回详情，和单击一样开新标签页
+        openUrl(continueReadingUrl(entry) ?? bookPageUrl(bookId), true)
         return
     }
     if (key === 'detail') {
-        openUrl(bookPageUrl(bookId))
+        openUrl(bookPageUrl(bookId), true)
         return
     }
     if (key.startsWith(DOWNLOAD_PREFIX)) {
@@ -406,6 +520,30 @@ onMounted(async () => {
             },
             { immediate: true }
         )
+
+        // 历史列表的滚动追加：多了就再加一屏
+        historyObserver = new IntersectionObserver(
+            list => {
+                if (!list.some(e => e.isIntersecting)) return
+                // 本地还有没渲染的，先追加渲染
+                if (historyVisible.value < historyEntries.value.length) {
+                    historyVisible.value += PAGE_SIZE
+                    void nextTick(() => ensureHistoryDetails(historyCells.value))
+                    return
+                }
+                // 本地渲染完了，但服务端还有下一页（APP 通道）
+                if (historyHasMore.value) void loadMoreHistory()
+            },
+            { rootMargin: '400px' }
+        )
+        watch(
+            historySentinel,
+            el => {
+                historyObserver?.disconnect()
+                if (el) historyObserver?.observe(el)
+            },
+            { immediate: true }
+        )
     }
 })
 
@@ -415,6 +553,9 @@ onBeforeUnmount(() => {
     if (flushTimer) clearTimeout(flushTimer)
     pageObserver?.disconnect()
     pageObserver = null
+    historyObserver?.disconnect()
+    historyObserver = null
+    if (historyFlushTimer) clearTimeout(historyFlushTimer)
     window.removeEventListener('scroll', onScrollOrResize, true)
     window.removeEventListener('resize', onScrollOrResize)
 })
@@ -423,16 +564,86 @@ onBeforeUnmount(() => {
 <template>
     <div id="fqa-bookshelf">
         <div class="fqa-bs-header">
-            <div class="fqa-bs-title">我的书架</div>
+            <div class="fqa-bs-views" role="tablist">
+                <button
+                    type="button"
+                    class="fqa-bs-view"
+                    :class="{ 'fqa-bs-view-active': mainView === 'shelf' }"
+                    role="tab"
+                    :aria-selected="mainView === 'shelf'"
+                    @click="selectMainView('shelf')"
+                >我的书架</button>
+                <button
+                    type="button"
+                    class="fqa-bs-view"
+                    :class="{ 'fqa-bs-view-active': mainView === 'history' }"
+                    role="tab"
+                    :aria-selected="mainView === 'history'"
+                    @click="selectMainView('history')"
+                >阅读历史</button>
+            </div>
             <div class="fqa-bs-actions">
-                <span v-if="detailLoading">正在补全详情…</span>
-                <button class="fqa-btn" :disabled="loading" @click="refresh">
-                    {{ loading ? '刷新中…' : '刷新' }}
-                </button>
+                <template v-if="mainView === 'shelf'">
+                    <span v-if="detailLoading">正在补全详情…</span>
+                    <button class="fqa-btn" :disabled="loading" @click="refresh">
+                        {{ loading ? '刷新中…' : '刷新' }}
+                    </button>
+                </template>
+                <template v-else>
+                    <span v-if="historyDetailLoading">正在补全详情…</span>
+                    <span
+                        v-else-if="historyLoaded && !historyFromApp"
+                        class="fqa-bs-hint"
+                        title="读不到登录态（sessionid），只能退回网页接口，历史可能不完整。在 Tampermonkey 放开 Cookie 访问可拿到完整历史。"
+                    >历史可能不完整</span>
+                    <button class="fqa-btn" :disabled="historyLoading" @click="refreshHistory">
+                        {{ historyLoading ? '刷新中…' : '刷新' }}
+                    </button>
+                </template>
             </div>
         </div>
 
-        <div ref="tabsRef" class="fqa-tabs" role="tablist">
+        <!-- 阅读历史：和书架同一套卡片，只是数据源不同 -->
+        <template v-if="mainView === 'history'">
+            <div v-if="historyError" class="fqa-status">
+                <div class="fqa-status-title">阅读历史加载失败</div>
+                <div>{{ historyError }}</div>
+                <button class="fqa-btn" @click="refreshHistory">重试</button>
+            </div>
+            <div v-else-if="historyEmpty" class="fqa-status">
+                <div class="fqa-status-title">还没有阅读记录</div>
+            </div>
+            <template v-else>
+                <div class="fqa-grid">
+                    <template v-if="historyLoading && !historyCells.length">
+                        <div v-for="n in 8" :key="`hsk-${n}`" class="fqa-card">
+                            <div class="fqa-sk-cover fqa-sk-anim"></div>
+                            <div class="fqa-sk-line fqa-sk-anim" style="width: 90%"></div>
+                            <div class="fqa-sk-line fqa-sk-anim" style="width: 55%"></div>
+                        </div>
+                    </template>
+                    <template v-else>
+                        <BookCard
+                            v-for="entry in historyCells"
+                            :key="`h-${entry.item.book_id}`"
+                            :entry="entry"
+                            @hover="onCardHover"
+                            @leave="scheduleHide"
+                            @open="openHistory"
+                            @visible="onHistoryCardVisible"
+                            @contextmenu="onHistoryCardContextMenu"
+                        />
+                    </template>
+                </div>
+                <div
+                    v-if="historyCells.length < historyEntries.length || historyHasMore"
+                    ref="historySentinel"
+                    class="fqa-loadmore"
+                >{{ historyLoadingMore ? '加载中…' : '' }}</div>
+            </template>
+        </template>
+
+        <div v-if="mainView === 'shelf'" ref="tabsRef" class="fqa-tabs" role="tablist">
             <div
                 v-for="tab in TABS"
                 :key="tab.key"
@@ -449,23 +660,23 @@ onBeforeUnmount(() => {
             <span class="fqa-tab-ink" :style="inkStyle"></span>
         </div>
 
-        <div v-if="openedGroup" class="fqa-groupbar">
+        <div v-if="mainView === 'shelf' && openedGroup" class="fqa-groupbar">
             <button class="fqa-btn" @click="backToList">← 返回</button>
             <span class="fqa-groupbar-name">{{ openedGroup.name }}</span>
             <span class="fqa-groupbar-count">共{{ openedGroup.books.length }}本书</span>
         </div>
 
-        <div v-if="error" class="fqa-status">
+        <div v-if="mainView === 'shelf' && error" class="fqa-status">
             <div class="fqa-status-title">书架加载失败</div>
             <div>{{ error }}</div>
             <button class="fqa-btn" @click="refresh">重试</button>
         </div>
 
-        <div v-else-if="isEmpty" class="fqa-status">
+        <div v-else-if="mainView === 'shelf' && isEmpty" class="fqa-status">
             <div class="fqa-status-title">{{ emptyText }}</div>
         </div>
 
-        <template v-else>
+        <template v-else-if="mainView === 'shelf'">
             <div class="fqa-grid">
                 <template v-if="loading">
                     <div v-for="n in 8" :key="`sk-${n}`" class="fqa-card">

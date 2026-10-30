@@ -6,13 +6,20 @@
 import { getParaIdeaList } from '../api/paraComment'
 import { appGet } from '../api/app'
 import { settings } from '../settings'
-import { closeParaDrawer, currentParaDrawerParagraph, isParaDrawerOpen, openParaDrawer } from './drawer'
+import { currentScrollChapterId, resetScrollContext } from '../readerScroll'
+import {
+    closeParaDrawer,
+    currentParaDrawerParagraph,
+    isParaDrawerOpen,
+    openParaDrawer,
+    refreshParaDrawerMetrics,
+} from './drawer'
 import { buildCommentItem } from './item'
 import paraCommentCss from '../assets/paraComment.css?raw'
 import type { ParaComment, ParaIdeaResult } from '../types'
 
 /** 换章时要收起抽屉，供 readerHook 调用 */
-export { closeParaDrawer }
+export { closeParaDrawer, refreshParaDrawerMetrics }
 
 const TOOL_ID = 'fqa-pc-toggle'
 const STYLE_ID = 'fqa-pc-style'
@@ -23,6 +30,8 @@ let catalogClickBound = false
 let catalogScrollPatched = false
 /** 目录打开定位只挂一次 */
 let catalogWatchBound = false
+/** 目录项点击只接管一次 */
+let catalogItemBound = false
 
 /** 注入段评样式（只注一次） */
 function ensureCss(): void {
@@ -143,14 +152,72 @@ function patchCatalogScroll(): void {
         arg?: boolean | ScrollIntoViewOptions,
     ): void {
         if (this.closest('.reader-catalog')) {
+            // 站点的目录定位用的是它自己的当前章（等于进页面时那一章）。
+            // 滚动追加后必须改道到「真正在读的那一章」，否则它 200ms 后
+            // 自己滚一次，会把我们先前的定位又拉回初始章。
+            let target: Element = this
+            const wanted = currentScrollChapterId()
+            if (wanted) {
+                const hit = document.querySelector(
+                    `.reader-catalog-chapters .chapter[data-item-id="${wanted}"]`,
+                )
+                if (hit) target = hit
+            }
             const options: ScrollIntoViewOptions =
                 typeof arg === 'boolean' ? { block: 'start' } : { ...(arg ?? {}) }
             options.behavior = 'auto'
-            original.call(this, options)
+            original.call(target, options)
             return
         }
         original.call(this, arg)
     }
+}
+
+/**
+ * 目录项点击接管。
+ *
+ * 站点是按它内部的「当前章」决定哪一项点不动 —— 滚动追加后那个值还停在
+ * 初始章，于是「点不动的」是初始章，我们读的那一章反而能点。
+ * 这里不看站点状态，直接按「我们正在读哪一章」判断：
+ * - 点的是当前章 → 吞掉，什么都不做（表现和站点的当前章一致）；
+ * - 点的是其它章 → 关目录 + 自己改 URL，让脚本的导航钩子重新渲染那一章。
+ */
+function bindCatalogItemClicks(): void {
+    if (catalogItemBound) return
+    catalogItemBound = true
+
+    document.addEventListener(
+        'click',
+        e => {
+            const panel = document.querySelector('.reader-catalog')
+            if (!panel) return
+            const item = (e.target as Element | null)?.closest?.('.chapter') as HTMLElement | null
+            if (!item || !panel.contains(item)) return
+            const id = item.dataset.itemId
+            if (!id) return
+
+            e.preventDefault()
+            e.stopPropagation()
+            e.stopImmediatePropagation()
+
+            // 当前正在读的那一章：点它不该有反应
+            if (id === currentScrollChapterId()) return
+
+            // 其它章：关掉目录，当作「初始章节」打开（丢弃之前的追加链、回到顶部）
+            document.querySelector<HTMLElement>('.catalog-mask')?.click()
+            resetScrollContext()
+            const segs = location.pathname.split('/')
+            segs[segs.length - 1] = id
+            const url = `${segs.join('/')}${location.search}${location.hash}`
+            try {
+                // 走 main.ts 打过补丁的 pushState → onUrlChange → insertContent
+                unsafeWindow.history.pushState(null, '', url)
+            } catch (err) {
+                console.warn('[fqa] 目录跳转失败:', err)
+            }
+        },
+        true,
+    )
 }
 
 /**
@@ -164,13 +231,37 @@ function watchCatalogOpen(): void {
     if (catalogWatchBound) return
     catalogWatchBound = true
 
-    const locate = (): void => {
+    const locate = (retry = 3): void => {
         const panel = document.querySelector('.reader-catalog')
         if (!panel) return
-        const active = panel.querySelector<HTMLElement>('.reader-catalog-chapters .chapter.active')
-        if (!active) return
+        // 滚动追加后「在读的那一章」和站点的 .active 不是一回事：
+        // 站点状态停在进页面时那一章，所以优先按 data-item-id 精确定位。
+        const wanted = currentScrollChapterId()
+        const target =
+            (wanted &&
+                panel.querySelector<HTMLElement>(
+                    `.reader-catalog-chapters .chapter[data-item-id="${wanted}"]`,
+                )) ||
+            panel.querySelector<HTMLElement>('.reader-catalog-chapters .chapter.active')
+        if (!target) {
+            // 目录可能是分批渲染的，等一会儿再试
+            if (retry > 0) setTimeout(() => locate(retry - 1), 120)
+            return
+        }
+        if (wanted) {
+            // 高亮和站点那个「当前章」图标都要挪过去，
+            // 否则列表里亮的是目标章、图标却还标在初始章，看着就像它仍认为是初始章。
+            panel
+                .querySelectorAll('.reader-catalog-chapters .chapter.active')
+                .forEach(el => el.classList.remove('active'))
+            target.classList.add('active')
+            const icon = panel.querySelector<HTMLElement>(
+                '.reader-catalog-chapters .chapter .chapter-active-icon',
+            )
+            if (icon && !target.contains(icon)) target.insertBefore(icon, target.firstChild)
+        }
         // 与站点一致用 block:'start'，但瞬时完成（站点那次已由 patchCatalogScroll 降级）
-        active.scrollIntoView({ block: 'start', behavior: 'auto' })
+        target.scrollIntoView({ block: 'start', behavior: 'auto' })
     }
 
     const observer = new MutationObserver(mutations => {
@@ -180,7 +271,7 @@ function watchCatalogOpen(): void {
                 if (node.matches('.reader-catalog') || node.querySelector('.reader-catalog')) {
                     locate()
                     // 布局尺寸偶尔要等一帧才稳定，再补一次（同样瞬时）
-                    requestAnimationFrame(locate)
+                    requestAnimationFrame(() => locate())
                     return
                 }
             }
@@ -195,6 +286,7 @@ export function initParaCommentToggle(): void {
     initCatalogClickOutside()
     patchCatalogScroll()
     watchCatalogOpen()
+    bindCatalogItemClicks()
     const toolbar = document.querySelector<HTMLElement>('.reader-toolbar')
     if (toolbar) {
         let item = document.getElementById(TOOL_ID)
@@ -366,6 +458,17 @@ function bindParagraphToggle(
 
         const paragraph = target.closest<HTMLElement>('p[data-fqa-para-idx]')
         if (!paragraph) return
+
+        // 只管「属于本章」的段落。
+        // 追加章节各自有自己的容器和监听，事件冒泡到 #fqa-reader-content 时，
+        // 根容器的监听（绑的是第一章的 itemId / 段评数据）不能再处理它们，
+        // 否则会用错章节的数据把抽屉覆盖掉，看着就像气泡点不动。
+        const owner = paragraph.closest<HTMLElement>('.fqa-appended-chapter')
+        if (container.classList.contains('fqa-appended-chapter')) {
+            if (owner !== container) return
+        } else if (owner) {
+            return
+        }
 
         const idx = Number(paragraph.dataset.fqaParaIdx)
         const count = idea.counts.get(idx)

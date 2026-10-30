@@ -3,7 +3,10 @@
 .fqa-set-mask {
     position: fixed;
     inset: 0;
-    z-index: 2147483200;
+    /* 设置是全局模态框，必须盖住页面上所有常驻层：听书悬浮栏 2147483650、
+       阅读器工具栏 2147483602、段评抽屉 2147483601、下载进度 2147483300。
+       设置打开时听书栏被遮罩压住是正确行为（用户点遮罩即可关闭设置回到听书）。 */
+    z-index: 2147483660;
     display: flex;
     align-items: center;
     justify-content: center;

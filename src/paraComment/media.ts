@@ -1,33 +1,15 @@
 // 段评渲染细节：系统表情兜底、时间格式化、图片元素。
 
 import type { ParaCommentImage } from '../types'
+import { emojiTextNode } from '../utils/emoji'
 
 /**
- * 番茄官方 53 个系统表情名 -> Unicode 兜底。
+ * 正文文本 -> 文本节点，`[名字]` 换成对应 Unicode 表情。
  *
- * 正文里的 `[名字]` 是系统表情。服务端只在少数评论里附带对应表情图，
- * 大多数情况拿不到原版图，这里统一用 Unicode 近似，避免正文出现 `[名字]` 原文。
- * 名单取自 APP 内置的 assets/emoji_config.json。
+ * 表情表已抽到 utils/emoji.ts，段评与书评共用一份，这里只保留原来的调用形式。
  */
-const EMOJI_UNICODE: Record<string, string> = {
-    微笑: '😊', 偷笑: '🤭', 笑: '😄', 什么: '🤔', 害羞: '😳',
-    爱慕: '😍', 飞吻: '😘', 奸笑: '😏', 尬笑: '😅', 思考: '🤔',
-    撇嘴: '😒', 做鬼脸: '😜', 酷: '😎', 翻白眼: '🙄', 惊呆: '😲',
-    震惊: '😱', 送心: '💝', 委屈: '🥺', 快哭了: '😢', 笑哭: '😂',
-    哭: '😭', 大笑: '😆', 舔屏: '🤤', 怒: '😡', 捂脸: '🤦',
-    吐: '🤮', 恐惧: '😨', 抓狂: '😫', 敬礼: '🫡', 石化: '😵',
-    OK: '👌', 赞: '👍', 爱心: '❤️', 伤心: '💔', KISS: '💋',
-    懂了: '💡', 探究: '🔍', 重拳出击: '👊', 吃瓜: '🍉', 盯: '👀',
-    你细品: '🤨', 赶稿中: '✍️', 注意: '⚠️', 饱了: '😋', 码住: '📌',
-    学会了: '🎓', 顶帖: '⬆️', 求爆更: '🙏', 求关注: '📣', 我也强推: '🤝',
-    雀食神作: '🐦', 已种草: '🌱', 书架加一: '📚',
-}
-
-const EMOJI_TOKEN = /\[[^\]]{1,12}\]/g
-
-/** 正文文本 -> 文本节点，`[名字]` 换成对应 Unicode 表情 */
 export function renderCommentText(raw: string): Text {
-    return document.createTextNode(raw.replace(EMOJI_TOKEN, token => EMOJI_UNICODE[token.slice(1, -1)] ?? token))
+    return emojiTextNode(raw)
 }
 
 /** 秒级时间戳 -> YYYY-MM-DD HH:mm */

@@ -16,11 +16,21 @@ export interface Book {
     book_id: string;
     title: string;
     author: string;
+    /** 作者头像，接口不一定下发（详情页右侧那圈头像） */
+    author_avatar?: string;
+    /** 作者 id，用于拼作者主页链接（/author-page/<作者uid>-<作者id>） */
+    author_id?: string;
+    /** 作者在网页端体系的 id（站点 page.authorId），作为作者主页链接前缀 */
+    author_uid?: string;
+    /** 作者简介，详情页作者名下面那行灰字（站点 page.description） */
+    author_desc?: string;
     cover_url: string;
     summary: string;
     volume_list?: VolumeItem[]; // 之后可以补，允许为空
     update_time: string;
     status: string;
+    /** 分类标签，逗号分隔（详情页那排灰色小标签） */
+    category?: string;
     all_item_ids?: string[]; // 同理
     // chapter_count: number;
     chapter_list?: ChapterItem[]; // 同理
@@ -96,6 +106,15 @@ export interface BookShelfBookInfo {
 export interface BookShelfEntry {
     item: BookShelfItem
     detail: BookShelfBookInfo | null
+    /**
+     * 阅读历史专用：章节序号。
+     * APP 的 read_progress/list/v 直接给出，详情还没回来时卡片也能显示进度。
+     */
+    historyChapterOrder?: number
+    /** 阅读历史专用：章节内进度 0~1 */
+    historyProgressRate?: number
+    /** 阅读历史专用：章节标题 */
+    historyChapterTitle?: string
 }
 
 export interface BookShelfGroup {

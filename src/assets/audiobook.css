@@ -12,7 +12,15 @@
 	position: fixed;
 	left: 20px;
 	bottom: 20px;
-	z-index: 2147483000;
+	/*
+	 * 必须高于段评抽屉（2147483601）。
+	 *
+	 * 音色弹窗（.fqa-tone-mask）是这个根节点的子元素，会被困在它建立的层叠上下文里：
+	 * 根节点层级不够时，子元素自己的 z-index 再大也盖不住抽屉 —— 这就是
+	 * 「切音色时遮罩没遮住段评抽屉」的原因。这里取 2147483650：
+	 * 高于段评抽屉(…601)和阅读工具栏(…602)，低于设置弹窗(…660)。
+	 */
+	z-index: 2147483650;
 	font-size: 14px;
 	color: var(--fqa-audio-text);
 }
@@ -241,6 +249,7 @@
 .fqa-tone-mask {
 	position: fixed;
 	inset: 0;
+	/* 相对 .fqa-audio-root 的层叠上下文；根节点的层级见 audiobook.css 顶部注释 */
 	z-index: 2147483002;
 	display: flex;
 	align-items: center;

@@ -1,0 +1,575 @@
+/* ------------------------ 详情页「目录 / 书评」切换条 ------------------------ */
+
+/* 站点自己的「目录・N章」标题：注入 tab 后隐藏，避免和下面的 tab 重复 */
+.fqa-dt-site-header-hide {
+    display: none !important;
+}
+
+/* 与站点「目录・N章」标题原位置的留白保持一致，切换 tab 时整块不跳 */
+.fqa-dt-tabs {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-top: 28px;
+    border-bottom: 1px solid rgba(31, 35, 41, 0.08);
+}
+
+.fqa-dt-tab {
+    position: relative;
+    padding: 0 0 12px;
+    border: none;
+    background: transparent;
+    color: var(--web-gray_40, #666);
+    font-size: 18px;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.fqa-dt-tab:hover {
+    color: var(--web-brand_normal, #fa6725);
+}
+
+.fqa-dt-tab.on {
+    color: var(--web-text, #1f2329);
+    font-weight: 600;
+}
+
+/* 选中态的下划线压在分隔线上 */
+.fqa-dt-tab.on::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    width: 28px;
+    height: 3px;
+    margin-left: -14px;
+    border-radius: 2px;
+    background: var(--web-brand_normal, #fa6725);
+}
+
+html[muye-data-theme='dark'] .fqa-dt-tabs {
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* 详情页「书评」tab 的内容样式。
+ *
+ * 与目录区块共用详情页的白色卡片，所以这里不铺底色，只负责排版与配色。
+ * 颜色走站点变量（--web-*），拿不到时给一版接近的兜底，日夜主题自动跟随。
+ */
+
+/* 与目录区块内容区同样的上下留白，切 tab 时高度节奏一致 */
+.fqa-rv {
+    padding: 16px 0 8px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--web-text, #1f2329);
+}
+
+/* ------------------------------ 顶部操作条 ------------------------------ */
+
+.fqa-rv-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 0 0 12px;
+    border-bottom: 1px solid rgba(31, 35, 41, 0.07);
+}
+
+.fqa-rv-summary {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    min-width: 0;
+}
+
+.fqa-rv-score {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--web-text, #1f2329);
+}
+
+.fqa-rv-total {
+    color: var(--web-gray_40, #8f959e);
+    font-size: 13px;
+}
+
+.fqa-rv-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fqa-rv-sort {
+    display: inline-flex;
+    padding: 3px;
+    border-radius: 8px;
+    background: rgba(31, 35, 41, 0.05);
+}
+
+.fqa-rv-sort-btn {
+    padding: 4px 14px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--web-gray_40, #666);
+    font-size: 13px;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.fqa-rv-sort-btn.on {
+    background: #fff;
+    color: var(--web-brand_normal, #fa6725);
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.fqa-rv-write {
+    padding: 6px 16px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: var(--web-brand_normal, #fa6725);
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+
+.fqa-rv-write:hover {
+    opacity: 0.88;
+}
+
+/* ------------------------------ 评分表单 ------------------------------ */
+
+.fqa-rv-form {
+    margin-top: 14px;
+    padding: 14px 16px;
+    border: 1px solid rgba(31, 35, 41, 0.07);
+    border-radius: 10px;
+    background: rgba(31, 35, 41, 0.02);
+}
+
+.fqa-rv-stars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 8px;
+}
+
+.fqa-rv-star {
+    padding: 0 2px;
+    border: none;
+    background: transparent;
+    color: rgba(31, 35, 41, 0.16);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform 0.12s ease, color 0.12s ease;
+}
+
+.fqa-rv-star:hover {
+    transform: scale(1.12);
+}
+
+.fqa-rv-star.on {
+    color: #ffb400;
+}
+
+.fqa-rv-star-tip {
+    margin-left: 8px;
+    color: var(--web-gray_40, #8f959e);
+    font-size: 12px;
+}
+
+.fqa-rv-input {
+    width: 100%;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    border: 1px solid rgba(31, 35, 41, 0.12);
+    border-radius: 6px;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+    font-size: 13px;
+    line-height: 1.7;
+    resize: vertical;
+}
+
+.fqa-rv-input:focus {
+    outline: none;
+    border-color: var(--web-brand_normal, #fa6725);
+}
+
+.fqa-rv-form-foot {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.fqa-rv-err {
+    color: #e5484d;
+    font-size: 12px;
+}
+
+.fqa-rv-ok {
+    color: #18a058;
+    font-size: 12px;
+}
+
+.fqa-rv-submit {
+    padding: 5px 18px;
+    border: none;
+    border-radius: 6px;
+    background: var(--web-brand_normal, #fa6725);
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.fqa-rv-submit:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* ------------------------------ 我的书评 ------------------------------ */
+
+.fqa-rv-mine {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border: 1px solid rgba(250, 103, 37, 0.18);
+    border-radius: 10px;
+    background: rgba(250, 103, 37, 0.05);
+}
+
+.fqa-rv-mine-hd {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.fqa-rv-mine-label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.fqa-rv-mine-stars {
+    color: #ffb400;
+    font-size: 13px;
+}
+
+/* ------------------------------ 标签筛选 ------------------------------ */
+
+.fqa-rv-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0 4px;
+}
+
+.fqa-rv-tag {
+    padding: 3px 12px;
+    border: 1px solid rgba(31, 35, 41, 0.1);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--web-gray_40, #666);
+    font-size: 12px;
+    line-height: 1.7;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.fqa-rv-tag:hover {
+    border-color: var(--web-brand_normal, #fa6725);
+    color: var(--web-brand_normal, #fa6725);
+}
+
+.fqa-rv-tag em {
+    margin-left: 4px;
+    color: var(--web-gray_40, #9a9a9a);
+    font-style: normal;
+}
+
+.fqa-rv-tag.on {
+    border-color: var(--web-brand_normal, #fa6725);
+    background: rgba(250, 103, 37, 0.08);
+    color: var(--web-brand_normal, #fa6725);
+}
+
+/* ------------------------------ 列表 ------------------------------ */
+
+.fqa-rv-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.fqa-rv-item {
+    display: flex;
+    gap: 14px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(31, 35, 41, 0.06);
+}
+
+.fqa-rv-item:last-child {
+    border-bottom: none;
+}
+
+.fqa-rv-avatar {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: rgba(31, 35, 41, 0.06);
+}
+
+.fqa-rv-avatar-sm {
+    width: 28px;
+    height: 28px;
+}
+
+.fqa-rv-avatar-ph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--web-gray_40, #8f959e);
+    font-size: 14px;
+    user-select: none;
+}
+
+.fqa-rv-body {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.fqa-rv-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.fqa-rv-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.fqa-rv-badge {
+    padding: 0 5px;
+    border-radius: 3px;
+    background: rgba(250, 103, 37, 0.12);
+    color: var(--web-brand_normal, #fa6725);
+    font-size: 11px;
+    line-height: 16px;
+}
+
+.fqa-rv-badge-soft {
+    background: rgba(31, 35, 41, 0.06);
+    color: var(--web-gray_40, #666);
+}
+
+.fqa-rv-item-stars {
+    color: #ffb400;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.fqa-rv-time {
+    margin-left: auto;
+    color: var(--web-gray_40, #9a9a9a);
+    font-size: 12px;
+}
+
+.fqa-rv-text {
+    margin: 2px 0 0;
+    font-size: 14px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.fqa-rv-text-inline {
+    font-size: 13px;
+}
+
+.fqa-rv-addition {
+    margin-top: 8px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: rgba(31, 35, 41, 0.03);
+}
+
+.fqa-rv-addition-label {
+    display: inline-block;
+    margin-bottom: 2px;
+    color: var(--web-gray_40, #8f959e);
+    font-size: 12px;
+}
+
+.fqa-rv-foot {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+.fqa-rv-act {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--web-gray_40, #8f959e);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.fqa-rv-act:hover,
+.fqa-rv-act.on {
+    color: var(--web-brand_normal, #fa6725);
+}
+
+/* ------------------------------ 回复 ------------------------------ */
+
+.fqa-rv-replies {
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: rgba(31, 35, 41, 0.025);
+}
+
+.fqa-rv-reply {
+    display: flex;
+    gap: 8px;
+    padding: 6px 0;
+}
+
+.fqa-rv-reply + .fqa-rv-reply {
+    border-top: 1px solid rgba(31, 35, 41, 0.05);
+}
+
+.fqa-rv-subreplies {
+    margin-top: 6px;
+    padding-left: 8px;
+    border-left: 2px solid rgba(31, 35, 41, 0.08);
+}
+
+.fqa-rv-subreply {
+    padding: 3px 0;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.fqa-rv-to {
+    margin: 0 2px;
+    color: var(--web-gray_40, #8f959e);
+    font-size: 12px;
+}
+
+.fqa-rv-more-link {
+    margin-top: 6px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--web-brand_normal, #fa6725);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* ------------------------------ 状态 / 翻页 ------------------------------ */
+
+.fqa-rv-state {
+    padding: 32px 0;
+    text-align: center;
+    color: var(--web-gray_40, #8f959e);
+    font-size: 13px;
+}
+
+.fqa-rv-state-sm {
+    padding: 10px 0;
+}
+
+.fqa-rv-state-err {
+    color: #e5484d;
+}
+
+.fqa-rv-retry {
+    margin-left: 8px;
+    padding: 2px 10px;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    background: transparent;
+    color: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.fqa-rv-more {
+    padding: 16px 0 4px;
+    text-align: center;
+}
+
+.fqa-rv-more-btn {
+    min-width: 120px;
+    padding: 6px 18px;
+    border: 1px solid rgba(31, 35, 41, 0.12);
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.fqa-rv-more-btn:hover {
+    border-color: var(--web-brand_normal, #fa6725);
+    color: var(--web-brand_normal, #fa6725);
+}
+
+.fqa-rv-more-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* ------------------------------ 夜间 ------------------------------ */
+
+html[muye-data-theme='dark'] .fqa-rv-input {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+html[muye-data-theme='dark'] .fqa-rv-sort {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+html[muye-data-theme='dark'] .fqa-rv-sort-btn.on {
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: none;
+}
+
+html[muye-data-theme='dark'] .fqa-rv-form,
+html[muye-data-theme='dark'] .fqa-rv-replies,
+html[muye-data-theme='dark'] .fqa-rv-addition {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+html[muye-data-theme='dark'] .fqa-rv-bar,
+html[muye-data-theme='dark'] .fqa-rv-item {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+html[muye-data-theme='dark'] .fqa-rv-star {
+    color: rgba(255, 255, 255, 0.22);
+}
+
+html[muye-data-theme='dark'] .fqa-rv-star.on,
+html[muye-data-theme='dark'] .fqa-rv-item-stars,
+html[muye-data-theme='dark'] .fqa-rv-mine-stars {
+    color: #ffc93c;
+}

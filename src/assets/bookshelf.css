@@ -56,12 +56,45 @@
     line-height: 1.4;
 }
 
+/* 一级切换：我的书架 / 阅读历史（与下方 tab 区分开，字号同原大标题） */
+#fqa-bookshelf .fqa-bs-views {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    min-width: 0;
+}
+
+#fqa-bookshelf .fqa-bs-view {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--fqa-text-weak, #8f959e);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+#fqa-bookshelf .fqa-bs-view:hover {
+    color: var(--fqa-text, #1f2329);
+}
+
+#fqa-bookshelf .fqa-bs-view-active {
+    color: var(--fqa-text, #1f2329);
+}
+
 #fqa-bookshelf .fqa-bs-actions {
     display: flex;
     align-items: center;
     gap: 12px;
     font-size: 13px;
     color: var(--fqa-text-weak);
+}
+
+#fqa-bookshelf .fqa-bs-hint {
+    color: #e8a33d;
+    cursor: help;
 }
 
 #fqa-bookshelf .fqa-btn {

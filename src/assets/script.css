@@ -109,8 +109,24 @@
 	border-radius: 4px;
 }
 
-.muye-reader-content > body {
+/*
+ * 正文底色。
+ *
+ * 主题色直接画在正文容器上（站点的纸色也画在 .muye-reader-box 上，两者一致），
+ * 这样追加章节里就算有元素透明，露出来的也是主题色。
+ *
+ * 注意：这里绝不能再给「追加章节内部」加 background: transparent !important。
+ * 段评的段落高亮 .fqa-pc-para-active 就是靠 background + box-shadow 实现的，
+ * 之前一刀切透明会把背景压掉、只剩一个色框。
+ */
+#fqa-reader-content {
 	background-color: var(--web-bg)!important;
+}
+
+/* 滚动翻页时，站点章节末尾那层浅色渐变也一并去掉（它留在两章之间） */
+html.fqa-page-scroll .muye-to-fanqie .scan-gradient,
+html.fqa-page-scroll .muye-reader-scan-hint-box .scan-gradient {
+	background: none!important;
 }
 
 .fqa-icon-dark {
@@ -249,6 +265,49 @@
 	max-width: 100vw !important;
 }
 
+/*
+ * 阅读页目录里「本章含插图」的标记。
+ *
+ * 与详情页同一套视觉（见 download.css），但这里挂在 .chapter 上：
+ * 目录行是 .chapter > .chapter-text，标记绝对定位到行右缘，
+ * 给 .chapter-text 留出 padding-right，长标题截断时也不会压住标记。
+ */
+.reader-catalog-chapters .chapter {
+    position: relative;
+}
+
+.reader-catalog-chapters .chapter.fqa-has-image .chapter-text {
+    box-sizing: border-box;
+    padding-right: 46px;
+}
+
+.reader-catalog-chapters .chapter.fqa-has-image::after {
+    content: '插图';
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    transform: translateY(-50%);
+    padding: 0 5px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+    color: #fa6725;
+    background: linear-gradient(180deg, rgba(250, 103, 37, 0.14), rgba(250, 103, 37, 0.08));
+    box-shadow: inset 0 0 0 1px rgba(250, 103, 37, 0.22);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* 夜间：底色调深，避免浅橙在深色目录上发白 */
+html[muye-data-theme='dark'] .reader-catalog-chapters .chapter.fqa-has-image::after {
+    color: #ff8a4c;
+    background: linear-gradient(180deg, rgba(255, 138, 76, 0.22), rgba(255, 138, 76, 0.14));
+    box-shadow: inset 0 0 0 1px rgba(255, 138, 76, 0.32);
+}
+
 /* 窄屏放不下 960 时就铺满 */
 @media (max-width: 1000px) {
 	.reader-catalog {
@@ -321,11 +380,24 @@ html.fqa-pc-open .muye-reader-nav {
 }
 
 /*
+ * 被网页端屏蔽的书：导航栏标题由脚本补书名（见 blockedReader.ts）。
+ * 链接沿用 h1 的继承色，去掉下划线，hover 时给一点提示但不改颜色。
+ */
+.muye-reader-nav-title .fqa-nav-book-link {
+	color: inherit;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.muye-reader-nav-title .fqa-nav-book-link:hover {
+	text-decoration: underline;
+}
+
+/*
  * 目录按正文实测位置对齐（--fqa-pc-content-right / -width 由 drawer.ts 写入），
  * 不再依赖站点写死的 calc(50vw - 480px)，避免抽屉展开时压住目录一角。
  */
-.reader-catalog {
-	right: var(--fqa-pc-content-right, calc(50vw - 480px)) !important;
+.reader-catalog {	right: var(--fqa-pc-content-right, calc(50vw - 480px)) !important;
 	width: var(--fqa-pc-content-width, 960px) !important;
 }
 
@@ -366,4 +438,228 @@ html.fqa-pc-open .muye-reader-nav {
 
 [muye-data-theme='dark'] .reader-catalog-content-wrap::-webkit-scrollbar-thumb:hover {
 	background: rgba(255, 255, 255, 0.42);
+}
+
+/* ---------------------- 无限滚动追加的章节 ---------------------- */
+
+.fqa-appended-chapter {
+	display: block;
+	margin-top: 2.6em;
+	padding-top: 2.2em;
+	border-top: 1px solid rgba(127, 127, 127, 0.18);
+}
+
+.fqa-append-title {
+	margin: 0 0 1.1em;
+	font-size: 1.15em;
+	font-weight: 600;
+	line-height: 1.5;
+	text-indent: 0;
+}
+
+/* ---------------------- 全站滚动条美化 ---------------------- */
+
+/*
+ * 页面滚动条：正文阅读区真正滚动的是 .muye-reader（height:100vh; overflow:auto），
+ * html/body 兜底书城、搜索等其它页面。
+ * 浏览器缩放时 px 会一起缩放，不需要单独适配。
+ */
+
+html,
+html body,
+html .muye-reader,
+html .fqa-rs-panel {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(31, 35, 41, 0.22) transparent;
+}
+
+/* 米黄：滑块用暖灰，避免在米色底上显脏 */
+html.fqa-theme-sepia,
+html.fqa-theme-sepia body,
+html.fqa-theme-sepia .muye-reader,
+html.fqa-theme-sepia .fqa-rs-panel {
+	scrollbar-color: rgba(74, 68, 54, 0.28) transparent;
+}
+
+/* 夜间：先让 UA 原生控件（含滚动条、下拉框）走深色，再显式覆盖 webkit */
+html[muye-data-theme='dark'] {
+	color-scheme: dark;
+}
+
+html[muye-data-theme='dark'],
+html[muye-data-theme='dark'] body,
+html[muye-data-theme='dark'] .muye-reader,
+html[muye-data-theme='dark'] .fqa-rs-panel {
+	scrollbar-color: rgba(255, 255, 255, 0.24) transparent;
+}
+
+/* 页面滚动条：10px 宽，透明轨道，圆角滑块 */
+html::-webkit-scrollbar,
+html body::-webkit-scrollbar,
+html .muye-reader::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+html::-webkit-scrollbar-track,
+html body::-webkit-scrollbar-track,
+html .muye-reader::-webkit-scrollbar-track,
+html .fqa-rs-panel::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+html::-webkit-scrollbar-corner,
+html body::-webkit-scrollbar-corner,
+html .muye-reader::-webkit-scrollbar-corner {
+	background: transparent;
+}
+
+/*
+ * 用透明的 2px 边框 + background-clip 做内缩：
+ * 轨道宽 10px，但滑块看起来只有 6px，贴着边缘也不会显得笨重。
+ */
+html::-webkit-scrollbar-thumb,
+html body::-webkit-scrollbar-thumb,
+html .muye-reader::-webkit-scrollbar-thumb {
+	border: 2px solid transparent;
+	border-radius: 6px;
+	background-color: rgba(31, 35, 41, 0.22);
+	background-clip: content-box;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+html body::-webkit-scrollbar-thumb:hover,
+html .muye-reader::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(31, 35, 41, 0.36);
+}
+
+html.fqa-theme-sepia::-webkit-scrollbar-thumb,
+html.fqa-theme-sepia body::-webkit-scrollbar-thumb,
+html.fqa-theme-sepia .muye-reader::-webkit-scrollbar-thumb {
+	background-color: rgba(74, 68, 54, 0.28);
+}
+
+html.fqa-theme-sepia::-webkit-scrollbar-thumb:hover,
+html.fqa-theme-sepia body::-webkit-scrollbar-thumb:hover,
+html.fqa-theme-sepia .muye-reader::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(74, 68, 54, 0.44);
+}
+
+html[muye-data-theme='dark']::-webkit-scrollbar-thumb,
+html[muye-data-theme='dark'] body::-webkit-scrollbar-thumb,
+html[muye-data-theme='dark'] .muye-reader::-webkit-scrollbar-thumb {
+	background-color: rgba(255, 255, 255, 0.24);
+}
+
+html[muye-data-theme='dark']::-webkit-scrollbar-thumb:hover,
+html[muye-data-theme='dark'] body::-webkit-scrollbar-thumb:hover,
+html[muye-data-theme='dark'] .muye-reader::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* 设置面板内部滚动区：和段评抽屉统一用 8px */
+html .fqa-rs-panel::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+html .fqa-rs-panel::-webkit-scrollbar-thumb {
+	border: 2px solid transparent;
+	border-radius: 5px;
+	background-color: rgba(31, 35, 41, 0.2);
+	background-clip: content-box;
+}
+
+html .fqa-rs-panel::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(31, 35, 41, 0.34);
+}
+
+html[muye-data-theme='dark'] .fqa-rs-panel::-webkit-scrollbar-thumb {
+	background-color: rgba(255, 255, 255, 0.22);
+}
+
+html[muye-data-theme='dark'] .fqa-rs-panel::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(255, 255, 255, 0.36);
+}
+
+/* ---------------------- 滚动翻页：隐藏上一章 / 下一章 ---------------------- */
+
+/*
+ * 滚动翻页时下一章是自动接在下面的，站点自带的「上一章 / 下一章」按钮会横在
+ * 两章之间，既碍事又容易误点。
+ * 注意这里只用 display:none —— 元素还在 DOM 里，听书读到章末时对
+ * .chapter-btn.next 调 .click() 依然有效，不会被这个开关打断。
+ */
+html.fqa-page-scroll .muye-reader-btns .chapter-btn,
+html.fqa-page-scroll .chapter-btn.next,
+html.fqa-page-scroll .chapter-btn.last {
+	display: none !important;
+}
+
+/* 那一排如果只剩下这两个按钮，连容器一起收掉，免得章节末尾留一条空白 */
+html.fqa-page-scroll .muye-reader-btns:not(:has(> :not(.chapter-btn))) {
+	display: none !important;
+}
+
+/*
+ * 滚动翻页的底部留白。
+ *
+ * 站点原来的「上一章 / 下一章」按钮被藏掉之后，最后一章的末尾会直接顶到
+ * 屏幕底边。这里在正文容器上补一段空白（追加章节也是 append 进这个容器，
+ * 所以对「读到最后一章」同样有效）。
+ */
+html.fqa-page-scroll #fqa-reader-content {
+	padding-bottom: max(120px, 16vh);
+}
+
+/* ---------------------- 滚动翻页的「全书完」收尾 ---------------------- */
+
+.fqa-end-mark {
+	margin: 3.2em 0 0;
+	text-align: center;
+	font-size: 0.9em;
+	letter-spacing: 0.24em;
+	text-indent: 0;
+	color: var(--web-gray_40, rgba(127, 127, 127, 0.55));
+	user-select: none;
+	pointer-events: none;
+}
+
+/* ---------------------- 详情页右侧浮动条 ---------------------- */
+
+/*
+ * 站点 .float-wrapper 里只有「番茄小说 / 帮助中心 / 作家助手」三个产品入口，
+ * 用户不需要，整条隐藏（逐个隐藏会留下空白底板）。
+ *
+ * 标记挂在 <html> 上而不是元素本身：站点重渲染会重建整棵树，挂在元素上的类
+ * 会丢。属性由 backTop.ts 在 document-start 设置，配合同一时间 GM_addStyle
+ * 注入的同一规则，站点画第一帧时就已经是隐藏状态，不会闪现。
+ * （这里再写一份是给 script.css 的完整样式表兜底，两处规则等价。）
+ */
+html[data-fqa-no-float-bar] .float-wrapper {
+    display: none !important;
+}
+
+/* ---------------------- 详情页作者栏收窄 ---------------------- */
+
+/*
+ * 详情页那排按钮是绝对定位的（开始阅读 0、加入书架 160、下载 320、检查插图 480），
+ * 实测整排要到 598px 左右，而站点作者栏是 float:right + width:364px，
+ * 在 1200px 的内容宽里只从 836px 开始 —— 脚本加的「检查插图」会压在作者栏的分隔线上。
+ * 收窄到 300px，左边缘推到 900px，留出约 54px 间距。
+ *
+ * 兜底页和正常详情页都要，所以不放在兜底页的样式里，直接全局生效。
+ * 作者栏是 text-align:center + float:right，变窄只是整体右移，垂直布局不受影响。
+ */
+.page-header-info .author {
+	width: 300px;
+}
+
+/*
+ * 让 .info 里的按钮能露出边界。
+ * 站点 .info 是 max-width:585px + overflow:hidden，而脚本追加的「下载」「检查插图」
+ * 是绝对定位、整排要排到 630px 左右，最后一个按钮会被裁掉一条。
+ */
+.page-header-info .info {
+	overflow: visible;
 }

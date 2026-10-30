@@ -80,6 +80,16 @@ export interface Settings {
     /** 显示段评（段尾标记 + 右侧抽屉）与章末评论 */
     paraComment: boolean
 
+    /* --- 阅读器 --- */
+    /** 阅读主题。空串表示不干预；sepia = 米黄（日间的一种） */
+    readerTheme: '' | 'light' | 'sepia' | 'dark'
+    /** 最近一次选中的日间主题：工具栏日/夜按钮切回日间时用它 */
+    readerThemeLastDay: 'light' | 'sepia'
+    /** 字号。0 表示不干预 */
+    readerFontSize: number
+    /** 翻页模式：chapter=一次一章，scroll=滑到底自动追加下一章 */
+    readerPageMode: 'chapter' | 'scroll'
+
     /* --- 协议 --- */
     apiPreference: ApiPreference
     /** 用户手动指定的设备信息，留空表示用脚本自动注册的设备 */
@@ -121,6 +131,11 @@ export const DEFAULT_SETTINGS: Settings = {
     audiobookFollow: true,
 
     paraComment: true,
+
+    readerTheme: '',
+    readerThemeLastDay: 'light',
+    readerFontSize: 0,
+    readerPageMode: 'chapter',
 
     apiPreference: 'app',
     deviceId: '',
